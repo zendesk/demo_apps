@@ -1,25 +1,25 @@
 {
-	"app": {
-		"package": "basic_user_sample",
-		"description": {
-			"value": "this app shows user info",
-			"title": "app description"
-		}
-	},
+  "app": {
+    "package": "basic_user_sample",
+    "description": {
+      "value": "this app shows user info",
+      "title": "app description"
+    }
+  },
 
-	"loading": {
-		"value": "Hello World",
-		"title": "loading placeholder"
-	},
+  "loading": {
+    "value": "Hello World",
+    "title": "loading placeholder"
+  },
 
-	"fetch": {
-		"done": {
-			"value": "Good",
-			"title": "fetch success"
-		},
-		"fail": {
-			"value": "failed to fecth information from the server",
-			"title": "fetch failure"
-		}
-	}
+  "fetch": {
+    "done": {
+      "value": "Good",
+      "title": "fetch success"
+    },
+    "fail": {
+      "value": "failed to fecth information from the server",
+      "title": "fetch failure"
+    }
+  }
 }
