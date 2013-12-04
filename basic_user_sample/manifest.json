@@ -1,0 +1,15 @@
+{
+	"name": "Basic User Info",
+
+	"author": {
+		"name": "Po Chen",
+		"email": "pchen@zendesk.com"
+	},
+
+	"location": "user_sidebar",
+	"defaultLocale": "en",
+	"private": true,
+	"frameworkVersion": "1.0",
+	"version": "1.0"
+	// , "parameters": []
+}

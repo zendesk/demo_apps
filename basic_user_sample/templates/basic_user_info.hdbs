@@ -1,0 +1,8 @@
+<div>
+  <h3>{{main.city.name}} Weather - °{{main.unit}}</h3>
+  <ul>
+    {{#items}}
+    <li>{{t "day"}} {{count}}: {{temp.min}} ~ {{temp.max}}° {{weather.description}}</li>
+    {{/items}}
+  </ul>
+</div>
