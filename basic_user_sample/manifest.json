@@ -2,8 +2,8 @@
   "name": "Basic User Info",
 
   "author": {
-    "name": "Po Chen",
-    "email": "pchen@zendesk.com"
+    "name": "Zendesk",
+    "email": "support@zendesk.com"
   },
 
   "location": ["user_sidebar"],
@@ -11,5 +11,4 @@
   "private": true,
   "frameworkVersion": "1.0",
   "version": "1.0"
-  // , "parameters": []
 }
