@@ -1,4 +1,4 @@
-# Baisc User Information Sample App
+# Basic User Information Sample App
 
 ### It displays the following information on the user sidebar
 
