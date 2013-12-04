@@ -10,7 +10,8 @@
       'zd_change #tickettypeset':'newTicketType',
       'click #apitestbutton':'testButtonClicked',
       'analyseText.done':'reportAnalysis',
-      'analyseText.fail':'analysisFailed'
+      'analyseText.fail':'analysisFailed',
+      '*.changed': 'detectedChange'
 
     },
 
@@ -160,6 +161,13 @@
       console.log('Analysis failed');
       console.dir(jqXHR);
       debugger;
+    },
+    detectedChange: function(data)
+    {
+      if (data.propertyName == 'ticket.type')
+      {
+        
+      }
     }
   };
 
