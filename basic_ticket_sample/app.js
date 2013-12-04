@@ -161,6 +161,13 @@
       console.log('Analysis failed');
       console.dir(jqXHR);
       debugger;
+    },
+    detectedChange: function(data)
+    {
+      if (data.propertyName == 'ticket.type')
+      {
+        
+      }
     }
   };
 
