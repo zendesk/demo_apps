@@ -9,3 +9,7 @@
 table th {
   width: 40%;
 }
+
+.role {
+  list-style-type: circle;
+}

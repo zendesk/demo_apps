@@ -8,13 +8,17 @@
     events: {
       'app.activated': function(){
         var user = this.currentUser();
-        console.log(user.groups());
+        var groups = user.groups();
+        for (var i = 0; i < groups.length; ++i) {
+          var temp = groups[i];
+          groups[i] = {name: temp.name()};
+        }
         this.switchTo('basic_user_info', {
           "id": user.id(),
           "email": user.email(),
           "name": user.name(),
           "role": user.role(),
-          "groups": user.groups()
+          "groups": groups
         });
       }
     }

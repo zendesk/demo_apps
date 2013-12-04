@@ -21,7 +21,7 @@
       <td>
         <ul>
         {{#groups}}
-          <li>{{name}}</li>
+          <li class="role">{{name}}</li>
         {{/groups}}
         </ul>
       </td>
