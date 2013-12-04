@@ -9,7 +9,8 @@ h4 {
 
 .demoapp_button {
   background-color: rgb(247,247,247);
-  border-radius: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   border: 1px solid #ddd;
   color: rgb(68,68,68);
   cursor: pointer;
