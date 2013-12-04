@@ -1,0 +1,9 @@
+&.apps.popover {
+  height: 420px;
+  left: -435px;
+  width: 340px;
+}
+
+section[data-main] {
+  position: relative;
+}
