@@ -31,21 +31,21 @@
     },
 
     initialize: function(data) { // function called when we load or the ticket type is modified
-          var self = this;
-          var templateData = {
-            type_label:        self.getTypeLabel(),
-            type_is_visible:   self.isTypeVisible(),
-            type_is_required:  self.isTypeRequired(),
-            type_options:      self.getTypeOptions(),
-            status_is_visible: self.getStatusVisible(),
-            status_options:    self.getStatusOptions()
-          };
-        if(data.firstLoad) {
-          self.switchTo('main', templateData);
-        }
+      var self = this;
+      var templateData = {
+        type_label:        self.getTypeLabel(),
+        type_is_visible:   self.isTypeVisible(),
+        type_is_required:  self.isTypeRequired(),
+        type_options:      self.getTypeOptions(),
+        status_is_visible: self.getStatusVisible(),
+        status_options:    self.getStatusOptions()
+      };
+      if(data.firstLoad) {
+        self.switchTo('main', templateData);
+      }
     },
 
-        /* GETTERS */
+    /* GETTERS */
 
     getTypeLabel: function() {
       return this.ticketFields("type").label();
@@ -65,12 +65,11 @@
 
     getTypeOptions: function() {
       var options = this.ticketFields("type").options(),
-          labels  = [];
+      labels  = [];
 
       options.forEach(function(element) {
-          labels.push(element.label());
-        }
-      );
+        labels.push(element.label());
+      });
 
       return labels;
     },
@@ -85,12 +84,11 @@
 
     getStatusOptions: function() {
       var options = this.ticketFields("status").options(),
-          labels  = [];
+      labels = [];
 
       options.forEach(function(element) {
-          labels.push(element.label());
-        }
-      );
+        labels.push(element.label());
+      });
 
       return labels;
     },
@@ -98,10 +96,11 @@
     /* UI Events */
     buttonClicked: function(data) {
       var clicked = data.currentTarget.id;
+
       this.$('.active').toggleClass('active');
-      this.$('#'+clicked).toggleClass('active');
-      switch (clicked)
-      {
+      this.$('#' + clicked).toggleClass('active');
+
+      switch (clicked) {
         case 'ticket':
         this.switchTo('ticket', {
           ticketType: this.ticket().type(),
@@ -112,16 +111,22 @@
         break;
         case 'user':
         var the_user = this.currentUser();
-        this.switchTo('user', { uid: the_user.id(), uemail: the_user.email(), 
-          uname: the_user.name(), urole: the_user.role(), 
-          ugroups: the_user.groups(), uexternid: the_user.externalId() });
+        this.switchTo('user', {
+          uid: the_user.id(),
+          uemail: the_user.email(),
+          uname: the_user.name(),
+          urole: the_user.role(),
+          ugroups: the_user.groups(),
+          uexternid: the_user.externalId()
+        });
         break;
         case 'account':
         break;
         default:
         break;
       }
-      },
+    },
+
     newTicketType: function(data) {
       var newType = this.$('#'+data.namespace).data('menu').value;
       data.preventDefault();
@@ -129,35 +134,35 @@
       debugger;
       this.ticket().type(newType.toLowerCase());
     },
-    testButtonClicked: function()
-    {
+
+    testButtonClicked: function() {
       var formData = new FormData();
-      formData.append('text_main',this.ticket().description()+"");
-      formData.append('site_to_analyze','http://');
-      formData.append('file_to_analyze',null,"");
-      formData.append('min_char','3');
-      formData.append('special_word',null);
-      formData.append('words_toanalyse','10');
-      formData.append('count_numbers','1');
-      formData.append('is_log','1');
-      formData.append('stoplist_lang','1');
-      formData.append('stoplist_perso',null);
+      formData.append('text_main', this.ticket().description() + "");
+      formData.append('site_to_analyze', 'http://');
+      formData.append('file_to_analyze', null, "");
+      formData.append('min_char', '3');
+      formData.append('special_word', null);
+      formData.append('words_toanalyse', '10');
+      formData.append('count_numbers', '1');
+      formData.append('is_log', '1');
+      formData.append('stoplist_lang', '1');
+      formData.append('stoplist_perso', null);
       console.dir(formData);
-      this.ajax('analyseText',formData);
+      this.ajax('analyseText', formData);
     },
-    reportAnalysis: function(data)
-    {
-    console.log('Analysis succeeded');
-    console.dir(data);
-    var searchString = '<tr><td>Readability  (Gunning-Fog Index) : <span class="quote">(6-easy 20-hard)</span></td><td>';
-    var preStart = data.indexOf(searchString);
-    var start = preStart + searchString.length;
-    var end = data.indexOf('<',start);
-    var readability = data.substring(start,end);
-    this.$('.gfIndex')[0].innerHTML='<br /><strong>Ticket readability</strong> (6 = easiest, 20 = hardest): ' + readability;
+
+    reportAnalysis: function(data) {
+      console.log('Analysis succeeded');
+      console.dir(data);
+      var searchString = '<tr><td>Readability  (Gunning-Fog Index) : <span class="quote">(6-easy 20-hard)</span></td><td>';
+      var preStart = data.indexOf(searchString);
+      var start = preStart + searchString.length;
+      var end = data.indexOf('<',start);
+      var readability = data.substring(start,end);
+      this.$('.gfIndex')[0].innerHTML = '<br /><strong>Ticket readability</strong> (6 = easiest, 20 = hardest): ' + readability;
     },
-    analysisFailed: function(jqXHR, textStatus, errorThrown)
-    {
+
+    analysisFailed: function(jqXHR, textStatus, errorThrown) {
       console.log('Analysis failed');
       console.dir(jqXHR);
       debugger;
@@ -169,6 +174,7 @@
         
       }
     }
+
   };
 
 }());
