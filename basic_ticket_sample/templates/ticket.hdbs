@@ -1,6 +1,6 @@
 <h4>Selected Ticket Info</h4>
 <div id='wrap'>
-<div id='left_col'><strong>Ticket type: </strong><data>{{ticketType}}</data><br /><strong>Set to: </strong>
+<div id='left_col'><strong>Ticket type: </strong>
 <select class="tickettypeset" data-zd-type="select_menu">
 	{{#each ticketTypes}}
 	<option value="{{this}}">{{this}}</option>{{/each}}

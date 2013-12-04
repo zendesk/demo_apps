@@ -129,7 +129,7 @@
       var newType = this.$('#'+data.namespace).data('menu').value;
       data.preventDefault();
       console.log('new type: ' + newType);
-      debugger;
+     // debugger;
       this.ticket().type(newType.toLowerCase());
     },
 
@@ -165,10 +165,12 @@
       console.dir(jqXHR);
       debugger;
     },
-
-    detectedChange: function(data) {
-      if (data.propertyName == 'ticket.type') {
-
+    detectedChange: function(data)
+    {
+      debugger;
+      if (data.propertyName == 'ticket.type')
+      {
+        this.$('.tickettypeset').data('menu').setValue(data.newValue);
       }
     }
 
