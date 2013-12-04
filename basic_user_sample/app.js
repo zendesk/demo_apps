@@ -3,37 +3,18 @@
   return {
     defaultState: 'loading',
 
-    requests: {
-      fetchUserInfo: function(){
-        return {
-          url: "",
-          type: 'GET',
-          data: {}
-        };
-      }
-    },
+    requests: {},
 
     events: {
       'app.activated': function(){
-        console.log(this);
-        this.requestUserInfo();
-      },
-
-      'fetchUserInfo.done': function(data){
-        this.renderUserInfo(data || {});
-      },
-
-      'fetchUserInfo.fail': function(data){
-        this.switchTo('fetch_fail');
+        var user = this.currentUser();
+        this.switchTo('basic_user_info', {
+          "email": user.email(),
+          "name": user.name(),
+          "role": user.role()
+        });
       }
-    },
-
-    requestUserInfo: function() {
-      this.ajax('fetchUserInfo');
-    },
-
-    renderUserInfo: function(data) {
-
     }
   };
+
 }());

@@ -21,5 +21,20 @@
       "value": "failed to fecth information from the server",
       "title": "fetch failure"
     }
+  },
+
+  "email": {
+    "value": "Email",
+    "title": "user email"
+  },
+
+  "name": {
+    "value": "Name",
+    "title": "user name"
+  },
+
+  "role": {
+    "value": "Role",
+    "title": "user role"
   }
 }
