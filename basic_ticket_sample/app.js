@@ -12,7 +12,6 @@
       'analyseText.done':'reportAnalysis',
       'analyseText.fail':'analysisFailed',
       '*.changed': 'detectedChange'
-
     },
 
     requests: {
@@ -27,7 +26,6 @@
           type: 'GET'*/
         };
       }
-
     },
 
     initialize: function(data) { // function called when we load or the ticket type is modified
@@ -40,7 +38,7 @@
         status_is_visible: self.getStatusVisible(),
         status_options:    self.getStatusOptions()
       };
-      if(data.firstLoad) {
+      if (data.firstLoad) {
         self.switchTo('main', templateData);
       }
     },
@@ -167,11 +165,10 @@
       console.dir(jqXHR);
       debugger;
     },
-    detectedChange: function(data)
-    {
-      if (data.propertyName == 'ticket.type')
-      {
-        
+
+    detectedChange: function(data) {
+      if (data.propertyName == 'ticket.type') {
+
       }
     }
 
