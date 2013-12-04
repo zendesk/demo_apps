@@ -23,6 +23,11 @@
     }
   },
 
+  "id": {
+    "value": "ID",
+    "title": "user id"
+  },
+
   "email": {
     "value": "Email",
     "title": "user email"
@@ -36,5 +41,10 @@
   "role": {
     "value": "Role",
     "title": "user role"
+  },
+
+  "groups": {
+    "value": "Groups",
+    "title": "user groups"
   }
 }

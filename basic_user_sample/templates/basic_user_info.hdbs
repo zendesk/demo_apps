@@ -1,6 +1,10 @@
 <div>
   <table id="user_info_table">
     <tr>
+      <th>{{t "id"}}</th>
+      <td>{{id}}</td>
+    </tr>
+    <tr>
       <th>{{t "name"}}</th>
       <td>{{name}}</td>
     </tr>
@@ -13,12 +17,14 @@
       <td>{{role}}</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td></td>
+      <th>{{t "groups"}}</th>
+      <td>
+        <ul>
+        {{#groups}}
+          <li>{{name}}</li>
+        {{/groups}}
+        </ul>
+      </td>
     </tr>
   </table>
 </div>
