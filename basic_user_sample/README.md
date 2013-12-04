@@ -7,4 +7,3 @@
 * User Name
 * Role of the user
 * The groups that the user belongs to
-* 
