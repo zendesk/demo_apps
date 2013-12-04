@@ -5,7 +5,7 @@
 	},
 
 	"frameworkVersion":"0.5",
-	"location":["ticket_sidebar","nav_bar","user_sidebar"],
+	"location":["ticket_sidebar","nav_bar", "user_sidebar"],
 	"defaultLocale":"en",
 	"private":false,
 	"singleInstall":true,
