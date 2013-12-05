@@ -1,0 +1,12 @@
+&.apps.popover{
+  width:300px;
+  height:520px;
+}
+
+iframe{
+  width:100%;
+  height:100%;
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+}
+

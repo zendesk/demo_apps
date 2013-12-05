@@ -1,0 +1,6 @@
+{
+  "app": {
+    "description":  "Display a wikipedia page in iframe.",
+    "name":         "iframe sample app Wikipedia"
+  }
+}
