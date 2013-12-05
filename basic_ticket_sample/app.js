@@ -103,9 +103,11 @@
         this.switchTo('ticket', {
           ticketType: this.ticket().type(),
           ticketSubject: this.ticket().subject(),
-          ticketTypes: ['Question', 'Problem', 'Incident', 'Task']
+          ticketTypes: [{name: 'Question', value: 'question'}, {name: 'Problem', value: 'problem'}, {name: 'Incident', value: 'incident'}, {name: 'Task', value: 'task'}],
+          ticketCCs: this.ticket().collaborators()
         });
         this.$('.tickettypeset').data('menu').addObserver('change',this.newTicketType.bind(this));
+        this.$('.ticketcc').zdSearchMenu();
         break;
         case 'user':
         var the_user = this.currentUser();
@@ -127,10 +129,12 @@
 
     newTicketType: function(data) {
       var newType = this.$('#'+data.namespace).data('menu').value;
+      newType = newType.toLowerCase();
       data.preventDefault();
+      if (this.ticket().type() != newType) {
       console.log('new type: ' + newType);
-      debugger;
       this.ticket().type(newType.toLowerCase());
+      }
     },
 
     testButtonClicked: function() {
@@ -163,17 +167,15 @@
     analysisFailed: function(jqXHR, textStatus, errorThrown) {
       console.log('Analysis failed');
       console.dir(jqXHR);
-      debugger;
     },
     detectedChange: function(data)
     {
-      debugger;
-      if (data.propertyName == 'ticket.type')
+      if (data.propertyName == 'ticket.type' && data.newValue != this.$('.tickettypeset').data('menu').value)
       {
+        console.log('Changing dropdown in app to: ' + data.newValue);
         this.$('.tickettypeset').data('menu').setValue(data.newValue);
       }
     }
-
   };
 
 }());
