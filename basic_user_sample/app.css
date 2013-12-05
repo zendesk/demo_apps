@@ -10,6 +10,6 @@ table th {
   width: 40%;
 }
 
-.role {
-  list-style-type: circle;
+.colored {
+  margin-bottom: 5px;
 }

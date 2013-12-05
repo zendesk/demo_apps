@@ -19,11 +19,11 @@
     <tr>
       <th>{{t "groups"}}</th>
       <td>
-        <ul>
-        {{#groups}}
-          <li class="role">{{name}}</li>
-        {{/groups}}
-        </ul>
+      {{#groups}}
+        <div class="colored" style="background-color: {{color}}; padding: 1px;">
+          {{name}}
+        </div>
+      {{/groups}}
       </td>
     </tr>
   </table>
