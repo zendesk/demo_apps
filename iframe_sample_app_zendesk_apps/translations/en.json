@@ -1,0 +1,6 @@
+{
+  "app": {
+    "description":  "Display the Zendesk Apps Introduction page in iframe.",
+    "name":         "iFrame Sample App"
+  }
+}
