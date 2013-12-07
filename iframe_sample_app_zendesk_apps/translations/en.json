@@ -1,6 +1,9 @@
 {
   "app": {
-    "description":  "Display the Zendesk Apps Introduction page in iframe.",
-    "name":         "iFrame Sample App"
+    "package": "basic_user_sample",
+    "description": {
+      "value": "Display the Zendesk Apps Introduction page and Zendesk Support page in iframe",
+      "title": "iFrame Sample App"
+    }
   }
 }
