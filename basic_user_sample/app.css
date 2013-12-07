@@ -1,13 +1,15 @@
+tr {
+  height: 25px;
+}
+
+th {
+  width: 25%;
+  padding-right: 5%;
+  text-align: right;
+}
+
 .failure {
   background-color: red;
-}
-
-table tr{
-  margin: 5px 0;
-}
-
-table th {
-  width: 40%;
 }
 
 .colored {
