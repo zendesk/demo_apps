@@ -1,6 +1,6 @@
 ## Basic User Information Sample App
 
-![App Screen Shot](https://f.cloud.github.com/assets/1329716/1699937/2ff9adfa-5fda-11e3-9f69-a78fda8b1fd5.png)
+![App Screen Shot](https://f.cloud.github.com/assets/1329716/1701384/d3bb7598-6054-11e3-80fa-05de433c4f5f.png)
 
 ### This sample app displays user information on the user side bar
 
