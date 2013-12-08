@@ -11,11 +11,11 @@
         var groups = user.groups();
 
         for (var i = 0; i < groups.length; ++i) {
-          var temp = groups[i];
+          var group = groups[i];
 
           groups[i] = {
-            id: temp.id(),
-            name: temp.name()
+            id: group.id(),
+            name: group.name()
           };
         }
 
