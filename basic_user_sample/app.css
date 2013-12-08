@@ -23,7 +23,7 @@ th {
 }
 
 .colored:nth-child(2n) {
-  background-color: #333;
+  background-color: #999;
 }
 
 .colored:nth-child(2n+1) {
