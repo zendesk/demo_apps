@@ -18,15 +18,14 @@ th {
   margin: 0 5px 5px 0;
   padding: 2px 6px;
   border-radius: 2px;
-  text-shadow: 0 0 2px #fff;
-}
-
-.color:nth-child(2n) {
-  background-color: #333;
   color: #fff;
+  text-shadow: 1px 1px #777;
 }
 
-.color:nth-child(2n+1) {
-  background-color: #3d3;
-  color: #000;
+.colored:nth-child(2n) {
+  background-color: #333;
+}
+
+.colored:nth-child(2n+1) {
+  background-color: rgb(149, 190, 34);
 }
