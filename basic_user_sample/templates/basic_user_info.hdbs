@@ -20,7 +20,7 @@
       <th>{{t "groups"}}</th>
       <td>
       {{#groups}}
-        <div class="colored" style="background-color: {{tagColor}};">
+        <div class="colored">
           {{name}}
         </div>
       {{/groups}}

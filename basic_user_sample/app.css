@@ -20,3 +20,13 @@ th {
   border-radius: 2px;
   text-shadow: 0 0 2px #fff;
 }
+
+.color:nth-child(2n) {
+  background-color: #333;
+  color: #fff;
+}
+
+.color:nth-child(2n+1) {
+  background-color: #3d3;
+  color: #000;
+}
