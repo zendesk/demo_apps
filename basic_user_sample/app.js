@@ -20,11 +20,11 @@
         }
 
         this.switchTo('basic_user_info', {
-          "id": user.id(),
-          "email": user.email(),
-          "name": user.name(),
-          "role": user.role(),
-          "groups": groups
+          id: user.id(),
+          email: user.email(),
+          name: user.name(),
+          role: user.role(),
+          groups: groups
         });
       }
     }
