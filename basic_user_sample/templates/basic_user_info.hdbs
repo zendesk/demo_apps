@@ -1,0 +1,30 @@
+<div>
+  <table id="user_info_table">
+    <tr>
+      <th>{{t "id"}}</th>
+      <td>{{id}}</td>
+    </tr>
+    <tr>
+      <th>{{t "name"}}</th>
+      <td>{{name}}</td>
+    </tr>
+    <tr>
+      <th>{{t "email"}}</th>
+      <td>{{email}}</td>
+    </tr>
+    <tr>
+      <th>{{t "role"}}</th>
+      <td>{{role}}</td>
+    </tr>
+    <tr>
+      <th>{{t "groups"}}</th>
+      <td>
+      {{#groups}}
+        <div class="colored">
+          {{name}}
+        </div>
+      {{/groups}}
+      </td>
+    </tr>
+  </table>
+</div>
