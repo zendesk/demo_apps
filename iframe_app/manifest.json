@@ -1,0 +1,13 @@
+{
+	"author":{
+		"name":"Daniel",
+		"email":"hjdaniel.sun@gmail.com"
+	},
+
+	"frameworkVersion":"0.5",
+	"location":["ticket_sidebar","nav_bar", "user_sidebar", "top_bar", "new_ticket_sidebar"],
+	"defaultLocale":"en",
+	"private":false,
+	"singleInstall":true,
+	"version":"1.0"
+}
