@@ -4,7 +4,7 @@
 
 This sample app displays user information on the User Sidebar. It is designed to show you how to use and call basic user information APIs and display them on the user profile location.
 
-The following information are displayed:
+### The following information are displayed:
 
 * User ID
 * User Email
@@ -14,7 +14,7 @@ The following information are displayed:
 
 Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
 
-Screenshot:
+### Screenshot(s):
 
 ![App Screen Shot](https://f.cloud.github.com/assets/1329716/1701384/d3bb7598-6054-11e3-80fa-05de433c4f5f.png)
 
