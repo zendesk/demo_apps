@@ -4,7 +4,7 @@
     defaultState: 'loading',
 
     requests: {
-      fetchSentence: {
+      fetchQuote: {
         url: 'http://www.iheartquotes.com/api/v1/random',
         type: 'GET',
         data: {
@@ -15,20 +15,28 @@
 
     events: {
       'app.activated': 'init',
-      'fetchSentence.done': 'showSentence',
-      'fetchSentence.fail': 'fetchFail'
+      'fetchQuote.done': 'showQuote',
+      'fetchQuote.fail': 'fetchFail'
     },
 
     init: function() {
-      this.requestSentence();
+      this.requestQuote();
     },
 
-    requestSentence: function() {
-      this.ajax('fetchSentence');
+    requestQuote: function() {
+      this.ajax('fetchQuote');
     },
 
-    showSentence: function(data) {
-      this.switchTo('app', { quote: data.quote });
+    showQuote: function(data) {
+      /*
+      * data
+      * .json_class -> String
+      * .tags       -> Array of String
+      * .quote      -> String  (the quote)
+      * .link       -> String  (url)
+      * .source     -> String
+      */
+      this.switchTo('app', data);
     },
 
     fetchFail: function() {
