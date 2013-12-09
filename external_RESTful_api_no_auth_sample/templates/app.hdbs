@@ -1,0 +1,5 @@
+<div>
+  <blockquote id="quote">
+    {{quote}}
+  </blockquote>
+</div>

@@ -1,0 +1,25 @@
+.failure {
+  background-color: red;
+}
+
+#quote {
+  position: relative;
+}
+
+#quote:before, #quote:after {
+  position: absolute;
+  font-size: 1.2rem;
+  color: rgb(149, 190, 34);
+}
+
+#quote:before {
+  content: open-quote;
+  top: 0;
+  left: 0;
+}
+
+#quote:after {
+  content: close-quote;
+  right: 0;
+  bottom: 0;
+}
