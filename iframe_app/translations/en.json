@@ -1,7 +1,0 @@
-{
- "app":{
-  "description":"search a track on spotify provided by its name, and play the track with Spotify widget."
-  },
-  "search":{
-  }
-}
