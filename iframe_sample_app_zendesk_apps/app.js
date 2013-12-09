@@ -7,7 +7,7 @@
 
     init: function(data){//load content if app is at new_ticket_sidebar, ticket_sidebar and user_sidebar
       if (data.firstLoad && this.currentLocation() !== 'top_bar' && this.currentLocation() !== 'nav_bar') {
-        this.resizeIframe({ width : '300px', height : '260px' }, { href : "https://support.zendesk.com" });
+        this.resizeIframe({ width : '300px', height : '260px' }, { href : "http://www.wikipedia.com" });
       }
     },
 
