@@ -2,11 +2,11 @@
 
 # External RESTful API sample without auth
 
-This sample app displays [...something] on the User Sidebar. It is designed to show you how to use external RESTful APIs without authentication invovled.
+This sample app displays a random quote fetched from a RESTful API on the User Sidebar. It is designed to show you how to use external RESTful APIs without authentication invovled.
 
 ### The following information is displayed:
 
-[...something]
+* random quote fetched from [http://iheartquotes.com/api](http://iheartquotes.com/api)
 
 Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
 
