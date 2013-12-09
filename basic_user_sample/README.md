@@ -4,7 +4,7 @@
 
 This sample app displays user information on the User Sidebar. It is designed to show you how to use and call basic user information APIs and display them on the user profile location.
 
-### The following information are displayed:
+### The following information is displayed:
 
 * User ID
 * User Email
