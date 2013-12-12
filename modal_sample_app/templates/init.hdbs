@@ -1,0 +1,4 @@
+<div class="modal-button-cell">
+  <span> Calling Modal using Javascript </span>
+  <a class="btn btn-large" id="toggleModalJS"> Toggle Modal Button </a>
+</div>

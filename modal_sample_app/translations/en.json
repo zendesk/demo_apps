@@ -1,6 +1,13 @@
 {
   "app": {
-    "description":  "Play the famous zen tunes in your help desk.",
-    "name":         "Buddha Machine"
+    "package": "modal_sample_app",
+    "description":  {
+      "value": "Play the famous zen tunes in your help desk.",
+      "title": "app description"
+    },
+    "name": {
+      "value": "Modal Sample App",
+      "title": "app name"
+    }
   }
 }
