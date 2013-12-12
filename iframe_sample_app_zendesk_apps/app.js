@@ -19,10 +19,9 @@
     },
 
     resizeIframe: function(dimensions, page) {
-      this.page = page;
       this.switchTo('iframePage', {
         dimension : dimensions,
-        page : this.page
+        page : page
       });
     }
   };
