@@ -6,7 +6,8 @@
     },
 
     init: function(data){//load content if app is at new_ticket_sidebar, ticket_sidebar and user_sidebar
-      if (data.firstLoad && this.currentLocation() !== 'top_bar' && this.currentLocation() !== 'nav_bar') {
+      var sidebarPattern = /_sidebar$/;
+      if (data.firstLoad && (sidebarPattern).test(this.currentLocation())) {
         this.resizeIframe({ width : '300px', height : '260px' }, { href : "http://www.wikipedia.com" });
       }
     },
