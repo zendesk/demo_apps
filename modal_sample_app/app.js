@@ -41,7 +41,7 @@
         body: "playing around with JavaScript :)"
       });
       this.$('#myModal').modal({
-    	backdrop: true,
+        backdrop: true,
         keyboard: false,
       });
     }
