@@ -2,7 +2,7 @@
   width:1024px;
   height:500px;
 }
-seciton[data-main] {
+section[data-main] {
   position:relative;
 }
 
