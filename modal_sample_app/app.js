@@ -63,7 +63,7 @@
 
     showSavedMessage: function() {
       console.log(this.modalBody = this.$(".modal-body p").text());
-      //this.$('#my_modal').();
+      this.$('#my_modal').modal('hide');
     }
   }
 
