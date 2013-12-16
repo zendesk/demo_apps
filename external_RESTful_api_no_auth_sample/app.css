@@ -2,10 +2,15 @@
   background-color: red;
 }
 
+#externalApiApp {
+  text-align: center;
+}
+
 #quote {
   position: relative;
   padding: 0 18px;
   quotes: inherit;
+  text-align: left;
 }
 
 #quote:before, #quote:after {
@@ -24,4 +29,8 @@
   content: close-quote;
   right: 0;
   bottom: -10px;
+}
+
+#refresh {
+  margin-top: 10px;
 }
