@@ -5,9 +5,51 @@
       "value": "Play the famous zen tunes in your help desk.",
       "title": "app description"
     },
+
     "name": {
       "value": "Modal Sample App",
       "title": "app name"
     }
+  },
+
+  "description": {
+    "value": "This is a sample modal app that illustrates two ways of invoking modals in ZAF. ",
+    "title": "in app instruction"
+  },
+
+  "javascript_link": {
+    "value": "Switch to the JavaScript alternative",
+    "title": "javascript"
+  },
+
+  "attribute_link": {
+    "value": "Switch to the data attribute alternative",
+    "title": "attribute"
+  },
+
+  "modal_button": {
+    "value": "Toggle Modal",
+    "title": "toggle modal button"
+  },
+
+  "save_button": {
+    "value": "Save Changes",
+    "title": "save button"
+  },
+
+  "close_button": {
+    "value": "Close",
+    "title": "hide modal button"
+  },
+
+  "modal_header": {
+   "value": "This modal is invoked via {{method}}",
+   "title": "modal header"
+  },
+
+  "modal_body": {
+    "value": "Keep Calm! Make a Zendesk App.",
+    "title": "modal body"
   }
+
 }

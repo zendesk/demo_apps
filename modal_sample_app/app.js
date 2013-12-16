@@ -2,17 +2,23 @@
 
   return {
     events: {
-      'app.activated': 'init',
-      'hide #myModal': 'onHide',
-      'shown #myModal': 'onShown',
-      'show #myModal': 'onShow',
-      'hidden #myModal': 'onHidden',
-      'click #modalSwitch': 'swithToModalJSExample',
-      'click #toggleModalJS': 'displayModal'
+      'app.activated':  'modalAttr',
+      'hide #my_modal': 'onHide',
+      'shown #my_modal': 'onShown',
+      'show #my_modal': 'onShow',
+      'hidden #my_modal': 'onHidden',
+      'click #modal_switch_javascript': 'switchToModalJSExample',
+      'click #toggle_modal_javascript': 'displayModal',
+      'click #modal_switch_attribute': 'switchToModalAttrExample',
+      'click #save_button': 'showSavedMessage'
     },
 
-    init: function(){
-      this.switchTo('modal');
+    modalAttr: function() {
+      this.switchTo('modal', {
+        header: this.I18n.t('modal_header', {method: 'Data Attribute'}),
+        body: this.I18n.t('modal_body')
+      });
+      this.isJavascript = false;
     },
 
     onHide: function(){
@@ -27,24 +33,38 @@
       console.log("show in Process");
     },
 
-    onHidden: function(){
+    onHidden: function() {
       console.log("hidden in Process");
+      if(this.isJavascript) {
+        this.switchTo('modal_js');
+      }
     },
 
-    swithToModalJSExample: function(){
-      this.switchTo('init');
+    switchToModalJSExample: function() {
+      this.switchTo('modal_js');
+      this.isJavascript = true;
     },
 
-    displayModal: function(){
-      this.switchTo('modalJS',{
-        header: "This is a modal invoked by javascript",
-        body: "playing around with JavaScript :)"
+    switchToModalAttrExample: function() {
+      this.modalAttr();
+    },
+
+    displayModal: function() {
+      this.switchTo('modal', {
+        header: this.I18n.t('modal_header', {method: 'JavaScript'}),
+        body: this.I18n.t('modal_body')
       });
-      this.$('#myModal').modal({
+      this.isJavascript = true;
+      this.$('#my_modal').modal({
         backdrop: true,
         keyboard: false,
       });
+    },
+
+    showSavedMessage: function() {
+      console.log(this.modalBody = this.$(".modal-body p").text());
+      //this.$('#my_modal').();
     }
-  };
+  }
 
 }());

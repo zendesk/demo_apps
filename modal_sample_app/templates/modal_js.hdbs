@@ -1,0 +1,8 @@
+<div class="modal_button_cell">
+  <br /><div> Calling Modal using Javascript </div><br />
+  <a class="btn btn-large" id="toggle_modal_javascript"> {{t "modal_button"}} </a>
+</div>
+<!-- invoke a javascript call to switch to the attribute alternative. -->
+<div class="modal_button_cell">
+  <a id="modal_switch_attribute"> {{t "attribute_link"}} </a>
+</div>

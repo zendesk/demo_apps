@@ -1,23 +1,23 @@
 <!-- modal.hdbs -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="my_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">This modal is called via data attribute.</h3>
+    <h3 id="my_modal_label">{{header}}</h3>
   </div>
   <div class="modal-body">
-    <p>say something here.</p>
+    <p>{{body}}</p>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">{{t "close_button"}}</button>
+    <button class="btn btn-primary" id="save_button" aria-hidden="true">{{t "save_button"}}</button>
   </div>
 </div>
 <!-- call the modal division above -->
-<div class="modal-button-cell">
-  <a class="btn btn-large" data-toggle="modal" data-target="#myModal"> Toggle Modal Button [attribute] </a>
+<div class="modal_button_cell">
+  <a class="btn btn-large" data-toggle="modal" data-target="#my_modal"> {{t "modal_button"}} </a>
 </div>
 <br>
 <!-- invoke a javascript call to switch to the Javascript alternative. -->
-<div class="modal-button-cell">
-  <a class="btn btn-large" id="modalSwitch"> Switch to JavaScript alternative. </a>
+<div class="modal_button_cell">
+  <a id="modal_switch_javascript"> {{t "javascript_link"}} </a>
 </div>
