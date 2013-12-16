@@ -13,11 +13,19 @@
       'click #save_button': 'showSavedMessage'
     },
 
-    modalAttr: function() {
+    modalAttr: function(hasModalBody) {
+      if(hasModalBody){
       this.switchTo('modal', {
+        header: this.I18n.t('modal_header', {method: 'Data Attribute'}),
+        body: this.I18n.t('modal_body'),
+        modal_body: this.modalBody
+      });
+    } else {
+       this.switchTo('modal', {
         header: this.I18n.t('modal_header', {method: 'Data Attribute'}),
         body: this.I18n.t('modal_body')
       });
+    }
       this.isJavascript = false;
     },
 
@@ -36,7 +44,9 @@
     onHidden: function() {
       console.log("hidden in Process");
       if(this.isJavascript) {
-        this.switchTo('modal_js');
+        this.switchTo('modal_js', { modal_body: this.modalBody });
+      } else {
+        this.modalAttr(true);
       }
     },
 
@@ -46,7 +56,7 @@
     },
 
     switchToModalAttrExample: function() {
-      this.modalAttr();
+      this.modalAttr(false);
     },
 
     displayModal: function() {
@@ -62,9 +72,10 @@
     },
 
     showSavedMessage: function() {
-      console.log(this.modalBody = this.$(".modal-body p").text());
+      this.modalBody = this.$(".modal-body p").text();
+      console.log(this.modalBody);
       this.$('#my_modal').modal('hide');
     }
-  }
+  };
 
 }());

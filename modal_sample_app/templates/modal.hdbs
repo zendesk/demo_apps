@@ -12,11 +12,16 @@
     <button class="btn btn-primary" id="save_button" aria-hidden="true">{{t "save_button"}}</button>
   </div>
 </div>
+<br>
 <!-- call the modal division above -->
 <div class="modal_button_cell">
   <a class="btn btn-large" data-toggle="modal" data-target="#my_modal"> {{t "modal_button"}} </a>
 </div>
 <br>
+{{#if modal_body}}
+<h3>{{modal_body}}</h3>
+<br>
+{{/if}}
 <!-- invoke a javascript call to switch to the Javascript alternative. -->
 <div class="modal_button_cell">
   <a id="modal_switch_javascript"> {{t "javascript_link"}} </a>
