@@ -12,4 +12,4 @@ Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new)
 
 ### Screenshot(s):
 
-![Screenshot](https://f.cloud.github.com/assets/1329716/1703452/c30b78ae-60b5-11e3-9c73-6475c3e5a15c.png)
+![Screenshot](https://f.cloud.github.com/assets/1329716/1759930/849286d4-66a6-11e3-9782-986942b32012.png)
