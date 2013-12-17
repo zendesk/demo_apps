@@ -1,12 +1,8 @@
-<p>Which app do you want to install?</p>
-
-<p class="warn"><strong>Note:</strong> This tester app was built to test simple installs, select an app with few (if any) settings.</p>
-
 <ul id="apps">
   {{#each apps}}
     <li>
       <p>({{id}}) {{name}}<br />
-      <a class="install" data-id="{{id}}">install</a>
+      <a class="install" data-id="{{id}}">{{t "install"}}</a>
       </p>
     </li>
   {{/each}}

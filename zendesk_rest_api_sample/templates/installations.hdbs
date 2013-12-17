@@ -1,16 +1,17 @@
-<p>The following apps are installed on this account:</p>
+<p>{{t "list_app"}}</p>
 
 <ul id="installations">
   {{#each installations}}
-    <li class="{{enabled}}">
-      <p>({{id}}) {{settings.title}}<br />
-      {{#if enabled}}
-        <a class="deactivate" data-id="{{id}}">deactivate</a>
-      {{else}}
-        <a class="activate" data-id="{{id}}">activate</a>
-      {{/if}}
+  <li class="{{enabled}}">
+    <p>({{id}}) {{settings.title}}<br />
+    {{#if enabled}}
+      <a class="deactivate" data-id="{{id}}">{{t "deactivate"}}</a>
+    {{else}}
+      <a class="activate" data-id="{{id}}">{{t "activate"}}</a>
+    {{/if}}
       or
-      <a class="delete" data-id="{{id}}">delete</a></p>
-    </li>
+      <a class="delete" data-id="{{id}}">{{t "delete"}}</a>
+    </p>
+  </li>
   {{/each}}
 </ul>

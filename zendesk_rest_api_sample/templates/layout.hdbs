@@ -1,12 +1,12 @@
 <header>
-  <span class="logo"/>
+  <span class="logo"></span>
   <h3>{{setting "name"}}</h3>
 </header>
 <section id="navigation">
   <ul class="nav nav-pills">
-    <li class="manage active"><a class="manage">Manage</a></li>
-    <li class="install"><a class="install">Install</a></li>
-    <li class="create"><a class="create">Create</a></li>
+    <li class="manage active"><a class="manage">{{t "manage"}}</a></li>
+    <li class="install"><a class="install">{{t "install"}}</a></li>
+    <li class="create"><a class="create">{{t "create"}}</a></li>
   </ul>
 </section>
-<section class="main" data-main/>
+<section class="main" data-main></section>

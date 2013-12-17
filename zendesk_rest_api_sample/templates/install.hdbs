@@ -1,13 +1,15 @@
-Alright, let's get this app installed.
-
 <form id="install">
   <ul id="parameters">
   {{#each parameters}}
     <li>
       <label for="{{name}}">{{name}}</label>
-      <input name="{{name}}" type="text" {{#if required}}required{{/if}} />
+      <input name="{{name}}" type="text" {{#if required}}{{t "required"}}{{/if}}>
     </li>
   {{/each}}
   </ul>
-  <p><button class="install btn btn-inverse" data-id="{{id}}">Install</button></p>
+  <p>
+    <button class="install btn btn-inverse" data-id="{{id}}">
+      {{t "install"}}
+    </button>
+  </p>
 </form>

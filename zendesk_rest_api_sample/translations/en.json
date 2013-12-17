@@ -5,5 +5,65 @@
       "value": "Play the famous zen tunes in your help desk.",
       "title": "app description"
     }
+  },
+
+  "install": {
+    "value": "Install",
+    "title": "to install an app"
+  },
+
+  "create": {
+    "value": "Create",
+    "title": "to create an app"
+  },
+
+  "manage": {
+    "value": "Manage",
+    "title": "to manage apps"
+  },
+
+  "deactivate": {
+    "value": "Deactivate",
+    "title": "to deactivate an app"
+  },
+
+  "activate": {
+    "value": "Activate",
+    "title": "to activate an app"
+  },
+
+  "delete": {
+    "value": "Delete",
+    "title": "to delete an app"
+  },
+
+  "required": {
+    "value": "Required",
+    "title": "the field is required"
+  },
+
+  "list_app": {
+    "value": "The following apps are installed",
+    "title": "installed apps"
+  },
+
+  "description": {
+    "value": "Short Description",
+    "title": "description for the app"
+  },
+
+  "zipfile": {
+    "value": "Zipfile",
+    "title": "zip file that contains the app"
+  },
+
+  "upload": {
+    "value": "Upload",
+    "title": "upload app"
+  },
+
+  "note": {
+    "value": "Be careful, there's no validation or content checking here. If the upload fails, the spinner will go away, and you'll need to check your developer tools to see what the problem was. If all goes well, you'll be taken back to the Manage screen.",
+    "title": "disclaimer"
   }
 }
