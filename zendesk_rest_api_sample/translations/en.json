@@ -1,0 +1,9 @@
+{
+  "app": {
+    "package": "zendesk_rest_api_sample",
+    "description": {
+      "value": "Play the famous zen tunes in your help desk.",
+      "title": "app description"
+    }
+  }
+}

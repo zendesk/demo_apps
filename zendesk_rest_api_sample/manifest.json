@@ -1,0 +1,11 @@
+{
+  "name": "Apps REST API",
+  "author": {
+    "name": "Jake Holman",
+    "email": "jake@zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": "nav_bar",
+  "frameworkVersion": "1.0"
+}

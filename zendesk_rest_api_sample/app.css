@@ -1,0 +1,70 @@
+h4, h5 {
+  margin-top: 20px;
+  border-bottom: 1px dotted #ccc;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+p {
+  margin: 10px 0 12px;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+.warn {
+  color: red;
+}
+
+.loading {
+  opacity: 0.5;
+
+  &:before {
+    content: url(https://assets.zendesk.com/agent/assets/icons/spinners/loading_2x_ff.gif);
+    position: fixed;
+    margin-left: 70px;
+    z-index: 10;
+  }
+}
+
+#parameters,
+#create {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin-top: 10px;
+  }
+}
+
+#navigation {
+  border-bottom: 1px dotted #cccccc;
+  margin-bottom: 8px;
+
+  .nav {
+    list-style: none;
+    margin-bottom: 14px;
+
+    li {
+      margin-right: 8px;
+    }
+  }
+}
+
+#installations {
+
+  li {
+    &:not(.true) {
+      color: #ccc;
+    }
+  }
+
+  .delete {
+    color: red;
+  }
+
+}

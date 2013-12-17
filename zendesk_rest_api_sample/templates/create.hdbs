@@ -1,0 +1,32 @@
+<p>Fill out each field, and add your zip file</p>
+
+<p><strong>Few things to note:</strong></p>
+
+<ul>
+  <li>Be careful, there's no validation or content checking here</li>
+  <li>If the upload fails, the spinner will go away, and you'll need to check your developer tools to see what the problem was</li>
+  <li>If all goes well, you'll be taken back to the "Manage" screen</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<ul id="create">
+  <li>
+    <label for="name">Name*</label>
+    <input id="name" name="name" type="text" />
+  </li>
+  <li>
+    <label for="short_description">Short Description*</label>
+    <input id="short_description" name="short_description" type="text" />
+  </li>
+  <li>
+    <form id="zip_upload" enctype="multipart/form-data">
+      <label for="uploaded_data">Your Zip</label>
+      <input name="uploaded_data" type="file" />
+    </form>
+  </li>
+  <li>
+    <button id="create_app" class="btn btn-inverse">Upload and Build</button>
+  </li>
+</ul>
+

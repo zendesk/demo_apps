@@ -1,0 +1,12 @@
+<header>
+  <span class="logo"/>
+  <h3>{{setting "name"}}</h3>
+</header>
+<section id="navigation">
+  <ul class="nav nav-pills">
+    <li class="manage active"><a class="manage">Manage</a></li>
+    <li class="install"><a class="install">Install</a></li>
+    <li class="create"><a class="create">Create</a></li>
+  </ul>
+</section>
+<section class="main" data-main/>
