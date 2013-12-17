@@ -2,7 +2,7 @@
 
 # Modal Sample App
 
-This sample app illustrates the usage of modal specific events, and two ways of invoking a modal.
+This Sample App illustrates the usage of modal specific events, and two ways of invoking a modal.
 
 ### The following information is displayed:
 
@@ -16,4 +16,5 @@ This sample app illustrates the usage of modal specific events, and two ways of 
 Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
 
 ### Screenshot(s):
-to be updated.
+
+![](http://f.cl.ly/items/291W002y0U1f1g3t0L3K/modal.gif)

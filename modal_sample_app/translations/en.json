@@ -2,7 +2,7 @@
   "app": {
     "package": "modal_sample_app",
     "description":  {
-      "value": "Play the famous zen tunes in your help desk.",
+      "value": "Discover all about modal specific events, and two ways of invoking a modal",
       "title": "app description"
     },
 

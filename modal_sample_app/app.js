@@ -67,7 +67,7 @@
       this.isJavascript = true;
       this.$('#my_modal').modal({
         backdrop: true,
-        keyboard: false,
+        keyboard: false
       });
     },
 
