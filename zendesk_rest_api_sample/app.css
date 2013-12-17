@@ -21,13 +21,10 @@ ul {
 
 .loading {
   opacity: 0.5;
+}
 
-  &:before {
-    content: url(https://assets.zendesk.com/agent/assets/icons/spinners/loading_2x_ff.gif);
-    position: fixed;
-    margin-left: 70px;
-    z-index: 10;
-  }
+#loading-spinner {
+  display: none;
 }
 
 #parameters,

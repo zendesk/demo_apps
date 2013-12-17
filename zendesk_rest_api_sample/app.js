@@ -254,8 +254,10 @@
     showSpinner: function(show) {
       if (show) {
         this.$('.main').addClass('loading');
+        this.$('#loading-spinner').css('display', 'block');
       } else {
         this.$('.main').removeClass('loading');
+        this.$('#loading-spinner').css('display', 'none');
       }
     },
 
