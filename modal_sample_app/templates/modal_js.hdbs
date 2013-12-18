@@ -1,5 +1,5 @@
 <div class="modal_button_cell">
-  <br /><div>{{t "modal_js_title"}}</div><br />
+  <br><div>{{t "modal_js_title"}}</div><br>
   <a class="btn btn-large" id="toggle_modal_javascript">{{t "modal_button"}}</a>
 </div>
 <br />
