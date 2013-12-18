@@ -12,33 +12,33 @@
 
     requests: {
       getInstallations: {
-        url: INSTALLATIONS_URI,
+        url:  INSTALLATIONS_URI,
         type: 'GET'
       },
 
       getApps: {
-        url: APPS_URI,
+        url:  APPS_URI,
         type: 'GET'
       },
 
       getApp: {
-        url: APPS_URI,
+        url:  APPS_URI,
         type: 'GET'
       },
 
       jobStatus: function(jobId) {
         return {
-          url: helpers.fmt(STATUS_URI, jobId),
+          url:  helpers.fmt(STATUS_URI, jobId),
           type: 'GET'
         };
       },
 
       uploadApp: function(data) {
         return {
-          url: UPLOADS_URI,
-          type: 'POST',
-          data: data,
-          cache: false,
+          url:         UPLOADS_URI,
+          type:        'POST',
+          data:        data,
+          cache:       false,
           contentType: false,
           processData: false
         };
@@ -46,69 +46,69 @@
 
       buildApp: function(data) {
         return {
-          url: APPS_URI,
-          type: 'POST',
-          data: data,
+          url:         APPS_URI,
+          type:        'POST',
+          data:        data,
           contentType: 'application/json'
         };
       },
 
       installApp: function(data) {
         return {
-          url: INSTALLATIONS_URI,
-          data: data,
-          contentType:  'application/json',
-          type: 'POST'
+          url:         INSTALLATIONS_URI,
+          data:        data,
+          contentType: 'application/json',
+          type:        'POST'
         };
       },
 
       activate: function(appId) {
         return {
-          url:          helpers.fmt(INSTALLATION_URI, appId),
-          data:         '{"enabled": true}',
-          contentType:  'application/json',
-          type:         'PUT'
+          url:         helpers.fmt(INSTALLATION_URI, appId),
+          data:        '{"enabled": true}',
+          contentType: 'application/json',
+          type:        'PUT'
         };
       },
 
       deactivate: function(appId) {
         return {
-          url:          helpers.fmt(INSTALLATION_URI, appId),
-          data:         '{"enabled": false}',
-          contentType:  'application/json',
-          type:         'PUT'
+          url:         helpers.fmt(INSTALLATION_URI, appId),
+          data:        '{"enabled": false}',
+          contentType: 'application/json',
+          type:        'PUT'
         };
       },
 
       deleteInstallation: function(appId) {
         return {
-          url:          helpers.fmt(INSTALLATION_URI, appId),
-          type:         'DELETE'
+          url:  helpers.fmt(INSTALLATION_URI, appId),
+          type: 'DELETE'
         };
       }
     },
 
     events: {
-      'app.activated':'initialize',
+      'app.activated': 'initialize',
 
       // Installations
-      'click .activate':          'activateApp',
-      'click .deactivate':        'deactivateApp',
-      'click .delete':            'deleteApp',
-      'click #apps .install':     'startInstall',
-      'click #install .install':  'setInstall',
+      'click .activate':         'activateApp',
+      'click .deactivate':       'deactivateApp',
+      'click .delete':           'deleteApp',
+      'click #apps .install':    'startInstall',
+      'click #install .install': 'setInstall',
 
-      'getInstallations.done':    'renderInstallations',
-      'getApps.done':             'renderApps',
-      'activate.done':            'initialize',
-      'deactivate.done':          'initialize',
-      'deleteInstallation.done':  'initialize',
-      'installApp.done':          'initialize',
+      'getInstallations.done':   'renderInstallations',
+      'getApps.done':            'renderApps',
+      'activate.done':           'initialize',
+      'deactivate.done':         'initialize',
+      'deleteInstallation.done': 'initialize',
+      'installApp.done':         'initialize',
 
       // Create
-      'click #create_app':        'uploadApp',
-      'uploadApp.done':           'buildApp',
-      'jobStatus.done':           'checkProgress',
+      'click #create_app': 'uploadApp',
+      'uploadApp.done':    'buildApp',
+      'jobStatus.done':    'checkProgress',
 
       'buildApp.done': function(data) {
         this.pollProgress(data.job_id);
@@ -163,7 +163,7 @@
     },
 
     deleteApp: function(e) {
-      var appId =     this.$(e.target).data('id'),
+      var appId     = this.$(e.target).data('id'),
           challenge = confirm("No really, this will delete the installation. Are you sure?");
 
       if (challenge === true) {
@@ -209,7 +209,7 @@
     // UPLOAD & BUILD
 
     uploadApp: function() {
-      var form = this.$("#zip_upload")[0];
+      var form     = this.$("#zip_upload")[0];
       var formData = new FormData(form);
 
       this.showSpinner(true);
@@ -262,10 +262,9 @@
     },
 
     serializeToObj: function(array) {
-      var o = {},
-          a = array;
+      var o = {};
 
-      a.forEach(function(b) {
+      array.forEach(function(b) {
         if (o[b.name] !== undefined) {
             if (!o[b.name].push) {
                 o[b.name] = [o[b.name]];
