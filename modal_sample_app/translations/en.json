@@ -50,6 +50,11 @@
   "modal_body": {
     "value": "Keep Calm! Make a Zendesk App.",
     "title": "modal body"
+  },
+
+  "modal_js_title": {
+    "value": "Calling Modal using Javascript",
+    "title": "modal JS title"
   }
 
 }
