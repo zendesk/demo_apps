@@ -73,7 +73,7 @@ ul {
     display: inline-block;
     margin-right: 20px;
     margin-bottom: 5px;
-    padding: 7px;
+    padding-left: 55px;
   }
 
   .inline:before {
@@ -86,4 +86,20 @@ ul {
     left: 0;
   }
 
+}
+
+.app-box {
+  padding: 8px 0;
+}
+
+.app-inline-logo {
+  display: none;
+  position: absolute;
+  height: 70%;
+  left: 5px;
+  top: 15%;
+}
+
+.inline .app-inline-logo {
+  display: block;
 }

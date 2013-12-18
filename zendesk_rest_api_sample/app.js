@@ -142,6 +142,7 @@
       this.switchNavTo('manage');
       this.switchTo('installations', data);
       this.showSpinner(false);
+      console.log(data);
     },
 
     renderApps: function(data) {
@@ -149,6 +150,7 @@
       this.switchNavTo('install');
       this.switchTo('apps', data);
       this.showSpinner(false);
+      console.log(data);
     },
 
     // INSTALLATION MANAGEMENT

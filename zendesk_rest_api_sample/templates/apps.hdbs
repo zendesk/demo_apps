@@ -1,7 +1,8 @@
 <ul id="apps">
   {{#each apps}}
     <li class="{{#if ../inline}}inline{{/if}}">
-      <div>
+      <div class="app-box">
+        <img class="app-inline-logo" src="/api/v2/apps/{{id}}/assets/logo-small.png" alt="App Logo">
         ({{id}}) {{name}}<br>
         <a class="install" data-id="{{id}}">{{t "install"}}</a>
       </div>
