@@ -134,15 +134,18 @@
     initialize: function() {
       this.showSpinner(true);
       this.ajax('getInstallations');
+      this.inline = this.currentLocation() === 'nav_bar';
     },
 
     renderInstallations: function(data) {
+      data.inline = this.inline;
       this.switchNavTo('manage');
       this.switchTo('installations', data);
       this.showSpinner(false);
     },
 
     renderApps: function(data) {
+      data.inline = this.inline;
       this.switchNavTo('install');
       this.switchTo('apps', data);
       this.showSpinner(false);

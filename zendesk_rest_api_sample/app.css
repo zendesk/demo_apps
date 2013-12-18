@@ -65,3 +65,25 @@ ul {
   }
 
 }
+
+#apps, #installations {
+
+  .inline {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    padding: 7px;
+  }
+
+  .inline:before {
+    content: "";
+    background-color: rgb(149, 190, 34);
+    width: 2px;
+    height: 70%;
+    position: absolute;
+    top: 15%;
+    left: 0;
+  }
+
+}

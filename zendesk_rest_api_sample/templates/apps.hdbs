@@ -1,9 +1,10 @@
 <ul id="apps">
   {{#each apps}}
-    <li>
-      <p>({{id}}) {{name}}<br />
-      <a class="install" data-id="{{id}}">{{t "install"}}</a>
-      </p>
+    <li class="{{#if ../inline}}inline{{/if}}">
+      <div>
+        ({{id}}) {{name}}<br>
+        <a class="install" data-id="{{id}}">{{t "install"}}</a>
+      </div>
     </li>
   {{/each}}
 </ul>

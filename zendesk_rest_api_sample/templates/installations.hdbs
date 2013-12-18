@@ -2,8 +2,8 @@
 
 <ul id="installations">
   {{#each installations}}
-  <li class="{{enabled}}">
-    <p>({{id}}) {{settings.title}}<br />
+  <li class="{{enabled}} {{#if ../inline}}inline{{/if}}">
+    <div>({{id}}) {{settings.title}}<br />
     {{#if enabled}}
       <a class="deactivate" data-id="{{id}}">{{t "deactivate"}}</a>
     {{else}}
@@ -11,7 +11,7 @@
     {{/if}}
       or
       <a class="delete" data-id="{{id}}">{{t "delete"}}</a>
-    </p>
+    </div>
   </li>
   {{/each}}
 </ul>
