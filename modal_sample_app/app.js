@@ -14,36 +14,36 @@
     },
 
     modalAttr: function(hasModalBody) {
-      if(hasModalBody){
+      if (hasModalBody) {
       this.switchTo('modal', {
-        header: this.I18n.t('modal_header', {method: 'Data Attribute'}),
+        header: this.I18n.t('modal_header', { method: 'Data Attribute' }),
         body: this.I18n.t('modal_body'),
         modal_body: this.modalBody
       });
     } else {
        this.switchTo('modal', {
-        header: this.I18n.t('modal_header', {method: 'Data Attribute'}),
+        header: this.I18n.t('modal_header', { method: 'Data Attribute' }),
         body: this.I18n.t('modal_body')
       });
     }
       this.isJavascript = false;
     },
 
-    onHide: function(){
+    onHide: function() {
       console.log("hide in Process");
     },
 
-    onShown: function(){
+    onShown: function() {
       console.log("shown in Process");
     },
 
-    onShow: function(){
+    onShow: function() {
       console.log("show in Process");
     },
 
     onHidden: function() {
       console.log("hidden in Process");
-      if(this.isJavascript) {
+      if (this.isJavascript) {
         this.switchTo('modal_js', { modal_body: this.modalBody });
       } else {
         this.modalAttr(true);
@@ -61,7 +61,7 @@
 
     displayModal: function() {
       this.switchTo('modal', {
-        header: this.I18n.t('modal_header', {method: 'JavaScript'}),
+        header: this.I18n.t('modal_header', { method: 'JavaScript' }),
         body: this.I18n.t('modal_body')
       });
       this.isJavascript = true;
@@ -72,7 +72,7 @@
     },
 
     showSavedMessage: function() {
-      this.modalBody = this.$(".modal-body p").text();
+      this.modalBody = this.$('.modal-body p').text();
       console.log(this.modalBody);
       this.$('#my_modal').modal('hide');
     }
