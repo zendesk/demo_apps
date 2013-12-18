@@ -1,0 +1,11 @@
+<div id="player">
+  <audio id="player_audio"
+    {{#if christmas}}
+      src="http://www.sounddogs.com/previews/3671/mp3/389126_SOUNDDOGS__th.mp3"
+    {{else}}
+      {{#if newYear}}
+        src="http://www.sounddogs.com/previews/51/mp3/478567_SOUNDDOGS__ri.mp3"
+      {{/if}}
+    {{/if}}
+  preload="auto" loop="infinite" />
+</div>

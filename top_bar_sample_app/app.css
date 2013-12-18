@@ -1,0 +1,30 @@
+
+section[data-main] {
+  position: relative;
+  width: 99%;
+  height: 95%;
+}
+
+#player {
+  position:absolute;
+  left:50%;
+  width:100%;
+  height:100%;
+  margin-left:-512px;
+  background-image: app-asset-url("christmas.jpg");
+  background-repeat: no-repeat;
+  background-size: 1024px 560px;
+}
+
+#start_page {
+  background-color: red;
+  text-align:center;
+}
+
+#start_page h3 {
+  color: green;
+}
+
+#link {
+  display:none;
+}

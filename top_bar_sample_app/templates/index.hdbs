@@ -1,0 +1,7 @@
+<div id="start_page">
+  <h3> Merry Christmas! </h3>
+  <a id="show_link"> Click Me! </a>
+</div>
+<div id="link">
+  <span> Copy the command below in your terminal, hit enter and see the magic! </span>
+</div>

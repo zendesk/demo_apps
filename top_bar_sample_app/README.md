@@ -2,4 +2,4 @@ Top Bar Sample App
 ===================
 
 
-This app is a modified version of the notification App, displaying some notification APIs.
+Use curl command in your terminal to popover some new year and christmas goodness :)
