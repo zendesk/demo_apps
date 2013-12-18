@@ -66,7 +66,8 @@ ul {
 
 }
 
-#apps, #installations {
+#apps,
+#installations {
 
   .inline {
     position: relative;

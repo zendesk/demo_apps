@@ -1,5 +1,3 @@
-/*globals confirm, FormData */
-
 (function() {
 
   var INSTALLATIONS_URI = "/api/v2/apps/installations.json",
@@ -142,7 +140,6 @@
       this.switchNavTo('manage');
       this.switchTo('installations', data);
       this.showSpinner(false);
-      console.log(data);
     },
 
     renderApps: function(data) {
@@ -150,7 +147,6 @@
       this.switchNavTo('install');
       this.switchTo('apps', data);
       this.showSpinner(false);
-      console.log(data);
     },
 
     // INSTALLATION MANAGEMENT
@@ -187,7 +183,7 @@
       self.showSpinner(true);
 
       self.ajax('getApp')
-        .done(function(data) {
+        .then(function(data) {
           var apps = data.apps,
               match;
 

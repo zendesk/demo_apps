@@ -15,7 +15,7 @@ Addtionally this app also shows how to use `this.currentLocation()` to determine
 * Deactivate active apps
 * Delete installed apps
 * Install new apps
-* create new apps
+* Create new apps
 
 Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
 
