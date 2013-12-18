@@ -30,7 +30,7 @@
     {
       var clicked = data.currentTarget.id;
 
-      this.$('.active').toggleClass('active');
+      this.$('.active').toggleClass('active'); // Toggle the tabs visually
       this.$('#' + clicked).toggleClass('active');
 
       switch (clicked) {
@@ -48,32 +48,29 @@
       }
     },
 
-    newTicketType: function(data) 
+    newTicketType: function(data) // The ticket type has been changed in our app - better change it in Zendesk
     {
-      var newType = this.$('#'+data.namespace).data('menu').value;
+      var newType = this.$('#'+data.namespace).data('menu').value; // note: you can't use all of jQuery here but selectors are OK
       newType = newType.toLowerCase();
       data.preventDefault();
       if (this.ticket().type() != newType) {
-      console.log('new type: ' + newType);
       this.ticket().type(newType.toLowerCase());
       }
     },
 
-    detectedChange: function(data)
+    detectedChange: function(data) 
     {
       if (data.propertyName == 'ticket.type' && data.newValue != this.$('.tickettypeset').data('menu').value)
-      {
-        console.log('Changing dropdown in app to: ' + data.newValue);
+      { // The ticket type changed in Zendesk - better change it in our app but not if we initiated the change from the app, that would be an endless loop!
         this.$('.tickettypeset').data('menu').setValue(data.newValue);
       }
       if (data.propertyName == 'ticket.collaborators')
-      {
-        console.log('Change to collaborators');
+      { // The list of CCs has changed - let's just regenerate everything including our handlebars
         this.generateTicketView();
       }
     },
 
-    generateTicketView: function()
+    generateTicketView: function() // Draw the 'Ticket' tab
     {
       var the_ticket = this.ticket();
         var ticketTypes = [{name: this.I18n.t('ticket.types.question'), value: 'question'},
@@ -81,25 +78,25 @@
                            {name: this.I18n.t('ticket.types.incident'), value: 'incident'},
                            {name: this.I18n.t('ticket.types.task'), value: 'task'}];
 
-        var ccArray = [];
+        var ccArray = []; // this array and analogous ones further down are used because Handlebars won't call functions, so we need to pass in properties
         _.each(the_ticket.collaborators(), function(collaborator, key, list) {
-          this[key] = {email: "", role: ""};
-          this[key]["email"]=collaborator.email();
-          this[key]["role"]=collaborator.role() ? collaborator.role() : "Not registered";
+          this[key] = {email: '', role: ''};
+          this[key]['email']=collaborator.email(); // .email() is the function call we are replacing with the .email property
+          this[key]['role']=collaborator.role() ? collaborator.role() : 'Not registered';
         }, ccArray);
 
-        this.switchTo('ticket', {
+        this.switchTo('ticket', { // render the ticket.hdbs template
           ticketType: the_ticket.type(),
           ticketSubject: the_ticket.subject(),
           ticketTypes: ticketTypes,
           ticketCCs: ccArray
         });
 
-        this.$('.tickettypeset').data('menu').setValue(the_ticket.type());
-        this.$('.tickettypeset').data('menu').addObserver('change',this.newTicketType.bind(this));
+        this.$('.tickettypeset').data('menu').setValue(the_ticket.type()); // initialise the Zendesk-stype dropdown to the actual value
+        this.$('.tickettypeset').data('menu').addObserver('change',this.newTicketType.bind(this)); // watch for changes by the user
     },
 
-    generateUserView: function()
+    generateUserView: function() // draw the User tab
     {
       var the_user = this.currentUser();
       var userRoles = [{name: this.I18n.t('agent.roles.end-user'), value: 'end-user'},
@@ -107,11 +104,11 @@
                        {name: this.I18n.t('agent.roles.admin'), value: 'admin'},
                        {name: this.I18n.t('agent.roles.other'), value: 'other'}];
 
-      var groupArray = [];
+      var groupArray = []; // this is similar to ccArray in the ticket view - check out the underscore library at http://underscorejs.org
         _.each(the_user.groups(), function(group, key, list) {
-          this[key] = {group: "", id: ""};
-          this[key]["group"]=group.name();
-          this[key]["id"]=group.id();
+          this[key] = {group: '', id: ''};
+          this[key]['group']=group.name();
+          this[key]['id']=group.id();
         }, groupArray);
 
         this.switchTo('user', {
@@ -123,7 +120,7 @@
           uexternid: the_user.externalId(),
           userRoles: userRoles
         });
-        for (var i =0; i < userRoles.length; i++)
+        for (var i =0; i < userRoles.length; i++) // bold the corrent role
         {
           if (the_user.role() == userRoles[i].value || i == userRoles.length-1)
           {
