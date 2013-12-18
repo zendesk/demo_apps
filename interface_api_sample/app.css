@@ -7,7 +7,7 @@ h4 {
   font-size: 16px;
 }
 
-.demoapp_tab {
+.demoapp_button {
   background-color: rgb(247,247,247);
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -32,47 +32,9 @@ h4 {
   color: #fff;
 }
 
-.ccinstance {
-  border: 1px solid #ddd;
-  margin: 3px 3px 3px 0;
-  padding: 3px 6px 4px 6px;
-  color: #333;
-  border-radius: 3px;
-  line-height: 13px;
-  float: left;
-}
-
-.cccontainer {
-  display: inline; 
-  position: default;
-  margin-left: 0px;
-}
-
-.ccrole {
-  line-height:28px;
-  display: table-cell; 
-  vertical-align: middle; 
-}
-
-.userroleget {
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  margin-left: 0px;
-}
-
-.viewcontainer {
-  border: 2px solid #ddd;
-  border-radius: 4px;
-  background-color: rgb(247,247,247);
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
 #left_col {
 	float:left;
-  margin-top: 8px;
 }
 #right_col {
 	float:right;
-  margin-top: 8px;
 }

@@ -1,9 +1,12 @@
-<h4>Agent Info</h4>
-<div id='wrap'>
-<div id='left_col'><strong>Agent's name: </strong><data>{{agentName}}</data><br /><strong>Agent's role: </strong><select class="userroleset" data-zd-type="select_menu">
+<div class="viewcontainer">
+<h4>{{t "agent.info"}}</h4>
+<div id="left_col"><strong>{{t "agent.username"}}</strong><p>{{uname}}</p><br /><strong>{{t "agent.role"}}</strong><ul class="userroleget">
 	{{#each userRoles}}
-	<option value="{{this}}">{{this}}</option>{{/each}}
-	</select><br /></div>
-<div id='right_col'><strong>Agent's email: </strong><data>{{agentEmail}}</data></div>
-
-</div><br /><br />
+	<li value="{{this.value}}">{{this.name}}</li>{{/each}}
+	</ul><br /></div>
+<div id="right_col"><strong>{{t "agent.email"}}</strong><p>{{uemail}}</p><br /><strong>{{t "agent.groups"}}</strong><ul class="userroleget">
+	{{#each ugroups}}
+	<li>{{t "agent.group"}} <strong>{{this.group}}</strong> {{t "agent.id"}} {{this.id}}</li>{{else}}<li>{{t "agent.nogroups"}}</li>{{/each}}
+	</ul></div>
+<div style="clear: both;"></div>
+</div>

@@ -1,6 +1,46 @@
 {
-  "app": {
-    "description":  "Play the famous zen tunes in your help desk.",
-    "name":         "Buddha Machine"
+  "agent": {
+  	"username": "Agent's name:",
+    "info": "Agent info",
+    "role": "Agent's role:",
+    "email": "Agent's email:",
+    "roles": {
+      "end-user": "End-user",
+      "agent": "Agent",
+      "admin": "Admin",
+      "other": "Other"
+    },
+    "group": "Group:",
+    "groups": "You are a member of:",
+    "id": "ID:",
+    "nogroups": "No groups"
+  },
+  "ticket": {
+    "info": "Selected Ticket Info",
+    "type": "Ticket Type:",
+    "subject": "Subject:",
+    "cc": "CCs (Collaborators):",
+    "types": {
+      "question": "Question",
+      "problem": "Problem",
+      "incident": "Incident",
+      "task": "Task"
+    },
+    "nocc": "No collaborators stored",
+    "addcc": "Add some on the left",
+    "role": "Role"
+  },
+  "account": {
+      "id": "ID:",
+      "subdomain": "Subdomain:",
+      "description": "Here are some details about the Zendesk you're using.",
+      "info": "Zendesk Account Info"
+    },
+  "main": "Please choose the elements you'd like to play with above.",
+  "layout": {
+    "subheading": "This app demos some APIs allowing developers to interact with tickets in a Zendesk",
+    "user": "User",
+    "ticket": "Ticket",
+    "account": "Current Account"
   }
 }
