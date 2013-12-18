@@ -1,46 +1,142 @@
 {
   "agent": {
-  	"username": "Agent's name:",
-    "info": "Agent info",
-    "role": "Agent's role:",
-    "email": "Agent's email:",
+  	"username": {
+      "value": "Agent's name:",
+      "title": "name of agent"
+      },
+    "info": {
+      "value": "Agent info",
+      "title": "heading for agent tab"
+      },
+    "role": {
+      "value": "Agent's role:",
+      "title": "role of agent"
+      },
+    "email": {
+      "value": "Agent's email:",
+      "title": "email address of agent"
+      },
     "roles": {
-      "end-user": "End-user",
-      "agent": "Agent",
-      "admin": "Admin",
-      "other": "Other"
+      "end-user": {
+        "value": "End-user",
+        "title": "end user"
+      },
+      "agent": {
+        "value": "Agent",
+        "title": "agent"
+      },
+      "admin": {
+        "value": "Admin",
+        "title": "administrator"
+      },
+      "other": {
+        "value": "Other",
+        "title": "some other role"
+      }
     },
-    "group": "Group:",
-    "groups": "You are a member of:",
-    "id": "ID:",
-    "nogroups": "No groups"
+    "group": {
+      "value": "Group:",
+      "title": "group"
+      },
+    "groups": {
+      "value": "You are a member of:",
+      "title": "groups that the agent is a member of"
+      },
+    "id": {
+      "value": "ID:",
+      "title": "id"
+      },
+    "nogroups": {
+      "value": "No groups",
+      "title": "agent is not in any groups"
+      }
   },
   "ticket": {
-    "info": "Selected Ticket Info",
-    "type": "Ticket Type:",
-    "subject": "Subject:",
-    "cc": "CCs (Collaborators):",
+    "info": {
+      "value": "Selected Ticket Info",
+      "title": "subheading for ticket tab"
+      },
+    "type": {
+      "value": "Ticket Type:",
+      "title": "ticket type"
+      },
+    "subject": {
+      "value": "Subject:",
+      "title": "ticket subject"
+      },
+    "cc": {
+      "value": "CCs (Collaborators):",
+      "title": "collaborators on ticket"
+      },
     "types": {
-      "question": "Question",
-      "problem": "Problem",
-      "incident": "Incident",
-      "task": "Task"
+      "question": {
+      "value": "Question",
+      "title": "question"
+      },
+      "problem": {
+      "value": "Problem",
+      "title": "problem"
+      },
+      "incident": {
+      "value": "Incident",
+      "title": "incident"
+      },
+      "task": {
+      "value": "Task",
+      "title": "task"
+      }
     },
-    "nocc": "No collaborators stored",
-    "addcc": "Add some on the left",
-    "role": "Role"
+    "nocc": {
+      "value": "No collaborators stored",
+      "title": "no collaborators on current ticket"
+      },
+    "addcc": {
+      "value": "Add some on the left",
+      "title": "collaborators can be added to the ticket on the left"
+      },
+    "role": {
+      "value": "Role",
+      "title": "role"
+      }
   },
   "account": {
-      "id": "ID:",
-      "subdomain": "Subdomain:",
-      "description": "Here are some details about the Zendesk you're using.",
-      "info": "Zendesk Account Info"
-    },
-  "main": "Please choose the elements you'd like to play with above.",
+    "id": {
+      "value": "ID:",
+      "title": "id"
+      },
+    "subdomain": {
+      "value": "Subdomain:",
+      "title": "subdomain"
+      },
+    "description": {
+      "value": "Here are some details about the Zendesk you're using.",
+      "title": "introductory text to account tab"
+      },
+    "info": {
+      "value": "Zendesk Account Info",
+      "title": "subheading for account tab"
+      }
+  },
+  "main": {
+      "value": "Please choose the elements you'd like to play with above.",
+      "title": "incident"
+      },
   "layout": {
-    "subheading": "This app demos some APIs allowing developers to interact with tickets in a Zendesk",
-    "user": "User",
-    "ticket": "Ticket",
-    "account": "Current Account"
+    "subheading": {
+      "value": "This app demos some APIs allowing developers to interact with tickets in a Zendesk",
+      "title": "incident"
+      },
+    "user": {
+      "value": "User",
+      "title": "incident"
+      },
+    "ticket": {
+      "value": "Ticket",
+      "title": "incident"
+      },
+    "account": {
+      "value": "Current Account",
+      "title": "incident"
+      }
   }
 }
