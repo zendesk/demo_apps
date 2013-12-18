@@ -7,7 +7,7 @@
       'app.activated':'initialize', // this event is run once when the app loads and calls the 'initialize' function
       'ticket.type.changed':'initialize', // API event fired when the ticket type changes (eg a ticket is marked as an Incident or a Question is changed to a Problem)
       'click .demoapp_tab':'tabClicked', //switching views within the app
-      'zd_change #tickettypeset':'newTicketType', //changing the Zendesk-style menu
+      'zd_ui_change .tickettypeset':'newTicketType', //changing the Zendesk-style menu
       '*.changed': 'detectedChange' // detects changes in the app's UI
     },
 
@@ -50,19 +50,17 @@
 
     newTicketType: function(data) // The ticket type has been changed in our app - better change it in Zendesk
     {
-      var newType = this.$('#'+data.namespace).data('menu').value; // note: you can't use all of jQuery here but selectors are OK
-      newType = newType.toLowerCase();
-      data.preventDefault();
+      var newType = this.$('.tickettypeset').zdSelectMenu('value'); // note: you can't use all of jQuery here but selectors are OK
       if (this.ticket().type() != newType) {
-      this.ticket().type(newType.toLowerCase());
+      this.ticket().type(newType);
       }
     },
 
     detectedChange: function(data) 
     {
-      if (data.propertyName == 'ticket.type' && data.newValue != this.$('.tickettypeset').data('menu').value)
+      if (data.propertyName == 'ticket.type' && data.newValue != this.$('.tickettypeset').zdSelectMenu('value'))
       { // The ticket type changed in Zendesk - better change it in our app but not if we initiated the change from the app, that would be an endless loop!
-        this.$('.tickettypeset').data('menu').setValue(data.newValue);
+        this.$('.tickettypeset').zdSelectMenu('setValue', data.newValue);
       }
       if (data.propertyName == 'ticket.collaborators')
       { // The list of CCs has changed - let's just regenerate everything including our handlebars
@@ -92,8 +90,7 @@
           ticketCCs: ccArray
         });
 
-        this.$('.tickettypeset').data('menu').setValue(the_ticket.type()); // initialise the Zendesk-stype dropdown to the actual value
-        this.$('.tickettypeset').data('menu').addObserver('change',this.newTicketType.bind(this)); // watch for changes by the user
+        this.$('.tickettypeset').zdSelectMenu('setValue', the_ticket.type()); // initialise the Zendesk-stype dropdown to the actual value
     },
 
     generateUserView: function() // draw the User tab

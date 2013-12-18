@@ -17,7 +17,7 @@ Interesting features:
 * Zendesk-style tags and colors
 * Zendesk user profile APIs
 
-### [Basic Ticket Sample App]()
+### [Basic Ticket Sample App](./basic_ticket_sample)
 
 This app displays three tabs displaying info about the ticket, agent and account, pull some data from a remote API.
 
