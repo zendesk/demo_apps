@@ -11,11 +11,12 @@
       '*.changed': 'detectedChange' // detects changes in the app's UI
     },
 
+    // This app doesn't make any AJAX requests but they would go here if it did
     requests: {
     },
 
-    initialize: function(data) 
-    { // function called when we load or the ticket type is modified
+    initialize: function(data) // function called when we load or the ticket type is modified
+    { 
       var self = this;
       if (data.firstLoad) {
         self.switchTo('main');
@@ -23,6 +24,8 @@
     },
 
     /* UI Events */
+
+    // This function is called when the user changes the tab being viewed
     tabClicked: function(data) 
     {
       var clicked = data.currentTarget.id;
