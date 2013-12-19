@@ -36,15 +36,15 @@
       switch (clicked) {
         case 'ticket':
           this.generateTicketView();
-        break;
+          break;
         case 'user':
           this.generateUserView();
-        break;
+          break;
         case 'account':
           this.generateAccountView();
-        break;
+          break;
         default:
-        break;
+          break;
       }
     },
 
