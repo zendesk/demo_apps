@@ -1,23 +1,23 @@
 /* globals confirm, FormData */
 
 (function() {
-  'use strict';
 
   var INSTALLATIONS_URI = '/api/v2/apps/installations.json',
       INSTALLATION_URI  = '/api/v2/apps/installations/%@',
       UPLOADS_URI       = '/api/v2/apps/uploads',
+      INSTALL_URI       = '/apps/installations',
       STATUS_URI        = '/api/v2/apps/job_statuses/%@.json',
       APPS_URI          = '/api/v2/apps.json';
 
   return {
 
     requests: {
-      getInstallations: {
+      requestInstallations: {
         url:  INSTALLATIONS_URI,
         type: 'GET'
       },
 
-      getApps: {
+      requestApps: {
         url:  APPS_URI,
         type: 'GET'
       },
@@ -42,19 +42,17 @@
 
       buildApp: function(data) {
         return {
-          url:         APPS_URI,
-          type:        'POST',
-          data:        data,
-          contentType: 'application/json'
+          url:  APPS_URI,
+          data: data,
+          type: 'POST'
         };
       },
 
       installApp: function(data) {
         return {
-          url:         INSTALLATIONS_URI,
-          data:        data,
-          contentType: 'application/json',
-          type:        'POST'
+          url:  INSTALL_URI,
+          data: data,
+          type: 'POST'
         };
       },
 
@@ -92,12 +90,11 @@
       'click .available-apps .install': 'startInstall',
       'click .install-button':          'setInstall',
 
-      'getInstallations.done':   'renderInstallations',
-      'getApps.done':            'renderApps',
-      'activate.done':           'initialize',
-      'deactivate.done':         'initialize',
-      'deleteInstallation.done': 'initialize',
-      'installApp.done':         'initialize',
+      'requestInstallations.done': 'renderInstallations',
+      'activate.done':             'initialize',
+      'deactivate.done':           'initialize',
+      'deleteInstallation.done':   'initialize',
+      'installApp.done':           'initialize',
 
       // Create
       'click .create-app .btn': 'uploadApp',
@@ -115,11 +112,11 @@
       'click .nav-pills .manage': 'initialize',
       'click .nav-pills .install': function() {
         this.showSpinner(true);
-        this.ajax('getApps');
+        this.getData(this.renderApps);
       },
       'click .nav-pills .create': function() {
-        this.switchTo('create');
         this.switchNavTo('create');
+        this.switchTo('create');
       }
     },
 
@@ -127,7 +124,7 @@
 
     initialize: function() {
       this.showSpinner(true);
-      this.ajax('getInstallations');
+      this.ajax('requestInstallations');
       this.inline = this.currentLocation() === 'nav_bar';
     },
 
@@ -173,36 +170,28 @@
     // INSTALL
 
     startInstall: function(e) {
-      var appId = this.$(e.target).data('id'),
+      var appId = parseInt(this.$(e.target).data('id'), 10),
+          apps  = this.getData().apps,
           self  = this;
 
-      self.showSpinner(true);
-
-      self.ajax('getApps')
-        .then(function(data) {
-          var apps = data.apps;
-
-          apps.forEach(function(app) {
-            if (app.id === appId) {
-              self.showSpinner(false);
-              self.switchTo('install', app);
-            }
-          });
-        });
+      for(var i = 0; i < apps.length; ++i) {
+        if (apps[i].id === appId) {
+          self.switchTo('install', apps[i]);
+          return;
+        }
+      }
     },
 
     setInstall: function(e) {
       var appId      = this.$(e.target).data('id'),
-          formParams = this.$('.install-form')[0].serializeArray(),
+          formParams = this.$('.install-form').first().serializeArray(),
           objParams  = this.serializeToObj(formParams);
 
-      var requestData = {
-        'app_id': appId,
-        'settings': JSON.stringify(objParams)
-      };
+      objParams.app_id = appId;
+      objParams.utf8 = "✓";
 
       this.showSpinner(true);
-      this.ajax('installApp', requestData);
+      this.ajax('installApp', objParams);
     },
 
     // UPLOAD & BUILD
@@ -253,6 +242,20 @@
     },
 
     // HELPERS
+
+    getData: function(f) {
+      var self = this;
+
+      if (this.hasOwnProperty('data')) {
+        return f ? f.apply(self, [this.data]) : this.data;
+      } else {
+        this.ajax('requestApps')
+          .then(function(data) {
+            self.data = data;
+            return f ? f.apply(self, [data]) : data;
+          });
+      }
+    },
 
     showSpinner: function(show) {
       if (show) {

@@ -2,8 +2,8 @@
   <ul class="parameters">
   {{#each parameters}}
     <li>
-      <label for="{{name}}">{{name}}</label>
-      <input name="{{name}}" type="text" {{#if required}}{{t "required"}}{{/if}}>
+      <label for="settings[{{name}}]">{{name}}</label>
+      <input name="settings[{{name}}]" type="text" {{#if required}}{{t "required"}}{{/if}}>
     </li>
   {{/each}}
   </ul>
