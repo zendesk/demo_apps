@@ -4,9 +4,9 @@
   <aside>{{t "layout.subheading"}}</aside>
 </header>
 <ul class="nav nav-pills">
-<li class="account">{{t "layout.account"}}</li>
-<li class="user">{{t "layout.user"}}</li>
-<li class="ticket">{{t "layout.ticket"}}</li>
+<li class="account"><a>{{t "layout.account"}}</a></li>
+<li class="user"><a>{{t "layout.user"}}</a></li>
+<li class="ticket"><a>{{t "layout.ticket"}}</a></li>
 </ul>
 <section data-main />
 <footer>

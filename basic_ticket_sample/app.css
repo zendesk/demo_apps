@@ -7,31 +7,6 @@ h4 {
   font-size: 16px;
 }
 
-.demoapp_tab {
-  background-color: rgb(247,247,247);
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border: 1px solid #ddd;
-  color: rgb(68,68,68);
-  cursor: pointer;
-  display: block;
-  float: left;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', tahoma, Verdana, sans-serif;
-  font-size: 12px;
-  line-height: 18px;
-  margin-right: 5px;
-  padding: 3px 9px;
-  position: relative;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.active {
-  background-color: #555555;
-  border: 1px solid #555555;
-  color: #fff;
-}
-
 .ccinstance {
   border: 1px solid #ddd;
   margin: 3px 3px 3px 0;
