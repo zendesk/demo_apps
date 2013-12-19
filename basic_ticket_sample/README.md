@@ -2,7 +2,7 @@
 
 # Basic Ticket Information Sample App
 
-This sample app displays ticket, agent and customer information on the User Sidebar. It is designed to show you how to use and call basic APIs and display them on the user profile location.
+This sample app displays ticket, agent and Zendesk information on the Ticket Sidebar. It is designed to show you how to use and call basic APIs and use Zendesk-style menus.
 
 ### The following information is displayed:
 
@@ -16,6 +16,6 @@ Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new)
 
 ### Screenshot(s):
 
-![App Screen Shot Pending](http://www.zendesk.com/wp-content/themes/zendesk-twentyeleven/img/p-brand/downloads/Logo/Zendesk_logo_RGB.png)
+![App Screen Shot](preview.gif)
 
 
