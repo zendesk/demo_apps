@@ -1,0 +1,12 @@
+<h4>Selected Ticket Info</h4>
+<div id='wrap'>
+<div id='left_col'><strong>Ticket type: </strong>
+<select class="tickettypeset" data-zd-type="select_menu">
+	{{#each ticketTypes}}
+	<option value="{{this.value}}">{{this.name}}</option>{{/each}}
+	</select><br /></div>
+<div id='right_col'><strong>Subject: </strong><data>{{ticketSubject}}</data><br /><br /><span id="apitestbutton" style="cursor: pointer;background-color: rgb(247,247,247);border-radius: 3px;border: 1px solid #ddd;color: rgb(68,68,68);line-height: 18px;margin-botton:5px;margin-right: 5px;padding: 3px 9px;">Test External API</span><span class="gfIndex"></span></div>
+<br /><br /><br />
+<strong>CCs (Collaborators):</strong>
+<div class="searchcontainer" style="display: inline; position: default;"><div class="ticketcc"></div></div>
+</div><br /><br />
