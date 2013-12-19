@@ -3,11 +3,11 @@
   <h3>{{setting "name"}}</h3>
   <aside>{{t "layout.subheading"}}</aside>
 </header>
-<div style='height:30px'>
-<span id="account" class="demoapp_tab">{{t "layout.account"}}</span>
-<span id="user" class="demoapp_tab">{{t "layout.user"}}</span>
-<span id="ticket" class="demoapp_tab">{{t "layout.ticket"}}</span>
-</div>
+<ul class="nav nav-pills">
+<li class="account">{{t "layout.account"}}</li>
+<li class="user">{{t "layout.user"}}</li>
+<li class="ticket">{{t "layout.ticket"}}</li>
+</ul>
 <section data-main />
 <footer>
   <br /><a href="mailto:{{author.email}}">

@@ -6,7 +6,9 @@
     events: {
       'app.activated':'initialize', // this event is run once when the app loads and calls the 'initialize' function
       'ticket.type.changed':'initialize', // API event fired when the ticket type changes (eg a ticket is marked as an Incident or a Question is changed to a Problem)
-      'click .demoapp_tab':'tabClicked', //switching views within the app
+      'click .nav-pills .account':'tabClicked', //switching views within the app
+      'click .nav-pills .user':'tabClicked',
+      'click .nav-pills .ticket':'tabClicked',
       'zd_ui_change .tickettypeset':'newTicketType', //changing the Zendesk-style menu
       '*.changed': 'detectedChange' // detects changes in the app's UI
     },
@@ -28,10 +30,10 @@
     // This function is called when the user changes the tab being viewed
     tabClicked: function(data) 
     {
-      var clicked = data.currentTarget.id;
+      var clicked = data.currentTarget.className;
 
       this.$('.active').toggleClass('active'); // Toggle the tabs visually
-      this.$('#' + clicked).toggleClass('active');
+      this.$('.' + clicked).toggleClass('active');
 
       switch (clicked) {
         case 'ticket':
