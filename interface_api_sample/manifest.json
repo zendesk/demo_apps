@@ -1,0 +1,12 @@
+{
+  "name": "Basic Ticket Sample App",
+  "author": {
+    "name": "Zendesk",
+    "email": "support@zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": ["ticket_sidebar", "new_ticket_sidebar"],
+  "version": "1.0",
+  "frameworkVersion": "1.0"
+}
