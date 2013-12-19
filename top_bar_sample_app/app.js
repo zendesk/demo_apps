@@ -19,9 +19,16 @@
       this.popover({width: 480, height: 320});
     },
 
-    playMusic: function() {
+    paneOnActivated: function() {
       if(this.isNotified) {
-        this.$('#player').css('background-image', 'url(' + this.pictureURL + ')');
+        this.playMusic();
+      } else {
+        this.startPage();
+      }
+    },
+
+    playMusic: function() {
+      this.$('#player').css('background-image', 'url(' + this.pictureURL + ')');
         this.audio = this.$('#player_audio')[0];
         this.audio.play();
         this.intId = setInterval(function() {
@@ -34,9 +41,6 @@
             height: height + 100
           });
         }.bind(this), 100);
-      } else {
-        this.startPage();
-      }
     },
 
     christmas: function() {
@@ -74,13 +78,13 @@
       var startIndex = "show_link".length + 1;
       var eventName = e.toElement.className.substring(startIndex);
       var uri = e.currentTarget.baseURI.split("/")[2];
-
       var command = this.I18n.t('command', {
         app_id: this.id(),
         event: eventName,
         uri: uri,
         email: this.currentUser().email()
       });
+      console.log(this.currentUser().id());
       this.$('code').text(command);
       this.$('#link').css('display','block');
     }
