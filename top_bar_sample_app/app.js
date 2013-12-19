@@ -1,16 +1,19 @@
 (function() {
 
+
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   return {
+
     events: {
+
       'pane.activated': 'paneOnActivated',
       'pane.deactivated': 'stopMusic',
       'notification.christmas': 'christmas',
       'notification.new_year': 'newYear',
-      'click .show_link': 'showLink'
+      'click .show_link': 'showLink',
 
     },
 
@@ -73,7 +76,7 @@
     },
 
     showLink: function(e) {
-      console.log(e);
+      //console.log(e);
       //substring to grab to class name
       var startIndex = "show_link".length + 1;
       var eventName = e.toElement.className.substring(startIndex);
@@ -84,7 +87,6 @@
         uri: uri,
         email: this.currentUser().email()
       });
-      console.log(this.currentUser().id());
       this.$('code').text(command);
       this.$('#link').css('display','block');
     }
