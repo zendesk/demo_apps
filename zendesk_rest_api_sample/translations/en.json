@@ -7,6 +7,11 @@
     }
   },
 
+  "name": {
+    "value": "Name",
+    "title": "app name"
+  },
+
   "install": {
     "value": "Install",
     "title": "to install an app"
@@ -65,5 +70,10 @@
   "note": {
     "value": "Be careful, there's no validation or content checking here. If the upload fails, the spinner will go away, and you'll need to check your developer tools to see what the problem was. If all goes well, you'll be taken back to the Manage screen.",
     "title": "disclaimer"
+  },
+
+  "confirm_delete": {
+    "value": "No really, this will delete the installation. Are you sure?",
+    "title": "confirm about deleting the app"
   }
 }

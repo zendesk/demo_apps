@@ -1,22 +1,22 @@
 <p>{{t "note"}}</p>
 
-<ul id="create">
+<ul class="create-app">
   <li>
-    <label for="name">Name*</label>
-    <input id="name" name="name" type="text" />
+    <label for="name">{{t "name"}}</label>
+    <input class="name" name="name" type="text" />
   </li>
   <li>
-    <label for="short_description">{{t "description"}}*</label>
-    <input id="short_description" name="short_description" type="text" />
+    <label for="short_description">{{t "description"}}</label>
+    <input class="short_description" name="short_description" type="text" />
   </li>
   <li>
-    <form id="zip_upload" enctype="multipart/form-data">
+    <form class="zip_upload" enctype="multipart/form-data">
       <label for="uploaded_data">{{t "zipfile"}}</label>
       <input name="uploaded_data" type="file" />
     </form>
   </li>
   <li>
-    <button id="create_app" class="btn btn-inverse">{{t "upload"}}</button>
+    <button class="btn btn-inverse">{{t "upload"}}</button>
   </li>
 </ul>
 

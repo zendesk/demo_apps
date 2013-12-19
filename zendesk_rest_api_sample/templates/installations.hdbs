@@ -1,8 +1,8 @@
 <p>{{t "list_app"}}</p>
 
-<ul id="installations">
+<ul class="{{#unless inline}}scroll-list {{/unless}}installations">
   {{#each installations}}
-  <li class="{{#if ../inline}}inline {{/if}}{{enabled}}">
+  <li class="{{#if ../inline}}inline {{/if}}{{#if enabled}}enabled{{/if}}">
     <div class="app-box">
       ({{id}}) {{settings.title}}<br />
     {{#if enabled}}

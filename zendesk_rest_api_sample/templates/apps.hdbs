@@ -1,11 +1,11 @@
-<ul id="apps">
+<ul class="{{#unless inline}}scroll-list {{/unless}}available-apps">
   {{#each apps}}
-    <li class="{{#if ../inline}}inline{{/if}}">
-      <div class="app-box">
-        <img class="app-inline-logo" src="/api/v2/apps/{{id}}/assets/logo-small.png" alt="App Logo">
-        ({{id}}) {{name}}<br>
-        <a class="install" data-id="{{id}}">{{t "install"}}</a>
-      </div>
-    </li>
+  <li class="{{#if ../inline}}inline{{/if}}">
+    <div class="app-box">
+      <img class="app-inline-logo" src="/api/v2/apps/{{id}}/assets/logo-small.png" alt="App Logo">
+      ({{id}}) {{name}}<br>
+      <a class="install" data-id="{{id}}">{{t "install"}}</a>
+    </div>
+  </li>
   {{/each}}
 </ul>

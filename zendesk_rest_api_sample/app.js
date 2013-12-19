@@ -1,10 +1,13 @@
-(function() {
+/* globals confirm, FormData */
 
-  var INSTALLATIONS_URI = "/api/v2/apps/installations.json",
-      INSTALLATION_URI  = "/api/v2/apps/installations/%@.json",
-      UPLOADS_URI       = "/api/v2/apps/uploads",
-      STATUS_URI        = "/api/v2/apps/job_statuses/%@.json",
-      APPS_URI          = "/api/v2/apps.json";
+(function() {
+  'use strict';
+
+  var INSTALLATIONS_URI = '/api/v2/apps/installations.json',
+      INSTALLATION_URI  = '/api/v2/apps/installations/%@',
+      UPLOADS_URI       = '/api/v2/apps/uploads',
+      STATUS_URI        = '/api/v2/apps/job_statuses/%@.json',
+      APPS_URI          = '/api/v2/apps.json';
 
   return {
 
@@ -15,11 +18,6 @@
       },
 
       getApps: {
-        url:  APPS_URI,
-        type: 'GET'
-      },
-
-      getApp: {
         url:  APPS_URI,
         type: 'GET'
       },
@@ -62,19 +60,17 @@
 
       activate: function(appId) {
         return {
-          url:         helpers.fmt(INSTALLATION_URI, appId),
-          data:        '{"enabled": true}',
-          contentType: 'application/json',
-          type:        'PUT'
+          url:  helpers.fmt(INSTALLATION_URI, appId),
+          data: { enabled: true, _method: 'PUT' },
+          type: 'POST'
         };
       },
 
       deactivate: function(appId) {
         return {
-          url:         helpers.fmt(INSTALLATION_URI, appId),
-          data:        '{"enabled": false}',
-          contentType: 'application/json',
-          type:        'PUT'
+          url:  helpers.fmt(INSTALLATION_URI, appId),
+          data: { enabled: false, _method: 'PUT' },
+          type: 'POST'
         };
       },
 
@@ -90,11 +86,11 @@
       'app.activated': 'initialize',
 
       // Installations
-      'click .activate':         'activateApp',
-      'click .deactivate':       'deactivateApp',
-      'click .delete':           'deleteApp',
-      'click #apps .install':    'startInstall',
-      'click #install .install': 'setInstall',
+      'click .activate':                'activateApp',
+      'click .deactivate':              'deactivateApp',
+      'click .delete':                  'deleteApp',
+      'click .available-apps .install': 'startInstall',
+      'click .install-button':          'setInstall',
 
       'getInstallations.done':   'renderInstallations',
       'getApps.done':            'renderApps',
@@ -104,9 +100,9 @@
       'installApp.done':         'initialize',
 
       // Create
-      'click #create_app': 'uploadApp',
-      'uploadApp.done':    'buildApp',
-      'jobStatus.done':    'checkProgress',
+      'click .create-app .btn': 'uploadApp',
+      'uploadApp.done':         'buildApp',
+      'jobStatus.done':         'checkProgress',
 
       'buildApp.done': function(data) {
         this.pollProgress(data.job_id);
@@ -165,7 +161,7 @@
 
     deleteApp: function(e) {
       var appId     = this.$(e.target).data('id'),
-          challenge = confirm("No really, this will delete the installation. Are you sure?");
+          challenge = confirm(this.I18n.t('confirm_delete'));
 
       if (challenge === true) {
         this.ajax('deleteInstallation', appId);
@@ -182,10 +178,9 @@
 
       self.showSpinner(true);
 
-      self.ajax('getApp')
+      self.ajax('getApps')
         .then(function(data) {
-          var apps = data.apps,
-              match;
+          var apps = data.apps;
 
           apps.forEach(function(app) {
             if (app.id === appId) {
@@ -198,10 +193,13 @@
 
     setInstall: function(e) {
       var appId      = this.$(e.target).data('id'),
-          formParams = this.$("form#install").serializeArray(),
+          formParams = this.$('.install-form')[0].serializeArray(),
           objParams  = this.serializeToObj(formParams);
 
-      var requestData = '{"app_id":' + appId + ', "settings":' + JSON.stringify(objParams) + '}';
+      var requestData = {
+        'app_id': appId,
+        'settings': JSON.stringify(objParams)
+      };
 
       this.showSpinner(true);
       this.ajax('installApp', requestData);
@@ -210,7 +208,7 @@
     // UPLOAD & BUILD
 
     uploadApp: function() {
-      var form     = this.$("#zip_upload")[0];
+      var form     = this.$('.zip_upload')[0];
       var formData = new FormData(form);
 
       this.showSpinner(true);
@@ -219,12 +217,16 @@
 
     buildApp: function(data) {
       var uploadId = data.id,
-          appName  = this.$("#name").val(),
-          appDesc  = this.$("#short_description").val();
+          appName  = this.$('.name')[0].val(),
+          appDesc  = this.$('.short_description')[0].val();
 
       // To update an existing app, replace 'name' with 'app_id',
       // where the value is the ID of the app to be updated
-      var requestData = '{"upload_id": ' + uploadId + ', "name": "' + appName + '", "short_description": "' + appDesc + '"}';
+      var requestData = {
+        'upload_id': uploadId,
+        'name': appName,
+        'short_description': appDesc
+      };
 
       this.ajax('buildApp', requestData);
     },
@@ -255,10 +257,10 @@
     showSpinner: function(show) {
       if (show) {
         this.$('.main').addClass('loading');
-        this.$('#loading-spinner').css('display', 'block');
+        this.$('.loading-spinner').css('display', 'block');
       } else {
         this.$('.main').removeClass('loading');
-        this.$('#loading-spinner').css('display', 'none');
+        this.$('.loading-spinner').css('display', 'none');
       }
     },
 
@@ -281,8 +283,8 @@
     switchNavTo: function(itemClass) {
       itemClass = '.' + itemClass;
 
-      this.$(".nav-pills li").removeClass('active');
-      this.$(".nav-pills li" + itemClass).addClass('active');
+      this.$('.nav-pills li').removeClass('active');
+      this.$('.nav-pills li' + itemClass).addClass('active');
     }
   };
 

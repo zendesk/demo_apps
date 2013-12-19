@@ -12,23 +12,19 @@ p {
 }
 
 ul {
-  list-style-type: circle;
-}
-
-.warn {
-  color: red;
+  list-style-type: none;
 }
 
 .loading {
   opacity: 0.5;
 }
 
-#loading-spinner {
+.loading-spinner {
   display: none;
 }
 
-#parameters,
-#create {
+.parameters,
+.create-app {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -38,7 +34,7 @@ ul {
   }
 }
 
-#navigation {
+.navigation {
   border-bottom: 1px dotted #cccccc;
   margin-bottom: 8px;
 
@@ -52,10 +48,10 @@ ul {
   }
 }
 
-#installations {
+.installations {
 
   li {
-    &:not(.true) {
+    &:not(.enabled) {
       color: #ccc;
     }
   }
@@ -66,18 +62,23 @@ ul {
 
 }
 
-#apps,
-#installations {
+.available-apps,
+.installations {
 
   .inline {
-    position: relative;
-    display: inline-block;
+    float: left;
+    width: 300px;
     margin-right: 20px;
     margin-bottom: 5px;
-    padding-left: 55px;
   }
 
-  .inline:before {
+}
+
+.app-box {
+  position: relative;
+  padding: 8px 0 8px 55px;
+
+  &:before {
     content: "";
     background-color: rgb(149, 190, 34);
     width: 2px;
@@ -89,18 +90,22 @@ ul {
 
 }
 
-.app-box {
-  padding: 8px 0;
+.installations {
+  li:not(.enabled) {
+    .app-box:before {
+      background-color: red;
+    }
+  }
 }
 
 .app-inline-logo {
-  display: none;
   position: absolute;
   height: 70%;
   left: 5px;
   top: 15%;
 }
 
-.inline .app-inline-logo {
-  display: block;
+.scroll-list {
+  max-height: 400px;
+  overflow-y: scroll;
 }
