@@ -6,7 +6,7 @@
 
   return {
     events: {
-      'pane.activated': 'playMusic',
+      'pane.activated': 'paneOnActivated',
       'pane.deactivated': 'stopMusic',
       'notification.christmas': 'christmas',
       'notification.new_year': 'newYear',
