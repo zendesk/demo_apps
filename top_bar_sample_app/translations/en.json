@@ -1,6 +1,33 @@
 {
   "app": {
-    "description":  "Send a message to .",
-    "name":         "Buddha Machine"
+    "package": "top_bar_sample_app",
+    "description":  {
+      "value": "send a curl command from your terminal to make your topbar app popover!",
+      "title": "app description"
+    },
+
+  "name": {
+    "value": "Topbar Sample App",
+    "title": "app name"
+  },
+
+  "command": {
+    "value": "curl -v -u {{email}}:{your password} https://{{uri}}/api/v2/apps/notify.json -H \"Content-Type: application/json\" -X POST -d '{\"event\": \"{{event}}\", \"app_id\": \"{{app_id}}\"}'",
+    "title": "command template"
+  },
+
+  "instruction": {
+    "value": "Copy the command below in your terminal, fill in the password field, hit enter and see the magic! (Make sure you have curl installed.)",
+    "title": "app instruction"
+  },
+
+  "christmas": {
+    "value": "Merry Christmas!",
+    "title": "tab1"
+  },
+
+  "new_year": {
+    "value": "Happy New Year!",
+    "title": "tab2"
   }
 }

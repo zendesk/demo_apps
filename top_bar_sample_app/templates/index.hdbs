@@ -1,7 +1,9 @@
-<div id="start_page">
-  <h3> Merry Christmas! </h3>
-  <a id="show_link"> Click Me! </a>
+<div id="start_page" class="nav nav-pills">
+  <a class="show_link christmas">{{t "christmas"}}</a>
+  <span id="blocker">|</span>
+  <a class="show_link new_year">{{t "new_year"}}</a>
 </div>
 <div id="link">
-  <span> Copy the command below in your terminal, hit enter and see the magic! </span>
+  <span>{{t "instruction"}}</span>
+  <code class="command"/>
 </div>
