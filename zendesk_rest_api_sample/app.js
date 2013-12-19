@@ -206,8 +206,8 @@
 
     buildApp: function(data) {
       var uploadId = data.id,
-          appName  = this.$('.name')[0].val(),
-          appDesc  = this.$('.short_description')[0].val();
+          appName  = this.$('.name').first().val(),
+          appDesc  = this.$('.short_description').first().val();
 
       // To update an existing app, replace 'name' with 'app_id',
       // where the value is the ID of the app to be updated

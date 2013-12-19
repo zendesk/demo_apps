@@ -1,6 +1,6 @@
 h4, h5 {
-  margin-top: 20px;
   border-bottom: 1px dotted #ccc;
+  margin-top: 20px;
 }
 
 h4 {
@@ -67,25 +67,25 @@ ul {
 
   .inline {
     float: left;
-    width: 300px;
-    margin-right: 20px;
     margin-bottom: 5px;
+    margin-right: 20px;
+    width: 300px;
   }
 
 }
 
 .app-box {
-  position: relative;
   padding: 8px 0 8px 55px;
+  position: relative;
 
   &:before {
-    content: "";
     background-color: rgb(149, 190, 34);
-    width: 2px;
+    content: "";
     height: 70%;
+    left: 0;
     position: absolute;
     top: 15%;
-    left: 0;
+    width: 2px;
   }
 
 }
@@ -99,9 +99,9 @@ ul {
 }
 
 .app-inline-logo {
-  position: absolute;
   height: 70%;
   left: 5px;
+  position: absolute;
   top: 15%;
 }
 
