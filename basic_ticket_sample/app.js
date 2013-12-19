@@ -5,7 +5,7 @@
     // listen for API events such as the start of our app, when bits of it get clicked on or when AJAX requests complete
     events: {
       'app.activated':'initialize', // this event is run once when the app loads and calls the 'initialize' function
-      'ticket.type.changed':'initialize', // API event fired when the ticket type changes (eg a ticket is marked as an Incident or a Question is changed to a Problem)
+      'ticket.collaborators.changed':'newCCs', // API event fired when the ticket type changes (eg a ticket is marked as an Incident or a Question is changed to a Problem)
       'click .nav-pills .account':'tabClicked', //switching views within the app
       'click .nav-pills .user':'tabClicked',
       'click .nav-pills .ticket':'tabClicked',
@@ -17,8 +17,7 @@
     requests: {
     },
 
-    initialize: function(data) // function called when we load or the ticket type is modified
-    { 
+    initialize: function(data) {// function called when we load or the ticket type is modified 
       var self = this;
       if (data.firstLoad) {
         self.switchTo('main');
@@ -28,8 +27,7 @@
     /* UI Events */
 
     // This function is called when the user changes the tab being viewed
-    tabClicked: function(data) 
-    {
+    tabClicked: function(data) {
       var clicked = data.currentTarget.className;
 
       this.$('.active').toggleClass('active'); // Toggle the tabs visually
@@ -50,78 +48,78 @@
       }
     },
 
-    newTicketType: function(data) // The ticket type has been changed in our app - better change it in Zendesk
-    {
+    newTicketType: function(data) {// The ticket type has been changed in our app - better change it in Zendesk
       var newType = this.$('.tickettypeset').zdSelectMenu('value'); // note: you can't use all of jQuery here but selectors are OK
       if (this.ticket().type() != newType) {
       this.ticket().type(newType);
       }
     },
 
-    detectedChange: function(data) 
-    {
+    detectedChange: function(data) {
       if (data.propertyName == 'ticket.type' && data.newValue != this.$('.tickettypeset').zdSelectMenu('value'))
       { // The ticket type changed in Zendesk - better change it in our app but not if we initiated the change from the app, that would be an endless loop!
         this.$('.tickettypeset').zdSelectMenu('setValue', data.newValue);
       }
       if (data.propertyName == 'ticket.collaborators')
-      { // The list of CCs has changed - let's just regenerate everything including our handlebars
-        this.generateTicketView();
+      { // We could copy the code out of the newCCs function below and put it here
       }
     },
 
-    generateTicketView: function() // Draw the 'Ticket' tab
-    {
-      var the_ticket = this.ticket();
+    newCCs: function(data) {
+      // The list of CCs has changed - let's just regenerate everything including our handlebars
+      this.generateTicketView();
+    },
+
+    generateTicketView: function() {// Draw the 'Ticket' tab
+      var theTicket = this.ticket();
         var ticketTypes = [{name: this.I18n.t('ticket.types.question'), value: 'question'},
                            {name: this.I18n.t('ticket.types.problem'), value: 'problem'},
                            {name: this.I18n.t('ticket.types.incident'), value: 'incident'},
                            {name: this.I18n.t('ticket.types.task'), value: 'task'}];
 
         var ccArray = []; // this array and analogous ones further down are used because Handlebars won't call functions, so we need to pass in properties
-        _.each(the_ticket.collaborators(), function(collaborator, key, list) {
+        _.each(theTicket.collaborators(), function(collaborator, key, list) {
           this[key] = {email: '', role: ''};
-          this[key]['email']=collaborator.email(); // .email() is the function call we are replacing with the .email property
-          this[key]['role']=collaborator.role() ? collaborator.role() : 'Not registered';
+          this[key].email = collaborator.email(); // .email() is the function call we are replacing with the .email property
+          this[key].role = collaborator.role() ? collaborator.role() : 'Not registered';
         }, ccArray);
 
         this.switchTo('ticket', { // render the ticket.hdbs template
-          ticketType: the_ticket.type(),
-          ticketSubject: the_ticket.subject(),
+          ticketType: theTicket.type(),
+          ticketSubject: theTicket.subject(),
           ticketTypes: ticketTypes,
           ticketCCs: ccArray
         });
 
-        this.$('.tickettypeset').zdSelectMenu('setValue', the_ticket.type()); // initialise the Zendesk-stype dropdown to the actual value
+        this.$('.tickettypeset').zdSelectMenu('setValue', theTicket.type()); // initialise the Zendesk-stype dropdown to the actual value
     },
 
-    generateUserView: function() // draw the User tab
-    {
-      var the_user = this.currentUser();
+    generateUserView: function() {// draw the User tab
+      var theUser = this.currentUser();
       var userRoles = [{name: this.I18n.t('agent.roles.end-user'), value: 'end-user'},
                        {name: this.I18n.t('agent.roles.agent'), value: 'agent'},
                        {name: this.I18n.t('agent.roles.admin'), value: 'admin'},
                        {name: this.I18n.t('agent.roles.other'), value: 'other'}];
 
       var groupArray = []; // this is similar to ccArray in the ticket view - check out the underscore library at http://underscorejs.org
-        _.each(the_user.groups(), function(group, key, list) {
+        _.each(theUser.groups(), function(group, key, list) {
           this[key] = {group: '', id: ''};
-          this[key]['group']=group.name();
-          this[key]['id']=group.id();
+          this[key].group = group.name();
+          this[key].id = group.id();
         }, groupArray);
 
         this.switchTo('user', {
-          uid: the_user.id(),
-          uemail: the_user.email(),
-          uname: the_user.name(),
-          urole: the_user.role(),
+          uid: theUser.id(),
+          uemail: theUser.email(),
+          uname: theUser.name(),
+          urole: theUser.role(),
           ugroups: groupArray,
-          uexternid: the_user.externalId(),
+          uexternid: theUser.externalId(),
           userRoles: userRoles
         });
-        for (var i =0; i < userRoles.length; i++) // bold the corrent role
+        for (var i = 0; i < userRoles.length; i++) // bold the corrent role
         {
-          if (the_user.role() == userRoles[i].value || i == userRoles.length-1)
+          if (theUser.role() == userRoles[i].value || i == userRoles.length-1)
           {
             var role_text = this.$('.userroleget').find('li')[i].innerHTML;
             role_text = '<strong>' + role_text + '</strong>';
@@ -131,8 +129,7 @@
         }
     },
 
-    generateAccountView: function()
-    {
+    generateAccountView: function() {
       var the_account = this.currentAccount();
       this.switchTo('account', {
         id: the_account.id(),

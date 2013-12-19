@@ -20,7 +20,7 @@ h4 {
 .cccontainer {
   display: inline; 
   position: default;
-  margin-left: 0px;
+  margin-left: 0;
 }
 
 .ccrole {
@@ -32,19 +32,23 @@ h4 {
 .userroleget {
   border: 1px solid #ddd;
   border-radius: 3px;
-  margin-left: 0px;
+  margin-left: 0;
 }
 
-.viewcontainer {
+.view_container {
   border: 2px solid #ddd;
   border-radius: 4px;
-  background-color: rgb(247,247,247);
+  background-color: #F7F7F7;
   padding-left: 5px;
   padding-right: 5px;
 }
 
 .nav {
   height:30px;
+}
+
+.subdomain {
+  text-decoration:underline;
 }
 
 #left_col {

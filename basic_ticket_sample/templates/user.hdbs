@@ -1,4 +1,4 @@
-<div class="viewcontainer">
+<div class="view_container">
 <h4>{{t "agent.info"}}</h4>
 <div id="left_col"><strong>{{t "agent.username"}}</strong><p>{{uname}}</p><br /><strong>{{t "agent.role"}}</strong><ul class="userroleget">
 	{{#each userRoles}}

@@ -1,4 +1,4 @@
-<div class="viewcontainer">
+<div class="view_container">
 <h4>{{t "ticket.info"}}</h4>
 <div id="left_col"><strong>{{t "ticket.type"}} </strong>
 <select class="tickettypeset" data-zd-type="select_menu">
