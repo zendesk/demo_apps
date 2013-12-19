@@ -2,19 +2,16 @@
 
 # Modal Sample App
 
-This Sample App illustrates the usage of modal specific events, and two ways of invoking a modal.
+This Sample App illustrates how to use the notify.json app api and popover() on top bar location apps.
 
 ### The following information is displayed:
 
-* location: ticket sidebar and new ticket sidebar
-* show modal via data attribute
-* show modal via javascript
-* switch between the two mentioned above
-* illustrate usage of modal specific events including: show, shown, hide, hidden.
-* display the message from modal on the sidebar app below the toggle modal button.
+* location: top bar
+* make top bar app play christmas music via terminal
+* make top bar app play happy new year via terminal
+* resize popover
+* pane.activated
 
 Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
 
 ### Screenshot(s):
-
-![](http://f.cl.ly/items/291W002y0U1f1g3t0L3K/modal.gif)
