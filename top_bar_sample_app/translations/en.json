@@ -6,9 +6,10 @@
       "title": "app description"
     },
 
-  "name": {
-    "value": "Topbar Sample App",
-    "title": "app name"
+    "name": {
+      "value": "Topbar Sample App",
+      "title": "app name"
+    }
   },
 
   "command": {
