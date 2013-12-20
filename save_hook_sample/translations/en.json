@@ -1,0 +1,9 @@
+{
+  "app": {
+    "package": "save_hook_sample",
+    "description": {
+      "value": "show how to use ticket.save hook",
+      "title": "app description"
+    }
+  }
+}
