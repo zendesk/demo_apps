@@ -1,71 +1,70 @@
-h4, h5 {
+h4 {
+  font-size: 16px;
   margin-top: 20px;
+}
+
+h4, h5 {
   border-bottom: 1px dotted #ccc;
 }
 
-h4 {
-  font-size: 16px;
+h5 {
+  font-weight: bold;
+  line-height: 27px;
+  text-indent: 5px;
 }
 
 .ccinstance {
   border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #333;
+  float: left;
+  line-height: 13px;
   margin: 3px 3px 3px 0;
   padding: 3px 6px 4px 6px;
-  color: #333;
-  border-radius: 3px;
-  line-height: 13px;
-  float: left;
 }
 
 .cccontainer {
   display: inline; 
-  position: default;
   margin-left: 0;
+  position: default;
 }
 
 .ccrole {
-  line-height:28px;
-  display: table-cell; 
+  line-height: 28px;
   vertical-align: middle; 
 }
 
-.userroleget {
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  margin-left: 0;
-  padding-left: 6px;
+.left_col {
+  float: left;
 }
 
-.view_container {
-  border: 2px solid #ddd;
-  border-radius: 4px;
-  background-color: #F7F7F7;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 17px;
+.left_col, .right_col {
+  margin-top: 8px;
 }
 
 .nav {
-  height:30px;
+  height: 30px;
+}
+
+.right_col {
+  float:right;
+  margin-top: 8px;
 }
 
 .subdomain {
   text-decoration:underline;
 }
 
-subhead {
-  text-indent: 5px;
-  line-height: 27px;
-  padding-bottom: 0;
-  padding-top: 10px;
-  font-weight: bold;
+.userroleget {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-left: 0;
+  padding: 0 6px;
 }
 
-#left_col {
-	float:left;
-  margin-top: 8px;
-}
-#right_col {
-	float:right;
-  margin-top: 8px;
+.view_container {
+  background-color: #F7F7F7;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  padding: 0 5px 17px 5px;
 }

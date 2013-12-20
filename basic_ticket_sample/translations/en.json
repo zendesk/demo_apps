@@ -54,7 +54,7 @@
   "ticket": {
     "info": {
       "value": "Selected Ticket Info",
-      "title": "subheading for ticket tab"
+      "title": "h5ing for ticket tab"
       },
     "type": {
       "value": "Ticket Type:",
@@ -114,7 +114,7 @@
       },
     "info": {
       "value": "Zendesk Account Info",
-      "title": "subheading for account tab"
+      "title": "h5ing for account tab"
       }
   },
   "main": {
@@ -122,7 +122,7 @@
       "title": "incident"
       },
   "layout": {
-    "subheading": {
+    "h5ing": {
       "value": "This app demos some APIs allowing developers to interact with tickets in a Zendesk",
       "title": "incident"
       },

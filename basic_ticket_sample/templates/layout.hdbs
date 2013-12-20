@@ -1,7 +1,7 @@
 <header>
   <span class="logo"/>
   <h3>{{setting "name"}}</h3>
-  <aside>{{t "layout.subheading"}}</aside>
+  <aside>{{t "layout.h5ing"}}</aside>
 </header>
 <ul class="nav nav-pills">
   <li class="account"><a>{{t "layout.account"}}</a></li>

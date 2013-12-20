@@ -1,7 +1,7 @@
 /*global FormData*/
 (function() {
 
-  return { // the entire app goes inside this returh block!
+  return { // the entire app goes inside this return block!
     // listen for API events such as the start of our app, when bits of it get clicked on or when AJAX requests complete
     events: {
       'app.activated':                'initialize', // this event is run once when the app loads and calls the 'initialize' function
@@ -18,9 +18,8 @@
     },
 
     initialize: function(data) {// function called when we load or the ticket type is modified 
-      var self = this;
       if (data.firstLoad) {
-        self.switchTo('main');
+        this.switchTo('main');
       }
     },
 
@@ -30,8 +29,8 @@
     tabClicked: function(data) {
       var clicked = data.currentTarget.className;
 
-      this.$('.active').toggleClass('active'); // Toggle the tabs visually
-      this.$('.' + clicked).toggleClass('active');
+      this.$('.active').removeClass('active'); // Toggle the tabs visually
+      this.$('.' + clicked).addClass('active');
 
       switch (clicked) {
         case 'ticket':
@@ -71,13 +70,13 @@
     },
 
     generateTicketView: function() {// Draw the 'Ticket' tab
-      var theTicket = this.ticket(),
-      ticketTypes = [{name: this.I18n.t('ticket.types.question'), value: 'question'},
-                     {name: this.I18n.t('ticket.types.problem'),  value: 'problem'},
-                     {name: this.I18n.t('ticket.types.incident'), value: 'incident'},
-                     {name: this.I18n.t('ticket.types.task'),     value: 'task'}],
+      var ccArray  = [], // this array and analogous ones further down are used because Handlebars won't call functions, so we need to pass in properties
+      theTicket    = this.ticket(),
+      ticketTypes  = [{name: this.I18n.t('ticket.types.question'), value: 'question'},
+                      {name: this.I18n.t('ticket.types.problem'),  value: 'problem'},
+                      {name: this.I18n.t('ticket.types.incident'), value: 'incident'},
+                      {name: this.I18n.t('ticket.types.task'),     value: 'task'}];
 
-      ccArray = []; // this array and analogous ones further down are used because Handlebars won't call functions, so we need to pass in properties
       _.each(theTicket.collaborators(), function(collaborator, key, list) {
         this[key]       = {email: '', role: ''};
         this[key].email = collaborator.email(); // .email() is the function call we are replacing with the .email property
@@ -95,13 +94,13 @@
     },
 
     generateUserView: function() {// draw the User tab
-      var theUser = this.currentUser(),
-      userRoles = [{name: this.I18n.t('agent.roles.end-user'), value: 'end-user'},
-                   {name: this.I18n.t('agent.roles.agent'), value: 'agent'},
-                   {name: this.I18n.t('agent.roles.admin'), value: 'admin'},
-                   {name: this.I18n.t('agent.roles.other'), value: 'other'}],
+      var groupArray = [], // this is similar to ccArray in the ticket view - check out the underscore library at http://underscorejs.org
+      theUser        = this.currentUser(),
+      userRoles      = [{name: this.I18n.t('agent.roles.end-user'), value: 'end-user'},
+                        {name: this.I18n.t('agent.roles.agent'),    value: 'agent'},
+                        {name: this.I18n.t('agent.roles.admin'),    value: 'admin'},
+                        {name: this.I18n.t('agent.roles.other'),    value: 'other'}];
 
-      groupArray = []; // this is similar to ccArray in the ticket view - check out the underscore library at http://underscorejs.org
       _.each(theUser.groups(), function(group, key) {
         this[key]       = {group: '', id: ''};
         this[key].group = group.name();

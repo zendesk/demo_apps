@@ -1,19 +1,19 @@
 <div class="view_container">
   <h4>{{t "ticket.info"}}</h4>
-  <div id="left_col">
-    <subhead>{{t "ticket.type"}} </subhead>
+  <div class="left_col">
+    <h5>{{t "ticket.type"}} </h5>
     <select class="tickettypeset" data-zd-type="select_menu">
       {{#each ticketTypes}}
       <option value="{{this.value}}">{{this.name}}</option>
       {{/each}}
     </select>
   </div>
-  <div id="right_col">
-    <subhead>{{t "ticket.subject"}} </subhead>
+  <div class="right_col">
+    <h5>{{t "ticket.subject"}} </h5>
     <data>{{ticketSubject}}</data>
   </div>
   <div style="clear: both; padding-top: 8px;">
-    <subhead>{{t "ticket.cc"}}</subhead>
+    <h5>{{t "ticket.cc"}}</h5>
   </div>
   <ul class="cccontainer">
     {{#each ticketCCs}}

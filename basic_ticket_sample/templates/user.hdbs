@@ -1,19 +1,19 @@
 <div class="view_container">
   <h4>{{t "agent.info"}}</h4>
-  <div id="left_col">
-    <subhead>{{t "agent.username"}}</subhead>
+  <div class="left_col">
+    <h5>{{t "agent.username"}}</h5>
     <p>{{uname}}</p>
-    <subhead>{{t "agent.role"}}</subhead>
+    <h5>{{t "agent.role"}}</h5>
     <ul class="userroleget">
       {{#each userRoles}}
       <li value="{{this.value}}">{{this.name}}</li>
       {{/each}}
     </ul>
   </div>
-  <div id="right_col">
-    <subhead>{{t "agent.email"}}</subhead>
+  <div class="right_col">
+    <h5>{{t "agent.email"}}</h5>
     <p>{{uemail}}</p>
-    <subhead>{{t "agent.groups"}}</subhead>
+    <h5>{{t "agent.groups"}}</h5>
     <ul class="userroleget">
       {{#each ugroups}}
       <li>{{t "agent.group"}} <strong>{{this.group}}</strong> {{t "agent.id"}} {{this.id}}</li>
