@@ -1,5 +1,5 @@
-<div id="player">
-  <audio id="player_audio"
+<div class="player">
+  <audio class="player_audio"
     {{#if christmas}}
       src="http://www.sounddogs.com/previews/3671/mp3/389126_SOUNDDOGS__th.mp3"
     {{else}}

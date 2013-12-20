@@ -1,9 +1,9 @@
-<div id="start_page" class="nav nav-pills">
+<div class="nav nav-pills start_page">
   <a class="show_link christmas">{{t "christmas"}}</a>
   <span id="blocker">|</span>
   <a class="show_link new_year">{{t "new_year"}}</a>
 </div>
-<div id="link">
+<div class="link">
   <span>{{t "instruction"}}</span>
   <code class="command"/>
 </div>

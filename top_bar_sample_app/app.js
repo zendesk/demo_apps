@@ -12,7 +12,7 @@
       'pane.deactivated': 'stopMusic',
       'notification.christmas': 'christmas',
       'notification.new_year': 'newYear',
-      'click .show_link': 'showLink',
+      'click .show_link': 'showLink'
 
     },
 
@@ -30,14 +30,14 @@
     },
 
     playMusic: function() {
-      this.$('#player').css('background-image', 'url(' + this.pictureURL + ')');
-      this.audio = this.$('#player_audio')[0];
+      this.$('.player').css('background-image', 'url(' + this.pictureURL + ')');
+      this.audio = this.$('.player_audio')[0];
       this.audio.play();
       this.intId = setInterval(function() {
         var width = getRandomInt(600, 1500);
         var height = width * 2 / 3;
         var backgroundSize = width.toString() + "px " + height.toString() + "px";
-        this.$('#player').css('background-size', backgroundSize);
+        this.$('.player').css('background-size', backgroundSize);
         this.popover({
           width: width + 20,
           height: height + 100
@@ -64,13 +64,13 @@
     },
 
     stopMusic: function() {
-      if(this.isNotified) {
+      if (this.isNotified) {
         clearInterval(this.intId);
         this.audio.pause();
       }
       this.switchTo('index');
       this.isNotified = false;
-      this.popover({width: 400, height: 250});
+      this.popover({ width: 400, height: 250 });
 
     },
 
@@ -79,6 +79,7 @@
       var startIndex = "show_link".length + 1;
       var eventName = e.toElement.className.substring(startIndex);
       var uri = e.currentTarget.baseURI.split("/")[2];
+      //create command
       var command = this.I18n.t('command', {
         app_id: this.id(),
         event: eventName,
@@ -86,7 +87,7 @@
         email: this.currentUser().email()
       });
       this.$('code').text(command);
-      this.$('#link').css('display','block');
+      this.$('.link').css('display','block');
     }
 };
 

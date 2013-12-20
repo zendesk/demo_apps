@@ -5,7 +5,7 @@ section[data-main] {
   height: 95%;
 }
 
-#player {
+.player {
   position: absolute;
   left: 50%;
   width: 100%;
@@ -15,32 +15,32 @@ section[data-main] {
   background-size: 1024px 560px;
 }
 
-#start_page {
+.start_page {
   /*background-color: rgb(180,0,30);*/
   text-align: center;
 }
 
-#start_page a, #blocker {
+.start_page a, #blocker {
   color: rgb(130,160,0);
   font-size: 16px;
 }
 
-#start_page a:hover {
+.start_page a:hover {
   background-color: rgb(245, 245, 245);
 }
 
-#link {
+.link {
   display: none;
   border-top-color: black;
   border-top-width: 10px;
 }
 
-#link code {
+.link code {
   display: block;
   float: right;
   background-color: rgb(245, 245, 245);
 }
 
-#link span {
+.link span {
   font-weight: bold;
 }
