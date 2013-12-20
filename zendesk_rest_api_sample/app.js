@@ -1,6 +1,10 @@
 /* globals confirm, FormData */
 
 (function() {
+  'use strict';
+
+  // complete app API reference can be found at
+  // http://developer.zendesk.com/documentation/rest_api/apps.html
 
   var INSTALLATIONS_URI = '/api/v2/apps/installations.json',
       INSTALLATION_URI  = '/api/v2/apps/installations/%@',
@@ -86,7 +90,8 @@
       // Installations
       'click .activate':                'activateApp',
       'click .deactivate':              'deactivateApp',
-      'click .delete':                  'deleteApp',
+      'click .delete':                  'setDoomed',
+      'click .agree-delete':            'deleteApp',
       'click .available-apps .install': 'startInstall',
       'click .install-button':          'setInstall',
 
@@ -156,15 +161,12 @@
       this.ajax('deactivate', appId);
     },
 
-    deleteApp: function(e) {
-      var appId     = this.$(e.target).data('id'),
-          challenge = confirm(this.I18n.t('confirm_delete'));
+    setDoomed: function(e) {
+      this.doomed = this.$(e.target).data('id');
+    },
 
-      if (challenge === true) {
-        this.ajax('deleteInstallation', appId);
-      } else {
-        return;
-      }
+    deleteApp: function() {
+      this.ajax('deleteInstallation', this.doomed);
     },
 
     // INSTALL
@@ -176,6 +178,7 @@
 
       for(var i = 0; i < apps.length; ++i) {
         if (apps[i].id === appId) {
+          console.log(apps[i]);
           self.switchTo('install', apps[i]);
           return;
         }
@@ -209,8 +212,6 @@
           appName  = this.$('.name').first().val(),
           appDesc  = this.$('.short_description').first().val();
 
-      // To update an existing app, replace 'name' with 'app_id',
-      // where the value is the ID of the app to be updated
       var requestData = {
         'upload_id': uploadId,
         'name': appName,

@@ -12,6 +12,11 @@
     "title": "app name"
   },
 
+  "cancel": {
+    "value": "cancel",
+    "title": "cancel installation"
+  },
+
   "install": {
     "value": "Install",
     "title": "to install an app"
@@ -40,11 +45,6 @@
   "delete": {
     "value": "Delete",
     "title": "to delete an app"
-  },
-
-  "required": {
-    "value": "Required",
-    "title": "the field is required"
   },
 
   "list_app": {
