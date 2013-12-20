@@ -17,4 +17,4 @@ Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new)
 
 ### Screenshot(s):
 
-![](http://f.cl.ly/items/291W002y0U1f1g3t0L3K/modal.gif)
+![modal](http://f.cl.ly/items/291W002y0U1f1g3t0L3K/modal.gif)
