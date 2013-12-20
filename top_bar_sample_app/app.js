@@ -1,6 +1,5 @@
 (function() {
 
-
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
@@ -19,11 +18,11 @@
 
     startPage: function() {
       this.switchTo('index');
-      this.popover({width: 480, height: 320});
+      this.popover({ width: 480, height: 320 });
     },
 
     paneOnActivated: function() {
-      if(this.isNotified) {
+      if (this.isNotified) {
         this.playMusic();
       } else {
         this.startPage();
@@ -32,18 +31,18 @@
 
     playMusic: function() {
       this.$('#player').css('background-image', 'url(' + this.pictureURL + ')');
-        this.audio = this.$('#player_audio')[0];
-        this.audio.play();
-        this.intId = setInterval(function() {
-          var width = getRandomInt(600, 1500);
-          var height = width*2/3;
-          var backgroundSize = width.toString() + "px " + height.toString() + "px";
-          this.$('#player').css('background-size', backgroundSize);
-          this.popover({
-            width: width + 20,
-            height: height + 100
-          });
-        }.bind(this), 100);
+      this.audio = this.$('#player_audio')[0];
+      this.audio.play();
+      this.intId = setInterval(function() {
+        var width = getRandomInt(600, 1500);
+        var height = width * 2 / 3;
+        var backgroundSize = width.toString() + "px " + height.toString() + "px";
+        this.$('#player').css('background-size', backgroundSize);
+        this.popover({
+          width: width + 20,
+          height: height + 100
+        });
+      }.bind(this), 100);
     },
 
     christmas: function() {
@@ -76,7 +75,6 @@
     },
 
     showLink: function(e) {
-      //console.log(e);
       //substring to grab to class name
       var startIndex = "show_link".length + 1;
       var eventName = e.toElement.className.substring(startIndex);
@@ -90,6 +88,6 @@
       this.$('code').text(command);
       this.$('#link').css('display','block');
     }
-  };
+};
 
 }());
