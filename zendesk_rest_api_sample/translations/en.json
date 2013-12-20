@@ -75,5 +75,10 @@
   "confirm_delete": {
     "value": "No really, this will delete the installation. Are you sure?",
     "title": "confirm about deleting the app"
+  },
+
+  "logo": {
+    "value": "App logo",
+    "title": "app logo alt"
   }
 }

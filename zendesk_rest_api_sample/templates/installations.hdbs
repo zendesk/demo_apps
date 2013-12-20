@@ -6,10 +6,10 @@
     <div class="app-box">
       ({{id}}) {{settings.title}}<br />
     {{#if enabled}}
-      <img class="app-inline-logo" src="/api/v2/apps/{{app_id}}/assets/logo-small.png" alt="App Logo">
+      <img class="app-inline-logo" src="/api/v2/apps/{{app_id}}/assets/logo-small.png" alt="{{t "logo"}}">
       <a class="deactivate" data-id="{{id}}">{{t "deactivate"}}</a>
     {{else}}
-      <img class="app-inline-logo" src="/api/v2/apps/{{app_id}}/assets/logo-small.png" alt="App Logo" style="opacity: 0.5">
+      <img class="app-inline-logo" src="/api/v2/apps/{{app_id}}/assets/logo-small.png" alt="{{t "logo"}}" style="opacity: 0.5">
       <a class="activate" data-id="{{id}}">{{t "activate"}}</a>
     {{/if}}
       or

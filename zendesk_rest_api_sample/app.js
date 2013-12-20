@@ -1,4 +1,4 @@
-/* globals confirm, FormData */
+/* globals FormData */
 
 (function() {
   'use strict';
@@ -86,6 +86,7 @@
 
     events: {
       'app.activated': 'initialize',
+      'app.willDestroy': 'cleanUp',
 
       // Installations
       'click .activate':                'activateApp',
@@ -200,8 +201,8 @@
     // UPLOAD & BUILD
 
     uploadApp: function() {
-      var form     = this.$('.zip_upload')[0];
-      var formData = new FormData(form);
+      var form     = this.$('.zip_upload').get(0),
+          formData = new FormData(form);
 
       this.showSpinner(true);
       this.ajax('uploadApp', formData);
@@ -224,7 +225,7 @@
     pollProgress: function(jobId) {
       var self = this;
 
-      setTimeout(function(){
+      this.pollTimeout = setTimeout(function(){
         self.ajax('jobStatus', jobId);
       }, 1500);
     },
@@ -243,6 +244,10 @@
     },
 
     // HELPERS
+
+    cleanUp: function() {
+      clearTimeout(this.pollTimeout);
+    },
 
     getData: function(f) {
       var self = this;
@@ -290,6 +295,7 @@
       this.$('.nav-pills li').removeClass('active');
       this.$('.nav-pills li' + itemClass).addClass('active');
     }
+
   };
 
 }());
