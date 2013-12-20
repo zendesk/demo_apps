@@ -1,4 +1,3 @@
-
 section[data-main] {
   position: relative;
   width: 99%;
@@ -16,7 +15,6 @@ section[data-main] {
 }
 
 .start_page {
-  /*background-color: rgb(180,0,30);*/
   text-align: center;
 }
 
