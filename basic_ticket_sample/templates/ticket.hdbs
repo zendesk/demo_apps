@@ -1,7 +1,7 @@
 <div class="view_container">
   <h4>{{t "ticket.info"}}</h4>
   <div class="left_col">
-    <h5>{{t "ticket.type"}} </h5>
+    <h5>{{t "ticket.type"}}</h5>
     <select class="tickettypeset" data-zd-type="select_menu">
       {{#each ticketTypes}}
       <option value="{{this.value}}">{{this.name}}</option>
