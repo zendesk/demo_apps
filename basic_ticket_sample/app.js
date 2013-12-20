@@ -1,4 +1,3 @@
-/*global FormData*/
 (function() {
 
   return { // the entire app goes inside this return block!
@@ -17,13 +16,13 @@
     requests: {
     },
 
-    initialize: function(data) {// function called when we load or the ticket type is modified 
+    initialize: function(data) {// function called when we load or the ticket type is modified
       if (data.firstLoad) {
         this.switchTo('main');
       }
     },
 
-    /* UI Events */
+    // UI Events
 
     // This function is called when the user changes the tab being viewed
     tabClicked: function(data) {
@@ -58,7 +57,7 @@
       if (data.propertyName == 'ticket.type' && data.newValue != this.$('.tickettypeset').zdSelectMenu('value')) {
       // The ticket type changed in Zendesk - better change it in our app but not if we initiated the change from the app, that would be an endless loop!
         this.$('.tickettypeset').zdSelectMenu('setValue', data.newValue);
-      } 
+      }
       else if (data.propertyName == 'ticket.collaborators') {
        // We could copy the code out of the newCCs function below and put it here
       }
