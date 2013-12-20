@@ -1,8 +1,16 @@
 (function() {
 
+  'use strict';
+
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
+  var MIN = 600,
+      MAX = 1500,
+      WIDTH_BORDER = 20,
+      HEIGHT_BORDER = 100,
+      INTERVAL = 100;
 
   return {
 
@@ -34,15 +42,15 @@
       this.audio = this.$('.player_audio')[0];
       this.audio.play();
       this.intId = setInterval(function() {
-        var width = getRandomInt(600, 1500);
+        var width = getRandomInt(MIN, MAX);
         var height = width * 2 / 3;
         var backgroundSize = width.toString() + "px " + height.toString() + "px";
         this.$('.player').css('background-size', backgroundSize);
         this.popover({
-          width: width + 20,
-          height: height + 100
+          width: width + WIDTH_BORDER,
+          height: height + HEIGHT_BORDER
         });
-      }.bind(this), 100);
+      }.bind(this), INTERVAL);
     },
 
     christmas: function() {
