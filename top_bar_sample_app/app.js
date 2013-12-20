@@ -10,7 +10,11 @@
       MAX = 1500,
       WIDTH_BORDER = 20,
       HEIGHT_BORDER = 100,
-      INTERVAL = 100;
+      INTERVAL = 100,
+      RATIO_TOP = 2,
+      RATIO_BOTTOM = 3,
+      INDEX_WIDTH = 400,
+      INDEX_HEIGHT = 320;
 
   return {
 
@@ -26,7 +30,7 @@
 
     startPage: function() {
       this.switchTo('index');
-      this.popover({ width: 480, height: 320 });
+      this.popover({ width: INDEX_WIDTH, height: INDEX_HEIGHT });
     },
 
     paneOnActivated: function() {
@@ -43,7 +47,7 @@
       this.audio.play();
       this.intId = setInterval(function() {
         var width = getRandomInt(MIN, MAX);
-        var height = width * 2 / 3;
+        var height = width * RATIO_TOP / RATIO_BOTTOM;
         var backgroundSize = width.toString() + "px " + height.toString() + "px";
         this.$('.player').css('background-size', backgroundSize);
         this.popover({
@@ -76,7 +80,7 @@
         this.stopMusic();
         this.switchTo('index');
         this.isNotified = false;
-        this.popover({ width: 400, height: 250 });
+        this.popover({ width: INDEX_WIDTH, height: INDEX_HEIGHT });
       }
     },
 
