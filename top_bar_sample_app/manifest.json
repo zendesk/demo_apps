@@ -1,8 +1,8 @@
 {
   "name": "top_bar_sample_app",
   "author": {
-    "name": "Daniel Sun",
-    "email": "hsun@zendesk.com"
+    "name": "Zendesk",
+    "email": "support@zendesk.com"
   },
   "defaultLocale": "en",
   "private": true,
