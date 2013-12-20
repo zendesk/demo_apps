@@ -6,21 +6,21 @@ section[data-main] {
 }
 
 #player {
-  position:absolute;
-  left:50%;
-  width:100%;
-  height:100%;
-  margin-left:-512px;
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  margin-left: -512px;
   background-repeat: no-repeat;
   background-size: 1024px 560px;
 }
 
 #start_page {
   /*background-color: rgb(180,0,30);*/
-  text-align:center;
+  text-align: center;
 }
 
-#start_page a,#blocker {
+#start_page a, #blocker {
   color: rgb(130,160,0);
   font-size: 16px;
 }
@@ -30,18 +30,17 @@ section[data-main] {
 }
 
 #link {
-  display:none;
-  border-top-color:black;
-  border-top-width:10px;
+  display: none;
+  border-top-color: black;
+  border-top-width: 10px;
 }
 
 #link code {
   display: block;
-  float:right;
+  float: right;
   background-color: rgb(245, 245, 245);
 }
 
 #link span {
   font-weight: bold;
-  font-style:Arial;
 }
