@@ -1,0 +1,11 @@
+{
+  "name": "Zendesk REST API Sample App",
+  "author": {
+    "name": "Zendesk",
+    "email": "support@zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": ["nav_bar", "ticket_sidebar"],
+  "frameworkVersion": "1.0"
+}
