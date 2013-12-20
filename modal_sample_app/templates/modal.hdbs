@@ -14,12 +14,12 @@
 </div>
 <!-- call the modal division above -->
 <div class="modal_button_cell">
-  <a class="btn btn-large" data-toggle="modal" data-target=".my_modal"> {{t "modal_button"}} </a>
+  <a class="btn btn-large" data-toggle="modal" data-target=".my_modal">{{t "modal_button"}}</a>
 </div>
 {{#if modal_body}}
   <h3>{{modal_body}}</h3>
 {{/if}}
 <!-- invoke a javascript call to switch to the Javascript alternative. -->
 <div class="modal_button_cell">
-  <a class="modal_switch_javascript"> {{t "javascript_link"}} </a>
+  <a class="modal_switch_javascript">{{t "javascript_link"}}</a>
 </div>
