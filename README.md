@@ -19,7 +19,7 @@ Interesting features:
 
 ### [Basic Ticket Sample App](./basic_ticket_sample)
 
-This app displays three tabs displaying info about the ticket, agent and account, pull some data from a remote API.
+This app presents info about the current ticket, agent and account.
 
 Interesting features:
 

@@ -56,8 +56,8 @@
     },
 
     detectedChange: function(data) {
-      if (data.propertyName == 'ticket.type' && data.newValue != this.$('.tickettypeset').zdSelectMenu('value'))
-      { // The ticket type changed in Zendesk - better change it in our app but not if we initiated the change from the app, that would be an endless loop!
+      if (data.propertyName == 'ticket.type' && data.newValue != this.$('.tickettypeset').zdSelectMenu('value')) {
+      // The ticket type changed in Zendesk - better change it in our app but not if we initiated the change from the app, that would be an endless loop!
         this.$('.tickettypeset').zdSelectMenu('setValue', data.newValue);
       } 
       else if (data.propertyName == 'ticket.collaborators') {
