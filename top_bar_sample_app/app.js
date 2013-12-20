@@ -9,7 +9,7 @@
     events: {
 
       'pane.activated': 'paneOnActivated',
-      'pane.deactivated': 'stopMusic',
+      'pane.deactivated': 'paneOnDeactivated',
       'notification.christmas': 'christmas',
       'notification.new_year': 'newYear',
       'click .show_link': 'showLink'
@@ -63,15 +63,18 @@
       this.popover();
     },
 
-    stopMusic: function() {
-      if (this.isNotified) {
-        clearInterval(this.intId);
-        this.audio.pause();
+    paneOnDeactivated: function() {
+      if(this.isNotified){
+        this.stopMusic();
+        this.switchTo('index');
+        this.isNotified = false;
+        this.popover({ width: 400, height: 250 });
       }
-      this.switchTo('index');
-      this.isNotified = false;
-      this.popover({ width: 400, height: 250 });
+    },
 
+    stopMusic: function() {
+      clearInterval(this.intId);
+      this.audio.pause();
     },
 
     showLink: function(e) {
@@ -89,6 +92,6 @@
       this.$('code').text(command);
       this.$('.link').css('display','block');
     }
-};
+  };
 
 }());
