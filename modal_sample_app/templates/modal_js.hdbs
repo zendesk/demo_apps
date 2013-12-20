@@ -1,11 +1,9 @@
 <div class="modal_button_cell">
-  <br><div>{{t "modal_js_title"}}</div><br>
+  <div>{{t "modal_js_title"}}</div>
   <a class="btn btn-large toggle_modal_javascript">{{t "modal_button"}}</a>
 </div>
-<br>
 {{#if modal_body}}
-<h3>{{modal_body}}</h3>
-<br>
+  <h3>{{modal_body}}</h3>
 {{/if}}
 <!-- invoke a javascript call to switch to the attribute alternative. -->
 <div class="modal_button_cell">
