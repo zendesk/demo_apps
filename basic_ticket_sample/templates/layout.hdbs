@@ -4,13 +4,11 @@
   <aside>{{t "layout.subheading"}}</aside>
 </header>
 <ul class="nav nav-pills">
-<li class="account"><a>{{t "layout.account"}}</a></li>
-<li class="user"><a>{{t "layout.user"}}</a></li>
-<li class="ticket"><a>{{t "layout.ticket"}}</a></li>
+  <li class="account"><a>{{t "layout.account"}}</a></li>
+  <li class="user"><a>{{t "layout.user"}}</a></li>
+  <li class="ticket"><a>{{t "layout.ticket"}}</a></li>
 </ul>
 <section data-main />
 <footer>
-  <br /><a href="mailto:{{author.email}}">
-    {{author.name}}
-  </a>
+  <a href="mailto:{{author.email}}">{{author.name}}</a>
 </footer>

@@ -1,6 +1,12 @@
 <div class="view_container">
-<h4>{{t "account.info"}}</h4>
-<div id="left_col"><strong>{{t "account.subdomain"}}</strong><p><em class="subdomain">{{subdomain}}</em>.zendesk.com</p></div>
-<div id="right_col"><strong>{{t "account.id"}}</strong><p>{{id}}</p></div>
-<div class="ui-helper-clearfix"></div>
+  <h4>{{t "account.info"}}</h4>
+  <div id="left_col">
+    <subhead>{{t "account.subdomain"}}</subhead>
+    <p><em class="subdomain">{{subdomain}}</em>.zendesk.com</p>
+  </div>
+  <div id="right_col">
+    <subhead>{{t "account.id"}}</subhead>
+    <p>{{id}}</p>
+  </div>
+  <div class="ui-helper-clearfix"></div>
 </div>

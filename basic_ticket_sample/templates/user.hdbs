@@ -1,12 +1,26 @@
 <div class="view_container">
-<h4>{{t "agent.info"}}</h4>
-<div id="left_col"><strong>{{t "agent.username"}}</strong><p>{{uname}}</p><br /><strong>{{t "agent.role"}}</strong><ul class="userroleget">
-	{{#each userRoles}}
-	<li value="{{this.value}}">{{this.name}}</li>{{/each}}
-	</ul><br /></div>
-<div id="right_col"><strong>{{t "agent.email"}}</strong><p>{{uemail}}</p><br /><strong>{{t "agent.groups"}}</strong><ul class="userroleget">
-	{{#each ugroups}}
-	<li>{{t "agent.group"}} <strong>{{this.group}}</strong> {{t "agent.id"}} {{this.id}}</li>{{else}}<li>{{t "agent.nogroups"}}</li>{{/each}}
-	</ul></div>
-<div style="clear: both;"></div>
+  <h4>{{t "agent.info"}}</h4>
+  <div id="left_col">
+    <subhead>{{t "agent.username"}}</subhead>
+    <p>{{uname}}</p>
+    <subhead>{{t "agent.role"}}</subhead>
+    <ul class="userroleget">
+      {{#each userRoles}}
+      <li value="{{this.value}}">{{this.name}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  <div id="right_col">
+    <subhead>{{t "agent.email"}}</subhead>
+    <p>{{uemail}}</p>
+    <subhead>{{t "agent.groups"}}</subhead>
+    <ul class="userroleget">
+      {{#each ugroups}}
+      <li>{{t "agent.group"}} <strong>{{this.group}}</strong> {{t "agent.id"}} {{this.id}}</li>
+      {{else}}
+      <li>{{t "agent.nogroups"}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="ui-helper-clearfix"></div>
 </div>
