@@ -70,7 +70,7 @@
       var ccArray  = [], // this array and analogous ones further down are used because Handlebars won't call functions, so we need to pass in properties
       theTicket    = this.ticket(),
       ticketTypes  = ['question', 'problem', 'incident', 'task'].map(function(type) {
-        return { name: this.I18n.t('ticket.types.' + type),  value: type };
+        return { name: this.I18n.t('ticket.types.' + type), value: type };
       }); // NOTE: In the user tab, we have a similar menu to this in the templates/user.hdbs file statically
 
       _.each(theTicket.collaborators(), function(collaborator) {
