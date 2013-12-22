@@ -5,9 +5,10 @@
     <p>{{uname}}</p>
     <h5>{{t "agent.role"}}</h5>
     <ul class="userroleget">
-      {{#each userRoles}}
-      <li value="{{this.value}}">{{this.name}}</li>
-      {{/each}}
+      <li data-role="end-user">{{t "agent.roles.end-user"}}</li>
+      <li data-role="agent">{{t "agent.roles.agent"}}</li>
+      <li data-role="admin">{{t "agent.roles.admin"}}</li>
+      <li data-role="other">{{t "agent.roles.other"}}</li>
     </ul>
   </div>
   <div class="right_col">
