@@ -16,7 +16,7 @@
     requests: {
     },
 
-    initialize: function(data) {// function called when we load
+    initialize: function(data) { // function called when we load
       if (data.firstLoad) {
         this.switchTo('main');
       }
@@ -44,7 +44,7 @@
       }
     },
 
-    newTicketType: function() {// The ticket type has been changed in our app - better change it in Zendesk
+    newTicketType: function() { // The ticket type has been changed in our app - better change it in Zendesk
       var newType = this.$('.tickettypeset').zdSelectMenu('value'); // note: you can't use all of jQuery here but selectors are OK
       if (this.ticket().type() != newType) {
         this.ticket().type(newType);
@@ -66,7 +66,7 @@
       this.generateTicketView();
     },
 
-    generateTicketView: function() {// Draw the 'Ticket' tab
+    generateTicketView: function() { // Draw the 'Ticket' tab
       var ccArray  = [], // this array and analogous ones further down are used because Handlebars won't call functions, so we need to pass in properties
       theTicket    = this.ticket(),
       ticketTypes  = ['question', 'problem', 'incident', 'task'].map(function(type) {
@@ -90,7 +90,7 @@
       this.$('.tickettypeset').zdSelectMenu('setValue', theTicket.type()); // initialise the Zendesk-style dropdown to the actual value
     },
 
-    generateUserView: function() {// draw the User tab
+    generateUserView: function() { // draw the User tab
       var groupArray = [], // this is similar to ccArray in the ticket view - check out the underscore library at http://underscorejs.org
       theUser        = this.currentUser(),
       userRole       = theUser.role(),

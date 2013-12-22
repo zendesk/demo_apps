@@ -47,12 +47,12 @@ h5 {
 }
 
 .right_col {
-  float:right;
+  float: right;
   margin-top: 8px;
 }
 
 .subdomain {
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
 .userroleget {
