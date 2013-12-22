@@ -2,7 +2,7 @@
 
 # iFrame Sample App
 
-This is the iFrame Sample App for the new Zendesk app marketplace that is available at all app locations in Lotus, including nav_bar, top_bar, ticket_sidebar, new_ticket_sidebar, and user_sidebar. See [Manifest](http://developer.zendesk.com/documentation/apps/manifest.html) for more details about locations.
+This is the iFrame Sample App for the Zendesk App marketplace that is available at all app locations in the new Zendesk interface, including nav_bar, top_bar, ticket_sidebar, new_ticket_sidebar, and user_sidebar. See [Manifest](http://developer.zendesk.com/documentation/apps/manifest.html) for more details about locations.
 
 This app aims to be a good start to learn how to iframe things of different sizes and methods.
 
