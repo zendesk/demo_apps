@@ -68,12 +68,12 @@
 
     generateTicketView: function() { // Draw the 'Ticket' tab
       var ccArray  = [], // this array and analogous ones further down are used because Handlebars won't call functions, so we need to pass in properties
-      theTicket    = this.ticket(),
+      ticket    = this.ticket(),
       ticketTypes  = ['question', 'problem', 'incident', 'task'].map(function(type) {
         return { name: this.I18n.t('ticket.types.' + type), value: type };
       }); // NOTE: In the user tab, we have a similar menu to this in the templates/user.hdbs file statically
 
-      _.each(theTicket.collaborators(), function(collaborator) {
+      _.each(ticket.collaborators(), function(collaborator) {
         ccArray.push({
           email: collaborator.email(), // .email() is the function call we are replacing with the .email property
           role:  collaborator.role() || 'Not registered'
@@ -81,34 +81,34 @@
       });
 
       this.switchTo('ticket', { // render the ticket.hdbs template
-        ticketType:     theTicket.type(),
-        ticketSubject:  theTicket.subject(),
+        ticketType:     ticket.type(),
+        ticketSubject:  ticket.subject(),
         ticketTypes:    ticketTypes,
         ticketCCs:      ccArray
       });
 
-      this.$('.tickettypeset').zdSelectMenu('setValue', theTicket.type()); // initialise the Zendesk-style dropdown to the actual value
+      this.$('.tickettypeset').zdSelectMenu('setValue', ticket.type()); // initialise the Zendesk-style dropdown to the actual value
     },
 
     generateUserView: function() { // draw the User tab
       var groupArray = [], // this is similar to ccArray in the ticket view - check out the underscore library at http://underscorejs.org
-      theUser        = this.currentUser(),
-      userRole       = theUser.role(),
+      user        = this.currentUser(),
+      userRole       = user.role(),
       roleToSelect, roleSelector;
 
-      _.each(theUser.groups(), function(group, key) {
+      _.each(user.groups(), function(group, key) {
         this[key]       = {group: '', id: ''};
         this[key].group = group.name();
         this[key].id    = group.id();
       }, groupArray);
 
       this.switchTo('user', {
-        uid:        theUser.id(),
-        uemail:     theUser.email(),
-        uname:      theUser.name(),
+        uid:        user.id(),
+        uemail:     user.email(),
+        uname:      user.name(),
         urole:      userRole,
         ugroups:    groupArray,
-        uexternid:  theUser.externalId()
+        uexternid:  user.externalId()
       });
 
       // Bold the agent's role:
