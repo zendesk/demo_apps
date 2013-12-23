@@ -1,0 +1,17 @@
+<form class="install-form">
+  <ul class="parameters">
+  {{#each parameters}}
+    <li>
+      <label for="settings[{{name}}]">
+        {{#if required}}<b>{{/if}}{{name}}{{#if required}}</b>{{/if}}
+      </label>
+      <input name="settings[{{name}}]" type="{{kind}}" {{#if required}}required="required"{{/if}}>
+    </li>
+  {{/each}}
+  </ul>
+  <p>
+    <button class="install-button btn btn-inverse" data-id="{{id}}">
+      {{t "install"}}
+    </button>
+  </p>
+</form>
