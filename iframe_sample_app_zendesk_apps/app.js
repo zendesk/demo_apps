@@ -21,7 +21,7 @@
       }
     },
 
-    showIframe: function(dimensions, href) {
+    showIframe: function(dimensions) {
       this.switchTo('iframePage', {
         dimension: dimensions,
         href: SIDE_BAR_HREF
