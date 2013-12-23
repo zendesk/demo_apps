@@ -71,7 +71,7 @@
       ticket    = this.ticket(),
       ticketTypes  = ['question', 'problem', 'incident', 'task'].map(function(type) {
         return { name: this.I18n.t('ticket.types.' + type), value: type };
-      }); // NOTE: In the user tab, we have a similar menu to this in the templates/user.hdbs file statically
+      }.bind(this)); // NOTE: In the user tab, we have a similar menu to this in the templates/user.hdbs file statically
 
       _.each(ticket.collaborators(), function(collaborator) {
         ccArray.push({
