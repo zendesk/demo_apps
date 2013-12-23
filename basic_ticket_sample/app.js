@@ -68,10 +68,7 @@
 
     generateTicketView: function() { // Draw the 'Ticket' tab
       var ccArray  = [], // this array and analogous ones further down are used because Handlebars won't call functions, so we need to pass in properties
-      ticket    = this.ticket(),
-      ticketTypes  = ['question', 'problem', 'incident', 'task'].map(function(type) {
-        return { name: this.I18n.t('ticket.types.' + type), value: type };
-      }.bind(this)); // NOTE: In the user tab, we have a similar menu to this in the templates/user.hdbs file statically
+          ticket   = this.ticket();
 
       _.each(ticket.collaborators(), function(collaborator) {
         ccArray.push({
@@ -83,7 +80,6 @@
       this.switchTo('ticket', { // render the ticket.hdbs template
         ticketType:     ticket.type(),
         ticketSubject:  ticket.subject(),
-        ticketTypes:    ticketTypes,
         ticketCCs:      ccArray
       });
 

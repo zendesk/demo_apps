@@ -3,9 +3,10 @@
   <div class="left_col">
     <h5>{{t "ticket.type"}}</h5>
     <select class="tickettypeset" data-zd-type="select_menu">
-      {{#each ticketTypes}}
-      <option value="{{this.value}}">{{this.name}}</option>
-      {{/each}}
+      <option value="question">{{t "ticket.types.question"}}</option>
+      <option value="problem">{{t "ticket.types.problem"}}</option>
+      <option value="incident">{{t "ticket.types.incident"}}</option>
+      <option value="task">{{t "ticket.types.task"}}</option>
     </select>
   </div>
   <div class="right_col">
