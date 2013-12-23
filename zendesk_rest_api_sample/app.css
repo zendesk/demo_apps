@@ -1,0 +1,111 @@
+h4, h5 {
+  border-bottom: 1px dotted #cccccc;
+  margin-top: 20px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+p {
+  margin: 10px 0 12px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.loading {
+  opacity: 0.5;
+}
+
+.loading-spinner {
+  display: none;
+}
+
+.parameters,
+.create-app {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin-top: 10px;
+  }
+}
+
+.navigation {
+  border-bottom: 1px dotted #cccccc;
+  margin-bottom: 8px;
+
+  .nav {
+    list-style: none;
+    margin-bottom: 14px;
+
+    li {
+      margin-right: 8px;
+    }
+  }
+}
+
+.installations {
+
+  li {
+    &:not(.enabled) {
+      color: #cccccc;
+    }
+  }
+
+  .delete {
+    color: red;
+  }
+
+}
+
+.available-apps,
+.installations {
+
+  .inline {
+    float: left;
+    margin-bottom: 5px;
+    margin-right: 20px;
+    width: 300px;
+  }
+
+}
+
+.app-box {
+  padding: 8px 0 8px 55px;
+  position: relative;
+
+  &:before {
+    background-color: #95BE22;
+    content: "";
+    height: 70%;
+    left: 0;
+    position: absolute;
+    top: 15%;
+    width: 2px;
+  }
+
+}
+
+.installations {
+  li:not(.enabled) {
+    .app-box:before {
+      background-color: red;
+    }
+  }
+}
+
+.app-inline-logo {
+  height: 70%;
+  left: 5px;
+  position: absolute;
+  top: 15%;
+}
+
+.scroll-list {
+  max-height: 400px;
+  overflow-y: scroll;
+}
