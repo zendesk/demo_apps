@@ -2,7 +2,7 @@
   "app": {
     "package": "modal_sample_app",
     "description":  {
-      "value": "Discover all about modal specific events, and two ways of invoking a modal",
+      "value": "Discover all about modal specific events, and invoking a modal",
       "title": "app description"
     },
 
@@ -13,7 +13,7 @@
   },
 
   "description": {
-    "value": "This is a sample modal app that illustrates two ways of invoking modals in ZAF. ",
+    "value": "This is a simple sample modal app that illustrates how to use data attribute to invoke modal.",
     "title": "in app instruction"
   },
 
