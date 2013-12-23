@@ -36,3 +36,12 @@ Interesting features:
 * Ajax requests and handling
 * Zendesk-style menus
 * Zendesk APIs
+
+### [iFrame Sample App](./iframe_sample_app_zendesk_apps)
+
+This app demonstrates how to iframe a webpage in an app.
+
+Interesting features:
+
+* iframe resizing
+* Zendesk Apps locations
