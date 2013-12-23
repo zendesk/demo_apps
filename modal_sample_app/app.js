@@ -3,11 +3,11 @@
   return {
 
     events: {
-      'app.activated': 'modalAttr',
-      'hidden .my_modal': 'onHidden'
+      'app.activated': 'init',
+      'hidden .my_modal': 'afterHidden' // The 'hidden' event is fired when the modal (.my_modal) has finished being hidden from the user (will wait for css transitions to complete).
     },
 
-    modalAttr: function () {
+    init: function () {
       this.switchTo('modal', {
         header: this.I18n.t('modal_header'),
         body: this.I18n.t('modal_body')
@@ -15,7 +15,7 @@
 
     },
 
-    onHidden: function () {
+    afterHidden: function () {
       console.log("hidden in Process");
     }
 
