@@ -8,14 +8,9 @@ This app aims to be a good start to learn how to iframe things of different size
 
 ### The following information is displayed:
 
-* This app displays the [Zendesk Apps Introduction page](http://developer.zendesk.com/documentation/apps/introduction.html) in an iFrame.
+* This app displays the [Zendesk Apps Introduction page](http://developer.zendesk.com/documentation/apps/introduction.html) when it activates in the user_sidebar, ticket_sidebar, and new_ticket_sidebar.
 
-* This app also displays the [Zendesk Support page](http://support.zendesk.com) in an iFrame.
-
-* The Zendesk Apps Introduction page is available when the app is activated in top_bar and nav_bar.
-
-* The Zendesk Support page is available when the app is activated in user_sidebar, ticket_sidebar, and new_ticket_sidebar.
-
+* This app displays the [Wikipedia](http://www.wikipedia.com) when it activates in top_bar and nav_bar locations.
 
 Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
 
