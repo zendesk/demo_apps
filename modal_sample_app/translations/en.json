@@ -1,0 +1,45 @@
+{
+  "app": {
+    "package": "modal_sample_app",
+    "description":  {
+      "value": "Discover all about modal specific events, and invoking a modal",
+      "title": "app description"
+    },
+
+    "name": {
+      "value": "Modal Sample App",
+      "title": "app name"
+    }
+  },
+
+  "description": {
+    "value": "This is a simple sample modal app that illustrates how to use data attribute to invoke modal.",
+    "title": "in app instruction"
+  },
+
+  "modal_button": {
+    "value": "Toggle Modal",
+    "title": "Message on the button in the sidebar app interface"
+  },
+
+  "save_button": {
+    "value": "Save Changes",
+    "title": "Message on the save button in modal"
+  },
+
+  "close_button": {
+    "value": "Close",
+    "title": "Message on the close button in modal"
+  },
+
+  "modal_header": {
+   "value": "This modal is invoked via Data Attribute",
+   "title": "Header message inside the modal window"
+  },
+
+  "modal_body": {
+    "value": "Keep Calm! Make a Zendesk App.",
+    "title": "Message inside a modal window that plays on the 'Keep Calm! Make a Zendesk App' phase"
+  }
+
+}

@@ -45,3 +45,14 @@ Interesting features:
 
 * iframe resizing
 * Zendesk Apps locations
+
+### [Modal Sample App 1](./modal_sample_app)
+
+This app demonstrates how to toggle a modal via data attributes.
+
+* Location: ticket sidebar and new ticket sidebar.
+* Use of I18n
+* Use of the 'hidden' modal event
+* Toggle modal via data attribute (data-toggle)
+* Hide modal via data attribute (data-dismiss)
+
