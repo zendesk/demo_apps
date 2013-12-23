@@ -17,6 +17,16 @@ Interesting features:
 * Zendesk-style tags and colors
 * Zendesk user profile APIs
 
+### [Zendesk REST API Sample App](./zendesk_rest_api_sample)
+
+This app shows you how to utilize the Zendesk API from a Zendesk App. It uses the Apps API as an example.
+
+Interesting features:
+
+* Use of the Apps API (installations, creations, updates)
+* Use of the Zendesk API from an App
+* Zendesk REST API
+
 ### [Basic Ticket Sample App](./basic_ticket_sample)
 
 This app presents info about the current ticket, agent and account.
@@ -26,5 +36,3 @@ Interesting features:
 * Ajax requests and handling
 * Zendesk-style menus
 * Zendesk APIs
-
-
