@@ -1,0 +1,12 @@
+<div class="view_container">
+  <h4>{{t "account.info"}}</h4>
+  <div class="left_col">
+    <h5>{{t "account.subdomain"}}</h5>
+    <p><em class="subdomain">{{subdomain}}</em>.zendesk.com</p>
+  </div>
+  <div class="right_col">
+    <h5>{{t "account.id"}}</h5>
+    <p>{{id}}</p>
+  </div>
+  <div class="ui-helper-clearfix"></div>
+</div>

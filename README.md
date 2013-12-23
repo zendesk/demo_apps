@@ -27,4 +27,12 @@ Interesting features:
 * Use of the Zendesk API from an App
 * Zendesk REST API
 
+### [Basic Ticket Sample App](./basic_ticket_sample)
 
+This app presents info about the current ticket, agent and account.
+
+Interesting features:
+
+* Ajax requests and handling
+* Zendesk-style menus
+* Zendesk APIs
