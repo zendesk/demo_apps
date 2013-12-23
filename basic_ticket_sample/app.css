@@ -1,0 +1,70 @@
+h4 {
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+h4, h5 {
+  border-bottom: 1px dotted #ccc;
+}
+
+h5 {
+  font-weight: bold;
+  line-height: 27px;
+  text-indent: 5px;
+}
+
+.ccinstance {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #333;
+  float: left;
+  line-height: 13px;
+  margin: 3px 3px 3px 0;
+  padding: 3px 6px 4px 6px;
+}
+
+.cccontainer {
+  display: inline;
+  margin-left: 0;
+  position: default;
+}
+
+.ccrole {
+  line-height: 28px;
+  vertical-align: middle;
+}
+
+.left_col {
+  float: left;
+}
+
+.left_col, .right_col {
+  margin-top: 8px;
+}
+
+.nav {
+  height: 30px;
+}
+
+.right_col {
+  float: right;
+  margin-top: 8px;
+}
+
+.subdomain {
+  text-decoration: underline;
+}
+
+.userroleget {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-left: 0;
+  padding: 0 6px;
+}
+
+.view_container {
+  background-color: #F7F7F7;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  padding: 0 5px 17px 5px;
+}
