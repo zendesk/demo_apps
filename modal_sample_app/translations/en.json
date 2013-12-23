@@ -19,27 +19,27 @@
 
   "modal_button": {
     "value": "Toggle Modal",
-    "title": "toggle modal button"
+    "title": "Message on the button in the sidebar app interface"
   },
 
   "save_button": {
     "value": "Save Changes",
-    "title": "save button"
+    "title": "Message on the save button in modal"
   },
 
   "close_button": {
     "value": "Close",
-    "title": "hide modal button"
+    "title": "Message on the close button in modal"
   },
 
   "modal_header": {
    "value": "This modal is invoked via Data Attribute",
-   "title": "modal header"
+   "title": "Header message inside the modal window"
   },
 
   "modal_body": {
     "value": "Keep Calm! Make a Zendesk App.",
-    "title": "modal body"
+    "title": "Message inside a modal window that plays on the 'Keep Calm! Make a Zendesk App' phase"
   }
 
 }
