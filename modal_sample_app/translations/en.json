@@ -17,16 +17,6 @@
     "title": "in app instruction"
   },
 
-  "javascript_link": {
-    "value": "Switch to the JavaScript alternative",
-    "title": "javascript"
-  },
-
-  "attribute_link": {
-    "value": "Switch to the data attribute alternative",
-    "title": "attribute"
-  },
-
   "modal_button": {
     "value": "Toggle Modal",
     "title": "toggle modal button"
@@ -43,18 +33,13 @@
   },
 
   "modal_header": {
-   "value": "This modal is invoked via {{method}}",
+   "value": "This modal is invoked via Data Attribute",
    "title": "modal header"
   },
 
   "modal_body": {
     "value": "Keep Calm! Make a Zendesk App.",
     "title": "modal body"
-  },
-
-  "modal_js_title": {
-    "value": "Calling Modal using Javascript",
-    "title": "modal JS title"
   }
 
 }

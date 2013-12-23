@@ -9,7 +9,7 @@
 
     modalAttr: function () {
       this.switchTo('modal', {
-        header: this.I18n.t('modal_header', { method: 'Data Attribute' }),
+        header: this.I18n.t('modal_header'),
         body: this.I18n.t('modal_body')
       });
 
