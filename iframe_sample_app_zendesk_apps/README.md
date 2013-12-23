@@ -14,3 +14,4 @@ Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new)
 
 
 ### Screenshot(s):
+![App Screen Shot](http://f.cl.ly/items/312E193e0e0n0x0z0O20/iframe.gif)
