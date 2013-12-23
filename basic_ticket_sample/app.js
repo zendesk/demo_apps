@@ -67,14 +67,15 @@
     },
 
     generateTicketView: function() { // Draw the 'Ticket' tab
-      var ccArray  = [], // this array and analogous ones further down are used because Handlebars won't call functions, so we need to pass in properties
-          ticket   = this.ticket();
+      var ticket = this.ticket(),
+          ccArray;
 
-      _.each(ticket.collaborators(), function(collaborator) {
-        ccArray.push({
+      // this array and analogous ones further down are used because Handlebars won't call functions, so we need to pass in properties
+      ccArray = _.map(ticket.collaborators(), function(collaborator) {
+        return {
           email: collaborator.email(), // .email() is the function call we are replacing with the .email property
           role:  collaborator.role() || 'Not registered'
-        });
+        };
       });
 
       this.switchTo('ticket', { // render the ticket.hdbs template
@@ -87,16 +88,16 @@
     },
 
     generateUserView: function() { // draw the User tab
-      var groupArray = [], // this is similar to ccArray in the ticket view - check out the underscore library at http://underscorejs.org
-      user        = this.currentUser(),
-      userRole       = user.role(),
-      roleToSelect, roleSelector;
+      var user = this.currentUser(),
+          userRole = user.role(),
+          groupArray,
+          roleToSelect,
+          roleSelector;
 
-      _.each(user.groups(), function(group, key) {
-        this[key]       = {group: '', id: ''};
-        this[key].group = group.name();
-        this[key].id    = group.id();
-      }, groupArray);
+      // this is similar to ccArray in the ticket view - check out the underscore library at http://underscorejs.org
+      groupArray = _.map(user.groups(), function(group) {
+        return { id: group.id(), group: group.name() };
+      });
 
       this.switchTo('user', {
         uid:        user.id(),
