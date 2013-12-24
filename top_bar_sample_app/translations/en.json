@@ -12,23 +12,61 @@
     }
   },
 
-  "command": {
-    "value": "curl -v -u {{email}}/token:{your API access_token} https://{{uri}}/api/v2/apps/notify.json -H \"Content-Type: application/json\" -X POST -d '{\"event\": \"{{event}}\", \"app_id\": \"{{app_id}}\"}'",
-    "title": "command template"
+  "notice_board": {
+    "how_it_works": {
+      "value": "Congratulations! You've sent a message to our notify API and the App was configured to listen to this event and pop open when getting it.",
+      "title": "A brief message in the notice_board page, explaining how this app works, and what just happened."
+    },
+    "message_header": {
+      "value": "Here is your message",
+      "title": "Header message above the notification message received in the notice_board page."
+    },
+    "resize_app_header": {
+      "value": "Now if you want to see how to resize this App, click on the following buttons.",
+      "title": "Message above the resize tab in the notice_board interface."
+    },
+    "size":{
+      "small": {
+        "value": "64px*64px",
+        "title": "Message displayed on the resize tabs in the notice_board page."
+      },
+      "medium": {
+        "value": "200px*200px",
+        "title": "Message displayed on the resize tabs in the notice_board page."
+      },
+      "largest": {
+        "value": "Biggest Possible Size",
+        "title": "Message displayed on the resize tabs in the notice_board page."
+      }
+    }
   },
 
-  "instruction": {
-    "value": "Copy the command below in your terminal, fill in the password field, hit enter and see the magic! (Make sure you have curl installed.)",
-    "title": "app instruction"
-  },
-
-  "christmas": {
-    "value": "Merry Christmas!",
-    "title": "tab1"
-  },
-
-  "new_year": {
-    "value": "Happy New Year!",
-    "title": "tab2"
+  "instruction_page": {
+    "command": {
+      "value": "curl -v -u {{email}}/token:{your API access_token} https://{{uri}}/api/v2/apps/notify.json -H \"Content-Type: application/json\" -X POST -d '{\"event\": \"{{event}}\", \"app_id\": \"{{app_id}}\"}'",
+      "title": "command template"
+    },
+    "header": {
+      "value": "Top Bar Sample App",
+      "title": "header message of the instruction page."
+    },
+    "legend": {
+      "value": "Want to see how to notify this App? Follow these steps:",
+      "title": "Description message displayed above the instruction steps in the instruction page"
+    },
+    "steps": {
+      "step1": {
+        "value": "Copy/Paste this CURL sample",
+        "title": "Instruction step 1"
+      },
+      "step2": {
+        "value": "Go to your terminal and make sure that you can see your Zendesk at the same time",
+        "title": "Instruction step 2"
+      },
+      "step3": {
+        "value": "Paste the CURL sample and edit the dynamic values (access_token, body message)",
+        "title": "Instruction step 3"
+      }
+    }
   }
 }

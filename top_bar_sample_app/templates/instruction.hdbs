@@ -1,9 +1,16 @@
-<div class="nav nav-pills start_page">
-  <a class="show_link christmas">{{t "christmas"}}</a>
-  <span id="blocker">|</span>
-  <a class="show_link new_year">{{t "new_year"}}</a>
-</div>
-<div class="link">
-  <span>{{t "instruction"}}</span>
-  <code class="command"/>
+<div class="instruction_page">
+  <h2>{{t "instruction_page.header"}}</h2>
+  <span>{{t "instruction_page.legend"}}</span>
+  <span>
+    <ol>
+      <li>{{t "instruction_page.steps.step1"}}</li>
+      <li>{{t "instruction_page.steps.step2"}}</li>
+      <li>{{t "instruction_page.steps.step3"}}</li>
+    </ol>
+  </span>
+  <span>
+    <code>
+      {{t "instruction_page.command"}}
+    </code>
+  </span>
 </div>
