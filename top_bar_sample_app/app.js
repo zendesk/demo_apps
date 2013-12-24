@@ -13,12 +13,11 @@
   return {
 
     events: {
-      'app.activated': 'init',
-      'pane.activated': 'paneOnActivated',
+      'app.activated': 'init', // This event fires when App is activated.
+      'pane.activated': 'paneOnActivated', // This event fires when pane in topbar is activated.
       'pane.deactivated': 'paneOnDeactivated',
-      'notification.send_message': 'showNoticeBoard',
-      'click .resize_app ul li a': 'resizeAppWindow'
-
+      'notification.send_message': 'showNoticeBoard', // Capture notification event 'send_message'
+      'click .resize_app ul li a': 'resizeAppWindow' // This event is fired when an element in the App is clicked, in this case, we try to capture the click event of tabs in the notification_board
     },
 
     init: function() {
@@ -28,7 +27,7 @@
     startPage: function(e) {
       this.switchTo('instruction');
       var uri = e.currentTarget.baseURI.split("/")[2];
-      var command = this.I18n.t('instruction_page.command', {
+      var command = this.I18n.t('instruction_page.command', { // Use I18n.t method to dynamically render a command with the help of Handlebarjs.
         app_id: this.id(),
         event: EVENT_NAME,
         uri: uri,
@@ -41,7 +40,7 @@
       if (!this.isNotified) {
         this.startPage(e);
       }
-      this.popover({ width: MEDIUM_WIDTH, height: MEDIUM_HEIGHT });
+      this.popover({ width: MEDIUM_WIDTH, height: MEDIUM_HEIGHT }); // resize after pane is activated.
     },
 
     paneOnDeactivated: function() {
@@ -52,7 +51,7 @@
 
     showNoticeBoard: function(data) {
       this.isNotified = true;
-      this.switchTo('notice_board', {
+      this.switchTo('notice_board', { // Pass the message received from the notify API call.
         message: data
       });
       this.popover();
