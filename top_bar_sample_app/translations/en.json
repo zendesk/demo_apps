@@ -18,7 +18,7 @@
       "title": "A brief message in the notice_board page, explaining how this app works, and what just happened."
     },
     "message_header": {
-      "value": "Here is your message",
+      "value": "Here is your message:",
       "title": "Header message above the notification message received in the notice_board page."
     },
     "resize_app_header": {
