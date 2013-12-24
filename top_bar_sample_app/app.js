@@ -66,7 +66,7 @@
           this.popover({ width: MEDIUM_WIDTH, height: MEDIUM_HEIGHT });
           break;
         case 'largest':
-          this.popover({ width: LARGE_WIDTH, height: LARGE_HEIGHT});
+          this.popover({ width: LARGE_WIDTH, height: LARGE_HEIGHT });
           break;
         default:
           break;
