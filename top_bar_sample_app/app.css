@@ -1,44 +1,29 @@
 section[data-main] {
   position: relative;
-  width: 99%;
-  height: 95%;
 }
 
-.player {
-  position: absolute;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  margin-left: -512px;
-  background-repeat: no-repeat;
-  background-size: 1024px 560px;
-}
-
-.start_page {
-  text-align: center;
-}
-
-.start_page a, #blocker {
+.notice_board a{
   color: rgb(130,160,0);
-  font-size: 16px;
+  font-weight: bold;
 }
 
-.start_page a:hover {
-  background-color: rgb(245, 245, 245);
-}
-
-.link {
-  display: none;
-  border-top-color: black;
-  border-top-width: 10px;
-}
-
-.link code {
-  display: block;
+.instruction_page code {
   float: right;
   background-color: rgb(245, 245, 245);
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding: 4px;
 }
 
-.link span {
+.instruction_page span, .notice_board span {
   font-weight: bold;
+  padding: 5px;
+}
+
+.notice_board span {
+  display: block;
+}
+
+.notification_message, .instruction_page code, .notice_board a:hover {
+  background-color: rgb(245, 245, 245);
 }
