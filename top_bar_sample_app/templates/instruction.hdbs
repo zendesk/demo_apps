@@ -1,6 +1,5 @@
 <div class="instruction_page">
-  <h2>{{t "instruction_page.header"}}</h2>
-  <span>{{t "instruction_page.legend"}}</span>
+  <h5>{{t "instruction_page.legend"}}</h5>
   <span>
     <ol>
       <li>{{t "instruction_page.steps.step1"}}</li>
@@ -9,8 +8,6 @@
     </ol>
   </span>
   <span>
-    <code>
-      {{t "instruction_page.command"}}
-    </code>
+    <code></code>
   </span>
 </div>

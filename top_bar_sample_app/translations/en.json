@@ -43,12 +43,8 @@
 
   "instruction_page": {
     "command": {
-      "value": "curl -v -u {{email}}/token:{your API access_token} https://{{uri}}/api/v2/apps/notify.json -H \"Content-Type: application/json\" -X POST -d '{\"event\": \"{{event}}\", \"app_id\": \"{{app_id}}\"}'",
+      "value": "curl -v -u {{email}}/token:{your API access_token} https://{{uri}}/api/v2/apps/notify.json -H \"Content-Type: application/json\" -X POST -d '{\"event\": \"{{event}}\", \"app_id\": \"{{app_id}}\", \"body\":\"Hello World!\"}'",
       "title": "command template"
-    },
-    "header": {
-      "value": "Top Bar Sample App",
-      "title": "header message of the instruction page."
     },
     "legend": {
       "value": "Want to see how to notify this App? Follow these steps:",
