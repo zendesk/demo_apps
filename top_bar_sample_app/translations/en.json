@@ -27,11 +27,11 @@
     },
     "size":{
       "small": {
-        "value": "64px*64px",
+        "value": "280px*240px",
         "title": "Message displayed on the resize tabs in the notice_board page."
       },
       "medium": {
-        "value": "200px*200px",
+        "value": "480px*320px",
         "title": "Message displayed on the resize tabs in the notice_board page."
       },
       "largest": {

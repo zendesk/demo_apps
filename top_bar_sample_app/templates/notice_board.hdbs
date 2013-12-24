@@ -7,9 +7,9 @@
   <div class="resize_app">
     <span>{{t "notice_board.resize_app_header"}}</span>
     <ul class="nav nav-pills">
-      <li class=="active"><a>{{t "notice_board.size.small"}}</a></li>
-      <li><a>{{t "notice_board.size.medium"}}</a></li>
-      <li><a>{{t "notice_board.size.largest"}}</a></li>
+      <li class=="active"><a class="small">{{t "notice_board.size.small"}}</a></li>
+      <li><a class="medium">{{t "notice_board.size.medium"}}</a></li>
+      <li><a class="largest">{{t "notice_board.size.largest"}}</a></li>
     </ul>
   </div>
 </div>
