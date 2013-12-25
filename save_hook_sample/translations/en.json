@@ -5,5 +5,10 @@
       "value": "show how to use ticket.save hook",
       "title": "app description"
     }
+  },
+
+  "fail_string": {
+    "value": "This shall fail",
+    "title": "fail with a string returned"
   }
 }

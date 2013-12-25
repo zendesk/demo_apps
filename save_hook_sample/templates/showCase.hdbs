@@ -1,0 +1,29 @@
+<div class="buttons">
+  <table>
+    <tr>
+      <td>
+        <button class="btn simplePass">Use simple Pass</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn btn-inverse simpleFail">Use simple Fail</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn btn-inverse stringFail">Use string Fail</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn ajaxPass">Use Ajax Pass</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn btn-inverse ajaxFail">Use Ajax Fail</button>
+      </td>
+    </tr>
+  </table>
+</div>
