@@ -1,0 +1,36 @@
+.failure {
+  background-color: red;
+}
+
+#externalApiApp {
+  text-align: center;
+}
+
+#quote {
+  position: relative;
+  padding: 0 18px;
+  quotes: inherit;
+  text-align: left;
+}
+
+#quote:before, #quote:after {
+  position: absolute;
+  color: rgb(149, 190, 34);
+  font-size: 1.5rem;
+}
+
+#quote:before {
+  content: open-quote;
+  top: -5px;
+  left: 0;
+}
+
+#quote:after {
+  content: close-quote;
+  right: 0;
+  bottom: -10px;
+}
+
+#refresh {
+  margin-top: 10px;
+}

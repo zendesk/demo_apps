@@ -1,0 +1,25 @@
+{
+  "app": {
+    "package": "external_RESTful_api_no_auth",
+    "description": {
+      "value": "this app shows how to use external RESTful api without authentication",
+      "title": "app description"
+    }
+  },
+
+  "loading": {
+    "value": "Welcome to this Sample App",
+    "title": "loading placeholder"
+  },
+
+  "fetch": {
+    "done": {
+      "value": "Good",
+      "title": "fetch success"
+    },
+    "fail": {
+      "value": "failed to fecth information from the server",
+      "title": "fetch failure"
+    }
+  }
+}

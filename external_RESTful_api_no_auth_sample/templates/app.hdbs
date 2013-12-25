@@ -1,0 +1,6 @@
+<div id="externalApiApp">
+  <blockquote id="quote">
+    {{quote}}
+  </blockquote>
+  <span id="refresh" class="btn">Get Another</span>
+</div>
