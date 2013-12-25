@@ -1,0 +1,33 @@
+<div class="view_container">
+  <h4>{{t "ticket.info"}}</h4>
+  <div class="left_col">
+    <h5>{{t "ticket.type"}}</h5>
+    <select class="tickettypeset" data-zd-type="select_menu">
+      <option value="question">{{t "ticket.types.question"}}</option>
+      <option value="problem">{{t "ticket.types.problem"}}</option>
+      <option value="incident">{{t "ticket.types.incident"}}</option>
+      <option value="task">{{t "ticket.types.task"}}</option>
+    </select>
+  </div>
+  <div class="right_col">
+    <h5>{{t "ticket.subject"}} </h5>
+    <data>{{ticketSubject}}</data>
+  </div>
+  <div style="clear: both; padding-top: 8px;">
+    <h5>{{t "ticket.cc"}}</h5>
+  </div>
+  <ul class="cccontainer">
+    {{#each ticketCCs}}
+    <li>
+      <text class="ccinstance">{{this.email}}</text>
+      <div class="ccrole"><aside>{{t "ticket.role"}}: {{this.role}}</aside></div>
+    </li>
+    {{else}}
+    <li>
+      <text class="ccinstance">{{t "ticket.nocc"}}</text>
+      <div class="ccrole"><aside>{{t "ticket.addcc"}}</aside></div>
+    </li>
+    {{/each}}
+  </ul>
+  <div class="ui-helper-clearfix"></div>
+</div>
