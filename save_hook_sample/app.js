@@ -1,5 +1,7 @@
 (function() {
 
+  // Hook reference: http://developer.zendesk.com/documentation/apps/reference/hooks.html
+
   return {
 
     defaultState: 'showCase',
