@@ -1,4 +1,7 @@
 <div class="buttons">
+  <p>
+    {{t "open_console"}}
+  </p>
   <table>
     <tr>
       <td>
@@ -23,6 +26,16 @@
     <tr>
       <td>
         <button class="btn btn-inverse delayedFail">Use delayed Fail</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn ajaxPass">Use Ajax Pass</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn btn-inverse ajaxFail">Use Ajax Fail</button>
       </td>
     </tr>
   </table>

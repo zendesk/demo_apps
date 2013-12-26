@@ -10,5 +10,10 @@
   "fail_string": {
     "value": "This shall fail",
     "title": "fail with a string returned"
+  },
+
+  "open_console": {
+    "value": "Open your console and start testing!",
+    "title": "open console"
   }
 }
