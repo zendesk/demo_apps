@@ -17,12 +17,12 @@
     </tr>
     <tr>
       <td>
-        <button class="btn ajaxPass">Use Ajax Pass</button>
+        <button class="btn delayedPass">Use delayed Pass</button>
       </td>
     </tr>
     <tr>
       <td>
-        <button class="btn btn-inverse ajaxFail">Use Ajax Fail</button>
+        <button class="btn btn-inverse delayedFail">Use delayed Fail</button>
       </td>
     </tr>
   </table>

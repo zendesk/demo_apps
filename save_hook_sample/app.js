@@ -12,7 +12,9 @@
       // Switch to different hook handlers
       'click .simplePass': 'useSimplePass',
       'click .simpleFail': 'useSimpleFail',
-      'click .stringFail': 'useStringFail'
+      'click .stringFail': 'useStringFail',
+      'click .delayedPass': 'useDelayedPass',
+      'click .delayedFail': 'useDelayedFail'
 
     },
 
@@ -28,17 +30,27 @@
 
     useSimplePass: function() {
       this.currentHandler = this.simplePass;
-      console.log("Using simple pass");
+      console.log('Using simple pass');
     },
 
     useSimpleFail: function() {
       this.currentHandler = this.simpleFail;
-      console.log("Using simple fail");
+      console.log('Using simple fail');
     },
 
     useStringFail: function() {
       this.currentHandler = this.stringFail;
-      console.log("Using string fail");
+      console.log('Using string fail');
+    },
+
+    useDelayedPass: function() {
+      this.currentHandler = this.delayedPass;
+      console.log('Using delayed pass');
+    },
+
+    useDelayedFail: function() {
+      this.currentHandler = this.delayedFail;
+      console.log('Using delayed fail');
     },
 
     // Handles
@@ -53,6 +65,22 @@
 
     stringFail: function() {
       return this.I18n.t('fail_string');
+    },
+
+    delayedPass: function() {
+      return this.promise(function(done, fail) {
+        setTimeout(function() {
+          done();
+        }, 3000);
+      });
+    },
+
+    delayedFail: function() {
+      return this.promise(function(done, fail) {
+        setTimeout(function() {
+          fail();
+        }, 3000);
+      });
     }
 
   };
