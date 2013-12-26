@@ -4,11 +4,18 @@
 
 An app in the ticket_sidebar and new_ticket_sider that shows you how to use `ticket.save` _(the save hook)_
 
+[The hook reference page](http://developer.zendesk.com/documentation/apps/reference/hooks.html)
+
 ### The following information is displayed:
 
-?
+#### How to
+
+* simply accept/reject a ticket submission
+* reject a ticket submission with an error message
+* accept/reject a ticket submission with a delay, using promise
+* accept/reject a ticket submission after doing an ajax request
 
 Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
 
 ### Screenshot(s):
-[put your screenshots down here.]
+![Screen shot](https://f.cloud.github.com/assets/1329716/1810572/b1edb374-6e2b-11e3-9fd7-287a45687a9e.png)
