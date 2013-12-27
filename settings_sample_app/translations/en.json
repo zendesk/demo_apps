@@ -13,10 +13,32 @@
         "label": {
           "value": "Subdomain",
           "title": "Label for the subdomain field when the user is installing the application"
+        },
+        "helpText": {
+          "value": "The content of your setting will show in the app page.",
+          "title": "Text field below subdomain informing user where subdomain will be displayed."
         }
       },
-      "hiddenSetting": { "label": "Hidden Setting", "helpText": "The content of your setting will show in the app page." },
-      "mainBodyMessage": { "label": "Main Body Message", "helpText": "The content of your setting will show in the app page." }
+      "hiddenSetting": {
+        "label": {
+          "value": "Hidden Setting",
+          "title": "Label for the hiddenSetting field when the user is installing the application"
+        },
+        "helpText": {
+          "value": "The content of your setting will show in the app page.",
+          "title": "Text field below hiddenSetting informing user where hiddenSetting will be displayed."
+        }
+      },
+      "mainBodyMessage": {
+        "label": {
+          "value": "Main Body Message",
+          "title": "Label for the hiddenSetting field when the user is installing the application"
+        },
+        "helpText": {
+          "value": "The content of your setting will show in the app page.",
+          "title": "Text field below mainBodyMessage informing user where mainBodyMessage will be displayed."
+        }
+      }
     }
   }
 }
