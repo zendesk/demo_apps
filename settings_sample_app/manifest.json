@@ -19,7 +19,6 @@
     {
       "name": "hiddenSetting",
       "type": "hidden",
-      "required": true,
       "default": "I am hidden!"
     },
 

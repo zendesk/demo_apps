@@ -5,7 +5,7 @@
       'app.activated':'showAppSettings'
     },
 
-    showAppSettings: function() {
+    showAppSettings: function(e) {
       this.switchTo('mainPage', {
         subdomain: this.setting('subdomain'),
         message: this.setting('mainBodyMessage'),
