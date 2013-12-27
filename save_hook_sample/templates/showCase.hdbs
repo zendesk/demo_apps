@@ -2,10 +2,10 @@
   <p>
     {{t "open_console"}}
   </p>
-  <table>
+  <table class="switches">
     <tr>
       <td>
-        <button class="btn simplePass">Use simple Pass</button>
+        <button class="btn simplePass active">Use simple Pass</button>
       </td>
     </tr>
     <tr>

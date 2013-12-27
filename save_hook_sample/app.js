@@ -41,39 +41,46 @@
 
     // Switches
 
-    useSimplePass: function() {
+    useSimplePass: function(e) {
       this.currentHandler = this.simplePass;
       console.log('Using simple pass');
+      this.toggleActive(e);
     },
 
-    useSimpleFail: function() {
+    useSimpleFail: function(e) {
       this.currentHandler = this.simpleFail;
       console.log('Using simple fail');
+      this.toggleActive(e);
     },
 
-    useStringFail: function() {
+    useStringFail: function(e) {
       this.currentHandler = this.stringFail;
       console.log('Using string fail');
+      this.toggleActive(e);
     },
 
-    useDelayedPass: function() {
+    useDelayedPass: function(e) {
       this.currentHandler = this.delayedPass;
       console.log('Using delayed pass');
+      this.toggleActive(e);
     },
 
-    useDelayedFail: function() {
+    useDelayedFail: function(e) {
       this.currentHandler = this.delayedFail;
       console.log('Using delayed fail');
+      this.toggleActive(e);
     },
 
-    useAjaxPass: function() {
+    useAjaxPass: function(e) {
       this.currentHandler = this.ajaxPass;
       console.log('Using ajax pass');
+      this.toggleActive(e);
     },
 
-    useAjaxFail: function() {
+    useAjaxFail: function(e) {
       this.currentHandler = this.ajaxFail;
       console.log('Using ajax fail');
+      this.toggleActive(e);
     },
 
     // Handles
@@ -134,6 +141,11 @@
           }
         );
       });
+    },
+
+    toggleActive: function(e) {
+      this.$('.btn').removeClass('active');
+      this.$(e.currentTarget).addClass('active');
     }
 
   };
