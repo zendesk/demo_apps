@@ -1,6 +1,5 @@
 <div class="appBody">
   <div>
-    <span>required settings:</span>
     <table class="table">
       <tr>
         <td>Subdomain</td><td>Main Body Message</td><td>Hidden Setting</td>
@@ -9,9 +8,6 @@
         <td>{{subdomain}}</td><td>{{message}}</td><td>{{hidden_message}}</td>
       </tr>
     </table>
-
-    <span>hidden settings:</span>
-
   </div>
   <div>
     <span>Copy the command below and paste into your terminal to update app settings using a Zendesk App API.</span>
