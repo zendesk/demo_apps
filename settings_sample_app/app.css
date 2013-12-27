@@ -1,3 +1,12 @@
-.appBody {
+&.popover {
+  width: 600px;
+  height: 320px;
+}
+.appBody div span {
+  display: block;
+}
+.code {
   width: 100%;
+  padding: 6px;
+  background-color: rgb(245, 245, 245);
 }
