@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "settings_sample_app",
     "description": {
       "value": "This app demonstrates how to use and edit app settings in manifest.json",
       "title": "app description"
@@ -8,6 +7,16 @@
     "name": {
       "value": "Settings Sample App",
       "title": "app name"
+    },
+    "parameters": {
+      "subdomain": {
+        "label": {
+          "value": "Subdomain",
+          "title": "Label for the subdomain field when the user is installing the application"
+        }
+      },
+      "hiddenSetting": { "label": "Hidden Setting", "helpText": "The content of your setting will show in the app page." },
+      "mainBodyMessage": { "label": "Main Body Message", "helpText": "The content of your setting will show in the app page." }
     }
   }
 }
