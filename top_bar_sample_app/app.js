@@ -2,7 +2,7 @@
 
   'use strict';
 
-  var EVENT_NAME = "send_message",
+  var EVENT_NAME = 'send_message',
       MEDIUM_WIDTH = 480,
       MEDIUM_HEIGHT = 300,
       SMALL_WIDTH = 280,
