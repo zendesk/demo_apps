@@ -17,19 +17,10 @@
     },
 
     {
-      "name": "token",
-      "type": "text",
-      "required": true
-    },
-
-    {
-      "name": "useSSL",
-      "type": "checkbox"
-    },
-
-    {
       "name": "hiddenSetting",
-      "type": "hidden"
+      "type": "hidden",
+      "required": true,
+      "default": "I am hidden!"
     },
 
     {

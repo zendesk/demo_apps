@@ -1,3 +1,21 @@
 <div>
-  {{message}}
+  <div>
+    <table class="table">
+      <tr>
+        <td>Subdomain</td><td>Main Body Message</td><td>Hidden Setting</td>
+      </tr>
+      <tr>
+        <td>{{subdomain}}</td><td>{{message}}</td><td>{{hidden_message}}</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    Copy the command below and paste into your terminal to update app settings using a Zendesk App API.
+    <code>
+      curl -u {{email}}/token:{access_token} \
+      -d '{"settings":{"name":"new_name","hiddenSetting":"new_hidden_message","mainBodyMessage":"new_message"}}' \
+      -H "Content-Type: application/json" -X PUT \
+      https://{{uri}}/api/v2/apps/installations/{{app_id}}.json
+    </code>
+  </div>
 </div>
