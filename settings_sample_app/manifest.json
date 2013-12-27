@@ -8,5 +8,34 @@
   "private": true,
   "location": "ticket_sidebar",
   "version": "1.0",
-  "frameworkVersion": "0.5"
+  "frameworkVersion": "1.0",
+  "parameters": [
+    {
+      "name": "subdomain",
+      "type": "text",
+      "required": true
+    },
+
+    {
+      "name": "token",
+      "type": "text",
+      "required": true
+    },
+
+    {
+      "name": "useSSL",
+      "type": "checkbox"
+    },
+
+    {
+      "name": "hiddenSetting",
+      "type": "hidden"
+    },
+
+    {
+      "name": "mainBodyMessage",
+      "type": "text",
+      "required": true
+    }
+  ]
 }

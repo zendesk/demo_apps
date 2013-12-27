@@ -6,6 +6,10 @@
     },
 
     doSomething: function() {
+      this.switchTo('mainPage', {
+        message: this.setting('mainBodyMessage')
+      });
+
     }
   };
 
