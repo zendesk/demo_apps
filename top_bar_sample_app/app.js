@@ -26,7 +26,7 @@
 
     startPage: function(e) {
       this.switchTo('instruction');
-      var uri = e.currentTarget.baseURI.split("/")[2];
+      var uri = e.currentTarget.baseURI.split('/')[2];
       var command = this.I18n.t('instruction_page.command', { // Use I18n.t method to dynamically render a command with the help of Handlebarjs.
         app_id: this.id(),
         event: EVENT_NAME,
