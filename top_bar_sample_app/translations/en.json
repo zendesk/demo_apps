@@ -56,12 +56,16 @@
         "title": "Instruction step 1"
       },
       "step2": {
-        "value": "Go to your terminal and make sure that you can see your Zendesk at the same time",
+        "value": "Click on this App icon to close it",
         "title": "Instruction step 2"
       },
       "step3": {
-        "value": "Paste the CURL sample and edit the dynamic values (access_token, body message)",
+        "value": "Go to your terminal and make sure that you can see your Zendesk at the same time",
         "title": "Instruction step 3"
+      },
+      "step4": {
+        "value": "Paste the CURL sample and edit the dynamic values (access_token, body message)",
+        "title": "Instruction step 4"
       }
     }
   }
