@@ -15,3 +15,4 @@ This Sample App illustrates how to use the notify.json app api and popover() on 
 Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
 
 ### Screenshot(s):
+Watch the animated gif [here](http://cl.ly/image/1o2u0q3f2M3R).
