@@ -26,9 +26,7 @@
     },
 
     startPage: function(e) {
-      var regexResult = null;
-      regexResult = SUBDOMAIN_PATTERN.exec(e.currentTarget.baseURI); // Run regular expression to extract subdomain
-      console.log(regexResult);
+      var regexResult = SUBDOMAIN_PATTERN.exec(e.currentTarget.baseURI); // Run regular expression to extract subdomain
       this.switchTo('instruction', { // These parameters are handlebars parameters in the instruction page that renders a cURL command
         app_id: this.id(),
         event: EVENT_NAME,
@@ -61,18 +59,16 @@
     resizeAppWindow: function(e) {
 
       this.$('.resize_app ul li').removeClass('active');
+      this.$(e.currentTarget).parent().addClass('active');
 
       switch (e.currentTarget.className) {
         case 'small':
-          this.$(this.$('.resize_app ul li')[0]).addClass('active');
           this.popover({ width: SMALL_WIDTH, height: SMALL_HEIGHT });
           break;
         case 'medium':
-          this.$(this.$('.resize_app ul li')[1]).addClass('active');
           this.popover({ width: MEDIUM_WIDTH, height: MEDIUM_HEIGHT });
           break;
         case 'largest':
-          this.$(this.$('.resize_app ul li')[2]).addClass('active');
           this.popover({ width: LARGE_WIDTH, height: LARGE_HEIGHT });
           break;
         default:
