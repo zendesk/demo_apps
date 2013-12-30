@@ -2,7 +2,9 @@
 
 # Save Hook Sample App
 
-An app in the ticket_sidebar and new_ticket_sider that shows you how to use `ticket.save` _(the save hook)_
+Hooks are a special kind of event that you can create event handlers for in your app. Different to other kinds of events, Hooks allow the ability to respond to the event from within your handler in a way that can affect the outcome of the action that triggered the event.
+
+This app is an app stays in the ticket_sidebar and new_ticket_sider that shows you how to use `ticket.save` _(the save hook)_
 
 [The hook reference page](http://developer.zendesk.com/documentation/apps/reference/hooks.html)
 

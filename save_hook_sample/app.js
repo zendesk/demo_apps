@@ -39,7 +39,7 @@
       return this.currentHandler();
     },
 
-    // Switches
+    // Switches that control which handler is used to handle `ticket.save`
 
     useSimplePass: function(e) {
       this.currentHandler = this.simplePass;

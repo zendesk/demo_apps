@@ -5,3 +5,7 @@
 .switches {
   margin-top: 10px;
 }
+
+td {
+  width: 50%;
+}
