@@ -8,7 +8,8 @@
        SMALL_WIDTH = 280,
       SMALL_HEIGHT = 240,
        LARGE_WIDTH = 640,
-      LARGE_HEIGHT = 400;
+      LARGE_HEIGHT = 400,
+ SUBDOMAIN_PATTERN = /\/\/([a-zA-Z0-9]*)./g; // Pattern for subdomain extraction.
 
   return {
 
@@ -25,11 +26,11 @@
     },
 
     startPage: function(e) {
-      var uri = e.currentTarget.baseURI.split('/')[2];
+      var regexResult = SUBDOMAIN_PATTERN.exec(e.currentTarget.baseURI); // Run regular expression to extract subdomain
       this.switchTo('instruction', { // These parameters are handlebars parameters in the instruction page that renders a cURL command
         app_id: this.id(),
         event: EVENT_NAME,
-        uri: uri,
+        subdomain: regexResult[1], // This gets the subdomain.
         email: this.currentUser().email()
       });
     },
