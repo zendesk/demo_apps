@@ -2,9 +2,20 @@ section[data-main] {
   position: relative;
 }
 
-.notice_board a{
-  color: rgb(130,160,0);
+.notice_board a {
   font-weight: bold;
+}
+
+.small {
+  color: rgb(130, 160, 0);
+}
+
+.medium {
+  color: rgb(86, 132, 184);
+}
+
+.largest {
+  color: rgb(220, 126, 124);
 }
 
 .instruction_page code {
@@ -26,4 +37,16 @@ section[data-main] {
 
 .notification_message, .instruction_page code, .notice_board a:hover {
   background-color: rgb(245, 245, 245);
+}
+
+.active .small {
+  background-color: rgb(130, 160, 0);
+}
+
+.active .medium {
+  background-color: rgb(86, 132, 184);
+}
+
+.active .largest {
+  background-color: rgb(220, 126, 124);
 }

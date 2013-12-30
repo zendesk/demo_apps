@@ -58,14 +58,20 @@
     },
 
     resizeAppWindow: function(e) {
+
+      this.$('.resize_app ul li').removeClass('active');
+
       switch (e.currentTarget.className) {
         case 'small':
+          this.$(this.$('.resize_app ul li')[0]).addClass('active');
           this.popover({ width: SMALL_WIDTH, height: SMALL_HEIGHT });
           break;
         case 'medium':
+          this.$(this.$('.resize_app ul li')[1]).addClass('active');
           this.popover({ width: MEDIUM_WIDTH, height: MEDIUM_HEIGHT });
           break;
         case 'largest':
+          this.$(this.$('.resize_app ul li')[2]).addClass('active');
           this.popover({ width: LARGE_WIDTH, height: LARGE_HEIGHT });
           break;
         default:
