@@ -1,15 +1,15 @@
 <p>{{t "list_app"}}</p>
 
-<ul class="{{#unless inline}}scroll-list {{/unless}}installations">
+<ul class="{{#unless inline}}scroll_list {{/unless}}installations">
   {{#each installations}}
   <li class="{{#if ../inline}}inline {{/if}}{{#if enabled}}enabled{{/if}}">
-    <div class="app-box">
+    <div class="app_box">
       ({{id}}) {{settings.title}}<br />
     {{#if enabled}}
-      <img class="app-inline-logo" src="/api/v2/apps/{{app_id}}/assets/logo-small.png" alt="{{t "logo"}}">
+      <img class="app_inline_logo" src="/api/v2/apps/{{app_id}}/assets/logo-small.png" alt="{{t "logo"}}">
       <a class="deactivate" data-id="{{id}}">{{t "deactivate"}}</a>
     {{else}}
-      <img class="app-inline-logo" src="/api/v2/apps/{{app_id}}/assets/logo-small.png" alt="{{t "logo"}}" style="opacity: 0.5">
+      <img class="app_inline_logo" src="/api/v2/apps/{{app_id}}/assets/logo-small.png" alt="{{t "logo"}}" style="opacity: 0.5">
       <a class="activate" data-id="{{id}}">{{t "activate"}}</a>
     {{/if}}
       or
@@ -31,7 +31,7 @@
       <button class="btn pull-left" data-dismiss="modal" aria-hidden="true">
         {{t "cancel"}}
       </button>
-      <button class="btn btn-inverse agree-delete agree" data-dismiss="modal" aria-hidden="true">
+      <button class="btn btn-inverse agree_delete agree" data-dismiss="modal" aria-hidden="true">
         {{t "delete"}}
       </button>
     </div>
