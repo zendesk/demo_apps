@@ -7,20 +7,19 @@ section[data-main] {
 }
 
 .small {
-  color: rgb(130, 160, 0);
+  color: #82A000;
 }
 
 .medium {
-  color: rgb(86, 132, 184);
+  color: #5684B8;
 }
 
 .largest {
-  color: rgb(220, 126, 124);
+  color: #DC7E7C;
 }
 
 .instruction_page code {
   float: right;
-  background-color: rgb(245, 245, 245);
   margin-top: 6px;
   margin-bottom: 6px;
   padding: 4px;
@@ -36,17 +35,17 @@ section[data-main] {
 }
 
 .notification_message, .instruction_page code, .notice_board a:hover {
-  background-color: rgb(245, 245, 245);
+  background-color: #F5F5F5;
 }
 
 .active .small {
-  background-color: rgb(130, 160, 0);
+  background-color: #82A000;
 }
 
 .active .medium {
-  background-color: rgb(86, 132, 184);
+  background-color: #5684B8;
 }
 
 .active .largest {
-  background-color: rgb(220, 126, 124);
+  background-color: #DC7E7C;
 }
