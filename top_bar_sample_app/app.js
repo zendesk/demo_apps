@@ -26,27 +26,19 @@
 
     startPage: function(e) {
       var uri = e.currentTarget.baseURI.split('/')[2];
-      this.switchTo('instruction', {
+      this.switchTo('instruction', { // These parameters are handlebars parameters in the instruction page that renders a cURL command
         app_id: this.id(),
         event: EVENT_NAME,
         uri: uri,
         email: this.currentUser().email()
       });
-
-      /*var command = this.I18n.t('instruction_page.command', { // Use I18n.t method to dynamically render a command with the help of Handlebarjs.
-        app_id: this.id(),
-        event: EVENT_NAME,
-        uri: uri,
-        email: this.currentUser().email()
-      });
-      this.$('code').text(command);*/
     },
 
     paneOnActivated: function(e) {
       if (!this.isNotified) {
         this.startPage(e);
       }
-      this.popover({ width: MEDIUM_WIDTH, height: MEDIUM_HEIGHT }); // resize after pane is activated.
+      this.popover({ width: MEDIUM_WIDTH, height: MEDIUM_HEIGHT }); // Resize after pane is activated.
     },
 
     paneOnDeactivated: function() {
