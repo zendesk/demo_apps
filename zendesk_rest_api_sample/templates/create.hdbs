@@ -1,6 +1,6 @@
 <p>{{t "note"}}</p>
 
-<ul class="create-app">
+<ul class="create_app">
   <li>
     <label for="name">{{t "name"}}</label>
     <input class="name" name="name" type="text" />
