@@ -40,5 +40,23 @@
         }
       }
     }
+  },
+  "mainPage": {
+    "mainBodyMessage": {
+       "value": "Main Body Message",
+       "title": "Table header for the hiddenSetting field when the user is viewing the App"
+    },
+    "hiddenSetting": {
+       "value": "Hidden Setting",
+       "title": "Table header for the hiddenSetting field when the user is viewing the App"
+    },
+    "subdomain": {
+      "value": "Subdomain",
+      "title": "Table header for the subdomain field when the user is viewing the App"
+    },
+    "instruction": {
+      "value": "Copy the command below and paste into your terminal to update app settings using a Zendesk App API.",
+      "title": "Instruction message asking the user to copy and paste the command below to terminal"
+    }
   }
 }
