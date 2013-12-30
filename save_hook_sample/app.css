@@ -1,0 +1,17 @@
+.btn {
+  margin-bottom: 5px;
+}
+
+.switches {
+  margin-top: 10px;
+}
+
+td {
+  width: 50%;
+  border-bottom: 1px dotted #ddd;
+  padding: 10px 0 5px;
+}
+
+tr:last-child td {
+  border: none;
+}
