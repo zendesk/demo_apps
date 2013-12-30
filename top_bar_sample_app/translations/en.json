@@ -1,0 +1,68 @@
+{
+  "app": {
+    "package": "top_bar_sample_app",
+    "description": {
+      "value": "send a curl command from your terminal to make your topbar app popover!",
+      "title": "app description"
+    },
+
+    "name": {
+      "value": "Topbar Sample App",
+      "title": "app name"
+    }
+  },
+
+  "notice_board": {
+    "how_it_works": {
+      "value": "Congratulations! You've sent a message to our notify API and the App was configured to listen to this event and pop open when getting it.",
+      "title": "A brief message in the notice_board page, explaining how this app works, and what just happened."
+    },
+    "message_header": {
+      "value": "Here is your message:",
+      "title": "Header message above the notification message received in the notice_board page."
+    },
+    "resize_app_header": {
+      "value": "Now if you want to see how to resize this App, click on the following buttons.",
+      "title": "Message above the resize tab in the notice_board interface."
+    },
+    "size":{
+      "small": {
+        "value": "280px*240px",
+        "title": "Message displayed on the resize tabs in the notice_board page."
+      },
+      "medium": {
+        "value": "480px*320px",
+        "title": "Message displayed on the resize tabs in the notice_board page."
+      },
+      "largest": {
+        "value": "Biggest Possible Size",
+        "title": "Message displayed on the resize tabs in the notice_board page."
+      }
+    }
+  },
+
+  "instruction_page": {
+    "legend": {
+      "value": "Want to see how to notify this App? Follow these steps:",
+      "title": "Description message displayed above the instruction steps in the instruction page"
+    },
+    "steps": {
+      "step1": {
+        "value": "Copy/Paste this CURL sample",
+        "title": "Instructions asking the user to copy and paste a code example"
+      },
+      "step2": {
+        "value": "Click on this App icon to close it",
+        "title": "Instruction asking the user to close the App"
+      },
+      "step3": {
+        "value": "Go to your terminal and make sure that you can see your Zendesk at the same time",
+        "title": "Instruction asking the user to have the terminal and Zendesk window in view at the same time."
+      },
+      "step4": {
+        "value": "Paste the CURL sample and edit the dynamic values (access_token, body message)",
+        "title": "Instruction asking the user to edit and execute the command."
+      }
+    }
+  }
+}
