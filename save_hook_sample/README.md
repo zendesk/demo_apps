@@ -20,4 +20,4 @@ This app renders in the `ticket_sidebar` and `new_ticket_sidebar` and shows how 
 Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
 
 ### Screenshot(s):
-![Screen shot](https://f.cloud.github.com/assets/1329716/1820411/9b5813de-70e7-11e3-8614-c44c3d43ea69.png)
+![Screen shot](https://f.cloud.github.com/assets/1329716/1820485/57a3cfe8-70ec-11e3-9695-ec2e4cb9d4c1.png)
