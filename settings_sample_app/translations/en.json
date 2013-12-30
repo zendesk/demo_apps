@@ -39,14 +39,14 @@
           "title": "Text field below mainBodyMessage informing user where mainBodyMessage will be displayed."
         }
       },
-      "password": {
+      "token": {
         "label": {
-          "value": "Password",
-          "title": "Label for the password field when the user is installing the application"
+          "value": "Token",
+          "title": "Label for the token field when the user is installing the application"
         },
         "helpText": {
           "value": "The content of your setting will not show in the app page.",
-          "title": "Text field below password informing user where password will be displayed."
+          "title": "Text field below token informing user where token will be displayed."
         }
       },
       "useSSL": {
@@ -94,9 +94,9 @@
       "value": "Subdomain",
       "title": "Table header for the subdomain field when the user is viewing the App"
     },
-    "password": {
-      "value": "Password",
-      "title": "Label for the password field when the user is installing the application"
+    "token": {
+      "value": "Token",
+      "title": "Label for the token field when the user is installing the application"
     },
     "useSSL": {
       "value": "Use SSL",

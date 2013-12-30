@@ -29,7 +29,7 @@
     },
 
     {
-      "name": "password",
+      "name": "token",
       "type": "password",
       "required": true
     },
