@@ -1,5 +1,5 @@
 <div>
-  <table id="user_info_table">
+  <table>
     <tr>
       <th>{{t "id"}}</th>
       <td>{{id}}</td>
