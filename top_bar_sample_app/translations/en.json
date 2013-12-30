@@ -49,19 +49,19 @@
     "steps": {
       "step1": {
         "value": "Copy/Paste this CURL sample",
-        "title": "Instruction step 1"
+        "title": "Instructions asking the user to copy and paste a code example"
       },
       "step2": {
         "value": "Click on this App icon to close it",
-        "title": "Instruction step 2"
+        "title": "Instruction asking the user to close the App"
       },
       "step3": {
         "value": "Go to your terminal and make sure that you can see your Zendesk at the same time",
-        "title": "Instruction step 3"
+        "title": "Instruction asking the user to have the terminal and Zendesk window in view at the same time."
       },
       "step4": {
         "value": "Paste the CURL sample and edit the dynamic values (access_token, body message)",
-        "title": "Instruction step 4"
+        "title": "Instruction asking the user to edit and execute the command."
       }
     }
   }
