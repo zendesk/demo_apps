@@ -42,7 +42,7 @@
     {
       "name": "homepage",
       "type": "url",
-      "default": "www.zendesk.com"
+      "default": "http://www.zendesk.com"
     },
 
     {
