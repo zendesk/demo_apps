@@ -25,7 +25,8 @@ section[data-main] {
   padding: 4px;
 }
 
-.instruction_page span, .notice_board span {
+.instruction_page span,
+.notice_board span {
   font-weight: bold;
   padding: 5px;
 }
@@ -34,7 +35,9 @@ section[data-main] {
   display: block;
 }
 
-.notification_message, .instruction_page code, .notice_board a:hover {
+.notification_message,
+.instruction_page code,
+.notice_board a:hover {
   background-color: #F5F5F5;
 }
 
