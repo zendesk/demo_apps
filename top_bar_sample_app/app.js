@@ -9,8 +9,12 @@
       SMALL_HEIGHT      = 240,
       LARGE_WIDTH       = 640,
       LARGE_HEIGHT      = 400,
-      SUBDOMAIN_PATTERN = /\/\/([a-zA-Z0-9]*)./; // Pattern for subdomain extraction.
-
+      SUBDOMAIN_PATTERN = /\/\/([a-zA-Z0-9]*)./, // Pattern for subdomain extraction.
+      SIZES             = {
+        small: { width: SMALL_WIDTH, height: SMALL_HEIGHT },
+        medium: { width: MEDIUM_WIDTH, height: MEDIUM_HEIGHT },
+        largest: { width: LARGE_WIDTH, height: LARGE_HEIGHT }
+      };
   return {
 
     events: {
@@ -61,19 +65,15 @@
       this.$('.resize_app ul li').removeClass('active');
       this.$(e.currentTarget).parent().addClass('active');
 
-      switch (e.currentTarget.className) {
-        case 'small':
-          this.popover({ width: SMALL_WIDTH, height: SMALL_HEIGHT });
-          break;
-        case 'medium':
-          this.popover({ width: MEDIUM_WIDTH, height: MEDIUM_HEIGHT });
-          break;
-        case 'largest':
-          this.popover({ width: LARGE_WIDTH, height: LARGE_HEIGHT });
-          break;
-        default:
-          break;
+      var size = e.currentTarget.className;
+      if (size === 'small') {
+        this.popover(SIZES.small);
+      } else if (size === 'medium') {
+        this.popover(SIZES.medium);
+      } else if (size === 'largest') {
+        this.popover(SIZES.largest);
       }
+
     }
   };
 
