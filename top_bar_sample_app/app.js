@@ -2,14 +2,14 @@
 
   'use strict';
 
-  var   EVENT_NAME = 'send_message',
-      MEDIUM_WIDTH = 480,
-     MEDIUM_HEIGHT = 300,
-       SMALL_WIDTH = 280,
-      SMALL_HEIGHT = 240,
-       LARGE_WIDTH = 640,
-      LARGE_HEIGHT = 400,
- SUBDOMAIN_PATTERN = /\/\/([a-zA-Z0-9]*)./g; // Pattern for subdomain extraction.
+  var EVENT_NAME        = 'send_message',
+      MEDIUM_WIDTH      = 480,
+      MEDIUM_HEIGHT     = 300,
+      SMALL_WIDTH       = 280,
+      SMALL_HEIGHT      = 240,
+      LARGE_WIDTH       = 640,
+      LARGE_HEIGHT      = 400,
+      SUBDOMAIN_PATTERN = /\/\/([a-zA-Z0-9]*)./; // Pattern for subdomain extraction.
 
   return {
 
@@ -26,7 +26,9 @@
     },
 
     startPage: function(e) {
-      var regexResult = SUBDOMAIN_PATTERN.exec(e.currentTarget.baseURI); // Run regular expression to extract subdomain
+      var regexResult = null;
+      regexResult = SUBDOMAIN_PATTERN.exec(e.currentTarget.baseURI); // Run regular expression to extract subdomain
+      console.log(regexResult);
       this.switchTo('instruction', { // These parameters are handlebars parameters in the instruction page that renders a cURL command
         app_id: this.id(),
         event: EVENT_NAME,
