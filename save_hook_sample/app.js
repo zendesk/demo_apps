@@ -21,13 +21,13 @@
       'ticket.save':   'hookHandler',
 
       // Switch to different hook handlers
-      'click .simplePass':  'useSimplePass',  // pass
-      'click .simpleFail':  'useSimpleFail',  // fail
-      'click .stringFail':  'useStringFail',  // fail with an error message
-      'click .delayedPass': 'useDelayedPass', // pass 3s after clicking submit
-      'click .delayedFail': 'useDelayedFail', // fail 3s after clicking submit
-      'click .ajaxPass':    'useAjaxPass',    // pass after getting a quote through ajax
-      'click .ajaxFail':    'useAjaxFail'     // fail after getting a quote through ajax
+      'click .simple_pass':  'useSimplePass',  // pass
+      'click .simple_fail':  'useSimpleFail',  // fail
+      'click .string_fail':  'useStringFail',  // fail with an error message
+      'click .delayed_pass': 'useDelayedPass', // pass 3s after clicking submit
+      'click .delayed_fail': 'useDelayedFail', // fail 3s after clicking submit
+      'click .ajax_pass':    'useAjaxPass',    // pass after getting a quote through ajax
+      'click .ajax_fail':    'useAjaxFail'     // fail after getting a quote through ajax
 
     },
 
