@@ -37,14 +37,14 @@
   background-color: #F5F5F5;
 }
 
-.active .small {
-  background-color: #82A000;
-}
-
-.active .medium {
-  background-color: #5684B8;
-}
-
-.active .largest {
-  background-color: #DC7E7C;
+.active {
+  .small {
+    background-color: #82A000;
+  }
+  .medium {
+    background-color: #5684B8;
+  }
+  .largest {
+    background-color: #DC7E7C;
+  }
 }

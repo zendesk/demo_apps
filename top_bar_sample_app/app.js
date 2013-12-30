@@ -18,7 +18,7 @@
       'pane.activated': 'paneOnActivated', // This event fires when pane in topbar is activated.
       'pane.deactivated': 'paneOnDeactivated',
       'notification.send_message': 'showNoticeBoard', // Capture notification event 'send_message'
-      'click a': 'resizeAppWindow' // This event is fired when an element in the App is clicked, in this case, we try to capture the click event of tabs in the notification_board
+      'click .resize_app a': 'resizeAppWindow' // This event is fired when an element in the App is clicked, in this case, we try to capture the click event of tabs in the notification_board
     },
 
     init: function() {
