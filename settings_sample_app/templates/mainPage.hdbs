@@ -2,10 +2,10 @@
   <div>
     <table class="table">
       <tr>
-        <td>{{t "mainPage.subdomain"}}</td><td>{{t "mainPage.mainBodyMessage"}}</td><td>{{t "mainPage.hiddenSetting"}}</td>
+        <td>{{t "mainPage.subdomain"}}</td><td>{{t "mainPage.mainBodyMessage"}}</td><td>{{t "mainPage.hiddenSetting"}}</td><td>{{t "mainPage.useSSL"}}</td><td>{{t "mainPage.homepage"}}</td><td>{{t "mainPage.math"}}</td>
       </tr>
       <tr>
-        <td>{{subdomain}}</td><td>{{message}}</td><td>{{hidden_message}}</td>
+        <td>{{settings.subdomain}}</td><td>{{settings.mainBodyMessage}}</td><td>{{settings.hiddenSetting}}</td><td>{{settings.useSSL}}</td><td>{{settings.homepage}}</td><td>{{settings.math}}</td>
       </tr>
     </table>
   </div>

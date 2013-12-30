@@ -24,7 +24,30 @@
 
     {
       "name": "mainBodyMessage",
-      "type": "text",
+      "type": "multiline",
+      "required": true
+    },
+
+    {
+      "name": "password",
+      "type": "password",
+      "required": true
+    },
+
+    {
+      "name": "useSSL",
+      "type": "checkbox"
+    },
+
+    {
+      "name": "homepage",
+      "type": "url",
+      "default": "www.zendesk.com"
+    },
+
+    {
+      "name": "math",
+      "type": "number",
       "required": true
     }
   ]
