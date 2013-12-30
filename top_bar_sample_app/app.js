@@ -3,17 +3,20 @@
   'use strict';
 
   var EVENT_NAME        = 'send_message',
-      MEDIUM_WIDTH      = 480,
-      MEDIUM_HEIGHT     = 300,
-      SMALL_WIDTH       = 280,
-      SMALL_HEIGHT      = 240,
-      LARGE_WIDTH       = 640,
-      LARGE_HEIGHT      = 400,
-      SUBDOMAIN_PATTERN = /\/\/([a-zA-Z0-9]*)./, // Pattern for subdomain extraction.
+      SUBDOMAIN_PATTERN = /[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z0-9]+/, // Pattern for subdomain extraction.
       SIZES             = {
-        small: { width: SMALL_WIDTH, height: SMALL_HEIGHT },
-        medium: { width: MEDIUM_WIDTH, height: MEDIUM_HEIGHT },
-        largest: { width: LARGE_WIDTH, height: LARGE_HEIGHT }
+        small: {
+          width: 280,
+          height: 240
+        },
+        medium: {
+          width: 480,
+          height: 300
+        },
+        largest: {
+          width: 600,
+          height: 400
+        }
       };
   return {
 
@@ -26,15 +29,18 @@
     },
 
     init: function() {
-      this.isNotified = false; // Set the isNotified tag to false by default.
+      // Set the isNotified tag to false by default.
+      this.isNotified = false;
     },
 
     startPage: function(e) {
-      var regexResult = SUBDOMAIN_PATTERN.exec(e.currentTarget.baseURI); // Run regular expression to extract subdomain
-      this.switchTo('instruction', { // These parameters are handlebars parameters in the instruction page that renders a cURL command
+      // Run regular expression to extract subdomain
+      var regexResult = SUBDOMAIN_PATTERN.exec(e.currentTarget.baseURI);
+      // These parameters are handlebars parameters in the instruction page that renders a cURL command
+      this.switchTo('instruction', {
         app_id: this.id(),
         event: EVENT_NAME,
-        subdomain: regexResult[1], // This gets the subdomain.
+        url: regexResult[0], // This gets the matched URL.
         email: this.currentUser().email()
       });
     },
@@ -43,7 +49,9 @@
       if (!this.isNotified) {
         this.startPage(e);
       }
-      this.popover({ width: MEDIUM_WIDTH, height: MEDIUM_HEIGHT }); // Resize after pane is activated.
+
+      // Resize after pane is activated.
+      this.popover(SIZES.medium);
     },
 
     paneOnDeactivated: function() {
@@ -54,7 +62,9 @@
 
     showNoticeBoard: function(data) {
       this.isNotified = true;
-      this.switchTo('notice_board', { // Pass the message received from the notify API call.
+
+      // Pass the message received from the notify API call.
+      this.switchTo('notice_board', {
         message: data
       });
       this.popover();
@@ -62,17 +72,11 @@
 
     resizeAppWindow: function(e) {
 
+      var size = e.currentTarget.className;
+
       this.$('.resize_app ul li').removeClass('active');
       this.$(e.currentTarget).parent().addClass('active');
-
-      var size = e.currentTarget.className;
-      if (size === 'small') {
-        this.popover(SIZES.small);
-      } else if (size === 'medium') {
-        this.popover(SIZES.medium);
-      } else if (size === 'largest') {
-        this.popover(SIZES.largest);
-      }
+      this.popover(SIZES[size]);
 
     }
   };
