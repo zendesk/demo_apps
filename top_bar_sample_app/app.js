@@ -3,7 +3,7 @@
   'use strict';
 
   var EVENT_NAME        = 'send_message',
-      SUBDOMAIN_PATTERN = /[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z0-9]+/, // Pattern for subdomain extraction.
+      SUBDOMAIN_PATTERN = /[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z0-9]+/,// Pattern for subdomain.zendesk.com extraction.
       SIZES             = {
         small: {
           width: 280,
