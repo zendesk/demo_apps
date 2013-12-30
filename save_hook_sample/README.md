@@ -20,4 +20,4 @@ This app is an app stays in the ticket_sidebar and new_ticket_sider that shows y
 Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
 
 ### Screenshot(s):
-![Screen shot](https://f.cloud.github.com/assets/1329716/1810572/b1edb374-6e2b-11e3-9fd7-287a45687a9e.png)
+![Screen shot](https://f.cloud.github.com/assets/1329716/1820411/9b5813de-70e7-11e3-8614-c44c3d43ea69.png)
