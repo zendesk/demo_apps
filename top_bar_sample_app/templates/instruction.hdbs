@@ -9,6 +9,6 @@
     </ol>
   </span>
   <span>
-    <code></code>
+    <code>curl -v -u {{email}}/token:{your API access_token} https://{{uri}}/api/v2/apps/notify.json -H "Content-Type: application/json" -X POST -d '{"event": "{{event}}", "app_id": "{{app_id}}", "body":"Hello World!"}'</code>
   </span>
 </div>
