@@ -1,7 +1,7 @@
 {
   "app": {
     "package": "top_bar_sample_app",
-    "description":  {
+    "description": {
       "value": "send a curl command from your terminal to make your topbar app popover!",
       "title": "app description"
     },
