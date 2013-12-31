@@ -15,8 +15,8 @@
 <!-- call the modal division above -->
 <div class="modal_button_cell">
   <div>{{t "modal_js_title"}}</div>
-  <a class="btn btn-large toggle_modal_javascript">{{t "modal_button"}}</a>
+  <a class="btn btn-large toggle_modal">{{t "modal_button"}}</a>
 </div>
 {{#if modal_body}}
-  <h3>{{modal_body}}</h3>
+  <h4>{{modal_body}}</h4>
 {{/if}}

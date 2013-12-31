@@ -5,16 +5,15 @@
     events: {
       'app.activated': 'init',
       'show .my_modal': 'onShow',
-      'click .toggle_modal_javascript': 'displayModal',
-      'click .modal_switch_attribute': 'switchToModalAttrExample',
+      'click .toggle_modal': 'displayModal',
       'click .save_button': 'showSavedMessage'
     },
 
     init: function() {
       this.switchTo('modal');
     },
-
-    onShow: function() { // Capture the show modal event.
+    // Capture the show modal event.
+    onShow: function() {
       console.log("activating the modal");
     },
 
@@ -26,9 +25,12 @@
     },
 
     showSavedMessage: function() {
-      this.modalBody = this.$('.modal-body p').text(); // Print modal boy text.
-      console.log(this.modalBody);
       this.$('.my_modal').modal('hide');
+      // Print modal body text.
+      this.switchTo('modal', {
+        modal_body: this.$('.modal-body p').text()
+      });
+
     }
   };
 
