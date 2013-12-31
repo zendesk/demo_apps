@@ -1,4 +1,4 @@
-<form class="install-form">
+<form class="install_form">
   <ul class="parameters">
   {{#each parameters}}
     <li>
@@ -10,7 +10,7 @@
   {{/each}}
   </ul>
   <p>
-    <button class="install-button btn btn-inverse" data-id="{{id}}">
+    <button class="install_button btn btn-inverse" data-id="{{id}}">
       {{t "install"}}
     </button>
   </p>

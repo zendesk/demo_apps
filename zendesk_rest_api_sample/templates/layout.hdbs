@@ -8,6 +8,6 @@
     <li class="install"><a class="install">{{t "install"}}</a></li>
     <li class="create"><a class="create">{{t "create"}}</a></li>
   </ul>
-  <div class="loading-spinner">{{spinner}}</div>
+  <div class="loading_spinner">{{spinner}}</div>
 </section>
 <section class="main" data-main></section>

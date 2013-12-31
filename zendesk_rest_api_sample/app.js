@@ -92,9 +92,9 @@
       'click .activate':                'activateApp',
       'click .deactivate':              'deactivateApp',
       'click .delete':                  'setDoomed',
-      'click .agree-delete':            'deleteApp',
-      'click .available-apps .install': 'startInstall',
-      'click .install-button':          'setInstall',
+      'click .agree_delete':            'deleteApp',
+      'click .available_apps .install': 'startInstall',
+      'click .install_button':          'setInstall',
 
       'requestInstallations.done': 'renderInstallations',
       'activate.done':             'initialize',
@@ -103,7 +103,7 @@
       'installApp.done':           'initialize',
 
       // Create
-      'click .create-app .btn': 'uploadApp',
+      'click .create_app .btn': 'uploadApp',
       'uploadApp.done':         'buildApp',
       'jobStatus.done':         'checkProgress',
 
@@ -188,7 +188,7 @@
 
     setInstall: function(e) {
       var appId      = this.$(e.target).data('id'),
-          formParams = this.$('.install-form').first().serializeArray(),
+          formParams = this.$('.install_form').first().serializeArray(),
           objParams  = this.serializeToObj(formParams);
 
       objParams.app_id = appId;
@@ -266,10 +266,10 @@
     showSpinner: function(show) {
       if (show) {
         this.$('.main').addClass('loading');
-        this.$('.loading-spinner').css('display', 'block');
+        this.$('.loading_spinner').css('display', 'block');
       } else {
         this.$('.main').removeClass('loading');
-        this.$('.loading-spinner').css('display', 'none');
+        this.$('.loading_spinner').css('display', 'none');
       }
     },
 

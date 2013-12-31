@@ -36,3 +36,23 @@ Interesting features:
 * Ajax requests and handling
 * Zendesk-style menus
 * Zendesk APIs
+
+### [iFrame Sample App](./iframe_sample_app_zendesk_apps)
+
+This app demonstrates how to iframe a webpage in an app.
+
+Interesting features:
+
+* iframe resizing
+* Zendesk Apps locations
+
+### [Modal Sample App 1](./modal_sample_app)
+
+This app demonstrates how to toggle a modal via data attributes.
+
+* Location: ticket sidebar and new ticket sidebar.
+* Use of I18n
+* Use of the 'hidden' modal event
+* Toggle modal via data attribute (data-toggle)
+* Hide modal via data attribute (data-dismiss)
+

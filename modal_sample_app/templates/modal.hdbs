@@ -1,0 +1,18 @@
+<!-- modal.hdbs -->
+<div class="modal hide fade my_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 class="my_modal_label">{{header}}</h3>
+  </div>
+  <div class="modal-body">
+    <p>{{body}}</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">{{t "close_button"}}</button>
+    <button class="btn btn-primary save_button" data-dismiss="modal" aria-hidden="true">{{t "save_button"}}</button>
+  </div>
+</div>
+<!-- call the modal division above -->
+<div class="modal_button_cell">
+  <a class="btn btn-large" data-toggle="modal" data-target=".my_modal">{{t "modal_button"}}</a>
+</div>

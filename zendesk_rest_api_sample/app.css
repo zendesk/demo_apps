@@ -19,12 +19,12 @@ ul {
   opacity: 0.5;
 }
 
-.loading-spinner {
+.loading_spinner {
   display: none;
 }
 
 .parameters,
-.create-app {
+.create_app {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -62,7 +62,7 @@ ul {
 
 }
 
-.available-apps,
+.available_apps,
 .installations {
 
   .inline {
@@ -74,7 +74,7 @@ ul {
 
 }
 
-.app-box {
+.app_box {
   padding: 8px 0 8px 55px;
   position: relative;
 
@@ -92,20 +92,20 @@ ul {
 
 .installations {
   li:not(.enabled) {
-    .app-box:before {
+    .app_box:before {
       background-color: red;
     }
   }
 }
 
-.app-inline-logo {
+.app_inline_logo {
   height: 70%;
   left: 5px;
   position: absolute;
   top: 15%;
 }
 
-.scroll-list {
+.scroll_list {
   max-height: 400px;
   overflow-y: scroll;
 }
