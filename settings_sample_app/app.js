@@ -1,6 +1,6 @@
 (function() {
 
-  'use strict'; // This statement is needed when defining constant values and functions outside the return block.
+  'use strict'; // Convert mistakes into errors, securing javascript.
 
   // Pattern for subdomain.zendesk.com extraction.
   var SUBDOMAIN_PATTERN = /[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z0-9]+/;
