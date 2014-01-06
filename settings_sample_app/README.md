@@ -18,4 +18,5 @@ You should find in this App a few types of settings, which can be updated both v
 Please submit bug reports to [Zendesk Support](support@zendesk.com). Pull requests are welcome.
 
 ### Screenshot(s):
-You can find the animated gif [here](http://cl.ly/image/2Z2u3w3a3a2H).
+[Edit Settings when installing an App](http://cl.ly/image/2y0G3c152N1V);
+[Update Settings via the Apps API from terminal](http://cl.ly/image/3W2r3H2T3b1f)
