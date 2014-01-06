@@ -1,9 +1,0 @@
-<h4>Agent Info</h4>
-<div id='wrap'>
-<div id='left_col'><strong>Agent's name: </strong><data>{{agentName}}</data><br /><strong>Agent's role: </strong><select class="userroleset" data-zd-type="select_menu">
-	{{#each userRoles}}
-	<option value="{{this}}">{{this}}</option>{{/each}}
-	</select><br /></div>
-<div id='right_col'><strong>Agent's email: </strong><data>{{agentEmail}}</data></div>
-
-</div><br /><br />

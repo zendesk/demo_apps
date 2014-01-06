@@ -1,16 +1,13 @@
 <header>
   <span class="logo"/>
   <h3>{{setting "name"}}</h3>
-  <aside>This app demos some APIs allowing developers to interact with tickets in a Zendesk</aside>
+  <aside>This app demos some APIs allowing developers to interact with ticket fields</aside>
 </header>
-<div style='height:30px'>
-<span id="account" class="demoapp_button">Current Account</span>
-<span id="user" class="demoapp_button">User</span>
-<span id="ticket" class="demoapp_button">Ticket</span>
-</div>
 <section data-main />
+<ul class="nav nav-pills">
+  <li class="showhide"><a>{{t "showhide.button"}}</a></li>
+  <li class="newchange"><a>{{t "newchange.button"}}</a></li>
+</ul>
 <footer>
-  <br /><a href="mailto:{{author.email}}">
-    {{author.name}}
-  </a>
+  <a href="mailto:{{author.email}}">{{author.name}}</a>
 </footer>
