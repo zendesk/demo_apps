@@ -1,8 +1,8 @@
 :warning: *Use of this software is subject to important terms and conditions as set forth in the License file* :warning:
 
-# Modal Sample App
+# Advanced Modal Sample App
 
-This Sample App demonstrates how to activate a modal in javascript.
+This Sample App demonstrates how to activate a modal in javascript. If you are also interested in activating a modal in the classic data attribute way, please checkout the [Modal Sample App 1](https://github.com/zendesk/demo_apps/tree/master/modal_sample_app).
 
 ### The following information is displayed:
 
