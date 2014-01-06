@@ -1,0 +1,13 @@
+<table>
+  <tr class="table-top"><td>Field</td><td>Show</td><td>Enable</td><td>Disable</td></tr>
+  {{#each fields}}
+  <tr class="{{this.fieldname}}">
+    <td>{{this.label}}</td>
+    <td><input type="checkbox" {{this.visible}}></td>
+    <td><a class="aenable">Enable</a></td>
+    <td><a class="adisable">Disable</a></td>
+  </tr>
+{{else}}
+  <tr>No ticketfields!</tr>
+{{/each}}
+</table>
