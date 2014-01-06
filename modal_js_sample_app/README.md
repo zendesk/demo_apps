@@ -15,4 +15,4 @@ Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new)
 
 ### Screenshot(s):
 
-![modal](http://cl.ly/image/2J2N2M0h3L3i)
+[modal](http://cl.ly/image/2J2N2M0h3L3i)
