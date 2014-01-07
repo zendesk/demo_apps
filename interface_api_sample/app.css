@@ -7,10 +7,29 @@ h4 {
   margin: 18px 0 0 0;
 }
 
-.table-top td{
+td {
+  vertical-align: middle;
+}
+
+.table-top td {
   font-weight: bold;
   text-align: center;
-  vertical-align: middle;
   padding: 0 4px 0 4px;
   border-spacing: 5px;
+}
+
+.optionlabel {
+  text-align: right;
+  font-size: 10px;
+}
+
+input {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.collapse {
+  font-size: 14px;
+  font-weight: bold;
 }

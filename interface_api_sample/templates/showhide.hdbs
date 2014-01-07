@@ -1,13 +1,22 @@
 <table>
-  <tr class="table-top"><td>Field</td><td>Show</td><td>Enable</td><td>Disable</td></tr>
+  <tr class="table-top"><td></td><td>{{t "showhide.field"}}</td><td>{{t "showhide.show"}}</td><td>{{t "showhide.enable"}}</td><td>{{t "showhide.disable"}}</td></tr>
   {{#each fields}}
   <tr class="{{this.fieldname}}">
-    <td>{{this.label}}</td>
-    <td><input type="checkbox" {{this.visible}}></td>
-    <td><a class="aenable">Enable</a></td>
-    <td><a class="adisable">Disable</a></td>
+    {{{this.collapse}}}
+    <td>{{{this.label}}}</td>
+    <td><input type="checkbox" class="field" {{this.visible}}></td>
+    <td><a class="enable">{{t "showhide.enable"}}</a></td>
+    <td><a class="enable">{{t "showhide.disable"}}</a></td>
   </tr>
+  {{#each this.options}}
+  <tr class = "{{this.value}} {{../fieldname}} option" style="display: none;">
+    <td></td>
+    <td class="optionlabel">{{{this.label}}}</td>
+    <td><input type="checkbox" class="option" {{#if this.oVisible}}checked="checked"{{/if}}></td>
+    <td><a class="enable toggle">{{this.enableText}}</a></td>
+  </tr>
+  {{/each}}
 {{else}}
-  <tr>No ticketfields!</tr>
+  <tr>{{t "showhide.nofields"}}</tr>
 {{/each}}
 </table>
