@@ -10,7 +10,7 @@ This app renders in the `ticket_sidebar` and `new_ticket_sidebar` and shows how 
 
 ### The following information is displayed:
 
-#### How to
+How to
 
 * simply accept/reject a ticket submission
 * reject a ticket submission with an error message
