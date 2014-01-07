@@ -1,7 +1,7 @@
 <header>
   <span class="logo"/>
   <h3>{{setting "name"}}</h3>
-  <aside>This app demos some APIs allowing developers to interact with ticket fields</aside>
+  <aside>{{t "topdesc"}}</aside>
 </header>
 <section data-main />
 <ul class="nav nav-pills">

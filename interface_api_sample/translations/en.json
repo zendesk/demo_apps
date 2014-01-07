@@ -18,12 +18,44 @@
     "button": {
       "value": "View changes",
       "title": "view changes button text"
+    },
+    "tracking": {
+      "value": "Tracking Ticket Changes",
+      "title": "Tracking Ticket Changes"
+    },
+    "waiting": {
+      "value": "Watching for changes to the interface...",
+      "title": "Watching for changes to the interface..."
     }
   },
   "showhide": {
     "button": {
       "value": "Show / Hide Elements",
       "title": "show / hide button text"
+    },
+    "enable": {
+      "value": "Enable",
+      "title": "enable"
+    },
+     "disable": {
+      "value": "Disable",
+      "title": "disable"
+    },
+    "nofields": {
+      "value": "No ticketfields!",
+      "title": "no fields"
+    },
+    "field": {
+      "value": "Field",
+      "title": "field"
+    },
+    "show": {
+      "value": "Show",
+      "title": "show"
     }
+  },
+  "topdesc": {
+    "value": "This app demos some APIs allowing developers to interact with ticket fields",
+    "title": "short description at the top of the app"
   }
 }
