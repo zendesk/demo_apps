@@ -1,0 +1,33 @@
+{
+  "app": {
+    "package": "app_name",
+    "description": {
+      "value": "Play the famous zen tunes in your help desk.",
+      "title": "app description"
+    },
+    "name": {
+      "value": "Buddha Machine",
+      "title": "app name"
+    }
+  },
+
+  "reject_msg_no_comment": {
+    "value": "You cannot submit a ticket with empty comments!",
+    "title": "A rejection message in the modal body explaining why the ticket submission is rejected."
+  },
+
+  "ok_button": {
+    "value": "OK",
+    "title": "Shows 'OK' message on the button at the bottom of the modal body"
+  },
+
+  "progress_percentage": {
+    "value": "{{percentage}}% completed",
+    "title": "Shows progress"
+  },
+
+  "modal_header": {
+    "value": "Rejected!",
+    "title": "A message displaying rejected on the modal header"
+  }
+}
