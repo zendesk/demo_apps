@@ -76,7 +76,7 @@
     ticketSubmitDoneHandler: function() {
       var percentage = 100;
       this.progressBar.css('width', percentage + '%');
-      this.$('sr-only').text(this.I18n.t('progress_percentage', {
+      this.$('.sr-only').text(this.I18n.t('progress_percentage', {
         percentage: percentage
       }));
       clearInterval(this.progress);
