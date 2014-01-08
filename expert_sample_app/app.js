@@ -14,9 +14,9 @@
   return {
 
     requests: {
-      search: function(perPage, queryString, sortBy, sortOrder) {
+      search: function(searchUrl) {
         return {
-          url: helpers.fmt('/api/v2/search.json?per_page=%@&query=%@&sort_by=%@&sort_order=%@', perPage, queryString, sortBy, sortOrder),
+          url: searchUrl,
           type: 'GET',
           dataType: 'json'
         };
@@ -30,25 +30,34 @@
       'ticket.submit.done': 'ticketSubmitDoneHandler',
       'click .comment_body_btn': 'showComment',
       'search.done': 'renderTicketLinks',
-      'click .nav a': 'searchTickets'
+      'click .prev': 'searchPreviousTicketsPage',
+      'click .next': 'searchNextTicketsPage'
     },
 
     init: function() {
       var query = 'assignee:' + this.currentUser().email() + '+type:ticket+status:open';
       console.log(query);
-      this.ticketsInfo = [];
+
       /* TODO: Make a loader icon here, and make ajax call into a promise. This can improve the overall app experience. */
-      this.ajax('search', PER_PAGE , query, SORT_BY, SORT_ORDER);
+      //this.ajax('search', PER_PAGE , query, SORT_BY, SORT_ORDER);
       console.log(helpers.fmt('/api/v2/search.json?per_page=%@&query=%@&sort_by=%@&sort_order=%@', PER_PAGE, query, SORT_BY, SORT_ORDER));
+      var searchUrl = helpers.fmt('/api/v2/search.json?per_page=%@&query=%@&sort_by=%@&sort_order=%@', PER_PAGE, query, SORT_BY, SORT_ORDER);
+      this.ajax('search', searchUrl);
+
     },
 
-    searchTickets: function(event) {
+    searchPreviousTicketsPage: function() {
+      console.log('clicked');
+      this.ajax('search', this.previousPageQueryUrl);
+    },
 
-      this.ajax('search', PER_PAGE, event.currentTarget.href, SORT_BY, SORT_ORDER);
+    searchNextTicketsPage: function() {
+      this.ajax('search', this.nextPageQueryUrl);
     },
 
     renderTicketLinks: function(data) {
       console.log(data);
+      this.ticketsInfo = [];
       _.each(data.results, this.organizeTicketsInfo.bind(this)); // Use bind to set organizeTicketsInfo's scope to this App.
       this.switchTo('modal', {
         ticketsInfo: this.ticketsInfo
@@ -56,9 +65,13 @@
       this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
       if (data.previous_page === null) {
         this.$('.prev').addClass('hidden');
+      } else {
+        this.previousPageQueryUrl = data.previous_page;
       }
       if (data.next_page === null) {
         this.$('.next').addClass('hidden');
+      } else {
+        this.nextPageQueryUrl = data.next_page;
       }
     },
 
