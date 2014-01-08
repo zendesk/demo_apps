@@ -40,7 +40,7 @@
 
           statusField = this.ticketFields('status'), // we treat status options differently to ordinary fields
           statusData = {  fieldName: statusField.name(),
-                          label:     statusField.name().charAt(0).toUpperCase() + statusField.name().slice(1), // This field doesn't seem to be I18n, sorry!
+                          label:     this.I18n.t('showhide.status'), // This field isn't I18n because it has no label - translation manually added to translations/en.json
                           options:   statusField.options().map(this.mapOptions, this)};
 
       fields = this.deleteStatus(fields, this);
@@ -60,7 +60,7 @@
         property = event.propertyName;
         newvalue = event.newValue;
       }
-      this.switchTo('newchange', {property: property, newvalue: newvalue});
+      this.switchTo('newchange', { property: property, newvalue: newvalue });
     },
 
     checkboxClicked: function(event) { // one of the checkboxes has been clicked
@@ -99,20 +99,18 @@
       var html,
           fieldList = this.ticketFields().map(
         function(field) {
-          return {label: field.label(),
-                  name:  field.name()};
+          return { label: field.label(),
+                   name:  field.name() };
         });
-      this.switchTo('rename', {fieldList: fieldList});
-      if (fieldToRename)
-      {
+      this.switchTo('rename', { fieldList: fieldList });
+      if (fieldToRename) {
         this.$('.rename_box').zdSelectMenu('setValue', fieldToRename); // keep the field selected that we just changed
       }
     },
 
     doRename: function() {
-      var fieldToRename = this.$('.rename_box').zdSelectMenu('value');
-      var newFieldName = this.$('.new_field_name')[0].value;
-      console.log('Field: ' + fieldToRename + '\n' + 'New label: ' + newFieldName);
+      var fieldToRename = this.$('.rename_box').zdSelectMenu('value'),
+          newFieldName  = this.$('.new_field_name')[0].value;
       this.ticketFields(fieldToRename).label(newFieldName);
       this.drawRename(fieldToRename);
     },

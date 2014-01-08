@@ -29,9 +29,9 @@
       <tr>{{t "showhide.nofields"}}</tr>
     {{/each}}
     {{#if status}}
-    <tr class="{{status.fieldName}} table_top">
+    <tr class="status table_top">
       <td></td>
-      <td class="names_cell">{{{status.label}}}</td>
+      <td class="names_cell">{{status.label}}</td>
       <td></td>
       <td></td>
       <td></td>
