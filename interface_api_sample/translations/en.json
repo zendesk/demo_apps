@@ -1,0 +1,83 @@
+{
+  "app": {
+    "package": "interface_api_sample",
+    "description": {
+      "value": "Demo interacting with the ticket fields and ticket interface",
+      "title": "app description"
+    }
+  },
+  "newchange": {
+    "theproperty": {
+      "value": "The property called",
+      "title": "the property named..."
+    },
+    "hasvalue": {
+      "value": "has been changed to",
+      "title": "...has new value:"
+    },
+    "button": {
+      "value": "View changes",
+      "title": "view changes button text"
+    },
+    "tracking": {
+      "value": "Tracking Ticket Changes",
+      "title": "Tracking Ticket Changes"
+    },
+    "waiting": {
+      "value": "Watching for changes to the interface...",
+      "title": "Watching for changes to the interface..."
+    }
+  },
+  "showhide": {
+    "button": {
+      "value": "Show / Hide Elements",
+      "title": "show / hide button text"
+    },
+    "enable": {
+      "value": "Enable",
+      "title": "enable"
+    },
+     "disable": {
+      "value": "Disable",
+      "title": "disable"
+    },
+    "nofields": {
+      "value": "No ticketfields!",
+      "title": "no fields"
+    },
+    "field": {
+      "value": "Field",
+      "title": "field"
+    },
+    "show": {
+      "value": "Show",
+      "title": "show"
+    },
+    "status": {
+      "value": "Status",
+      "title": "status"
+    }
+  },
+  "rename": {
+    "button": {
+      "value": "Rename Field",
+      "title": "switch to rename button text"
+    },
+    "do": {
+      "value": "Rename",
+      "title": "do rename button text"
+    },
+    "inputlabel": {
+      "value": "New label",
+      "title": "label for input box for new label"
+    },
+    "instructions": {
+      "value": "Choose a field to rename and type a new name for it below",
+      "title": "rename instructions"
+    }
+  },
+  "topdesc": {
+    "value": "This app demos some APIs allowing developers to interact with ticket fields",
+    "title": "short description at the top of the app"
+  }
+}
