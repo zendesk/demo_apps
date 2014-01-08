@@ -6,7 +6,7 @@
 
 * A fake progress bar at ticket submission (use of promise, setInterval, and modal, I18n)
 * Prevent a submission on the condition that the comment body is empty (use of promise, modal, I18n, comment interface)
-* something
+* Displays all ticket hyperlinks that are open and assigned to current user.
 
 Please submit bug reports to [Insert Link](). Pull requests are welcome.
 
