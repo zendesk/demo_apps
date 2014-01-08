@@ -3,8 +3,10 @@
   'use strict';
 
   var TICKET_URL_PATTERN = /(.+)\.json$/,
-    VAL_MIN = 0,
-    VAL_MAX = 100;
+                 VAL_MIN = 0,
+                 VAL_MAX = 100,
+                TIME_OUT = 5000,
+           TIME_INTERVAL = 500;
 
   return {
 
@@ -96,10 +98,10 @@
           this.valNow = VAL_MIN;
           this.progress = setInterval(function() {
             this.goProgress(this.valNow);
-            if (Date.now() - this.currentTime > 5000) {
+            if (Date.now() - this.currentTime > TIME_OUT) {
               done();
             }
-          }.bind(this), 500);
+          }.bind(this), TIME_INTERVAL);
         });
       }
     },
@@ -107,7 +109,7 @@
     /* Helpers Go Here. */
 
     goProgress: function(valNow) { // Bootstrap 2.3 progress bar
-      this.valNow += VAL_MAX / 10;
+      this.valNow += VAL_MAX / ( TIME_OUT / TIME_INTERVAL );
       var percentage = valNow * 100 / VAL_MAX;
       this.progressBar.css('width', percentage + '%');
       this.$('.sr-only').text(this.I18n.t('progress_percentage', {
