@@ -37,7 +37,7 @@
       <td></td>
     </tr>
       {{#each status.options}}
-      <tr class = "{{this.value}} {{../fieldName}} option">
+      <tr class = "{{this.value}} status option">
         <td></td>
         <td class="names_cell">{{{this.label}}}</td>
         <td><input type="checkbox" class="option" {{#if this.oVisible}}checked="checked"{{/if}}></td>
