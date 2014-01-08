@@ -10,5 +10,12 @@
 
 Please submit bug reports to [Insert Link](). Pull requests are welcome.
 
+
+### Note:
+
+* jQuery version 1.7
+* BootStrap 2.3
+* underscore version 1.3.3
+
 ### Screenshot(s):
 [put your screenshots down here.]
