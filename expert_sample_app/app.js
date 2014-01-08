@@ -32,41 +32,28 @@
       var query = 'assignee:' + this.currentUser().email() + '+type:ticket+status:open';
       console.log(query);
       this.ticketsInfo = [];
+      /* TODO: Make a loader icon here, and make ajax call into a promise. This can improve the overall app experience. */
       this.ajax('search', query);
     },
 
     searchTickets: function(event) {
-
-      //console.log(event.currentTarget.href);
 
       this.ajax('search', event.currentTarget.href);
     },
 
     renderTicketLinks: function(data) {
       console.log(data);
-      _.each(data.results, function(ticket) {
-        var regexResult = TICKET_URL_PATTERN.exec(ticket.url);
-        var ticketUrl = regexResult[1]; // This returns the matched url
-        var ticketSubject = ticket.subject;
-        this.ticketsInfo.push({
-          url: ticketUrl,
-          subject: ticketSubject
-        });
-      }.bind(this));
+      _.each(data.results, this.organizeTicketsInfo.bind(this)); // Use bind to set organizeTicketsInfo's scope to this App.
       this.switchTo('modal', {
         ticketsInfo: this.ticketsInfo
       });
-      this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', {
-        total: data.count
-      }));
+      this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
       if (data.previous_page === null) {
         this.$('.prev').addClass('hidden');
       }
-
       if (data.next_page === null) {
         this.$('.next').addClass('hidden');
       }
-
     },
 
     ticketSubmitStartHandler: function() {
@@ -144,6 +131,16 @@
       this.$('.alert-block').addClass('hidden');
       this.$('.progress').removeClass('hidden');
       this.$('button').addClass('hidden');
+    },
+
+    organizeTicketsInfo: function(ticket) {
+      var regexResult = TICKET_URL_PATTERN.exec(ticket.url);
+      var ticketUrl = regexResult[1]; // This returns the matched url
+      var ticketSubject = ticket.subject;
+      this.ticketsInfo.push({
+        url: ticketUrl,
+        subject: ticketSubject
+      });
     }
   };
 
