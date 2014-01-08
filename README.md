@@ -64,3 +64,4 @@ Interesting features:
 
 * Observer and event handler for changes to the ticket
 * Change which interface elements are visible
+* Manipulating ticket fields from within an app

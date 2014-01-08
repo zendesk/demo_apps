@@ -6,46 +6,46 @@
       'app.activated':'initialize', // this event is run once when the app loads and calls the 'initialize' function
       '*.changed': 'detectedChange', // this event runs when there is a change in the ticket fields
       'click .nav-pills .showhide': 'initialize',
-      'click .nav-pills .newchange': 'detectedChange',
-      'click input': 'checkboxClicked',
+      'click .nav-pills .rename': 'drawRename',
+      'click input[type=\'checkbox\']': 'checkboxClicked',
       'click .enable': 'enableClicked',
-      'click .collapse': 'collapseClicked'
+      'click .collapse': 'collapseClicked',
+      'click .do_rename':  'doRename'
     },
 
     initialize: function(event) { // function called when we load
       var options   = null,
-          nooptions = null,
+          noOptions = null,
           fields    = this.ticketFields().map(
             function(field) {
-
               try {
                 field.options();
               }
               catch(e) {
-                nooptions = field.name();
+                noOptions = field.name();
               }
 
-              if ( nooptions != field.name() ) { // we have some options to fetch and make into a nice array
-                options = field.options().map(
-                  function(option) {
-                    console.log('option: ' + option.label() + '\nVisible: ' + option.isVisible());
-                    return { label:       option.label(),
-                             value:       option.value(),
-                             enableText:  option.isEnabled() ? this.I18n.t('showhide.disable') : this.I18n.t('showhide.enable'),
-                             oVisible:    option.isVisible()};
-                  }, this);
+              if ( noOptions != field.name() ) { // we have some options to fetch and make into a nice array
+                options = field.options().map( this.mapOptions, this);
               } else {
                 options = null;
               }
 
-              return {  fieldname: field.name(),
+              return {  fieldName: field.name(),
                         label:     field.label(),
                         visible:   field.isVisible() ? 'checked=checked' : '',
                         options:   options, // either null or the options we nested in here
                         collapse:  options ? '<td><a class="collapse ' + field.name() + '">+</a></td>':'<td></td>' };
-            }, this);
+            }, this),
 
-      this.switchTo('showhide', {fields: fields});
+          statusField = this.ticketFields('status'), // we treat status options differently to ordinary fields
+          statusData = {  fieldName: statusField.name(),
+                          label:     statusField.name().charAt(0).toUpperCase() + statusField.name().slice(1), // This field doesn't seem to be I18n, sorry!
+                          options:   statusField.options().map(this.mapOptions, this)};
+
+      fields = this.deleteStatus(fields, this);
+
+      this.switchTo('showhide', { fields: fields, status: statusData });
     },
 
     /* UI Events */
@@ -95,6 +95,28 @@
       }
     },
 
+    drawRename: function(fieldToRename) {
+      var html,
+          fieldList = this.ticketFields().map(
+        function(field) {
+          return {label: field.label(),
+                  name:  field.name()};
+        });
+      this.switchTo('rename', {fieldList: fieldList});
+      if (fieldToRename)
+      {
+        this.$('.rename_box').zdSelectMenu('setValue', fieldToRename); // keep the field selected that we just changed
+      }
+    },
+
+    doRename: function() {
+      var fieldToRename = this.$('.rename_box').zdSelectMenu('value');
+      var newFieldName = this.$('.new_field_name')[0].value;
+      console.log('Field: ' + fieldToRename + '\n' + 'New label: ' + newFieldName);
+      this.ticketFields(fieldToRename).label(newFieldName);
+      this.drawRename(fieldToRename);
+    },
+
     /* Utility Functions */
 
     findMe: function(event, self) { // Get a 'handle' to the field or option we want
@@ -119,22 +141,42 @@
             return clickTarget.checked;         // Alternatively, we could use a toggle function. In this app we just use ticketFieldOption.isVisible()
           }
           break;
-          case 'A':
-            if (clickTarget.innerText == self.I18n.t('showhide.enable')) {
-              if (clickTarget.classList.contains('toggle')) {
-                clickTarget.innerText = self.I18n.t('showhide.disable');
-              }
-              return 'Enable';
-            } else {
-              if (clickTarget.classList.contains('toggle')) {
-                clickTarget.innerText = self.I18n.t('showhide.enable');
-              }
-              return 'Disable';
+        case 'A':
+          if (clickTarget.innerText == self.I18n.t('showhide.enable')) {
+            if (clickTarget.classList.contains('toggle')) {
+              clickTarget.innerText = self.I18n.t('showhide.disable');
             }
-            break;
+            return 'Enable';
+          } else {
+            if (clickTarget.classList.contains('toggle')) {
+              clickTarget.innerText = self.I18n.t('showhide.enable');
+            }
+            return 'Disable';
+          }
+          break;
         default:
           break;
       }
+    },
+
+    mapOptions: function(option) {
+      return { label:       option.label(),
+               value:       option.value(),
+               enableText:  option.isEnabled() ? this.I18n.t('showhide.disable') : this.I18n.t('showhide.enable'),
+               oVisible:    option.isVisible()};
+    },
+
+    deleteStatus: function(fields, self) {
+      var indexToDelete = -1;
+      _.each(fields, function(value, index) {
+        if (value.fieldName == 'status') {
+          indexToDelete = index;
+        }
+      });
+      if (indexToDelete >= 0) {
+        fields.splice(indexToDelete, 1);
+      }
+      return fields;
     }
   };
 

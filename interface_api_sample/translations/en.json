@@ -54,6 +54,24 @@
       "title": "show"
     }
   },
+  "rename": {
+    "button": {
+      "value": "Rename Field",
+      "title": "switch to rename button text"
+    },
+    "do": {
+      "value": "Rename",
+      "title": "do rename button text"
+    },
+    "inputlabel": {
+      "value": "New label",
+      "title": "label for input box for new label"
+    },
+    "instructions": {
+      "value": "Choose a field to rename and type a new name for it below",
+      "title": "rename instructions"
+    }
+  },
   "topdesc": {
     "value": "This app demos some APIs allowing developers to interact with ticket fields",
     "title": "short description at the top of the app"

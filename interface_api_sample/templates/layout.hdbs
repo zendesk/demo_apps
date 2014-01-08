@@ -5,9 +5,6 @@
 </header>
 <section data-main />
 <ul class="nav nav-pills">
-  <li class="showhide"><a>{{t "showhide.button"}}</a></li>
-  <li class="newchange"><a>{{t "newchange.button"}}</a></li>
+  <li class="showhide btn"><a>{{t "showhide.button"}}</a></li>
+  <li class="rename btn"><a>{{t "rename.button"}}</a></li>
 </ul>
-<footer>
-  <a href="mailto:{{author.email}}">{{author.name}}</a>
-</footer>
