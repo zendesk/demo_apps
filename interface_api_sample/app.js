@@ -7,7 +7,7 @@
       '*.changed': 'detectedChange', // this event runs when there is a change in the ticket fields
       'click .nav-pills .showhide': 'initialize',
       'click .nav-pills .rename': 'drawRename',
-      'click input[type=\'checkbox\']': 'checkboxClicked',
+      'click input[type="checkbox"]': 'checkboxClicked',
       'click .enable': 'enableClicked',
       'click .collapse': 'collapseClicked',
       'click .do_rename':  'doRename'
