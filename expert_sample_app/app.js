@@ -39,7 +39,6 @@
 
       //console.log(event.currentTarget.href);
 
-
       this.ajax('search', event.currentTarget.href);
     },
 
@@ -60,11 +59,11 @@
       this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', {
         total: data.count
       }));
-      if(data.previous_page === null) {
+      if (data.previous_page === null) {
         this.$('.prev').addClass('hidden');
       }
 
-      if(data.next_page === null) {
+      if (data.next_page === null) {
         this.$('.next').addClass('hidden');
       }
 
@@ -96,7 +95,7 @@
         backdrop: true,
         keyboard: false
       });
-      if(this.commentBody === '') {
+      if (this.commentBody === '') {
         return this.promise(function(done, fail) {
           fail();
         }).fail(function() {
@@ -110,7 +109,7 @@
           this.valNow = VAL_MIN;
           this.progress = setInterval(function() {
             this.goProgress(this.valNow);
-            if(Date.now() - this.currentTime > 5000) {
+            if (Date.now() - this.currentTime > 5000) {
               done();
             }
           }.bind(this), 500);
