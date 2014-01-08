@@ -26,8 +26,13 @@
     "title": "Shows progress"
   },
 
-  "modal_header": {
+  "modal_header_reject": {
     "value": "Rejected!",
     "title": "A message displaying rejected on the modal header"
+  },
+
+  "modal_header_submit": {
+    "value": "Submitting Your Ticket",
+    "title": "A message displaying submitting ticket on the modal header"
   }
 }

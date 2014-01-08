@@ -1,11 +1,10 @@
-(function () {
+(function() {
 
   'use strict';
 
   var PATTERN = /ticket_sidebar$/,
     VAL_MIN = 0,
     VAL_MAX = 100;
-
 
   function stopFunction(progress) {
     clearInterval(progress);
@@ -20,64 +19,14 @@
       'click .comment_body_btn': 'showComment'
     },
 
-    init: function () {
+    init: function() {
       this.switchTo('modal');
-      /*if (PATTERN.test(this.currentLocation())) {
-       console.log(this.ticketFields());
-       console.log(this.ticket());
-       console.log(this.comment().text());
-       }*/
-/*      this.commentBody = this.comment().text();
-      console.log(this.commentBody);
-      this.$('modal-footer').addClass('hidden');
-
-      this.$('.my_modal').modal({
-        backdrop: true,
-        keyboard: false
-      });
-
-      console.log(this.comment().text());
-      this.$('.alert-block').addClass('hidden');
-      this.$('.progress').removeClass('hidden');
-
-      this.progressBar = this.$('.bar');
-      //this.valMax = this.progressBar.attr('aria-valuemax');
-      console.log("define valMax here: " + VAL_MAX);
-      this.currentTime = Date.now();
-
-      this.valNow = 0;
-
-      this.progress = setInterval(function () {
-
-        //var val = this.progressBar.attr('aria-valuenow');
-        console.log("val: " + this.valNow);
-        this.valNow += VAL_MAX / 30
-        this.progressBar.attr('aria-valuenow', this.valnow);
-
-        console.log("val: " + this.valNow);
-        console.log("valMax: " + VAL_MAX);
-        var percentage = this.valNow * 100 / VAL_MAX;
-
-        console.log("percentage: " + percentage);
-        this.progressBar.css('width', percentage + '%');
-
-        this.$('.sr-only').text(this.I18n.t('progress_percentage', {
-          percentage: percentage
-        }));
-
-        if (Date.now() - this.currentTime > 30000) {
-          clearInterval(this.progress);
-        }
-
-        console.log('hello world!');
-      }.bind(this), 1000);
-*/
     },
 
-    ticketSubmitStartHandler: function () {
+    ticketSubmitStartHandler: function() {
     },
 
-    ticketSubmitDoneHandler: function () {
+    ticketSubmitDoneHandler: function() {
       var percentage = 100;
       this.progressBar.css('width', percentage + '%');
       this.$('sr-only').text(this.I18n.t('progress_percentage', {
@@ -90,11 +39,11 @@
 
     },
 
-    showComment: function () {
+    showComment: function() {
       console.log(this.comment().text());
     },
 
-    saveHookHandler: function () {
+    saveHookHandler: function() {
 
       this.commentBody = this.comment().text();
       console.log(this.commentBody);
@@ -105,63 +54,73 @@
         keyboard: false
       });
 
-      if (this.commentBody === '') {
-        return this.promise(function (done, fail) {
+      if(this.commentBody === '') {
+        return this.promise(function(done, fail) {
           fail();
-        }).fail(function () {
-            //debugger;
-            this.$('.alert-block').removeClass('hidden');
-            this.$('.progress').addClass('hidden');
+        }).fail(function() {
+            this.showWarningDialog();
           }.bind(this));
       } else {
+        return this.promise(function(done, fail) {
 
-        console.log(this.comment().text());
-        this.$('.alert-block').addClass('hidden');
-        this.$('.progress').removeClass('hidden');
+          this.showSubmitProgressBar();
 
-        this.progressBar = this.$('.bar');
-        //this.valMax = this.progressBar.attr('aria-valuemax');
-        console.log('define valMax here: ' + VAL_MAX);
-        this.currentTime = Date.now();
+          this.progressBar = this.$('.bar');
 
-        this.valNow = 0;
+          this.currentTime = Date.now();
 
-        this.progress = setInterval(function () {
+          this.valNow = VAL_MIN;
 
-          //var val = this.progressBar.attr('aria-valuenow');
-          console.log('val: ' + this.valNow);
-          this.valNow += VAL_MAX / 10;
-          this.progressBar.attr('aria-valuenow', this.valnow);
+          this.progress = setInterval(function() {
 
-          console.log('val: ' + this.valNow);
-          console.log('valMax: ' + VAL_MAX);
-          var percentage = this.valNow * 100 / VAL_MAX;
+            this.goProgress(this.valNow);
 
-          console.log('percentage: ' + percentage);
-          this.progressBar.css('width', percentage + '%');
+            if(Date.now() - this.currentTime > 5000) {
+              done();
+            }
 
-          this.$('.sr-only').text(this.I18n.t('progress_percentage', {
-            percentage: percentage
-          }));
+          }.bind(this), 500);
 
-          if (Date.now() - this.currentTime > 5000) {
-            clearInterval(this.progress);
-          }
-
-          console.log('hello world!');
-        }.bind(this), 500);
-
-        setTimeout(this, 5000);
-
+        });
       }
-
     },
 
-    progressBarEffect: function () {
-      this.progressBar = this.$('.bar');
+    /* Helpers Go Here. */
+
+    goProgress: function(valNow) {
+      this.valNow += VAL_MAX / 10;
+
+      var percentage = valNow * 100 / VAL_MAX;
+
+      this.progressBar.css('width', percentage + '%');
+
+      this.$('.sr-only').text(this.I18n.t('progress_percentage', {
+        percentage: percentage
+      }));
+    },
+
+    renderModalLabel: function(label) {
+      this.$('.my_modal_label').text(this.I18n.t(label));
+    },
+
+    showWarningDialog: function() {
+      this.renderModalLabel('modal_header_reject');
+      this.$('.alert-block').removeClass('hidden');
+      this.$('.progress').addClass('hidden');
+      this.$('button').removeClass('hidden');
+    },
+
+    showSubmitProgressBar: function() {
+      this.renderModalLabel('modal_header_submit');
+      this.$('.alert-block').addClass('hidden');
+      this.$('.progress').removeClass('hidden');
+
+      this.$('button').addClass('hidden');
+
 
     }
 
-  };
+
+};
 
 }());
