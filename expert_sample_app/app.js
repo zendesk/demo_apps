@@ -6,14 +6,17 @@
                  VAL_MIN = 0,
                  VAL_MAX = 100,
                 TIME_OUT = 5000,
-           TIME_INTERVAL = 500;
+           TIME_INTERVAL = 500,
+                PER_PAGE = 6,
+              SORT_ORDER = 'created_at',
+              SORT_BY = 'asc';
 
   return {
 
     requests: {
-      search: function(queryString) {
+      search: function(perPage, queryString, sortBy, sortOrder) {
         return {
-          url: '/api/v2/search.json?query=' + queryString,
+          url: helpers.fmt('/api/v2/search.json?per_page=%@&query=%@&sort_by=%@&sort_order=%@', perPage, queryString, sortBy, sortOrder),
           type: 'GET',
           dataType: 'json'
         };
@@ -35,12 +38,13 @@
       console.log(query);
       this.ticketsInfo = [];
       /* TODO: Make a loader icon here, and make ajax call into a promise. This can improve the overall app experience. */
-      this.ajax('search', query);
+      this.ajax('search', PER_PAGE , query, SORT_BY, SORT_ORDER);
+      console.log(helpers.fmt('/api/v2/search.json?per_page=%@&query=%@&sort_by=%@&sort_order=%@', PER_PAGE, query, SORT_BY, SORT_ORDER));
     },
 
     searchTickets: function(event) {
 
-      this.ajax('search', event.currentTarget.href);
+      this.ajax('search', PER_PAGE, event.currentTarget.href, SORT_BY, SORT_ORDER);
     },
 
     renderTicketLinks: function(data) {
