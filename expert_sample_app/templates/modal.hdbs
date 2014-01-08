@@ -28,5 +28,14 @@
       {{/ticketsInfo}}
     </ul>
   </div>
-  <div class="nav"></div>
+  <div class="nav">
+    <ul>
+      <li class="pull-left">
+        <a class="prev" href="{{prevLink}}">{{t "previous_page"}}</a>
+      </li>
+      <li class="pull-right">
+        <a class="next" href="{{nextLink}}">{{t "next_page"}}</a>
+      </li>
+    </ul>
+  </div>
 </div>

@@ -24,7 +24,8 @@
       'ticket.submit.start': 'ticketSubmitStartHandler',
       'ticket.submit.done': 'ticketSubmitDoneHandler',
       'click .comment_body_btn': 'showComment',
-      'search.done': 'renderTicketLinks'
+      'search.done': 'renderTicketLinks',
+      'click .nav a': 'searchTickets'
     },
 
     init: function() {
@@ -32,6 +33,14 @@
       console.log(query);
       this.ticketsInfo = [];
       this.ajax('search', query);
+    },
+
+    searchTickets: function(event) {
+
+      //console.log(event.currentTarget.href);
+
+
+      this.ajax('search', event.currentTarget.href);
     },
 
     renderTicketLinks: function(data) {
@@ -51,6 +60,14 @@
       this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', {
         total: data.count
       }));
+      if(data.previous_page === null) {
+        this.$('.prev').addClass('hidden');
+      }
+
+      if(data.next_page === null) {
+        this.$('.next').addClass('hidden');
+      }
+
     },
 
     ticketSubmitStartHandler: function() {
