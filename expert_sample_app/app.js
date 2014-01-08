@@ -8,8 +8,8 @@
                 TIME_OUT = 5000,
            TIME_INTERVAL = 500,
                 PER_PAGE = 6,
-              SORT_ORDER = 'created_at',
-              SORT_BY = 'asc';
+                 SORT_BY = 'created_at',
+              SORT_ORDER = 'asc';
 
   return {
 
