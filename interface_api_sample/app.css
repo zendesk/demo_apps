@@ -71,6 +71,7 @@ td.names_cell {
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 110px;
+  padding-top: 4px;
 }
 
 .collapse_column {
