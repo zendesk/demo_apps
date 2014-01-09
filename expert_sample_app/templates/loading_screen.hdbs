@@ -1,0 +1,4 @@
+<div class="spinner">
+  <img src="{{assetURL "loader.gif"}}" alt="loader_spinner" />
+  <h3>Loading tickets...</h3>
+</div>

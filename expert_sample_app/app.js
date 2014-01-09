@@ -3,13 +3,19 @@
   'use strict';
 
   var TICKET_URL_PATTERN = /(.+)\.json$/,
+              TO_REPLACE = /\/api\/v2\//,
+              REPLACE_BY = '/agent/#/',
                  VAL_MIN = 0,
                  VAL_MAX = 100,
                 TIME_OUT = 5000,
            TIME_INTERVAL = 500,
                 PER_PAGE = 6,
                  SORT_BY = 'created_at',
-              SORT_ORDER = 'asc';
+              SORT_ORDER = 'asc',
+        DEFAULT_PAGE_NUM = 1,
+          PAGE_NUM_CLASS = '.page_number',
+              PREV_CLASS = '.prev',
+              NEXT_CLASS = '.next';
 
   return {
 
@@ -31,38 +37,49 @@
       'click .comment_body_btn': 'showComment',
       'search.done': 'renderTicketLinks',
       'click .prev': 'searchPreviousTicketsPage',
-      'click .next': 'searchNextTicketsPage'
+      'click .next': 'searchNextTicketsPage',
+      'click .page_number': 'searchTicketsByPageNumber'
     },
 
     init: function() {
-      var query = 'assignee:' + this.currentUser().email() + '+type:ticket+status:open';
-      console.log(query);
+      this.pageNumber = this.previousPageNumber = DEFAULT_PAGE_NUM;
 
-      /* TODO: Make a loader icon here, and make ajax call into a promise. This can improve the overall app experience. */
-      //this.ajax('search', PER_PAGE , query, SORT_BY, SORT_ORDER);
-      console.log(helpers.fmt('/api/v2/search.json?per_page=%@&query=%@&sort_by=%@&sort_order=%@', PER_PAGE, query, SORT_BY, SORT_ORDER));
-      var searchUrl = helpers.fmt('/api/v2/search.json?per_page=%@&query=%@&sort_by=%@&sort_order=%@', PER_PAGE, query, SORT_BY, SORT_ORDER);
-      this.ajax('search', searchUrl);
-
+      this.sendSearchRequest(this.makeSearchUrl(this.pageNumber));
     },
 
     searchPreviousTicketsPage: function() {
-      console.log('clicked');
-      this.ajax('search', this.previousPageQueryUrl);
+      if (this.pageNumber !== DEFAULT_PAGE_NUM) {
+        this.previousPageNumber = this.pageNumber;
+        this.pageNumber--;
+        this.sendSearchRequest(this.previousPageQueryUrl);
+      }
     },
 
     searchNextTicketsPage: function() {
-      this.ajax('search', this.nextPageQueryUrl);
+      if (this.pageNumber !== this.totalPages) {
+        this.previousPageNumber = this.pageNumber;
+        this.pageNumber++;
+        this.sendSearchRequest(this.nextPageQueryUrl);
+      }
+    },
+
+    searchTicketsByPageNumber: function(event) {
+      this.previousPageNumber = this.pageNumber;
+      this.pageNumber = parseInt(this.$(event.currentTarget).text());
+      if (this.previousPageNumber !== this.pageNumber) {
+        this.sendSearchRequest(this.makeSearchUrl(this.pageNumber));
+      }
     },
 
     renderTicketLinks: function(data) {
       console.log(data);
       this.ticketsInfo = [];
       _.each(data.results, this.organizeTicketsInfo.bind(this)); // Use bind to set organizeTicketsInfo's scope to this App.
-      this.switchTo('modal', {
-        ticketsInfo: this.ticketsInfo
-      });
-      this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
+      this.totalPages = Math.ceil(data.count / PER_PAGE); // Calculate total number of pages.
+      var pages = []; // Make page number array
+      for (var i = 1; i <= this.totalPages; i++) {
+        pages.push({ number: i });
+      }
       if (data.previous_page === null) {
         this.$('.prev').addClass('hidden');
       } else {
@@ -73,6 +90,14 @@
       } else {
         this.nextPageQueryUrl = data.next_page;
       }
+      this.switchTo('modal', {
+        ticketsInfo: this.ticketsInfo,
+        pages: pages
+      });
+      this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
+      this.syncButtons();
+
+      //console.log(this.$('.page_number'));
     },
 
     ticketSubmitStartHandler: function() {
@@ -155,14 +180,51 @@
     organizeTicketsInfo: function(ticket) {
       var regexResult = TICKET_URL_PATTERN.exec(ticket.url);
       var ticketUrl = regexResult[1]; // This returns the matched ticket API url
-
-      ticketUrl = ticketUrl.replace(/\/api\/v2\//, '/agent/#/'); // Convert API url to ticket url
-
+      ticketUrl = ticketUrl.replace(TO_REPLACE, REPLACE_BY); // Convert API url to ticket url
       var ticketSubject = ticket.subject;
       this.ticketsInfo.push({
         url: ticketUrl,
         subject: ticketSubject
       });
+    },
+
+    makeSearchUrl: function(pageNumber) {
+      var query = 'assignee:' + this.currentUser().email() + '+type:ticket+status:open';
+      return helpers.fmt('/api/v2/search.json?page=%@&per_page=%@&query=%@&sort_by=%@&sort_order=%@', pageNumber, PER_PAGE, query, SORT_BY, SORT_ORDER);
+    },
+
+    sendSearchRequest: function(queryUrl) {
+      this.ajax('search', queryUrl);
+      this.switchTo('loading_screen');
+    },
+
+    highlightCurrentPageNumber: function(btnClass, index) {
+      this.$(this.$(this.$(btnClass)[index]).parent()).addClass('disabled');
+      this.$(this.$(this.$(btnClass)[index]).parent()).removeClass('active');
+    },
+
+    removeHighlightOnPageNumber: function(btnClass, index) {
+      this.$(this.$(this.$(btnClass)[index]).parent()).addClass('active');
+      this.$(this.$(this.$(btnClass)[index]).parent()).removeClass('disabled');
+      console.log(this.$(this.$(btnClass)[index]).parent());
+    },
+
+    syncButtons: function() {
+      if (this.previousPageNumber !== this.pageNumber) {
+        this.removeHighlightOnPageNumber(PAGE_NUM_CLASS, this.previousPageNumber - 1);
+      }
+      this.highlightCurrentPageNumber(PAGE_NUM_CLASS, this.pageNumber - 1);
+      if (this.pageNumber < this.totalPages && this.pageNumber > DEFAULT_PAGE_NUM ) {
+        this.removeHighlightOnPageNumber(NEXT_CLASS, 0);
+        this.removeHighlightOnPageNumber(PREV_CLASS, 0);
+      } else {
+        if (this.totalPages === this.pageNumber) { // At last page
+          this.highlightCurrentPageNumber(NEXT_CLASS, 0);
+        }
+        if (this.pageNumber === DEFAULT_PAGE_NUM) { // At first page
+          this.highlightCurrentPageNumber(PREV_CLASS, 0);
+        }
+      }
     }
   };
 

@@ -28,14 +28,13 @@
       {{/ticketsInfo}}
     </ul>
   </div>
-  <div class="nav">
+  <div class="pagination pgination-centered">
     <ul>
-      <li class="pull-left">
-        <button class="btn prev">{{t "previous_page"}}</button>
-      </li>
-      <li class="pull-right">
-        <button class="btn next">{{t "next_page"}}</button>
-      </li>
+      <li class="active"><a class="prev" href="#">Prev</a></li>
+      {{#pages}}
+        <li class="active"><a class="page_number" href="#">{{number}}</a></li>
+      {{/pages}}
+      <li class="active"><a class="next" href="#">Next</a></li>
     </ul>
   </div>
 </div>

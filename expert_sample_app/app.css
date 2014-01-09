@@ -5,3 +5,25 @@
 .hidden {
   display: none;
 }
+
+.spinner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  /*margin: 5px;*/
+  padding: 6px;
+}
+
+.spinner > img {
+  width: 80px;
+  height: 80px;
+}
+
+/*.nav {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}*/
+
+.tickets_list_header {
+  padding-bottom: 10px;
+}
