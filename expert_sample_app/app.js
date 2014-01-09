@@ -154,7 +154,10 @@
 
     organizeTicketsInfo: function(ticket) {
       var regexResult = TICKET_URL_PATTERN.exec(ticket.url);
-      var ticketUrl = regexResult[1]; // This returns the matched url
+      var ticketUrl = regexResult[1]; // This returns the matched ticket API url
+
+      ticketUrl = ticketUrl.replace(/\/api\/v2\//, '/agent/#/'); // Convert API url to ticket url
+
       var ticketSubject = ticket.subject;
       this.ticketsInfo.push({
         url: ticketUrl,

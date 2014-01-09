@@ -31,10 +31,10 @@
   <div class="nav">
     <ul>
       <li class="pull-left">
-        <button class="prev">{{t "previous_page"}}</button>
+        <button class="btn prev">{{t "previous_page"}}</button>
       </li>
       <li class="pull-right">
-        <button class="next">{{t "next_page"}}</button>
+        <button class="btn next">{{t "next_page"}}</button>
       </li>
     </ul>
   </div>
