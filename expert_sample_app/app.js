@@ -9,7 +9,7 @@
                  VAL_MAX = 100,
                 TIME_OUT = 5000,
            TIME_INTERVAL = 500,
-                PER_PAGE = 6,
+                PER_PAGE = 1,
                  SORT_BY = 'created_at',
               SORT_ORDER = 'asc',
         DEFAULT_PAGE_NUM = 1,
@@ -36,8 +36,8 @@
       'ticket.submit.done': 'ticketSubmitDoneHandler',
       'click .comment_body_btn': 'showComment',
       'search.done': 'renderTicketLinks',
-      'click .prev': 'searchPreviousTicketsPage',
-      'click .next': 'searchNextTicketsPage',
+      'click .prev': 'previousTicketsPage',
+      'click .next': 'nextTicketsPage',
       'click .page_number': 'searchTicketsByPageNumber'
     },
 
@@ -47,7 +47,7 @@
       this.sendSearchRequest(this.makeSearchUrl(this.pageNumber));
     },
 
-    searchPreviousTicketsPage: function() {
+    previousTicketsPage: function() {
       if (this.pageNumber !== DEFAULT_PAGE_NUM) {
         this.previousPageNumber = this.pageNumber;
         this.pageNumber--;
@@ -55,17 +55,18 @@
       }
     },
 
-    searchNextTicketsPage: function() {
+    nextTicketsPage: function() {
       if (this.pageNumber !== this.totalPages) {
         this.previousPageNumber = this.pageNumber;
         this.pageNumber++;
         this.sendSearchRequest(this.nextPageQueryUrl);
       }
+
     },
 
     searchTicketsByPageNumber: function(event) {
       this.previousPageNumber = this.pageNumber;
-      this.pageNumber = parseInt(this.$(event.currentTarget).text());
+      this.pageNumber = parseInt(this.$(event.currentTarget).text(), 10);
       if (this.previousPageNumber !== this.pageNumber) {
         this.sendSearchRequest(this.makeSearchUrl(this.pageNumber));
       }
@@ -78,7 +79,8 @@
       this.totalPages = Math.ceil(data.count / PER_PAGE); // Calculate total number of pages.
       var pages = []; // Make page number array
       for (var i = 1; i <= this.totalPages; i++) {
-        pages.push({ number: i });
+
+        pages.push({ number: i, paginator: this.makePagiClassName(i) });
       }
       if (data.previous_page === null) {
         this.$('.prev').addClass('hidden');
@@ -96,8 +98,7 @@
       });
       this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
       this.syncButtons();
-
-      //console.log(this.$('.page_number'));
+      this.reorderPageButtons();
     },
 
     ticketSubmitStartHandler: function() {
@@ -214,6 +215,7 @@
         this.removeHighlightOnPageNumber(PAGE_NUM_CLASS, this.previousPageNumber - 1);
       }
       this.highlightCurrentPageNumber(PAGE_NUM_CLASS, this.pageNumber - 1);
+
       if (this.pageNumber < this.totalPages && this.pageNumber > DEFAULT_PAGE_NUM ) {
         this.removeHighlightOnPageNumber(NEXT_CLASS, 0);
         this.removeHighlightOnPageNumber(PREV_CLASS, 0);
@@ -225,6 +227,30 @@
           this.highlightCurrentPageNumber(PREV_CLASS, 0);
         }
       }
+    },
+
+    reorderPageButtons: function() { // Always have 7 buttons displayed (2 for nav, 5 for page numbers)
+      this.$('.pagi').addClass('hidden');
+      if (this.totalPages - this.pageNumber + 2 > 5 - 1) {
+
+        if (this.pageNumber - 2 <= DEFAULT_PAGE_NUM) {
+          for (var i = DEFAULT_PAGE_NUM; i <= DEFAULT_PAGE_NUM + 4; i++) {
+            this.$('.' + this.makePagiClassName(i)).removeClass('hidden');
+          }
+        } else {
+          for (var j = this.pageNumber - 2; j <= this.pageNumber - 2 + 4; j++) {
+            this.$('.' + this.makePagiClassName(j)).removeClass('hidden');
+          }
+        }
+      } else if (this.pageNumber + 2 >= this.totalPages) {
+        for (var z = this.totalPages; z >= this.totalPages - 4; z--) {
+          this.$('.' + this.makePagiClassName(z)).removeClass('hidden');
+        }
+      }
+    },
+
+    makePagiClassName: function(pageNumber) {
+      return helpers.fmt('pagi%@', pageNumber);
     }
   };
 

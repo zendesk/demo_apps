@@ -19,11 +19,14 @@
   height: 80px;
 }
 
-/*.nav {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}*/
-
 .tickets_list_header {
   padding-bottom: 10px;
+}
+
+.pagination > ul > li{
+  z-index: 1000;
+}
+
+.pagination_slider > li{
+  margin-left: -40px;
 }

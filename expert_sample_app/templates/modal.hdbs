@@ -30,11 +30,12 @@
   </div>
   <div class="pagination pgination-centered">
     <ul>
-      <li class="active"><a class="prev" href="#">Prev</a></li>
+      <!-- Use of Glyphicons http://getbootstrap.com/2.3.2/base-css.html#icons -->
+      <li class="active"><a class="prev" href="#"><i class="icon-backward"></i></a></li>
       {{#pages}}
-        <li class="active"><a class="page_number" href="#">{{number}}</a></li>
+        <li class="active pagi {{paginator}}"><a class="page_number" href="#">{{number}}</a></li>
       {{/pages}}
-      <li class="active"><a class="next" href="#">Next</a></li>
+      <li class="active"><a class="next" href="#"><i class="icon-forward"></i></a></li>
     </ul>
   </div>
 </div>
