@@ -11,7 +11,7 @@ This App displayss a user all tickets that are open and assigned to himself/hers
 * Display all ticket hyperlinks that are open and assigned to current user.
 * Dispplay tickets in pages using the bootstrap pagination.
 
-Please submit bug reports to [Insert Link](). Pull requests are welcome.
+Please submit bug reports to [Zendesk](support@zendesk.com). Pull requests are welcome.
 
 ### Note:
 
