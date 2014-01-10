@@ -23,4 +23,5 @@ Please submit bug reports to [Zendesk](support@zendesk.com). Pull requests are w
 * underscore version 1.3.3
 
 ### Screenshot(s):
-[put your screenshots down here.]
+![Ticket View](http://cl.ly/image/0e2I0A0A3k3q)
+![Save Hook](http://cl.ly/image/3q1H14130O1h)
