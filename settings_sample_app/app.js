@@ -15,7 +15,7 @@
       var regexResult = SUBDOMAIN_PATTERN.exec(e.currentTarget.baseURI);
 
       this.switchTo('mainPage', {
-        settings: this.settings,
+        settings: this.settings, // An object that contains all the setting key-value pairs
         email: this.currentUser().email(),
         uri: regexResult[0], // This gets the matched URL
         installation_id: this.installationId()
