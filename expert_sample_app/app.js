@@ -217,7 +217,7 @@
       this.highlightCurrentPageNumber(PAGE_NUM_CLASS, this.pageNumber - 1);
     },
 
-    reorderPageButtons: function() { // Always have 7 buttons displayed (2 for nav, 5 for page numbers)
+    reorderPageButtons: function() { // Always have at most 7 buttons displayed (2 for nav, 5 for page numbers)
       this.numOfPageBtnEachSide = NUM_OF_PAGE_BUTTONS_SHOW / 2;
       this.$('.pagi').addClass(HIDE_CLASS);
       if (this.totalPages - this.pageNumber + this.numOfPageBtnEachSide > NUM_OF_PAGE_BUTTONS_SHOW - 1) {
