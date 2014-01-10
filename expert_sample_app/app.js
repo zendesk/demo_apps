@@ -16,7 +16,8 @@
       PAGE_NUM_CLASS           = 'page_number',
       PREV_CLASS               = 'prev',
       NEXT_CLASS               = 'next',
-      MODAL_CLASS              = 'my_modal';
+      MODAL_CLASS              = 'my_modal',
+      HIDE_CLASS               = 'hidden';
 
   return {
 
@@ -84,12 +85,12 @@
       });
       this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
       if (data.previous_page === null) {
-        this.getHighlightPaginationButton(PREV_CLASS).addClass('hidden');
+        this.getHighlightPaginationButton(PREV_CLASS).addClass(HIDE_CLASS);
       } else {
         this.previousPageQueryUrl = data.previous_page;
       }
       if (data.next_page === null) {
-        this.getHighlightPaginationButton(NEXT_CLASS).addClass('hidden');
+        this.getHighlightPaginationButton(NEXT_CLASS).addClass(HIDE_CLASS);
       } else {
         this.nextPageQueryUrl = data.next_page;
       }
@@ -169,9 +170,9 @@
     },
 
     toggleModalElementHidden: function(isProgressBarOnShown) {
-      this.$('.alert-block').toggleClass('hidden',isProgressBarOnShown);
-      this.$('.modal-footer').toggleClass('hidden', isProgressBarOnShown);
-      this.$('.progress').toggleClass('hidden', !isProgressBarOnShown);
+      this.$('.alert-block').toggleClass(HIDE_CLASS,isProgressBarOnShown);
+      this.$('.modal-footer').toggleClass(HIDE_CLASS, isProgressBarOnShown);
+      this.$('.progress').toggleClass(HIDE_CLASS, !isProgressBarOnShown);
     },
 
     organizeTicketsInfo: function(ticket) {
@@ -233,21 +234,21 @@
 
     reorderPageButtons: function() { // Always have 7 buttons displayed (2 for nav, 5 for page numbers)
       this.numOfPageBtnEachSide = NUM_OF_PAGE_BUTTONS_SHOW / 2;
-      this.$('.pagi').addClass('hidden');
+      this.$('.pagi').addClass(HIDE_CLASS);
       if (this.totalPages - this.pageNumber + this.numOfPageBtnEachSide > NUM_OF_PAGE_BUTTONS_SHOW - 1) {
 
         if (this.pageNumber - this.numOfPageBtnEachSide <= DEFAULT_PAGE_NUM) {
           for (var i = DEFAULT_PAGE_NUM; i <= DEFAULT_PAGE_NUM + NUM_OF_PAGE_BUTTONS_SHOW - 1; i++) {
-            this.$('.' + this.makePagiClassName(i)).removeClass('hidden');
+            this.$('.' + this.makePagiClassName(i)).removeClass(HIDE_CLASS);
           }
         } else {
           for (var j = this.pageNumber - this.numOfPageBtnEachSide; j <= this.pageNumber - this.numOfPageBtnEachSide + NUM_OF_PAGE_BUTTONS_SHOW - 1; j++) {
-            this.$('.' + this.makePagiClassName(j)).removeClass('hidden');
+            this.$('.' + this.makePagiClassName(j)).removeClass(HIDE_CLASS);
           }
         }
       } else if (this.pageNumber + this.numOfPageBtnEachSide >= this.totalPages) {
         for (var z = this.totalPages; z >= this.totalPages - ( NUM_OF_PAGE_BUTTONS_SHOW - 1 ); z--) {
-          this.$('.' + this.makePagiClassName(z)).removeClass('hidden');
+          this.$('.' + this.makePagiClassName(z)).removeClass(HIDE_CLASS);
         }
       }
     },
