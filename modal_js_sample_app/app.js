@@ -17,7 +17,7 @@
     },
     // Capture the show modal event.
     onShow: function() {
-      console.log('activating the modal');
+      services.notify('activating the modal');
     },
 
     displayModal: function() {
