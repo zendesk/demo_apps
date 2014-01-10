@@ -215,8 +215,8 @@
           .removeClass('disabled');
     },
 
-    syncButtons: function() { // TODO
-      if (this.previousPageNumber !== this.pageNumber) {
+    syncButtons: function() {
+      if (this.previousPageNumber !== this.pageNumber) { // Remove highlight on previously selected page.
         this.removeHighlightOnPageNumber(PAGE_NUM_CLASS, this.previousPageNumber - 1);
       }
       this.highlightCurrentPageNumber(PAGE_NUM_CLASS, this.pageNumber - 1);
