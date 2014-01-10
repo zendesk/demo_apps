@@ -1,3 +1,4 @@
+<!-- class name: 'modal hide fade' are compulsory for a modal to work. Thank you Bootstrap 2.3 -->
 <div class="modal hide fade my_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

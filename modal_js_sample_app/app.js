@@ -1,5 +1,8 @@
 (function() {
 
+  // complete app API reference can be found at
+  // http://developer.zendesk.com/documentation/rest_api/apps.html
+
   return {
 
     events: {
