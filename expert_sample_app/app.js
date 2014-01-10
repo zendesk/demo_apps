@@ -76,11 +76,15 @@ NUM_OF_PAGE_BUTTONS_SHOW = 5;
       this.totalPages = Math.ceil(data.count / this.ticketsPerPage); // Calculate total number of pages.
       var pages = []; // Make page number array
       for (var i = 1; i <= this.totalPages; i++) {
-
         pages.push({ number: i, paginator: this.makePagiClassName(i) });
       }
+      this.switchTo('modal', {
+        ticketsInfo: this.ticketsInfo,
+        pages: pages
+      });
+      this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
       if (data.previous_page === null) {
-        this.$('.prev').addClass('hidden');
+        this.$(this.$('.prev').parent()).addClass('hidden');
       } else {
         this.previousPageQueryUrl = data.previous_page;
       }
@@ -89,11 +93,6 @@ NUM_OF_PAGE_BUTTONS_SHOW = 5;
       } else {
         this.nextPageQueryUrl = data.next_page;
       }
-      this.switchTo('modal', {
-        ticketsInfo: this.ticketsInfo,
-        pages: pages
-      });
-      this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
       this.syncButtons();
       this.reorderPageButtons();
     },
