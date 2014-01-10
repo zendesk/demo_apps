@@ -15,7 +15,8 @@
       PAGE_NUM_CLASS           = '.page_number',
       PREV_CLASS               = '.prev',
       NEXT_CLASS               = '.next',
-      NUM_OF_PAGE_BUTTONS_SHOW = 5;
+      NUM_OF_PAGE_BUTTONS_SHOW = 5,
+      MODAL_CLASS              = 'my_modal';
 
   return {
 
@@ -103,16 +104,12 @@
         percentage: percentage
       }));
       clearInterval(this.progress);
-      this.$('.my_modal').modal('hide');
+      this.toggleModal(MODAL_CLASS, false);
     },
 
     saveHookHandler: function() {
       this.commentBody = this.comment().text();
-      this.$('modal-footer').addClass('hidden');
-      this.$('.my_modal').modal({
-        backdrop: true,
-        keyboard: false
-      });
+      this.toggleModal(MODAL_CLASS);
       if (this.commentBody === '') {
         return this.promise(function(done, fail) {
           fail();
@@ -136,6 +133,17 @@
     },
 
     /* Helpers Go Here. */
+    toggleModal: function(modalClass, showModal) { // Toggle modal
+      var showModal     = showModal || true,
+          classSelector = helpers.fmt('.%@', modalClass),
+          modalParam;
+      if (showModal) {
+        modalParam = { backdrop: true, keyboard: false };
+      } else {
+        modalParam = 'hide';
+      }
+      this.$(classSelector).modal(modalParam);
+    },
 
     goProgress: function(valNow) { // Bootstrap 2.3 progress bar
       this.valNow += VAL_MAX / ( TIME_OUT / TIME_INTERVAL );
