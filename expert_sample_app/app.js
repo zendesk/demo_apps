@@ -12,6 +12,7 @@
       DEFAULT_PAGE_NUM         = 1,
       NUM_OF_PAGE_BUTTONS_SHOW = 5,
       TICKET_LINK_HEIGHT       = 26,
+      PERCENTAGE_FULL             = 100,
       SORT_BY                  = 'created_at',
       SORT_ORDER               = 'asc',
       PAGE_NUM_CLASS           = 'page_number',
@@ -101,11 +102,6 @@
     },
 
     ticketSubmitDoneHandler: function() {
-      var percentage = 100;
-      this.progressBar.css('width', percentage + '%');
-      this.$('.sr-only').text(this.I18n.t('progress_percentage', {
-        percentage: percentage
-      }));
       clearInterval(this.progress);
       this.toggleModal(MODAL_CLASS, false);
     },
