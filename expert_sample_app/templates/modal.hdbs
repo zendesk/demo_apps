@@ -19,7 +19,7 @@
 </div>
 <div class="tickets_list">
   <div class="tickets_list_header"><h5></h5></div>
-  <div>
+  <div class="tickets_list_body">
     <ul>
       {{#ticketsInfo}}
       <li>

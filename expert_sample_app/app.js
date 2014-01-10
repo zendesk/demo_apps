@@ -11,6 +11,7 @@
       TIME_INTERVAL            = 500,
       DEFAULT_PAGE_NUM         = 1,
       NUM_OF_PAGE_BUTTONS_SHOW = 5,
+      TICKET_LINK_HEIGHT       = 26,
       SORT_BY                  = 'created_at',
       SORT_ORDER               = 'asc',
       PAGE_NUM_CLASS           = 'page_number',
@@ -84,6 +85,7 @@
         pages: pages
       });
       this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
+      this.$('.tickets_list_body').css('height', this.ticketsPerPage * TICKET_LINK_HEIGHT);
       if (data.previous_page === null) {
         this.getHighlightPaginationButton(PREV_CLASS).addClass(HIDE_CLASS);
       } else {
