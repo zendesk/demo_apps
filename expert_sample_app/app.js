@@ -96,7 +96,7 @@
       } else {
         this.nextPageQueryUrl = data.next_page;
       }
-      this.syncButtons();
+      this.removeOrAddHighlight();
       this.reorderPageButtons();
     },
 
@@ -112,7 +112,7 @@
 
     saveHookHandler: function() {
       this.commentBody = this.comment().text();
-      this.toggleModal(MODAL_CLASS);
+      this.toggleModal(MODAL_CLASS, true);
       if (this.commentBody === '') {
         return this.promise(function(done, fail) {
           fail();
@@ -137,14 +137,14 @@
 
     /* Helpers Go Here. */
     toggleModal: function(modalClass, showModal) { // Toggle modal
-      var showModal     = showModal || true,
-          classSelector = this.makeClassSelector(modalClass),
+      var classSelector = this.makeClassSelector(modalClass),
           modalParam;
       if (showModal) {
         modalParam = { backdrop: true, keyboard: false };
       } else {
         modalParam = 'hide';
       }
+      //debugger;
       this.$(classSelector).modal(modalParam);
     },
 
@@ -215,7 +215,7 @@
           .removeClass('disabled');
     },
 
-    syncButtons: function() {
+    removeOrAddHighlight: function() {
       if (this.previousPageNumber !== this.pageNumber) { // Remove highlight on previously selected page.
         this.removeHighlightOnPageNumber(PAGE_NUM_CLASS, this.previousPageNumber - 1);
       }
