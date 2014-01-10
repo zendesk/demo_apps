@@ -14,7 +14,8 @@
         DEFAULT_PAGE_NUM = 1,
           PAGE_NUM_CLASS = '.page_number',
               PREV_CLASS = '.prev',
-              NEXT_CLASS = '.next';
+              NEXT_CLASS = '.next',
+NUM_OF_PAGE_BUTTONS_SHOW = 5;
 
   return {
 
@@ -42,14 +43,14 @@
     init: function() {
       this.pageNumber = this.previousPageNumber = DEFAULT_PAGE_NUM;
       this.ticketsPerPage = this.setting('results_per_page');
-      this.sendSearchRequest(this.makeSearchUrl(this.pageNumber));
+      this.sendSearchRequest(this.makeSearchUrl(this.pageNumber)); // Get tickets info on the first page
     },
 
     previousTicketsPage: function() {
       if (this.pageNumber !== DEFAULT_PAGE_NUM) {
         this.previousPageNumber = this.pageNumber;
         this.pageNumber--;
-        this.sendSearchRequest(this.previousPageQueryUrl);
+        this.sendSearchRequest(this.previousPageQueryUrl); // Get tickets info from previous page.
       }
     },
 
@@ -57,7 +58,7 @@
       if (this.pageNumber !== this.totalPages) {
         this.previousPageNumber = this.pageNumber;
         this.pageNumber++;
-        this.sendSearchRequest(this.nextPageQueryUrl);
+        this.sendSearchRequest(this.nextPageQueryUrl); // Get tickets info from next page.
       }
 
     },
@@ -66,11 +67,11 @@
       this.previousPageNumber = this.pageNumber;
       this.pageNumber = parseInt(this.$(event.currentTarget).text(), 10);
       if (this.previousPageNumber !== this.pageNumber) {
-        this.sendSearchRequest(this.makeSearchUrl(this.pageNumber));
+        this.sendSearchRequest(this.makeSearchUrl(this.pageNumber)); // Get tickets info given a page number
       }
     },
 
-    renderTicketLinks: function(data) {
+    renderTicketLinks: function(data) { // Reload App page once ajax call is done.
       this.ticketsInfo = [];
       _.each(data.results, this.organizeTicketsInfo.bind(this)); // Use bind to set organizeTicketsInfo's scope to this App.
       this.totalPages = Math.ceil(data.count / this.ticketsPerPage); // Calculate total number of pages.
@@ -181,18 +182,18 @@
       });
     },
 
-    makeSearchUrl: function(pageNumber) {
+    makeSearchUrl: function(pageNumber) { // This search query searches for all open tickets that are assigned to the current user.
       var query = 'assignee:' + this.currentUser().email() + '+type:ticket+status:open';
       return helpers.fmt('/api/v2/search.json?page=%@&per_page=%@&query=%@&sort_by=%@&sort_order=%@', pageNumber, this.ticketsPerPage, query, SORT_BY, SORT_ORDER);
     },
 
     sendSearchRequest: function(queryUrl) {
-      this.ajax('search', queryUrl);
+      this.ajax('search', queryUrl); // Fire ajax request
       this.switchTo('loading_screen');
     },
 
     highlightCurrentPageNumber: function(btnClass, index) {
-      this.$(this.$(this.$(btnClass)[index]).parent()).addClass('disabled');
+      this.$(this.$(this.$(btnClass)[index]).parent()).addClass('disabled'); // Use of jQuery functions: An element in DOM needs to be wrapped inside this.$(element)
       this.$(this.$(this.$(btnClass)[index]).parent()).removeClass('active');
     },
 
@@ -201,7 +202,7 @@
       this.$(this.$(this.$(btnClass)[index]).parent()).removeClass('disabled');
     },
 
-    syncButtons: function() {
+    syncButtons: function() { //
       if (this.previousPageNumber !== this.pageNumber) {
         this.removeHighlightOnPageNumber(PAGE_NUM_CLASS, this.previousPageNumber - 1);
       }
@@ -221,20 +222,21 @@
     },
 
     reorderPageButtons: function() { // Always have 7 buttons displayed (2 for nav, 5 for page numbers)
+      this.numOfPageBtnEachSide = NUM_OF_PAGE_BUTTONS_SHOW / 2;
       this.$('.pagi').addClass('hidden');
-      if (this.totalPages - this.pageNumber + 2 > 5 - 1) {
+      if (this.totalPages - this.pageNumber + this.numOfPageBtnEachSide > NUM_OF_PAGE_BUTTONS_SHOW - 1) {
 
-        if (this.pageNumber - 2 <= DEFAULT_PAGE_NUM) {
-          for (var i = DEFAULT_PAGE_NUM; i <= DEFAULT_PAGE_NUM + 4; i++) {
+        if (this.pageNumber - this.numOfPageBtnEachSide <= DEFAULT_PAGE_NUM) {
+          for (var i = DEFAULT_PAGE_NUM; i <= DEFAULT_PAGE_NUM + NUM_OF_PAGE_BUTTONS_SHOW - 1; i++) {
             this.$('.' + this.makePagiClassName(i)).removeClass('hidden');
           }
         } else {
-          for (var j = this.pageNumber - 2; j <= this.pageNumber - 2 + 4; j++) {
+          for (var j = this.pageNumber - this.numOfPageBtnEachSide; j <= this.pageNumber - this.numOfPageBtnEachSide + NUM_OF_PAGE_BUTTONS_SHOW - 1; j++) {
             this.$('.' + this.makePagiClassName(j)).removeClass('hidden');
           }
         }
-      } else if (this.pageNumber + 2 >= this.totalPages) {
-        for (var z = this.totalPages; z >= this.totalPages - 4; z--) {
+      } else if (this.pageNumber + this.numOfPageBtnEachSide >= this.totalPages) {
+        for (var z = this.totalPages; z >= this.totalPages - ( NUM_OF_PAGE_BUTTONS_SHOW - 1 ); z--) {
           this.$('.' + this.makePagiClassName(z)).removeClass('hidden');
         }
       }
