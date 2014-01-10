@@ -31,7 +31,6 @@
     events: {
       'app.activated': 'init',
       'ticket.save': 'saveHookHandler',
-      'ticket.submit.start': 'ticketSubmitStartHandler',
       'ticket.submit.done': 'ticketSubmitDoneHandler',
       'click .comment_body_btn': 'showComment',
       'search.done': 'renderTicketLinks',
@@ -72,7 +71,6 @@
     },
 
     renderTicketLinks: function(data) {
-      console.log(data);
       this.ticketsInfo = [];
       _.each(data.results, this.organizeTicketsInfo.bind(this)); // Use bind to set organizeTicketsInfo's scope to this App.
       this.totalPages = Math.ceil(data.count / this.ticketsPerPage); // Calculate total number of pages.
@@ -100,10 +98,6 @@
       this.reorderPageButtons();
     },
 
-    ticketSubmitStartHandler: function() {
-
-    },
-
     ticketSubmitDoneHandler: function() {
       var percentage = 100;
       this.progressBar.css('width', percentage + '%');
@@ -115,12 +109,11 @@
     },
 
     showComment: function() {
-      console.log(this.comment().text());
+      services.notify(this.comment().text());
     },
 
     saveHookHandler: function() {
       this.commentBody = this.comment().text();
-      console.log(this.commentBody);
       this.$('modal-footer').addClass('hidden');
       this.$('.my_modal').modal({
         backdrop: true,
@@ -206,7 +199,6 @@
     removeHighlightOnPageNumber: function(btnClass, index) {
       this.$(this.$(this.$(btnClass)[index]).parent()).addClass('active');
       this.$(this.$(this.$(btnClass)[index]).parent()).removeClass('disabled');
-      console.log(this.$(this.$(btnClass)[index]).parent());
     },
 
     syncButtons: function() {
