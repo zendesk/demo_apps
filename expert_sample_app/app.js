@@ -9,13 +9,13 @@
       VAL_MAX                  = 100,
       TIME_OUT                 = 5000,
       TIME_INTERVAL            = 500,
+      DEFAULT_PAGE_NUM         = 1,
+      NUM_OF_PAGE_BUTTONS_SHOW = 5,
       SORT_BY                  = 'created_at',
       SORT_ORDER               = 'asc',
-      DEFAULT_PAGE_NUM         = 1,
-      PAGE_NUM_CLASS           = '.page_number',
-      PREV_CLASS               = '.prev',
-      NEXT_CLASS               = '.next',
-      NUM_OF_PAGE_BUTTONS_SHOW = 5,
+      PAGE_NUM_CLASS           = 'page_number',
+      PREV_CLASS               = 'prev',
+      NEXT_CLASS               = 'next',
       MODAL_CLASS              = 'my_modal';
 
   return {
@@ -135,7 +135,7 @@
     /* Helpers Go Here. */
     toggleModal: function(modalClass, showModal) { // Toggle modal
       var showModal     = showModal || true,
-          classSelector = helpers.fmt('.%@', modalClass),
+          classSelector = this.makeClassSelector(modalClass),
           modalParam;
       if (showModal) {
         modalParam = { backdrop: true, keyboard: false };
@@ -197,7 +197,7 @@
 
     getHighlightPaginationButton: function(btnClass, index) { // Return a jQuery object of the page button to be highlighted
       index = index || 0;
-      return this.$(btnClass).eq(index).parent();
+      return this.$(this.makeClassSelector(btnClass)).eq(index).parent();
     },
 
     highlightCurrentPageNumber: function(btnClass, index) {
@@ -254,6 +254,10 @@
 
     makePagiClassName: function(pageNumber) {
       return helpers.fmt('pagi%@', pageNumber);
+    },
+
+    makeClassSelector: function(className) {
+      return helpers.fmt('.%@', className);
     }
   };
 
