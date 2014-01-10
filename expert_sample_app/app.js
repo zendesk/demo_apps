@@ -152,16 +152,18 @@
 
     showWarningDialog: function() {
       this.renderModalLabel('modal_header_reject');
-      this.$('.alert-block').removeClass('hidden');
-      this.$('.progress').addClass('hidden');
-      this.$('button').removeClass('hidden');
+      this.toggleModalElementHidden(false);
     },
 
     showSubmitProgressBar: function() {
       this.renderModalLabel('modal_header_submit');
-      this.$('.alert-block').addClass('hidden');
-      this.$('.progress').removeClass('hidden');
-      this.$('button').addClass('hidden');
+      this.toggleModalElementHidden(true);
+    },
+
+    toggleModalElementHidden: function(isProgressBarOnShown) {
+      this.$('.alert-block').toggleClass('hidden',isProgressBarOnShown);
+      this.$('.modal-footer').toggleClass('hidden', isProgressBarOnShown);
+      this.$('.progress').toggleClass('hidden', !isProgressBarOnShown);
     },
 
     organizeTicketsInfo: function(ticket) {
