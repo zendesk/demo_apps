@@ -66,7 +66,7 @@
 
     searchTicketsByPageNumber: function(event) {
       this.previousPageNumber = this.pageNumber;
-      this.pageNumber = parseInt(this.$(event.currentTarget).text(), 10);
+      this.pageNumber = parseInt(event.currentTarget.text, 10);
       if (this.previousPageNumber !== this.pageNumber) {
         this.sendSearchRequest(this.makeSearchUrl(this.pageNumber)); // Get tickets info given a page number
       }
