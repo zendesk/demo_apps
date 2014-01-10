@@ -12,7 +12,6 @@
       DEFAULT_PAGE_NUM         = 1,
       NUM_OF_PAGE_BUTTONS_SHOW = 5,
       TICKET_LINK_HEIGHT       = 26,
-      PERCENTAGE_FULL             = 100,
       SORT_BY                  = 'created_at',
       SORT_ORDER               = 'asc',
       PAGE_NUM_CLASS           = 'page_number',
