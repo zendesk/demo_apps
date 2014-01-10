@@ -1,13 +1,21 @@
 {
   "app": {
-    "package": "app_name",
+    "package": "expert_sample_app",
     "description": {
-      "value": "Play the famous zen tunes in your help desk.",
+      "value": "This App shows the use of promises, save hook, handlebars helper, underscore, bootstrap 2.3 elements, App interface and settings, Zendesk RESTful API and etc.",
       "title": "app description"
     },
     "name": {
-      "value": "Buddha Machine",
+      "value": "Expert Sample App",
       "title": "app name"
+    },
+    "parameters": {
+      "results_per_page": {
+        "label": {
+          "value": "Tickets Per Page",
+          "title": "Label message asking user for the number of tickets displayed on each page in the App."
+        }
+      }
     }
   },
 

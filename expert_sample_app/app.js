@@ -3,13 +3,12 @@
   'use strict';
 
   var TICKET_URL_PATTERN = /(.+)\.json$/,
-              TO_REPLACE = /\/api\/v2\//,
+      TO_REPLACE_PATTERN = /\/api\/v2\//,
               REPLACE_BY = '/agent/#/',
                  VAL_MIN = 0,
                  VAL_MAX = 100,
                 TIME_OUT = 5000,
            TIME_INTERVAL = 500,
-                PER_PAGE = 1,
                  SORT_BY = 'created_at',
               SORT_ORDER = 'asc',
         DEFAULT_PAGE_NUM = 1,
@@ -43,7 +42,7 @@
 
     init: function() {
       this.pageNumber = this.previousPageNumber = DEFAULT_PAGE_NUM;
-
+      this.ticketsPerPage = this.setting('results_per_page');
       this.sendSearchRequest(this.makeSearchUrl(this.pageNumber));
     },
 
@@ -76,7 +75,7 @@
       console.log(data);
       this.ticketsInfo = [];
       _.each(data.results, this.organizeTicketsInfo.bind(this)); // Use bind to set organizeTicketsInfo's scope to this App.
-      this.totalPages = Math.ceil(data.count / PER_PAGE); // Calculate total number of pages.
+      this.totalPages = Math.ceil(data.count / this.ticketsPerPage); // Calculate total number of pages.
       var pages = []; // Make page number array
       for (var i = 1; i <= this.totalPages; i++) {
 
@@ -181,7 +180,7 @@
     organizeTicketsInfo: function(ticket) {
       var regexResult = TICKET_URL_PATTERN.exec(ticket.url);
       var ticketUrl = regexResult[1]; // This returns the matched ticket API url
-      ticketUrl = ticketUrl.replace(TO_REPLACE, REPLACE_BY); // Convert API url to ticket url
+      ticketUrl = ticketUrl.replace(TO_REPLACE_PATTERN, REPLACE_BY); // Convert API url to ticket url
       var ticketSubject = ticket.subject;
       this.ticketsInfo.push({
         url: ticketUrl,
@@ -191,7 +190,7 @@
 
     makeSearchUrl: function(pageNumber) {
       var query = 'assignee:' + this.currentUser().email() + '+type:ticket+status:open';
-      return helpers.fmt('/api/v2/search.json?page=%@&per_page=%@&query=%@&sort_by=%@&sort_order=%@', pageNumber, PER_PAGE, query, SORT_BY, SORT_ORDER);
+      return helpers.fmt('/api/v2/search.json?page=%@&per_page=%@&query=%@&sort_by=%@&sort_order=%@', pageNumber, this.ticketsPerPage, query, SORT_BY, SORT_ORDER);
     },
 
     sendSearchRequest: function(queryUrl) {
