@@ -2,20 +2,20 @@
 
   'use strict';
 
-  var TICKET_URL_PATTERN = /(.+)\.json$/,
-      TO_REPLACE_PATTERN = /\/api\/v2\//,
-              REPLACE_BY = '/agent/#/',
-                 VAL_MIN = 0,
-                 VAL_MAX = 100,
-                TIME_OUT = 5000,
-           TIME_INTERVAL = 500,
-                 SORT_BY = 'created_at',
-              SORT_ORDER = 'asc',
-        DEFAULT_PAGE_NUM = 1,
-          PAGE_NUM_CLASS = '.page_number',
-              PREV_CLASS = '.prev',
-              NEXT_CLASS = '.next',
-NUM_OF_PAGE_BUTTONS_SHOW = 5;
+  var TICKET_URL_PATTERN       = /(.+)\.json$/,
+      TO_REPLACE_PATTERN       = /\/api\/v2\//,
+      REPLACE_BY               = '/agent/#/',
+      VAL_MIN                  = 0,
+      VAL_MAX                  = 100,
+      TIME_OUT                 = 5000,
+      TIME_INTERVAL            = 500,
+      SORT_BY                  = 'created_at',
+      SORT_ORDER               = 'asc',
+      DEFAULT_PAGE_NUM         = 1,
+      PAGE_NUM_CLASS           = '.page_number',
+      PREV_CLASS               = '.prev',
+      NEXT_CLASS               = '.next',
+      NUM_OF_PAGE_BUTTONS_SHOW = 5;
 
   return {
 
@@ -30,12 +30,12 @@ NUM_OF_PAGE_BUTTONS_SHOW = 5;
     },
 
     events: {
-      'app.activated': 'init',
-      'ticket.save': 'saveHookHandler',
+      'app.activated':      'init',
+      'ticket.save':        'saveHookHandler',
       'ticket.submit.done': 'ticketSubmitDoneHandler',
-      'search.done': 'renderTicketLinks',
-      'click .prev': 'previousTicketsPage',
-      'click .next': 'nextTicketsPage',
+      'search.done':        'renderTicketLinks',
+      'click .prev':        'previousTicketsPage',
+      'click .next':        'nextTicketsPage',
       'click .page_number': 'searchTicketsByPageNumber'
     },
 
@@ -59,7 +59,6 @@ NUM_OF_PAGE_BUTTONS_SHOW = 5;
         this.pageNumber++;
         this.sendSearchRequest(this.nextPageQueryUrl); // Get tickets info from next page.
       }
-
     },
 
     searchTicketsByPageNumber: function(event) {
@@ -84,12 +83,12 @@ NUM_OF_PAGE_BUTTONS_SHOW = 5;
       });
       this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
       if (data.previous_page === null) {
-        this.$(this.$('.prev').parent()).addClass('hidden');
+        this.getHighlightPaginationButton(PREV_CLASS).addClass('hidden');
       } else {
         this.previousPageQueryUrl = data.previous_page;
       }
       if (data.next_page === null) {
-        this.$('.next').addClass('hidden');
+        this.getHighlightPaginationButton(NEXT_CLASS).addClass('hidden');
       } else {
         this.nextPageQueryUrl = data.next_page;
       }
@@ -186,17 +185,24 @@ NUM_OF_PAGE_BUTTONS_SHOW = 5;
       this.switchTo('loading_screen');
     },
 
+    getHighlightPaginationButton: function(btnClass, index) { // Return a jQuery object of the page button to be highlighted
+      index = index || 0;
+      return this.$(btnClass).eq(index).parent();
+    },
+
     highlightCurrentPageNumber: function(btnClass, index) {
-      this.$(this.$(this.$(btnClass)[index]).parent()).addClass('disabled'); // Use of jQuery functions: An element in DOM needs to be wrapped inside this.$(element)
-      this.$(this.$(this.$(btnClass)[index]).parent()).removeClass('active');
+      this.getHighlightPaginationButton(btnClass, index)
+        .addClass('disabled')
+        .removeClass('active');
     },
 
     removeHighlightOnPageNumber: function(btnClass, index) {
-      this.$(this.$(this.$(btnClass)[index]).parent()).addClass('active');
-      this.$(this.$(this.$(btnClass)[index]).parent()).removeClass('disabled');
+      this.getHighlightPaginationButton(btnClass, index)
+          .addClass('active')
+          .removeClass('disabled');
     },
 
-    syncButtons: function() { //
+    syncButtons: function() { // TODO
       if (this.previousPageNumber !== this.pageNumber) {
         this.removeHighlightOnPageNumber(PAGE_NUM_CLASS, this.previousPageNumber - 1);
       }
