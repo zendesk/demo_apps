@@ -33,7 +33,6 @@ NUM_OF_PAGE_BUTTONS_SHOW = 5;
       'app.activated': 'init',
       'ticket.save': 'saveHookHandler',
       'ticket.submit.done': 'ticketSubmitDoneHandler',
-      'click .comment_body_btn': 'showComment',
       'search.done': 'renderTicketLinks',
       'click .prev': 'previousTicketsPage',
       'click .next': 'nextTicketsPage',
@@ -107,10 +106,6 @@ NUM_OF_PAGE_BUTTONS_SHOW = 5;
       }));
       clearInterval(this.progress);
       this.$('.my_modal').modal('hide');
-    },
-
-    showComment: function() {
-      services.notify(this.comment().text());
     },
 
     saveHookHandler: function() {
