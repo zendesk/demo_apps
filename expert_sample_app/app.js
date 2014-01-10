@@ -74,9 +74,9 @@
 
     renderTicketLinks: function(data) { // Reload App page once ajax call is done.
       this.ticketsInfo = [];
+      var pages = [];
       _.each(data.results, this.organizeTicketsInfo.bind(this)); // Use bind to set organizeTicketsInfo's scope to this App.
       this.totalPages = Math.ceil(data.count / this.ticketsPerPage); // Calculate total number of pages.
-      var pages = []; // Make page number array
       for (var i = 1; i <= this.totalPages; i++) {
         pages.push({ number: i, paginator: this.makePagiClassName(i) });
       }
@@ -189,7 +189,7 @@
     },
 
     sendSearchRequest: function(queryUrl) {
-      this.ajax('search', queryUrl); // Fire ajax request
+      this.ajax('search', queryUrl); // Fire jQuery-like ajax request
       this.switchTo('loading_screen');
     },
 
