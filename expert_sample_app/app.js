@@ -220,18 +220,6 @@
         this.removeHighlightOnPageNumber(PAGE_NUM_CLASS, this.previousPageNumber - 1);
       }
       this.highlightCurrentPageNumber(PAGE_NUM_CLASS, this.pageNumber - 1);
-
-      if (this.pageNumber < this.totalPages && this.pageNumber > DEFAULT_PAGE_NUM ) {
-        this.removeHighlightOnPageNumber(NEXT_CLASS, 0);
-        this.removeHighlightOnPageNumber(PREV_CLASS, 0);
-      } else {
-        if (this.totalPages === this.pageNumber) { // At last page
-          this.highlightCurrentPageNumber(NEXT_CLASS, 0);
-        }
-        if (this.pageNumber === DEFAULT_PAGE_NUM) { // At first page
-          this.highlightCurrentPageNumber(PREV_CLASS, 0);
-        }
-      }
     },
 
     reorderPageButtons: function() { // Always have 7 buttons displayed (2 for nav, 5 for page numbers)
