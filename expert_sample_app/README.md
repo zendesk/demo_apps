@@ -13,6 +13,7 @@ A user can specify the number of tickets displayed per page in the App settings.
 * Display all ticket hyperlinks that are open and assigned to current user.
 * Dispplay tickets in pages using the bootstrap pagination.
 * Use App Setting
+* Use App resources
 
 Please submit bug reports to [Zendesk](support@zendesk.com). Pull requests are welcome.
 
