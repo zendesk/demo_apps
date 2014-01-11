@@ -219,11 +219,10 @@
       this.highlightCurrentPageNumber(this.resources.PAGE_NUM_CLASS, this.pageNumber - 1);
     },
 
-    reorderPageButtons: function() { // Always have 7 buttons displayed (2 for nav, 5 for page numbers)
+    reorderPageButtons: function() { // Always have at most 7 buttons displayed (2 for nav, 5 for page numbers)
       this.numOfPageBtnEachSide = this.resources.NUM_OF_PAGE_BUTTONS_SHOW / 2;
       this.$('.pagi').addClass(this.resources.HIDE_CLASS);
       if (this.totalPages - this.pageNumber + this.numOfPageBtnEachSide > this.resources.NUM_OF_PAGE_BUTTONS_SHOW - 1) {
-
         if (this.pageNumber - this.numOfPageBtnEachSide <= this.resources.DEFAULT_PAGE_NUM) {
           for (var i = this.resources.DEFAULT_PAGE_NUM; i <= this.resources.DEFAULT_PAGE_NUM + this.resources.NUM_OF_PAGE_BUTTONS_SHOW - 1; i++) {
             this.$('.' + this.makePagiClassName(i)).removeClass(this.resources.HIDE_CLASS);
