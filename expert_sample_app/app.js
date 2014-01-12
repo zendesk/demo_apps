@@ -76,15 +76,13 @@
 
     renderTicketLinks: function(data) { // Reload App page once ajax call is done.
       this.ticketsInfo = [];
-      var pages = [];
+      this.pages = [];
       _.each(data.results, this.organizeTicketsInfo.bind(this)); // Use bind to set organizeTicketsInfo's scope to this App.
       this.totalPages = Math.ceil(data.count / this.ticketsPerPage); // Calculate total number of pages.
-      for (var i = 1; i <= this.totalPages; i++) {
-        pages.push({ number: i, paginator: this.makePagiClassName(i) });
-      }
+      _.each(_.range(1, this.totalPages + 1), this.addPages.bind(this)); // Use _.range to create an array of numbers starting from 1 until size of totalPages.
       this.switchTo('modal', {
         ticketsInfo: this.ticketsInfo,
-        pages: pages
+        pages: this.pages
       });
       this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
       this.$('.tickets_list_body').css('height', this.ticketsPerPage * this.resources.TICKET_LINK_HEIGHT);
@@ -141,7 +139,6 @@
       } else {
         modalParam = 'hide';
       }
-      //debugger;
       this.$(classSelector).modal(modalParam);
     },
 
@@ -245,6 +242,10 @@
 
     makeClassSelector: function(className) {
       return helpers.fmt('.%@', className);
+    },
+
+    addPages: function(num) {
+      this.pages.push({ number: num, paginator: this.makePagiClassName(num) });
     }
   };
 
