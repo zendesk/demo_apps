@@ -79,7 +79,7 @@
       this.pages = [];
       _.each(data.results, this.organizeTicketsInfo.bind(this)); // Use bind to set organizeTicketsInfo's scope to this App.
       this.totalPages = Math.ceil(data.count / this.ticketsPerPage); // Calculate total number of pages.
-      _.each(_.range(1, this.totalPages + 1), this.addPages.bind(this)); // Use _.range to create an array of numbers starting from 1 until size of totalPages.
+      _.each(_.range(1, this.totalPages + 1), this.addPages.bind(this)); // Use underscore function _.range to create an array of numbers starting from 1 until size of totalPages.
       this.switchTo('modal', {
         ticketsInfo: this.ticketsInfo,
         pages: this.pages
@@ -100,12 +100,12 @@
       this.reorderPageButtons();
     },
 
-    ticketSubmitDoneHandler: function() {
+    ticketSubmitDoneHandler: function() { // This is called once ticket.submit.done event is fired.
       clearInterval(this.progress);
       this.toggleModal(this.resources.MODAL_CLASS, false);
     },
 
-    saveHookHandler: function() {
+    saveHookHandler: function() { // This is called onces ticket.save is fired.
       this.commentBody = this.comment().text();
       this.toggleModal(this.resources.MODAL_CLASS, true);
       if (this.commentBody === '') {
