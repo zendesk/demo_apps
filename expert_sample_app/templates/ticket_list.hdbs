@@ -11,11 +11,11 @@
   </div>
   <div class="pagination pgination-centered">
     <ul>
-      <li class="active"><a class="prev" href="#"><<</a></li>
+      <li class="active"><a class="prev" href="#">«</a></li>
       {{#pages}}
-      <li class="active pagi {{paginator}}"><a class="page_number" href="#">{{number}}</a></li>
+      <li class="disabled pagi {{paginator}}"><a class="page_number" href="#">{{number}}</a></li>
       {{/pages}}
-      <li class="active"><a class="next" href="#">>></a></li>
+      <li class="active"><a class="next" href="#">»</a></li>
     </ul>
   </div>
 </div>

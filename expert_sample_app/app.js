@@ -88,14 +88,18 @@
       this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
       this.$('.tickets_list_body').css('height', this.ticketsPerPage * this.resources.TICKET_LINK_HEIGHT);
       if (data.previous_page === null) {
-        this.getHighlightPaginationButton(this.resources.PREV_CLASS).addClass(this.resources.HIDE_CLASS);
+        //this.getHighlightPaginationButton(this.resources.PREV_CLASS).addClass(this.resources.HIDE_CLASS);
+        this.highlightCurrentPageNumber(this.resources.PREV_CLASS, 0);
       } else {
         this.previousPageQueryUrl = data.previous_page;
+        this.removeHighlightOnPageNumber(this.resources.PREV_CLASS, 0);
       }
       if (data.next_page === null) {
-        this.getHighlightPaginationButton(this.resources.NEXT_CLASS).addClass(this.resources.HIDE_CLASS);
+        //this.getHighlightPaginationButton(this.resources.NEXT_CLASS).addClass(this.resources.HIDE_CLASS);
+        this.highlightCurrentPageNumber(this.resources.NEXT_CLASS, 0);
       } else {
         this.nextPageQueryUrl = data.next_page;
+        this.removeHighlightOnPageNumber(this.resources.NEXT_CLASS, 0);
       }
       this.removeOrAddHighlight();
       this.reorderPageButtons();
@@ -205,14 +209,14 @@
 
     highlightCurrentPageNumber: function(btnClass, index) {
       this.getHighlightPaginationButton(btnClass, index)
-        .addClass('disabled')
-        .removeClass('active');
+        .addClass('active')
+        .removeClass('disabled');
     },
 
     removeHighlightOnPageNumber: function(btnClass, index) {
       this.getHighlightPaginationButton(btnClass, index)
-          .addClass('active')
-          .removeClass('disabled');
+          .addClass('disabled')
+          .removeClass('active');
     },
 
     removeOrAddHighlight: function() {
