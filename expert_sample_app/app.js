@@ -35,12 +35,13 @@
     },
 
     events: {
-      'app.activated':      'init',
-      'ticket.save':        'saveHookHandler',
+      'app.activated'     : 'init',
+      'ticket.save'       : 'saveHookHandler',
       'ticket.submit.done': 'ticketSubmitDoneHandler',
-      'search.done':        'renderTicketLinks',
-      'click .prev':        'previousTicketsPage',
-      'click .next':        'nextTicketsPage',
+      'hidden .my_modal'  : 'modalIsHiddenHandler',
+      'search.done'       : 'renderTicketLinks',
+      'click .prev'       : 'previousTicketsPage',
+      'click .next'       : 'nextTicketsPage',
       'click .page_number': 'searchTicketsByPageNumber'
     },
 
@@ -80,7 +81,7 @@
       _.each(data.results, this.organizeTicketsInfo.bind(this)); // Use bind to set organizeTicketsInfo's scope to this App.
       this.totalPages = Math.ceil(data.count / this.ticketsPerPage); // Calculate total number of pages.
       _.each(_.range(1, this.totalPages + 1), this.addPages.bind(this)); // Use underscore function _.range to create an array of numbers starting from 1 until size of totalPages.
-      this.switchTo('modal', {
+      this.switchTo('ticket_list', {
         ticketsInfo: this.ticketsInfo,
         pages: this.pages
       });
@@ -106,6 +107,7 @@
     },
 
     saveHookHandler: function() { // This is called onces ticket.save is fired.
+      this.switchTo('modal');
       this.commentBody = this.comment().text();
       this.toggleModal(this.resources.MODAL_CLASS, true);
       if (this.commentBody === '') {
@@ -128,6 +130,10 @@
           }.bind(this), this.resources.TIME_INTERVAL);
         });
       }
+    },
+
+    modalIsHiddenHandler: function() {
+      this.sendSearchRequest(this.makeSearchUrl(this.pageNumber)); // Get tickets info on the first page
     },
 
     /* Helpers Go Here. */
@@ -188,8 +194,8 @@
     },
 
     sendSearchRequest: function(queryUrl) {
-      this.ajax('search', queryUrl); // Fire jQuery-like ajax request
       this.switchTo('loading_screen');
+      this.ajax('search', queryUrl); // Fire jQuery-like ajax request
     },
 
     getHighlightPaginationButton: function(btnClass, index) { // Return a jQuery object of the page button to be highlighted

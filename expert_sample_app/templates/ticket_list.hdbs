@@ -1,0 +1,21 @@
+<div class="tickets_list">
+  <div class="tickets_list_header"><h5></h5></div>
+  <div class="tickets_list_body">
+    <ul>
+      {{#ticketsInfo}}
+      <li>
+        <a href="{{url}}">{{subject}}</a>
+      </li>
+      {{/ticketsInfo}}
+    </ul>
+  </div>
+  <div class="pagination pgination-centered">
+    <ul>
+      <li class="active"><a class="prev" href="#"><<</a></li>
+      {{#pages}}
+      <li class="active pagi {{paginator}}"><a class="page_number" href="#">{{number}}</a></li>
+      {{/pages}}
+      <li class="active"><a class="next" href="#">>></a></li>
+    </ul>
+  </div>
+</div>
