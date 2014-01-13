@@ -13,6 +13,6 @@ Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new)
 
 ### Screenshot(s):
 
-![App Screen Shot Pending](http://www.zendesk.com/wp-content/themes/zendesk-twentyeleven/img/p-brand/downloads/Logo/Zendesk_logo_RGB.png)
+![App Screen Shot](https://raw.github.com/zendesk/demo_apps/master/interface_api_sample/preview.gif)
 
 
