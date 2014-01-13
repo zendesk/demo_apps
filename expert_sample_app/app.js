@@ -35,14 +35,14 @@
     },
 
     events: {
-      'app.activated'     : 'init',
-      'ticket.save'       : 'saveHookHandler',
-      'ticket.submit.done': 'ticketSubmitDoneHandler',
-      'hidden .my_modal'  : 'modalIsHiddenHandler',
-      'search.done'       : 'renderTicketLinks',
-      'click .prev'       : 'previousTicketsPage',
-      'click .next'       : 'nextTicketsPage',
-      'click .page_number': 'searchTicketsByPageNumber'
+      'app.activated'      : 'init',
+      'ticket.save'        : 'saveHookHandler',
+      'ticket.submit.done' : 'ticketSubmitDoneHandler',
+      'hidden .my_modal'   : 'modalIsHiddenHandler',
+      'search.done'        : 'renderTicketLinks',
+      'click .prev'        : 'previousTicketsPage',
+      'click .next'        : 'nextTicketsPage',
+      'click .page_number' : 'searchTicketsByPageNumber'
     },
 
     init: function() {
@@ -86,16 +86,14 @@
         pages: this.pages
       });
       this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
-      this.$('.tickets_list_body').css('height', this.ticketsPerPage * this.resources.TICKET_LINK_HEIGHT);
+      this.$('.tickets_list_body').height(this.ticketsPerPage * this.resources.TICKET_LINK_HEIGHT);
       if (data.previous_page === null) {
-        //this.getHighlightPaginationButton(this.resources.PREV_CLASS).addClass(this.resources.HIDE_CLASS);
         this.highlightCurrentPageNumber(this.resources.PREV_CLASS, 0);
       } else {
         this.previousPageQueryUrl = data.previous_page;
         this.removeHighlightOnPageNumber(this.resources.PREV_CLASS, 0);
       }
       if (data.next_page === null) {
-        //this.getHighlightPaginationButton(this.resources.NEXT_CLASS).addClass(this.resources.HIDE_CLASS);
         this.highlightCurrentPageNumber(this.resources.NEXT_CLASS, 0);
       } else {
         this.nextPageQueryUrl = data.next_page;
@@ -110,20 +108,17 @@
       this.toggleModal(this.resources.MODAL_CLASS, false);
     },
 
-    saveHookHandler: function() { // This is called onces ticket.save is fired.
+    saveHookHandler: function() { // This is called once ticket.save is fired.
       this.switchTo('modal');
       this.commentBody = this.comment().text();
       this.toggleModal(this.resources.MODAL_CLASS, true);
       if (this.commentBody === '') {
-        return this.promise(function(done, fail) {
-          fail();
-        }).fail(function() {
-            this.showWarningDialog();
-          }.bind(this));
+        this.showWarningDialog();
+        return false;
       } else {
         return this.promise(function(done, fail) {
           this.showSubmitProgressBar();
-          this.progressBar = this.$('.bar');
+          this.$progressBar = this.$('.bar'); // Use $ to indicate that the variable is an jQuery object.
           this.currentTime = Date.now();
           this.valNow = this.resources.VAL_MIN;
           this.progress = setInterval(function() {
@@ -155,7 +150,7 @@
     goProgress: function(valNow) { // Bootstrap 2.3 progress bar
       this.valNow += this.resources.VAL_MAX / ( this.resources.TIME_OUT / this.resources.TIME_INTERVAL );
       var percentage = valNow * 100 / this.resources.VAL_MAX;
-      this.progressBar.css('width', percentage + '%');
+      this.$progressBar.width(percentage + '%');
       this.$('.sr-only').text(this.I18n.t('progress_percentage', {
         percentage: percentage
       }));
@@ -176,7 +171,7 @@
     },
 
     toggleModalElementHidden: function(isProgressBarOnShown) {
-      this.$('.alert-block').toggleClass(this.resources.HIDE_CLASS,isProgressBarOnShown);
+      this.$('.alert-block').toggleClass(this.resources.HIDE_CLASS, isProgressBarOnShown);
       this.$('.modal-footer').toggleClass(this.resources.HIDE_CLASS, isProgressBarOnShown);
       this.$('.progress').toggleClass(this.resources.HIDE_CLASS, !isProgressBarOnShown);
     },
@@ -193,7 +188,7 @@
     },
 
     makeSearchUrl: function(pageNumber) { // This search query searches for all open tickets that are assigned to the current user.
-      var query = 'assignee:' + this.currentUser().email() + '+type:ticket+status:open';
+      var query = helpers.fmt('assignee:%@+type:ticket+status:open', this.currentUser().email());
       return helpers.fmt('/api/v2/search.json?page=%@&per_page=%@&query=%@&sort_by=%@&sort_order=%@', pageNumber, this.ticketsPerPage, query, this.resources.SORT_BY, this.resources.SORT_ORDER);
     },
 
