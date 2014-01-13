@@ -1,3 +1,4 @@
 <div class="spinner">
-  <h3>Loading tickets {{spinner "dotted"}}</h3>
+  <!-- This is a built-in spinner. -->
+  <h3>Loading tickets{{spinner "dotted"}}</h3>
 </div>
