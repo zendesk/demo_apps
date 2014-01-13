@@ -227,22 +227,14 @@
     },
 
     reorderPageButtons: function() { // Always have at most 7 buttons displayed (2 for nav, 5 for page numbers)
-      this.numOfPageBtnEachSide = this.resources.NUM_OF_PAGE_BUTTONS_SHOW / 2;
+      this.numOfPageBtnEachSide = Math.floor(this.resources.NUM_OF_PAGE_BUTTONS_SHOW / 2);
       this.$('.pagi').addClass(this.resources.HIDE_CLASS);
-      if (this.totalPages - this.pageNumber + this.numOfPageBtnEachSide > this.resources.NUM_OF_PAGE_BUTTONS_SHOW - 1) {
-        if (this.pageNumber - this.numOfPageBtnEachSide <= this.resources.DEFAULT_PAGE_NUM) {
-          for (var i = this.resources.DEFAULT_PAGE_NUM; i <= this.resources.DEFAULT_PAGE_NUM + this.resources.NUM_OF_PAGE_BUTTONS_SHOW - 1; i++) {
-            this.$('.' + this.makePagiClassName(i)).removeClass(this.resources.HIDE_CLASS);
-          }
-        } else {
-          for (var j = this.pageNumber - this.numOfPageBtnEachSide; j <= this.pageNumber - this.numOfPageBtnEachSide + this.resources.NUM_OF_PAGE_BUTTONS_SHOW - 1; j++) {
-            this.$('.' + this.makePagiClassName(j)).removeClass(this.resources.HIDE_CLASS);
-          }
-        }
-      } else if (this.pageNumber + this.numOfPageBtnEachSide >= this.totalPages) {
-        for (var z = this.totalPages; z >= this.totalPages - ( this.resources.NUM_OF_PAGE_BUTTONS_SHOW - 1 ); z--) {
-          this.$('.' + this.makePagiClassName(z)).removeClass(this.resources.HIDE_CLASS);
-        }
+      var extraBelow = this.numOfPageBtnEachSide - (this.totalPages - this.pageNumber), // if we are close to the end, show more pages lower than this.pageNumber
+          extraAbove = this.numOfPageBtnEachSide - (this.pageNumber - this.resources.DEFAULT_PAGE_NUM); // if we are close to the start, show more pages greater than this.pageNumber
+      extraBelow = (extraBelow > 0) ? extraBelow : 0; // if you're at the last page (9) show extra pages below it (8,7,6,5)
+      extraAbove = (extraAbove > 0) ? extraAbove : 0; // if at page 1 show not just 2, 3 but also 4 and 5
+      for (var i = this.pageNumber - this.numOfPageBtnEachSide - extraBelow; i <= this.pageNumber + this.numOfPageBtnEachSide + extraAbove; i++) {
+        this.$('.' + this.makePagiClassName(i)).removeClass(this.resources.HIDE_CLASS);
       }
     },
 
