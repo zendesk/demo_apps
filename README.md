@@ -65,3 +65,13 @@ Interesting features:
 * Observer and event handler for changes to the ticket
 * Change which interface elements are visible
 * Manipulating ticket fields from within an app
+
+### [Save Hook Sample App](./save_hook_sample)
+
+This app demonstrates how to use save hook
+
+* How to pass / reject submissions
+* How to reject a submission with an error message
+* How to use promise within save hook
+* How to use AJAX within save hook
+* Both of promise and AJAX can pass / reject submission after the job is done
