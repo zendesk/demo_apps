@@ -135,7 +135,11 @@
     },
 
     renderInstallations: function(data) {
-      data.inline = this.inline;
+      data = _.extend(data, {
+        inline:   this.inline,
+        location: this.currentLocation()
+      });
+
       this.switchNavTo('manage');
       this.switchTo('installations', data);
       this.showSpinner(false);
