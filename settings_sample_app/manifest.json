@@ -1,0 +1,55 @@
+{
+  "name": "Settings Sample App",
+  "author": {
+    "name": "Zendesk",
+    "email": "support@zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": "nav_bar",
+  "version": "1.0",
+  "frameworkVersion": "1.0",
+  "parameters": [
+    {
+      "name": "subdomain",
+      "type": "text",
+      "required": true,
+      "default": "subdomain"
+    },
+
+    {
+      "name": "hiddenSetting",
+      "type": "hidden",
+      "default": "I am hidden!"
+    },
+
+    {
+      "name": "mainBodyMessage",
+      "type": "multiline",
+      "required": true
+    },
+
+    {
+      "name": "token",
+      "type": "password",
+      "required": true
+    },
+
+    {
+      "name": "useSSL",
+      "type": "checkbox"
+    },
+
+    {
+      "name": "homepage",
+      "type": "url",
+      "default": "http://www.zendesk.com"
+    },
+
+    {
+      "name": "math",
+      "type": "number",
+      "required": true
+    }
+  ]
+}
