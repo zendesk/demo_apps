@@ -1,8 +1,8 @@
 # Expert Sample App
 
-This sample App comes packaging promises, save hook events, the new Zendesk's bootstrap page pagination element and progress bar element, jQuery, JavaScript asynchronous methods such as setInterval, simple use of the powerful Zendesk search API, as well as the Zendesk App Interface.
+This sample App implements promises, save hooks, bootstrap pagination and progress bar element, jQuery selectors, JavaScript asynchronous methods such as setInterval, simple use of the powerful Zendesk search API, as well as the Zendesk App Interface.
 
-This App displayss a user all tickets that are open and assigned to himself/herself in pages. Also, the App helps to make sure that the comment body is not empty when a user tries to submit a ticket he/she is working on. A fake submission progress bar fires before the ticket is saved to show you how promises manage asynchronous methods.
+This App displays to a user all tickets that are open and assigned to himself/herself in pages. Also, the App helps to make sure that the comment body is not empty when a user tries to submit a ticket he/she is working on. A fake submission progress bar fires before the ticket is saved to show a user how promises manage asynchronous methods.
 
 A user can specify the number of tickets displayed per page in the App settings.
 
@@ -11,7 +11,7 @@ A user can specify the number of tickets displayed per page in the App settings.
 * A fake progress bar at ticket submission (use of promise, setInterval, and modal, I18n)
 * Prevent a submission on the condition that the comment body is empty (use of promise, modal, I18n, comment interface)
 * Display all ticket hyperlinks that are open and assigned to current user.
-* Dispplay tickets in pages using the bootstrap pagination.
+* Display tickets in pages using the bootstrap pagination.
 * Use App Setting
 * Use App resources
 
