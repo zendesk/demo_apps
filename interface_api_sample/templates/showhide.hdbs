@@ -1,0 +1,52 @@
+<table>
+  <thead>
+    <tr class="table_top">
+      <th class="collapse_column"></th>
+      <th class="names_column">{{t "showhide.field"}}</th>
+      <th class="showhide_column">{{t "showhide.show"}}</th>
+      <th class="enable_column">{{t "showhide.enable"}}</th>
+      <th class="enable_column">{{t "showhide.disable"}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each fields}}
+    <tr class="{{this.fieldName}}">
+      {{{this.collapse}}}
+      <td class="names_cell">{{{this.label}}}</td>
+      <td><input type="checkbox" class="field" {{this.visible}}></td>
+      <td><a class="enable">{{t "showhide.enable"}}</a></td>
+      <td><a class="enable">{{t "showhide.disable"}}</a></td>
+    </tr>
+      {{#each this.options}}
+      <tr class = "{{this.value}} {{../fieldName}} option" style="display: none;">
+        <td></td>
+        <td class="option_label">{{{this.label}}}</td>
+        <td><input type="checkbox" class="option" {{#if this.oVisible}}checked="checked"{{/if}}></td>
+        <td><a class="enable toggle">{{this.enableText}}</a></td>
+      </tr>
+      {{/each}}
+    {{else}}
+      <tr>{{t "showhide.nofields"}}</tr>
+    {{/each}}
+    {{#if status}}
+    <tr class="status table_top">
+      <td></td>
+      <td class="names_cell">{{status.label}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+      {{#each status.options}}
+      <tr class = "{{this.value}} status option">
+        <td></td>
+        <td class="names_cell">{{{this.label}}}</td>
+        <td><input type="checkbox" class="option" {{#if this.oVisible}}checked="checked"{{/if}}></td>
+        <td><a class="enable toggle">{{this.enableText}}</a></td>
+      </tr>
+      {{/each}}
+      <!--{{status}}-->
+      {{#if status.fieldName}}
+      {{/if}}
+    {{/if}}
+  </tbody>
+</table>

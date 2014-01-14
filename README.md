@@ -46,7 +46,7 @@ Interesting features:
 * iframe resizing
 * Zendesk Apps locations
 
-### [Modal Sample App 1](./modal_sample_app)
+### [Modal Sample App](./modal_sample_app)
 
 This app demonstrates how to toggle a modal via data attributes.
 
@@ -56,3 +56,22 @@ This app demonstrates how to toggle a modal via data attributes.
 * Toggle modal via data attribute (data-toggle)
 * Hide modal via data attribute (data-dismiss)
 
+### [Interface API Sample](./interface_api_sample)
+
+This app reads information from and controls the display of ticket fields.
+
+Interesting features:
+
+* Observer and event handler for changes to the ticket
+* Change which interface elements are visible
+* Manipulating ticket fields from within an app
+
+### [Save Hook Sample App](./save_hook_sample)
+
+This app demonstrates how to use save hook
+
+* How to pass / reject submissions
+* How to reject a submission with an error message
+* How to use promise within save hook
+* How to use AJAX within save hook
+* Both of promise and AJAX can pass / reject submission after the job is done

@@ -1,0 +1,10 @@
+<header>
+  <span class="logo"/>
+  <h3>{{setting "name"}}</h3>
+  <aside>{{t "topdesc"}}</aside>
+</header>
+<section data-main />
+<ul class="nav nav-pills">
+  <li class="showhide btn"><a>{{t "showhide.button"}}</a></li>
+  <li class="rename btn"><a>{{t "rename.button"}}</a></li>
+</ul>

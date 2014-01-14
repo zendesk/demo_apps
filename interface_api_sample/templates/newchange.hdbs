@@ -1,0 +1,7 @@
+<h4>{{t "newchange.tracking"}}</h4>
+{{#if property}}
+  <div>{{t "newchange.theproperty"}} <strong>{{property}}</strong> {{t "newchange.hasvalue"}} <strong>{{newvalue}}</strong>
+  </div>
+{{else}}
+  <div>{{t "newchange.waiting"}}</div>
+{{/if}}
