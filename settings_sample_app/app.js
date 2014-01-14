@@ -1,26 +1,28 @@
 (function() {
 
-  'use strict'; // Convert mistakes into errors, securing javascript.
-
-  // Pattern for subdomain.zendesk.com extraction.
-  var SUBDOMAIN_PATTERN = /[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z0-9]+/;
-
   return {
+    resources: {
+      // Pattern for "subdomain.zendesk.com" extraction.
+      PATTERN: /[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z0-9]+/
+    },
+
     events: {
       'pane.activated': 'showAppSettings'
     },
 
     showAppSettings: function(e) {
-      // Run regular expression to extract subdomain url
-      var regexResult = SUBDOMAIN_PATTERN.exec(e.currentTarget.baseURI);
-
       this.switchTo('mainPage', {
         settings: this.settings, // An object that contains all the setting key-value pairs
         email: this.currentUser().email(),
-        uri: regexResult[0], // This gets the matched URL
+        uri: this.getDomainFromURL(e.currentTarget.baseURI), // This gets the matched URL
         installation_id: this.installationId()
       });
+    },
+
+    getDomainFromURL: function(baseURI) {
+      // Run regular expression to extract domain url
+      var regexResult = this.resources.PATTERN.exec(baseURI);
+      return regexResult[0];
     }
   };
-
 }());

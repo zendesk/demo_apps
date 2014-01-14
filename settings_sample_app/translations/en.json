@@ -112,7 +112,7 @@
       "title": "Label for the math field when the user is installing the application"
     },
     "instruction": {
-      "value": "Copy the command below and paste into your terminal to update app settings using a Zendesk App API.",
+      "value": "Copy the command below and paste into your terminal to update app settings using a Zendesk App API that can be found in Settings > Channels > API.",
       "title": "Instruction message asking the user to copy and paste the command below to terminal"
     }
   }
