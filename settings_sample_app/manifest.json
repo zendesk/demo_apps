@@ -13,7 +13,8 @@
     {
       "name": "subdomain",
       "type": "text",
-      "required": true
+      "required": true,
+      "default": "subdomain"
     },
 
     {
