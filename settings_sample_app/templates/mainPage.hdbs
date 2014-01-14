@@ -13,7 +13,13 @@
         <td>{{settings.subdomain}}</td>
         <td>{{settings.mainBodyMessage}}</td>
         <td>{{settings.hiddenSetting}}</td>
-        <td>{{settings.useSSL}}</td>
+        <td>
+          {{#if settings.useSSL}}
+            true
+          {{else}}
+            false
+          {{/if}}
+        </td>
         <td>{{settings.homepage}}</td>
         <td>{{settings.math}}</td>
       </tr>
