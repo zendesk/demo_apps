@@ -1,16 +1,14 @@
 :warning: *Use of this software is subject to important terms and conditions as set forth in the License file* :warning:
 
-# Modal Sample App
+# Top Bar Sample App
 
-This Sample App illustrates how to use the notify.json app api and popover() on top bar location apps.
+This Sample App illustrates how to use the notify.json App API and popover() on top bar location Apps.
 
 ### The following information is displayed:
 
 * location: top bar
-* make top bar app play christmas music via terminal
-* make top bar app play happy new year via terminal
 * resize popover
-* pane.activated
+* pane.activated event
 
 Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
 
