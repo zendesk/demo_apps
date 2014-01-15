@@ -93,7 +93,7 @@ Interesting features:
 
 ### [Top Bar Sample App](./top_bar_sample_app)
 
-This Sample App illustrates how to use the notify.json app api and popover() on top bar location apps.
+This Sample App illustrates how to use the notify.json App API and popover() on top bar location Apps.
 
 Interesting features:
 
@@ -105,10 +105,10 @@ Interesting features:
 
 ### [Settings Sample App](./settings_sample_app)
 
-This Sample App shows how to use app settings.
+This Sample App shows how to use App settings.
 
 Interesting features:
 
 * Default values
 * Existing settings.
-* Update app settings via curl command.
+* Update App settings via curl command.
