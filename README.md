@@ -97,9 +97,7 @@ This Sample App illustrates how to use the notify.json App API and popover() on 
 
 Interesting features:
 
-* location: top bar
-* make top bar app play christmas music via terminal
-* make top bar app play happy new year via terminal
+* location: top_bar
 * resize popover
 * pane.activated
 
