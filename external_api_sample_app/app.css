@@ -10,3 +10,7 @@
 .spinner {
   text-align: center;
 }
+
+.token_list {
+  border-width: 0;
+}

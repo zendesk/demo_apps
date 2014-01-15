@@ -1,9 +1,13 @@
 <div class="hearty_quote">
   <div class="body_message">
-    {{#tags}}
-      <span class="tag">#{{tag}}</span>
-    {{/tags}}
-    <span class="quote">{{quote}}<span>
+    <div class="tagss">
+      <ul class="token_list">
+        {{#tags}}
+          <list class="tags token">#{{tag}}</list>
+        {{/tags}}
+      </ul>
+    </div>
+    <div class="quote">{{quote}}</div>
   </div>
   <div>
     <button class="btn back_to_start">Go Back!</button>
