@@ -1,0 +1,8 @@
+.start {
+  div {
+    padding: 5px;
+    span {
+      display: block;
+    }
+  }
+}

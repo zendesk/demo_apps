@@ -1,11 +1,21 @@
 (function() {
 
   return {
-    events: {
-      'app.activated':'doSomething'
+
+    resources: {
+
     },
 
-    doSomething: function() {
+    requests: {
+
+    },
+
+    events: {
+      'app.activated':'start'
+    },
+
+    start: function() {
+      this.switchTo('start_page');
     }
   };
 
