@@ -99,7 +99,7 @@ Interesting features:
 
 * location: top_bar
 * resize popover
-* pane.activated
+* pane.activated event
 
 ### [Settings Sample App](./settings_sample_app)
 
