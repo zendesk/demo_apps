@@ -105,7 +105,7 @@ Interesting features:
 
 ### [Settings Sample App](./settings_sample_app)
 
-This Sample App shows how to use App settings.
+This Sample App shows how to use App settings, also called App parameters. These will be used to define user specific values in your Apps such as a subdomain, a token, a password or even user preferences.
 
 Interesting features:
 
