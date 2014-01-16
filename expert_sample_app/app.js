@@ -232,7 +232,8 @@
     },
 
     makeClassSelector: function(className) {
-      return helpers.fmt('.%@', className);
+      //return helpers.fmt('.%@', className);
+      return '.' + className;
     },
 
     addPages: function(num) {
