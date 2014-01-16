@@ -75,6 +75,8 @@
 
     createUser: function(event) {
       event.preventDefault();
+      this.$userForm = this.$('.form-horizontal').eq(0);
+      console.log(this.$userForm.serializeArray());
     },
 
     openUserForm: function(event) {
