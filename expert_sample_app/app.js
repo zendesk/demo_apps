@@ -47,6 +47,7 @@
 
     init: function() {
       this.pageNumber = this.previousPageNumber = this.resources.DEFAULT_PAGE_NUM;
+      this.incrementValue = this.incrementValue || Math.floor(this.resources.VAL_MAX / ( this.resources.TIME_OUT / this.resources.TIME_INTERVAL ));
       this.ticketsPerPage = this.setting('results_per_page');
       this.sendSearchRequest(this.makeSearchUrl(this.pageNumber)); // Get tickets info on the first page
     },
@@ -153,7 +154,7 @@
     },
 
     goProgress: function(valNow) { // Bootstrap 2.3 progress bar
-      this.valNow += this.resources.VAL_MAX / ( this.resources.TIME_OUT / this.resources.TIME_INTERVAL );
+      this.valNow += this.incrementValue;
       var percentage = valNow * 100 / this.resources.VAL_MAX;
       this.$progressBar.width(percentage + '%');
       this.$('.sr-only').text(this.I18n.t('progress_percentage', {
