@@ -3,19 +3,19 @@
     {{#users}}
       <li class="user">
         {{#if user.name}}
-          <span>Name: {{user.name}}</span>
+          <span class="name">Name: {{user.name}}</span>
         {{/if}}
         {{#if user.age}}
-          <span>Age: {{user.age}}</span>
+          <span class="age">Age: {{user.age}}</span>
         {{/if}}
         {{#if user.birthday}}
-          <span>Birthday: {{user.birthday}}</span>
+          <span class="birthday">Birthday: {{user.birthday}}</span>
         {{/if}}
         {{#if user.married}}
-          <span>married</span>
+          <span class="married">married</span>
         {{/if}}
         {{#if user.friends}}
-          <span>Friends: {{user.friends}}</span>
+          <span class="friends">Friends: {{user.friends}}</span>
         {{/if}}
       </li>
     {{/users}}

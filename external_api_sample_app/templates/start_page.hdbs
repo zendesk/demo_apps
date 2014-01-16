@@ -9,10 +9,10 @@
   </div>
   <div>
     <span>A REST POST call to teachmyapi:</span>
-    <button class="btn post_auth">POST (Auth)</button>
+    <button class="btn post_with_auth">POST (Auth)</button>
   </div>
   <div>
     <span>A REST PUT call to teachmyapi:</span>
-    <button class="btn put_auth">PUT (Auth)</button>
+    <button class="btn put_with_auth">PUT (Auth)</button>
   </div>
 </div>

@@ -23,6 +23,9 @@
     padding: 4px;
     margin-top: 3px;
     border-radius:5px;
+    :hover {
+      cursor: pointer;
+    }
   }
 }
 

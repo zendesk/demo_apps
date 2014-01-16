@@ -25,15 +25,29 @@
           username: this.resources.USERNAME,
           password: this.resources.PASSWORD
         };
+      },
+
+      postTeachMyAPIUsers: function() {
+        return {
+          url: helpers.fmt('%@/users', this.resources.END_POINT),
+          type: 'POST',
+          dataType: 'json',
+          username: this.resources.USERNAME,
+          password: this.resources.PASSWORD
+        };
       }
     },
 
     events: {
       'click .get_no_auth': 'getNoAuth',
       'click .get_with_auth': 'getWithAuth',
+      'click .post_with_auth': 'createUser',
       'fetchHeartyQuotes.done': 'renderHeartyQuote',
       'fetchTeachMyAPIUsers.done': 'renderUserList',
-      'click .back_to_start': 'renderStartPage'
+      'click .back_to_start': 'renderStartPage',
+      'click .user': 'getUser',
+      'click .modal_close': 'closeModal',
+      'hidden .my_modal': 'renderStartPage'
     },
 
     renderStartPage: function() {
@@ -47,9 +61,24 @@
       this.switchTo('loading_screen');
     },
 
-    getWithAuth: function() {
+    getWithAuth: function(event) {
+      event.preventDefault();
       this.ajax('fetchTeachMyAPIUsers');
       this.switchTo('loading_screen');
+    },
+
+    getUser: function(event) {
+      event.preventDefault();
+      console.log(event.currentTarget);
+    },
+
+    createUser: function(event) {
+      event.preventDefault();
+      this.switchTo('edit_user_details.form');
+      this.$('.my_modal').modal({
+        backdrop: true,
+        keyboard: false
+      });
     },
 
     renderHeartyQuote: function(data) {
@@ -66,6 +95,11 @@
     renderUserList: function(data) {
       var users = _.map(data, function(user){ user.friends = user.friends.join(' '); return { user: user };});
       this.switchTo('user_list', { users: users });
+    },
+
+    closeModal: function(event) {
+      event.preventDefault();
+      this.$('.my_modal').modal('hide');
     }
   };
 
