@@ -13,6 +13,7 @@
       TIME_OUT                 : 5000,
       TIME_INTERVAL            : 500,
       DEFAULT_PAGE_NUM         : 1,
+      FIRST_PAGE               : 1,
       NUM_OF_PAGE_BUTTONS_SHOW : 5,
       TICKET_LINK_HEIGHT       : 26,
       SORT_BY                  : 'created_at',
@@ -54,7 +55,7 @@
     },
 
     previousTicketsPage: function() {
-      if (this.pageNumber !== this.resources.DEFAULT_PAGE_NUM) {
+      if (this.pageNumber > this.resources.FIRST_PAGE) {
         this.previousPageNumber = this.pageNumber;
         this.pageNumber--;
         this.sendSearchRequest(this.previousPageQueryUrl); // Get tickets info from previous page.
