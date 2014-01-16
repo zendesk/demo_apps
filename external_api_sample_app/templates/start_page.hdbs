@@ -5,7 +5,7 @@
   </div>
   <div>
     <span>A REST GET call to teachmyapi:</span>
-    <button class="btn get_auth">GET (Auth)</button>
+    <button class="btn get_with_auth">GET (Auth)</button>
   </div>
   <div>
     <span>A REST POST call to teachmyapi:</span>

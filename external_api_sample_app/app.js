@@ -5,7 +5,9 @@
     defaultState: 'start_page',
 
     resources: {
-
+      USERNAME: 'myuser@example.com',
+      PASSWORD: 'notasecret',
+      END_POINT: 'https://www.teachmyapi.com/api/d8ed54064bd8c00918d62316c3ede108'
     },
 
     requests: {
@@ -16,13 +18,24 @@
           type: 'GET',
           dataType: 'json'
         };
+      },
+
+      fetchTeachMyAPIUsers: function() { // This is a function style. It is necessary to use this style when you have to access this.resources.
+        return {
+          url: helpers.fmt('%@/users', this.resources.END_POINT),
+          type: 'GET',
+          dataType: 'json',
+          username: this.resources.USERNAME,
+          password: this.resources.PASSWORD
+        };
       }
     },
 
     events: {
       'click .get_no_auth': 'getNoAuth',
+      'click .get_with_auth': 'getWithAuth',
       'fetchHeartyQuotes.done': 'renderHeartyQuote',
-      'fetchHeartyQuotes.fail': 'sayFail',
+      'fetchTeachMyAPIUsers.done': 'renderUserList',
       'click .back_to_start': 'renderStartPage'
     },
 
@@ -37,6 +50,10 @@
       this.switchTo('loading_screen');
     },
 
+    getWithAuth: function() {
+      this.ajax('fetchTeachMyAPIUsers');
+    },
+
     renderHeartyQuote: function(data) {
       // Map tags array to tags object {tag: 'tag_content'}
       var tags = _.map(data.tags, function(tag){ return { tag: tag }; });
@@ -46,6 +63,10 @@
         tags: tags,
         quote: data.quote
       });
+    },
+
+    renderUserList: function(data) {
+      console.log(data);
     }
   };
 
