@@ -184,12 +184,9 @@
     },
 
     organizeTicketsInfo: function(ticket) {
-      var regexResult = this.resources.TICKET_URL_PATTERN.exec(ticket.url);
-      var ticketUrl = regexResult[1]; // This returns the matched ticket API url
-      ticketUrl = ticketUrl.replace(this.resources.TO_REPLACE_PATTERN, this.resources.REPLACE_BY); // Convert API url to ticket url
       var ticketSubject = ticket.subject;
       this.ticketsInfo.push({
-        url: ticketUrl,
+        ticket_id: ticket.id,
         subject: ticketSubject
       });
     },
