@@ -198,14 +198,14 @@
 
     highlightCurrentPageNumber: function(btnClass, index) {
       this.getHighlightPaginationButton(btnClass, index)
-        .addClass('active')
-        .removeClass('disabled');
+        .addClass('active');
+      console.log('add');
     },
 
     removeHighlightOnPageNumber: function(btnClass, index) {
       this.getHighlightPaginationButton(btnClass, index)
-          .addClass('disabled')
           .removeClass('active');
+      console.log('remove');
     },
 
     removeOrAddHighlight: function() {
