@@ -11,16 +11,13 @@
     },
 
     requests: {
-      fetchHeartyQuotes: function() {
-        console.log('I am called');
-        return {
+      fetchHeartyQuotes: { // This is a simple object style.
           url: 'http://www.iheartquotes.com/api/v1/random?max_characters=140&source=macintosh+math+south_park+codehappy+starwars&format=json',
           type: 'GET',
           dataType: 'json'
-        };
       },
 
-      fetchTeachMyAPIUsers: function() { // This is a function style. It is necessary to use this style when you have to access this.resources.
+      fetchTeachMyAPIUsers: function() { // This is a function style. It is necessary to use this style when you have to access this.resources or you want to pass parameters to this.ajax().
         return {
           url: helpers.fmt('%@/users', this.resources.END_POINT),
           type: 'GET',
