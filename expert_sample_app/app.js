@@ -103,7 +103,9 @@
       }
 
       this.removeOrAddHighlight();
-      this.reorderPageButtons();
+      if (this.totalPages > 5) {
+        this.reorderPageButtons();
+      }
     },
 
     ticketSubmitDoneHandler: function() { // This is called once ticket.submit.done event is fired.
