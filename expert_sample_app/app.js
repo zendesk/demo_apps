@@ -81,9 +81,10 @@
       _.each(_.range(1, this.totalPages + 1), this.addPages.bind(this)); // Use underscore function _.range to create an array of numbers starting from 1 until size of totalPages.
       this.switchTo('ticket_list', {
         ticketsInfo: data.results,
-        pages: this.pages
+        pages: this.pages,
+        total: data.count
       });
-      this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
+      //this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
       if (data.previous_page === null) {
         this.highlightCurrentPageNumber(this.resources.PREV_CLASS, 0);
       } else {

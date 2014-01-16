@@ -45,7 +45,7 @@
   },
 
   "total_ticket_assigned_today": {
-    "value": "Total number of [open] tickets assigned to you: {{total}}",
+    "value": "Total number of [open] tickets assigned to you:",
     "title": "A message showing the number of open tickets that are assigned to the current user."
   },
 

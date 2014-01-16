@@ -1,5 +1,5 @@
 <div class="tickets_list">
-  <div class="tickets_list_header"><h5></h5></div>
+  <div class="tickets_list_header"><h5>{{t "total_ticket_assigned_today"}} {{total}}</h5></div>
   <div class="tickets_list_body">
     <ul>
       {{#ticketsInfo}}
