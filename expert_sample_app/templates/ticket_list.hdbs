@@ -1,0 +1,21 @@
+<div class="tickets_list">
+  <div class="tickets_list_header"><h5>{{t "total_ticket_assigned_today"}} {{total}}</h5></div>
+  <div class="tickets_list_body">
+    <ul>
+      {{#ticketsInfo}}
+      <li>
+        <a href="#/tickets/{{id}}">{{subject}}</a>
+      </li>
+      {{/ticketsInfo}}
+    </ul>
+  </div>
+  <div class="pagination pgination-centered">
+    <ul>
+      <li><a class="prev" href="#">«</a></li>
+      {{#pages}}
+      <li class="pagi pagi{{this}}"><a class="page_number" href="#">{{this}}</a></li>
+      {{/pages}}
+      <li><a class="next" href="#">»</a></li>
+    </ul>
+  </div>
+</div>

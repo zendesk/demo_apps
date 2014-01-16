@@ -1,0 +1,61 @@
+{
+  "app": {
+    "package": "expert_sample_app",
+    "description": {
+      "value": "This App shows the use of promises, save hook, handlebars helper, underscore, bootstrap 2.3 elements, App interface and settings, Zendesk RESTful API and etc.",
+      "title": "app description"
+    },
+    "name": {
+      "value": "Expert Sample App",
+      "title": "app name"
+    },
+    "parameters": {
+      "results_per_page": {
+        "label": {
+          "value": "Tickets Per Page",
+          "title": "Label message asking user for the number of tickets displayed on each page in the App."
+        }
+      }
+    }
+  },
+
+  "reject_msg_no_comment": {
+    "value": "You cannot submit a ticket with empty comments!",
+    "title": "A rejection message in the modal body explaining why the ticket submission is rejected."
+  },
+
+  "ok_button": {
+    "value": "OK",
+    "title": "Shows 'OK' message on the button at the bottom of the modal body"
+  },
+
+  "progress_percentage": {
+    "value": "{{percentage}}% completed",
+    "title": "Shows progress"
+  },
+
+  "modal_header_reject": {
+    "value": "Rejected!",
+    "title": "A message displaying rejected on the modal header"
+  },
+
+  "modal_header_submit": {
+    "value": "Submitting Your Ticket",
+    "title": "A message displaying submitting ticket on the modal header"
+  },
+
+  "total_ticket_assigned_today": {
+    "value": "Total number of [open] tickets assigned to you:",
+    "title": "A message showing the number of open tickets that are assigned to the current user."
+  },
+
+  "previous_page": {
+    "value": "prev",
+    "title": "Shows 'prev' on the previousPage link"
+  },
+
+  "next_page": {
+    "value": "next",
+    "title": "Shows 'next' on the nextPage link"
+  }
+}

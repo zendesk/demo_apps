@@ -1,0 +1,27 @@
+.progress-bar {
+  width: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.spinner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 6px;
+}
+
+.tickets_list_header {
+  padding-bottom: 10px;
+}
+
+.pagination {
+  text-align: center;
+  .disabled {
+    a:hover {
+      cursor: pointer;
+    }
+  }
+}
