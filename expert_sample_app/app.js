@@ -48,6 +48,7 @@
     init: function() {
       this.pageNumber = this.previousPageNumber = this.resources.DEFAULT_PAGE_NUM;
       this.incrementValue = this.incrementValue || Math.floor(this.resources.VAL_MAX / ( this.resources.TIME_OUT / this.resources.TIME_INTERVAL ));
+      this.numOfPageBtnEachSide = this.numOfPageBtnEachSide || Math.floor(this.resources.NUM_OF_PAGE_BUTTONS_SHOW / 2);
       this.ticketsPerPage = this.setting('results_per_page');
       this.sendSearchRequest(this.makeSearchUrl(this.pageNumber)); // Get tickets info on the first page
     },
@@ -217,7 +218,6 @@
     },
 
     reorderPageButtons: function() { // Always have at most 7 buttons displayed (2 for nav, 5 for page numbers)
-      this.numOfPageBtnEachSide = Math.floor(this.resources.NUM_OF_PAGE_BUTTONS_SHOW / 2);
       this.$('.pagi').addClass(this.resources.HIDE_CLASS);
       var extraBelow = this.numOfPageBtnEachSide - (this.totalPages - this.pageNumber), // if we are close to the end, show more pages lower than this.pageNumber
           extraAbove = this.numOfPageBtnEachSide - (this.pageNumber - this.resources.DEFAULT_PAGE_NUM); // if we are close to the start, show more pages greater than this.pageNumber
