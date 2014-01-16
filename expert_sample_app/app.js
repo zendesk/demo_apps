@@ -76,13 +76,11 @@
     },
 
     renderTicketLinks: function(data) { // Reload App page once ajax call is done.
-      this.ticketsInfo = [];
       this.pages = [];
-      _.each(data.results, this.organizeTicketsInfo.bind(this)); // Use bind to set organizeTicketsInfo's scope to this App.
       this.totalPages = Math.ceil(data.count / this.ticketsPerPage); // Calculate total number of pages.
       _.each(_.range(1, this.totalPages + 1), this.addPages.bind(this)); // Use underscore function _.range to create an array of numbers starting from 1 until size of totalPages.
       this.switchTo('ticket_list', {
-        ticketsInfo: this.ticketsInfo,
+        ticketsInfo: data.results,
         pages: this.pages
       });
       this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
@@ -181,14 +179,6 @@
       this.$('.alert-block').toggleClass(this.resources.HIDE_CLASS, isProgressBarOnShown);
       this.$('.modal-footer').toggleClass(this.resources.HIDE_CLASS, isProgressBarOnShown);
       this.$('.progress').toggleClass(this.resources.HIDE_CLASS, !isProgressBarOnShown);
-    },
-
-    organizeTicketsInfo: function(ticket) {
-      var ticketSubject = ticket.subject;
-      this.ticketsInfo.push({
-        ticket_id: ticket.id,
-        subject: ticketSubject
-      });
     },
 
     makeSearchUrl: function(pageNumber) { // This search query searches for all open tickets that are assigned to the current user.
