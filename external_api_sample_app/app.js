@@ -41,13 +41,14 @@
     events: {
       'click .get_no_auth': 'getNoAuth',
       'click .get_with_auth': 'getWithAuth',
-      'click .post_with_auth': 'createUser',
+      'click .post_with_auth': 'openUserForm',
       'fetchHeartyQuotes.done': 'renderHeartyQuote',
       'fetchTeachMyAPIUsers.done': 'renderUserList',
       'click .back_to_start': 'renderStartPage',
       'click .user': 'getUser',
       'click .modal_close': 'closeModal',
-      'hidden .my_modal': 'renderStartPage'
+      'hidden .my_modal': 'renderStartPage',
+      'click .btn_submit': 'createUser'
     },
 
     renderStartPage: function() {
@@ -73,6 +74,10 @@
     },
 
     createUser: function(event) {
+      event.preventDefault();
+    },
+
+    openUserForm: function(event) {
       event.preventDefault();
       this.switchTo('edit_user_details.form');
       this.$('.my_modal').modal({
