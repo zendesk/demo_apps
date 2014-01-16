@@ -179,8 +179,7 @@
     },
 
     toggleModalElementHidden: function(isProgressBarOnShown) {
-      this.$('.alert-block').toggleClass(this.resources.HIDE_CLASS, isProgressBarOnShown);
-      this.$('.modal-footer').toggleClass(this.resources.HIDE_CLASS, isProgressBarOnShown);
+      this.$('.alert-block, .modal-footer').toggleClass(this.resources.HIDE_CLASS, isProgressBarOnShown);
       this.$('.progress').toggleClass(this.resources.HIDE_CLASS, !isProgressBarOnShown);
     },
 
