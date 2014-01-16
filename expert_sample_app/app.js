@@ -86,7 +86,6 @@
         pages: this.pages
       });
       this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
-      this.$('.tickets_list_body').height(this.ticketsPerPage * this.resources.TICKET_LINK_HEIGHT);
       if (data.previous_page === null) {
         this.highlightCurrentPageNumber(this.resources.PREV_CLASS, 0);
       } else {
@@ -99,6 +98,14 @@
         this.nextPageQueryUrl = data.next_page;
         this.removeHighlightOnPageNumber(this.resources.NEXT_CLASS, 0);
       }
+
+      if (data.count === 0) { // Hide prev and next buttons if there is no ticket
+        this.$(this.makeClassSelector(this.resources.PREV_CLASS)).addClass(this.resources.HIDE_CLASS);
+        this.$(this.makeClassSelector(this.resources.NEXT_CLASS)).addClass(this.resources.HIDE_CLASS);
+      } else { // Otherwise, assign the height of the ticket list body
+        this.$('.tickets_list_body').height(this.ticketsPerPage * this.resources.TICKET_LINK_HEIGHT);
+      }
+
       this.removeOrAddHighlight();
       this.reorderPageButtons();
     },
