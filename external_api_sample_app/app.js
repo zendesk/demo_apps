@@ -49,6 +49,7 @@
 
     getWithAuth: function() {
       this.ajax('fetchTeachMyAPIUsers');
+      this.switchTo('loading_screen');
     },
 
     renderHeartyQuote: function(data) {
@@ -63,7 +64,8 @@
     },
 
     renderUserList: function(data) {
-      console.log(data);
+      var users = _.map(data, function(user){ user.friends = user.friends.join(' '); return { user: user };});
+      this.switchTo('user_list', { users: users });
     }
   };
 

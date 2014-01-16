@@ -1,0 +1,23 @@
+<div class="user_page">
+  <ul class="user_list">
+    {{#users}}
+      <li class="user">
+        {{#if user.name}}
+          <span>Name: {{user.name}}</span>
+        {{/if}}
+        {{#if user.age}}
+          <span>Age: {{user.age}}</span>
+        {{/if}}
+        {{#if user.birthday}}
+          <span>Birthday: {{user.birthday}}</span>
+        {{/if}}
+        {{#if user.married}}
+          <span>married</span>
+        {{/if}}
+        {{#if user.friends}}
+          <span>Friends: {{user.friends}}</span>
+        {{/if}}
+      </li>
+    {{/users}}
+  </ul>
+</div>
