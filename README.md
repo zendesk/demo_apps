@@ -50,6 +50,8 @@ Interesting features:
 
 This app demonstrates how to toggle a modal via data attributes.
 
+Interesting features:
+
 * Location: ticket sidebar and new ticket sidebar.
 * Use of I18n
 * Use of the 'hidden' modal event
@@ -68,10 +70,43 @@ Interesting features:
 
 ### [Save Hook Sample App](./save_hook_sample)
 
-This app demonstrates how to use save hook
+This app demonstrates how to use save hook.
+
+Interesting features:
 
 * How to pass / reject submissions
 * How to reject a submission with an error message
 * How to use promise within save hook
 * How to use AJAX within save hook
-* Both of promise and AJAX can pass / reject submission after the job is done
+* Both of promise and AJAX can pass / reject submission after the job is done.
+
+### [Advanced Modal Sample App](./modal_js_sample_app)
+
+This Sample App demonstrates how to invoke a modal in JavaScript
+
+Interesting features:
+
+* location: ticket sidebar and new ticket sidebar
+* show modal via javascript
+* illustrate usage of modal specific event - show.
+* print a message on modal.
+
+### [Top Bar Sample App](./top_bar_sample_app)
+
+This Sample App illustrates how to use the notify.json App API and popover() on top bar location Apps.
+
+Interesting features:
+
+* location: top_bar
+* resize popover
+* pane.activated event
+
+### [Settings Sample App](./settings_sample_app)
+
+This Sample App shows how to use App settings, also called App parameters. These will be used to define user specific values in your Apps such as a subdomain, a token, a password or even user preferences.
+
+Interesting features:
+
+* Default values
+* Existing settings.
+* Update App settings via curl command.
