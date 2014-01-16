@@ -76,15 +76,12 @@
     },
 
     renderTicketLinks: function(data) { // Reload App page once ajax call is done.
-      this.pages = [];
       this.totalPages = Math.ceil(data.count / this.ticketsPerPage); // Calculate total number of pages.
-      _.each(_.range(1, this.totalPages + 1), this.addPages.bind(this)); // Use underscore function _.range to create an array of numbers starting from 1 until size of totalPages.
       this.switchTo('ticket_list', {
         ticketsInfo: data.results,
-        pages: this.pages,
+        pages: _.range(1, this.totalPages + 1),
         total: data.count
       });
-      //this.$('.tickets_list_header h5').text(this.I18n.t('total_ticket_assigned_today', { total: data.count }));
       if (data.previous_page === null) {
         this.highlightCurrentPageNumber(this.resources.PREV_CLASS, 0);
       } else {
@@ -229,16 +226,11 @@
     },
 
     makePagiClassName: function(pageNumber) {
-      return helpers.fmt('pagi%@', pageNumber);
+      return 'pagi' + pageNumber;
     },
 
     makeClassSelector: function(className) {
-      //return helpers.fmt('.%@', className);
       return '.' + className;
-    },
-
-    addPages: function(num) {
-      this.pages.push({ number: num, paginator: this.makePagiClassName(num) });
     }
   };
 

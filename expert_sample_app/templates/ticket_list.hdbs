@@ -13,7 +13,7 @@
     <ul>
       <li class="active"><a class="prev" href="#">«</a></li>
       {{#pages}}
-      <li class="disabled pagi {{paginator}}"><a class="page_number" href="#">{{number}}</a></li>
+      <li class="disabled pagi pagi{{this}}"><a class="page_number" href="#">{{this}}</a></li>
       {{/pages}}
       <li class="active"><a class="next" href="#">»</a></li>
     </ul>
