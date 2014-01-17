@@ -27,13 +27,13 @@
         };
       },
 
-      postTeachMyAPIUsers: function() {
+      postTeachMyAPIUsers: function(data) {
         return {
           url: helpers.fmt('%@/users', this.resources.END_POINT),
           type: 'POST',
           dataType: 'json',
-          username: this.resources.USERNAME,
-          password: this.resources.PASSWORD
+          contentType: 'application/json; charset=UTF-8',
+          data: JSON.stringify(data)
         };
       }
     },
@@ -44,6 +44,8 @@
       'click .post_with_auth': 'openUserForm',
       'fetchHeartyQuotes.done': 'renderHeartyQuote',
       'fetchTeachMyAPIUsers.done': 'renderUserList',
+      'postTeachMyAPIUsers.done': 'postCleanup',
+      'postTeachMyAPIUsers.fail': 'fail',
       'click .back_to_start': 'renderStartPage',
       'click .user': 'getUser',
       'click .modal_close': 'closeModal',
@@ -73,10 +75,26 @@
       console.log(event.currentTarget);
     },
 
-    createUser: function(event) {
+    createUser: function(event) { // TODO: security concern (data santinization)
+      this.dataObjectArray = [];
       event.preventDefault();
       this.$userForm = this.$('.form-horizontal').eq(0);
-      console.log(this.$userForm.serializeArray());
+      this.userFormData = this.$userForm.serializeArray();
+      _.each(this.userFormData, function(data) {
+        if (data.name === "friends") {
+          data.value = _.map(data.value.split(';'), function(name) {
+            return name.trim();
+          });
+        }
+        if (data.name === "married") {
+          data.value = !!data.value;
+        }
+        this.dataObjectArray[data.name] = data.value;
+      }.bind(this));
+
+      console.log(this.dataObjectArray);
+
+      this.ajax('postTeachMyAPIUsers', this.dataObjectArray);
     },
 
     openUserForm: function(event) {
@@ -105,9 +123,24 @@
     },
 
     closeModal: function(event) {
-      event.preventDefault();
+      if (typeof(event)!== 'undefined')
+        event.preventDefault();
+
       this.$('.my_modal').modal('hide');
+    },
+
+    postCleanup: function(data) {
+      this.closeModal();
+      this.renderStartPage();
+      console.log(data);
+      services.notify('User created!');
+    },
+
+    fail: function(data) {
+      console.log(data);
     }
+
+
   };
 
 }());
