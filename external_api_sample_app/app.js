@@ -7,7 +7,8 @@
     resources: {
       USERNAME: 'myuser@example.com',
       PASSWORD: 'notasecret',
-      END_POINT: 'https://www.teachmyapi.com/api/d8ed54064bd8c00918d62316c3ede108'
+      END_POINT: 'https://www.teachmyapi.com/api/d8ed54064bd8c00918d62316c3ede108',
+      DATE_PATTERN: /^\d{4}-\d{2}-\d{2}$/
     },
 
     requests: {
@@ -83,7 +84,7 @@
       console.log(event.currentTarget);
     },
 
-    createUser: function(event) { // TODO: security concern (data santinization)
+    createUser: function(event) {
       this.dataObjectArray = [];
       event.preventDefault();
       this.$userForm = this.$('.form-horizontal').eq(0);
@@ -93,16 +94,41 @@
           data.value = _.map(data.value.split(';'), function(name) {
             return name.trim();
           });
+          data.value = _.filter(data.value, function(name) {
+            return name !== "";
+          });
+          if(data.value.length === 0) {
+            data.value = undefined;
+          }
         }
         if (data.name === "married") {
           data.value = !!data.value;
         }
+
+        if (data.value === "") {
+          data.value = undefined;
+        }
+
         this.dataObjectArray[data.name] = data.value;
       }.bind(this));
 
       console.log(this.dataObjectArray);
 
-      this.ajax('postTeachMyAPIUsers', this.dataObjectArray);
+      // Check if form data is valid
+      if (typeof(this.dataObjectArray.friends) === 'undefined' || !Array.isArray(this.dataObjectArray.friends)) {
+        services.notify('You cannot have no friends!');
+      } else if (typeof(this.dataObjectArray.age) === 'undefined' || typeof(parseInt(this.dataObjectArray.age, 10)) !== 'number') {
+        services.notify('Your age has to be a valid number!');
+      } else if (typeof(this.dataObjectArray.name) === 'undefined' || this.dataObjectArray.name === "") {
+        services.notify('Invalid name!');
+      } else if (typeof(this.dataObjectArray.birthday) === 'undefined' || !this.resources.DATE_PATTERN.test(this.dataObjectArray.birthday)){
+        services.notify('Invalid birthday!');
+      } else {
+        this.ajax('postTeachMyAPIUsers', this.dataObjectArray);
+      }
+
+
+
     },
 
     openUserForm: function(event) {

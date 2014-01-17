@@ -7,25 +7,25 @@
     <form class="form-horizontal">
       <legend>{{form_name}}</legend>
       <div class="control-group">
-        <label class="control-label" for="inputName">Name:</label>
+        <label class="control-label" for="inputName">*Name:</label>
         <div class="controls">
           <input type="text" id="inputName" name="name" placeholder="Enter your name here.">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="inputAge">Age:</label>
+        <label class="control-label" for="inputAge">*Age:</label>
         <div class="controls">
           <input type="number" id="inputAge" name="age">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="inputBirthday">Birthday:</label>
+        <label class="control-label" for="inputBirthday">*Birthday:</label>
         <div class="controls">
           <input type="date" id="inputBirthday" name="birthday">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="inputFriends">Friends:</label>
+        <label class="control-label" for="inputFriends">*Friends:</label>
         <div class="controls">
           <input type="text" id="inputFriends" name="friends" placeholder="Separate friends' names using ';'">
         </div>
