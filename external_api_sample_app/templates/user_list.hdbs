@@ -1,23 +1,28 @@
 <div class="user_page">
-  <ul class="user_list">
-    {{#users}}
-      <li class="user">
-        {{#if user.name}}
-          <span class="name">Name: {{user.name}}</span>
-        {{/if}}
-        {{#if user.age}}
-          <span class="age">Age: {{user.age}}</span>
-        {{/if}}
-        {{#if user.birthday}}
-          <span class="birthday">Birthday: {{user.birthday}}</span>
-        {{/if}}
-        {{#if user.married}}
-          <span class="married">married</span>
-        {{/if}}
-        {{#if user.friends}}
-          <span class="friends">Friends: {{user.friends}}</span>
-        {{/if}}
-      </li>
-    {{/users}}
-  </ul>
+  <div class="user_page_content">
+    <ul class="user_list">
+      {{#users}}
+        <li class="user">
+          {{#if user.name}}
+            <span class="name">Name: {{user.name}}</span>
+          {{/if}}
+          {{#if user.age}}
+            <span class="age">Age: {{user.age}}</span>
+          {{/if}}
+          {{#if user.birthday}}
+            <span class="birthday">Birthday: {{user.birthday}}</span>
+          {{/if}}
+          {{#if user.married}}
+            <span class="married">married</span>
+          {{/if}}
+          {{#if user.friends}}
+            <span class="friends">Friends: {{user.friends}}</span>
+          {{/if}}
+        </li>
+      {{/users}}
+    </ul>
+  </div>
+  <div class="user_page_control">
+    <button class="btn back_to_start">Go Back!</button>
+  </div>
 </div>
