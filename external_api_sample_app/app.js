@@ -28,10 +28,32 @@
         };
       },
 
+      fetchTeachMyAPIUser: function(userId) {
+        return {
+          url: helpers.fmt('%@/users/%@', this.resources.END_POINT, userId),
+          type: 'GET',
+          dataType: 'json',
+          username: this.resources.USERNAME,
+          password: this.resources.PASSWORD
+        };
+      },
+
       postTeachMyAPIUsers: function(data) {
         return {
           url: helpers.fmt('%@/users', this.resources.END_POINT),
           type: 'POST',
+          dataType: 'json',
+          contentType: 'application/json; charset=UTF-8',
+          data: JSON.stringify(data),
+          username: this.resources.USERNAME,
+          password: this.resources.PASSWORD
+        };
+      },
+
+      putTeachMyAPIUser: function(data, userId) {
+        return {
+          url: helpers.fmt('%@/users/%@', this.resources.END_POINT, userId),
+          type: 'PUT',
           dataType: 'json',
           contentType: 'application/json; charset=UTF-8',
           data: JSON.stringify(data),
@@ -44,11 +66,13 @@
     events: {
       'click .get_no_auth': 'getNoAuth',
       'click .get_with_auth': 'getWithAuth',
-      'click .post_with_auth': 'openUserForm',
+      'click .post_with_auth': 'openEditUserForm',
       'click .put_with_auth': 'putWithAuth',
       'fetchHeartyQuotes.done': 'renderHeartyQuote',
       'fetchTeachMyAPIUsers.done': 'renderUserList',
       'postTeachMyAPIUsers.done': 'postCleanup',
+      'fetchTeachMyAPIUser.done': 'openUpdateUserForm',
+      'putTeachMyAPIUsers.done': 'putCleanup',
       'postTeachMyAPIUsers.fail': 'fail',
       'click .back_to_start': 'renderStartPage',
       'click .update': 'updateUser',
@@ -75,18 +99,19 @@
     },
 
     putWithAuth: function(event) {
-      this.updateUser = true;
+      this.canUpdateUser = true;
       this.getWithAuth(event);
     },
 
     updateUser: function(event) {
       event.preventDefault();
-      console.log(event.currentTarget);
+      this.updateUserId = this.$(event.currentTarget).children('.id').eq(0).text();
 
 
+    },
 
-
-
+    openUpdateUserForm: function(data) {
+      this.switchTo('update_user_details_form', {user: data});
     },
 
     createUser: function(event) {
@@ -133,14 +158,15 @@
       }
     },
 
-    openUserForm: function(event) {
+    openEditUserForm: function(event) {
       event.preventDefault();
-      this.switchTo('edit_user_details.form');
+      this.switchTo('edit_user_details_form');
       this.$('.my_modal').modal({
         backdrop: true,
         keyboard: false
       });
     },
+
 
     renderHeartyQuote: function(data) {
       // Map tags array to tags object {tag: 'tag_content'}
@@ -157,9 +183,9 @@
       var users = _.map(data, function(user){ user.friends = user.friends.join(' '); return { user: user };});
       var userPageObj = { users: users };
       this.switchTo('user_list', userPageObj);
-      if (this.updateUser) {
+      if (this.canUpdateUser) {
         this.$('.user').addClass('update');
-        this.updateUser = false;
+        this.canUpdateUser = false;
       }
     },
 
