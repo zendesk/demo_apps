@@ -85,7 +85,7 @@
     },
 
     createUser: function(event) {
-      this.dataObjectArray = [];
+      this.dataObjectArray = {};
       event.preventDefault();
       this.$userForm = this.$('.form-horizontal').eq(0);
       this.userFormData = this.$userForm.serializeArray();
@@ -108,7 +108,6 @@
         if (data.value === "") {
           data.value = undefined;
         }
-
         this.dataObjectArray[data.name] = data.value;
       }.bind(this));
 
@@ -124,11 +123,9 @@
       } else if (typeof(this.dataObjectArray.birthday) === 'undefined' || !this.resources.DATE_PATTERN.test(this.dataObjectArray.birthday)){
         services.notify('Invalid birthday!');
       } else {
+        console.log(JSON.stringify(this.dataObjectArray));
         this.ajax('postTeachMyAPIUsers', this.dataObjectArray);
       }
-
-
-
     },
 
     openUserForm: function(event) {
