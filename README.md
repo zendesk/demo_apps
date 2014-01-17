@@ -110,3 +110,19 @@ Interesting features:
 * Default values
 * Existing settings.
 * Update App settings via curl command.
+
+### [Expert Sample App](./expert_sample_app)
+
+This App contains overall most features available in the Zendesk Apps framework. It's more complex and is more geared towards helping an experienced Javascript engineer understand Zendesk Apps. If you're just beginning make sure to check out our other sample Apps before diving into this one!
+
+This App displays to a user all tickets that are open and assigned to himself/herself in pages. Also, the App helps to make sure that the comment body is not empty when a user tries to submit a ticket he/she is working on. A fake submission progress bar fires before the ticket is saved to show a user how promises manage asynchronous methods.
+
+Interesting features:
+
+* A fake progress bar at ticket submission (use of promise, setInterval, and modal, I18n)
+* Prevent a submission on the condition that the comment body is empty (use of promise, modal, I18n, comment interface)
+* Display all ticket hyperlinks that are open and assigned to current user.
+* Display tickets in pages using the bootstrap pagination.
+* Use App Setting
+* Use App resources
+* Use scss style in app.css
