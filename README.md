@@ -113,6 +113,8 @@ Interesting features:
 
 ### [Expert Sample App](./expert_sample_app)
 
+This App contains overall most features available in the Zendesk Apps framework. It's more complex and is more geared towards helping an experienced Javascript engineer understand Zendesk Apps. If you're just beginning make sure to check out our other sample Apps before diving into this one!
+
 This App displays to a user all tickets that are open and assigned to himself/herself in pages. Also, the App helps to make sure that the comment body is not empty when a user tries to submit a ticket he/she is working on. A fake submission progress bar fires before the ticket is saved to show a user how promises manage asynchronous methods.
 
 Interesting features:
