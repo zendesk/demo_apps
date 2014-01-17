@@ -33,7 +33,9 @@
           type: 'POST',
           dataType: 'json',
           contentType: 'application/json; charset=UTF-8',
-          data: JSON.stringify(data)
+          data: JSON.stringify(data),
+          username: this.resources.USERNAME,
+          password: this.resources.PASSWORD
         };
       }
     },
@@ -42,12 +44,13 @@
       'click .get_no_auth': 'getNoAuth',
       'click .get_with_auth': 'getWithAuth',
       'click .post_with_auth': 'openUserForm',
+      'click .put_with_auth': 'putWithAuth',
       'fetchHeartyQuotes.done': 'renderHeartyQuote',
       'fetchTeachMyAPIUsers.done': 'renderUserList',
       'postTeachMyAPIUsers.done': 'postCleanup',
       'postTeachMyAPIUsers.fail': 'fail',
       'click .back_to_start': 'renderStartPage',
-      'click .user': 'getUser',
+      'click .update': 'updateUser',
       'click .modal_close': 'closeModal',
       'hidden .my_modal': 'renderStartPage',
       'click .btn_submit': 'createUser'
@@ -70,7 +73,12 @@
       this.switchTo('loading_screen');
     },
 
-    getUser: function(event) {
+    putWithAuth: function(event) {
+      this.updateUser = true;
+      this.getWithAuth(event);
+    },
+
+    updateUser: function(event) {
       event.preventDefault();
       console.log(event.currentTarget);
     },
@@ -119,7 +127,12 @@
 
     renderUserList: function(data) {
       var users = _.map(data, function(user){ user.friends = user.friends.join(' '); return { user: user };});
-      this.switchTo('user_list', { users: users });
+      var userPageObj = { users: users };
+      this.switchTo('user_list', userPageObj);
+      if (this.updateUser) {
+        this.$('.user').addClass('update');
+        this.updateUser = false;
+      }
     },
 
     closeModal: function(event) {
@@ -139,8 +152,6 @@
     fail: function(data) {
       console.log(data);
     }
-
-
   };
 
 }());
