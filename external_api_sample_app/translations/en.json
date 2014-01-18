@@ -51,6 +51,26 @@
     "title": "Label for id info field"
   },
 
+  "label_btn_get_no_auth": {
+    "value": "A simple REST GET call to iheartquotes API:",
+    "title": "Label for the Get (No Auth) button"
+  },
+
+  "label_btn_get_auth": {
+    "value": "A REST GET call to teachmyapi:",
+    "title": "Label for the Get (Auth) button"
+  },
+
+  "label_btn_post": {
+    "value": "A REST POST call to teachmyapi:",
+    "title": "Label for the post button"
+  },
+
+  "label_btn_put": {
+    "value": "",
+    "title": "Label for the put button"
+  },
+
   "btn_go_back": {
     "value": "Go Back",
     "title": "Message displayed on the button that navigates back to the start page."
@@ -64,6 +84,26 @@
   "btn_save": {
     "value": "Save changes",
     "title": "Message displayed on the save button in modal"
+  },
+
+  "btn_put": {
+    "value": "PUT (Auth)",
+    "title": "Message displayed on the put button in start page"
+  },
+
+  "btn_post": {
+    "value": "POST (Auth)",
+    "title": "Message displayed on the post button in start page"
+  },
+
+  "btn_get_auth": {
+    "value": "GET (Auth)",
+    "title": "Message displayed on the get with auth button in start page"
+  },
+
+  "btn_get_no_auth": {
+    "value": "GET (No Auth)",
+    "title": "Message displayed on the get no auth button in start page"
   },
 
   "display_married": {

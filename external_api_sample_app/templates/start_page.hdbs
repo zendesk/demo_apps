@@ -1,18 +1,18 @@
 <div class="start">
   <div>
-    <label>A simple REST GET call to iheartquotes API:</label>
-    <button class="btn get_no_auth">GET (No Auth)</button>
+    <label>{{t "label_btn_get_no_auth"}}</label>
+    <button class="btn get_no_auth">{{t "btn_get_no_auth"}}</button>
   </div>
   <div>
-    <label>A REST GET call to teachmyapi:</label>
-    <button class="btn get_with_auth">GET (Auth)</button>
+    <label>{{t "label_btn_get_auth"}}</label>
+    <button class="btn get_with_auth">{{t "btn_get_auth"}}</button>
   </div>
   <div>
-    <label>A REST POST call to teachmyapi:</label>
-    <button class="btn post_with_auth">POST (Auth)</button>
+    <label>{{t "label_btn_post"}}</label>
+    <button class="btn post_with_auth">{{t "btn_post"}}</button>
   </div>
   <div>
-    <label>A REST PUT call to teachmyapi:</label>
-    <button class="btn put_with_auth">PUT (Auth)</button>
+    <label>{{t "label_btn_put"}}</label>
+    <button class="btn put_with_auth">{{t "btn_put"}}</button>
   </div>
 </div>
