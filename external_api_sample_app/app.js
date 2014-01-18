@@ -28,7 +28,7 @@
         };
       },
 
-      fetchTeachMyAPIUser: function(userId) {
+      fetchTeachMyAPIUserById: function(userId) {
         return {
           url: helpers.fmt('%@/users/%@', this.resources.END_POINT, userId),
           type: 'GET',
@@ -50,7 +50,7 @@
         };
       },
 
-      putTeachMyAPIUser: function(data, userId) {
+      putTeachMyAPIUserById: function(data, userId) {
         return {
           url: helpers.fmt('%@/users/%@', this.resources.END_POINT, userId),
           type: 'PUT',
@@ -71,14 +71,15 @@
       'fetchHeartyQuotes.done': 'renderHeartyQuote',
       'fetchTeachMyAPIUsers.done': 'renderUserList',
       'postTeachMyAPIUsers.done': 'postCleanup',
-      'fetchTeachMyAPIUser.done': 'openUpdateUserForm',
-      'putTeachMyAPIUsers.done': 'putCleanup',
+      "fetchTeachMyAPIUserById.done": 'openUpdateUserForm',
+      'putTeachMyAPIUserById.done': 'putCleanup',
       'postTeachMyAPIUsers.fail': 'fail',
       'click .back_to_start': 'renderStartPage',
-      'click .update': 'updateUser',
+      'click .update': 'getUserInfo',
       'click .modal_close': 'closeModal',
       'hidden .my_modal': 'renderStartPage',
-      'click .btn_submit': 'createUser'
+      'click .btn_submit': 'createUser',
+      'click .btn_update': 'updateUser'
     },
 
     renderStartPage: function() {
@@ -103,15 +104,19 @@
       this.getWithAuth(event);
     },
 
-    updateUser: function(event) {
+    getUserInfo: function(event) {
       event.preventDefault();
       this.updateUserId = this.$(event.currentTarget).children('.id').eq(0).text();
-
-
+      this.ajax('fetchTeachMyAPIUserById', this.updateUserId);
     },
 
     openUpdateUserForm: function(data) {
+      console.log(data);
       this.switchTo('update_user_details_form', {user: data});
+      this.$('.my_modal').modal({
+        backdrop: true,
+        keyboard: false
+      });
     },
 
     createUser: function(event) {
@@ -153,8 +158,52 @@
       } else if (typeof(this.dataObjectArray.birthday) === 'undefined' || !this.resources.DATE_PATTERN.test(this.dataObjectArray.birthday)){
         services.notify('Invalid birthday!');
       } else {
-        console.log(JSON.stringify(this.dataObjectArray));
         this.ajax('postTeachMyAPIUsers', this.dataObjectArray);
+        this.closeModal();
+      }
+    },
+
+    updateUser: function(event) {
+      event.preventDefault();
+      this.dataObjectArray = {};
+      this.$userForm = this.$('.form-horizontal').eq(0);
+      this.userFormData = this.$userForm.serializeArray();
+      _.each(this.userFormData, function(data) {
+        if (data.name === "friends") {
+          data.value = _.map(data.value.split(';'), function(name) {
+            return name.trim();
+          });
+          data.value = _.filter(data.value, function(name) {
+            return name !== "";
+          });
+          if(data.value.length === 0) {
+            data.value = undefined;
+          }
+        }
+        if (data.name === "married") {
+          data.value = !!data.value;
+        }
+
+        if (data.value === "") {
+          data.value = undefined;
+        }
+        this.dataObjectArray[data.name] = data.value;
+      }.bind(this));
+
+      console.log(this.dataObjectArray);
+
+      // Check if form data is valid
+      if (typeof(this.dataObjectArray.friends) === 'undefined' || !Array.isArray(this.dataObjectArray.friends)) {
+        services.notify('You cannot have no friends!');
+      } else if (typeof(this.dataObjectArray.age) === 'undefined' || typeof(parseInt(this.dataObjectArray.age, 10)) !== 'number') {
+        services.notify('Your age has to be a valid number!');
+      } else if (typeof(this.dataObjectArray.name) === 'undefined' || this.dataObjectArray.name === "") {
+        services.notify('Invalid name!');
+      } else if (typeof(this.dataObjectArray.birthday) === 'undefined' || !this.resources.DATE_PATTERN.test(this.dataObjectArray.birthday)){
+        services.notify('Invalid birthday!');
+      } else {
+        this.ajax('putTeachMyAPIUserById', this.dataObjectArray, this.updateUserId);
+        this.closeModal();
       }
     },
 
@@ -180,7 +229,7 @@
     },
 
     renderUserList: function(data) {
-      var users = _.map(data, function(user){ user.friends = user.friends.join(' '); return { user: user };});
+      var users = _.map(data, function(user){ user.friends = user.friends.join(', '); return { user: user };});
       var userPageObj = { users: users };
       this.switchTo('user_list', userPageObj);
       if (this.canUpdateUser) {
@@ -192,19 +241,24 @@
     closeModal: function(event) {
       if (typeof(event)!== 'undefined')
         event.preventDefault();
-
       this.$('.my_modal').modal('hide');
     },
 
     postCleanup: function(data) {
-      this.closeModal();
       this.renderStartPage();
       console.log(data);
       services.notify('User created!');
     },
 
+    putCleanup: function(data) {
+      this.renderStartPage();
+      console.log(data);
+      services.notify(helpers.fmt('User (name: %@; id: %@) is updated', data.name, data.id));
+    },
+
     fail: function(data) {
       console.log(data);
+      services.notify(JSON.stringify(data));
     }
   };
 
