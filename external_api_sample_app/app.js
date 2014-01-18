@@ -5,10 +5,10 @@
     defaultState: 'start_page',
 
     resources: {
-      USERNAME: 'myuser@example.com',
-      PASSWORD: 'notasecret',
-      API_URL: 'https://www.teachmyapi.com/api/d8ed54064bd8c00918d62316c3ede108',
-      DATE_PATTERN: /^\d{4}-\d{2}-\d{2}$/
+      USERNAME     : 'myuser@example.com',
+      PASSWORD     : 'notasecret',
+      API_URL      : 'https://www.teachmyapi.com/api/d8ed54064bd8c00918d62316c3ede108',
+      DATE_PATTERN : /^\d{4}-\d{2}-\d{2}$/
     },
 
     requests: {
@@ -66,26 +66,26 @@
     },
 
     events: {
-      'app.activated': 'init',
-      'click .get_no_auth': 'getNoAuth',
-      'click .get_with_auth': 'getWithAuth',
-      'click .post_with_auth': 'openEditUserForm',
-      'click .put_with_auth': 'putWithAuth',
-      'fetchHeartyQuotes.done': 'renderHeartyQuote',
-      'fetchTeachMyAPIUsers.done': 'renderUserList',
-      'postTeachMyAPIUsers.done': 'postCleanup',
-      "fetchTeachMyAPIUserById.done": 'openUpdateUserForm',
-      'putTeachMyAPIUserById.done': 'putCleanup',
-      'postTeachMyAPIUsers.fail': 'fail',
-      'fetchTeachMyAPIUsers.fail': 'fail',
-      'fetchTeachMyAPIUserById.fail': 'fail',
-      'putTeachMyAPIUserById.fail': 'fail',
-      'click .back_to_start': 'renderStartPage',
-      'click .update': 'getUserInfo',
-      'click .modal_close': 'closeModal',
-      'hidden .my_modal': 'renderStartPage',
-      'click .btn_submit': 'createUser',
-      'click .btn_update': 'updateUser'
+      'app.activated'                : 'init',
+      'click .get_no_auth'           : 'getNoAuth',
+      'click .get_with_auth'         : 'getWithAuth',
+      'click .post_with_auth'        : 'openEditUserForm',
+      'click .put_with_auth'         : 'putWithAuth',
+      'fetchHeartyQuotes.done'       : 'renderHeartyQuote',
+      'fetchTeachMyAPIUsers.done'    : 'renderUserList',
+      'postTeachMyAPIUsers.done'     : 'postCleanup',
+      "fetchTeachMyAPIUserById.done" : 'openUpdateUserForm',
+      'putTeachMyAPIUserById.done'   : 'putCleanup',
+      'postTeachMyAPIUsers.fail'     : 'fail',
+      'fetchTeachMyAPIUsers.fail'    : 'fail',
+      'fetchTeachMyAPIUserById.fail' : 'fail',
+      'putTeachMyAPIUserById.fail'   : 'fail',
+      'click .back_to_start'         : 'renderStartPage',
+      'click .update'                : 'getUserInfo',
+      'click .modal_close'           : 'closeModal',
+      'hidden .my_modal'             : 'renderStartPage',
+      'click .btn_submit'            : 'createUser',
+      'click .btn_update'            : 'updateUser'
     },
 
     init: function() {
@@ -231,8 +231,10 @@
       } else if (typeof(this.dataObjectArray.birthday) === 'undefined' || !this.resources.DATE_PATTERN.test(this.dataObjectArray.birthday)){
         services.notify('Invalid birthday!');
       } else {
+        // Return valid
         return true;
       }
+      // Return invalid
       return false;
     },
 
