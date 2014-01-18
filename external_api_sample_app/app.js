@@ -12,13 +12,15 @@
     },
 
     requests: {
-      fetchHeartyQuotes: { // This is a simple object style.
+      // This is a simple object style.
+      fetchHeartyQuotes: {
           url: 'http://www.iheartquotes.com/api/v1/random?max_characters=140&source=macintosh+math+south_park+codehappy+starwars&format=json',
           type: 'GET',
           dataType: 'json'
       },
 
-      fetchTeachMyAPIUsers: function() { // This is a function style. It is necessary to use this style when you have to access this.resources or you want to pass parameters to this.ajax().
+      // This is a function style. It is necessary to use this style when you have to access this.resources or you want to pass parameters to this.ajax().
+      fetchTeachMyAPIUsers: function() {
         return {
           url: helpers.fmt('%@/users', this.resources.END_POINT),
           type: 'GET',
@@ -82,10 +84,7 @@
       'click .btn_update': 'updateUser'
     },
 
-    renderStartPage: function() {
-      this.switchTo('start_page');
-    },
-
+    /* UI interaction. */
     getNoAuth: function(event) {
       // Prevent what would normally happen when a user clicks
       event.preventDefault();
@@ -110,54 +109,11 @@
       this.ajax('fetchTeachMyAPIUserById', this.updateUserId);
     },
 
-    openUpdateUserForm: function(data) {
-      console.log(data);
-      this.switchTo('update_user_details_form', {user: data});
-      this.$('.my_modal').modal({
-        backdrop: true,
-        keyboard: false
-      });
-    },
-
     createUser: function(event) {
-      this.dataObjectArray = {};
       event.preventDefault();
-      this.$userForm = this.$('.form-horizontal').eq(0);
-      this.userFormData = this.$userForm.serializeArray();
-      _.each(this.userFormData, function(data) {
-        if (data.name === "friends") {
-          data.value = _.map(data.value.split(';'), function(name) {
-            return name.trim();
-          });
-          data.value = _.filter(data.value, function(name) {
-            return name !== "";
-          });
-          if(data.value.length === 0) {
-            data.value = undefined;
-          }
-        }
-        if (data.name === "married") {
-          data.value = !!data.value;
-        }
-
-        if (data.value === "") {
-          data.value = undefined;
-        }
-        this.dataObjectArray[data.name] = data.value;
-      }.bind(this));
-
-      console.log(this.dataObjectArray);
-
+      this.serializeFormData();
       // Check if form data is valid
-      if (typeof(this.dataObjectArray.friends) === 'undefined' || !Array.isArray(this.dataObjectArray.friends)) {
-        services.notify('You cannot have no friends!');
-      } else if (typeof(this.dataObjectArray.age) === 'undefined' || typeof(parseInt(this.dataObjectArray.age, 10)) !== 'number') {
-        services.notify('Your age has to be a valid number!');
-      } else if (typeof(this.dataObjectArray.name) === 'undefined' || this.dataObjectArray.name === "") {
-        services.notify('Invalid name!');
-      } else if (typeof(this.dataObjectArray.birthday) === 'undefined' || !this.resources.DATE_PATTERN.test(this.dataObjectArray.birthday)){
-        services.notify('Invalid birthday!');
-      } else {
+      if (this.validateFormData()) {
         this.ajax('postTeachMyAPIUsers', this.dataObjectArray);
         this.closeModal();
         this.switchTo('loading_screen');
@@ -166,43 +122,9 @@
 
     updateUser: function(event) {
       event.preventDefault();
-      this.dataObjectArray = {};
-      this.$userForm = this.$('.form-horizontal').eq(0);
-      this.userFormData = this.$userForm.serializeArray();
-      _.each(this.userFormData, function(data) {
-        if (data.name === "friends") {
-          data.value = _.map(data.value.split(';'), function(name) {
-            return name.trim();
-          });
-          data.value = _.filter(data.value, function(name) {
-            return name !== "";
-          });
-          if(data.value.length === 0) {
-            data.value = undefined;
-          }
-        }
-        if (data.name === "married") {
-          data.value = !!data.value;
-        }
-
-        if (data.value === "") {
-          data.value = undefined;
-        }
-        this.dataObjectArray[data.name] = data.value;
-      }.bind(this));
-
-      console.log(this.dataObjectArray);
-
+      this.serializeFormData();
       // Check if form data is valid
-      if (typeof(this.dataObjectArray.friends) === 'undefined' || !Array.isArray(this.dataObjectArray.friends)) {
-        services.notify('You cannot have no friends!');
-      } else if (typeof(this.dataObjectArray.age) === 'undefined' || typeof(parseInt(this.dataObjectArray.age, 10)) !== 'number') {
-        services.notify('Your age has to be a valid number!');
-      } else if (typeof(this.dataObjectArray.name) === 'undefined' || this.dataObjectArray.name === "") {
-        services.notify('Invalid name!');
-      } else if (typeof(this.dataObjectArray.birthday) === 'undefined' || !this.resources.DATE_PATTERN.test(this.dataObjectArray.birthday)){
-        services.notify('Invalid birthday!');
-      } else {
+      if (this.validateFormData()) {
         this.ajax('putTeachMyAPIUserById', this.dataObjectArray, this.updateUserId);
         this.closeModal();
         this.switchTo('loading_screen');
@@ -218,7 +140,13 @@
       });
     },
 
+    closeModal: function(event) {
+      if (typeof(event)!== 'undefined')
+        event.preventDefault();
+      this.$('.my_modal').modal('hide');
+    },
 
+    /* These helpers are invoked once one of the ajax request .done / .fail event is fired. */
     renderHeartyQuote: function(data) {
       // Map tags array to tags object {tag: 'tag_content'}
       var tags = _.map(data.tags, function(tag){ return { tag: tag }; });
@@ -240,10 +168,13 @@
       }
     },
 
-    closeModal: function(event) {
-      if (typeof(event)!== 'undefined')
-        event.preventDefault();
-      this.$('.my_modal').modal('hide');
+    openUpdateUserForm: function(data) {
+      console.log(data);
+      this.switchTo('update_user_details_form', {user: data});
+      this.$('.my_modal').modal({
+        backdrop: true,
+        keyboard: false
+      });
     },
 
     postCleanup: function(data) {
@@ -261,6 +192,42 @@
     fail: function(data) {
       console.log(data);
       services.notify(JSON.stringify(data));
+    },
+
+    /* Additional helpers */
+    serializeFormData: function() {
+      this.dataObjectArray = {};
+      this.$userForm = this.$('.form-horizontal').eq(0);
+      this.userFormData = this.$userForm.serializeArray();
+      _.each(this.userFormData, function(data) {
+        if (data.name === "friends") {
+          data.value = _.map(data.value.split(';'), function(name) { return name.trim(); });
+          data.value = _.filter(data.value, function(name) { return name !== ""; });
+          if(data.value.length === 0) { data.value = undefined; }
+        }
+        if (data.name === "married") { data.value = !!data.value; }
+        if (data.value === "") { data.value = undefined; }
+        this.dataObjectArray[data.name] = data.value;
+      }.bind(this));
+    },
+
+    validateFormData: function() {
+      if (typeof(this.dataObjectArray.friends) === 'undefined' || !Array.isArray(this.dataObjectArray.friends)) {
+        services.notify('You cannot have no friends!');
+      } else if (typeof(this.dataObjectArray.age) === 'undefined' || typeof(parseInt(this.dataObjectArray.age, 10)) !== 'number') {
+        services.notify('Your age has to be a valid number!');
+      } else if (typeof(this.dataObjectArray.name) === 'undefined' || this.dataObjectArray.name === "") {
+        services.notify('Invalid name!');
+      } else if (typeof(this.dataObjectArray.birthday) === 'undefined' || !this.resources.DATE_PATTERN.test(this.dataObjectArray.birthday)){
+        services.notify('Invalid birthday!');
+      } else {
+        return true;
+      }
+      return false;
+    },
+
+    renderStartPage: function() {
+      this.switchTo('start_page');
     }
   };
 
