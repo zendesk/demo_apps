@@ -16,7 +16,7 @@ You will need to register an account on teachmyapi.com for your API URL, usernam
 Please submit bug reports to [Zendesk Support](support@zendesk.com). Pull requests are welcome.
 
 ### Screenshot(s):
-[GET call to iheartquotes](http://cl.ly/image/113V3V0D0A40)
+[GET call to iheartquotes](http://cl.ly/image/0f3M0I0w0I2v)
 
 [GET call to teachmyapi](http://cl.ly/image/183z3h3K3840)
 
