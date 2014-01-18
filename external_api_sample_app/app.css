@@ -22,7 +22,6 @@
     display: block;
     padding: 4px;
     margin-top: 3px;
-    border-radius:5px;
   }
   .update :hover {
     cursor: pointer;
@@ -35,4 +34,12 @@
 
 label {
   font-weight: bold;
+}
+
+.quote {
+  font-size: 14pt;
+}
+
+.body_message, .user_list .user{
+  border-radius: 5px;
 }
