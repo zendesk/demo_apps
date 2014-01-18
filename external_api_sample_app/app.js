@@ -7,7 +7,7 @@
     resources: {
       USERNAME: 'myuser@example.com',
       PASSWORD: 'notasecret',
-      END_POINT: 'https://www.teachmyapi.com/api/d8ed54064bd8c00918d62316c3ede108',
+      API_URL: 'https://www.teachmyapi.com/api/d8ed54064bd8c00918d62316c3ede108',
       DATE_PATTERN: /^\d{4}-\d{2}-\d{2}$/
     },
 
@@ -22,7 +22,7 @@
       // This is a function style. It is necessary to use this style when you have to access this.resources or you want to pass parameters to this.ajax().
       fetchTeachMyAPIUsers: function() {
         return {
-          url: helpers.fmt('%@/users', this.endPoint),
+          url: helpers.fmt('%@/users', this.api_url),
           type: 'GET',
           dataType: 'json',
           username: this.username,
@@ -32,7 +32,7 @@
 
       fetchTeachMyAPIUserById: function(userId) {
         return {
-          url: helpers.fmt('%@/users/%@', this.endPoint, userId),
+          url: helpers.fmt('%@/users/%@', this.api_url, userId),
           type: 'GET',
           dataType: 'json',
           username: this.username,
@@ -42,7 +42,7 @@
 
       postTeachMyAPIUsers: function(data) {
         return {
-          url: helpers.fmt('%@/users', this.endPoint),
+          url: helpers.fmt('%@/users', this.api_url),
           type: 'POST',
           dataType: 'json',
           contentType: 'application/json; charset=UTF-8',
@@ -54,7 +54,7 @@
 
       putTeachMyAPIUserById: function(data, userId) {
         return {
-          url: helpers.fmt('%@/users/%@', this.endPoint, userId),
+          url: helpers.fmt('%@/users/%@', this.api_url, userId),
           type: 'PUT',
           dataType: 'json',
           contentType: 'application/json; charset=UTF-8',
@@ -77,6 +77,9 @@
       "fetchTeachMyAPIUserById.done": 'openUpdateUserForm',
       'putTeachMyAPIUserById.done': 'putCleanup',
       'postTeachMyAPIUsers.fail': 'fail',
+      'fetchTeachMyAPIUsers.fail': 'fail',
+      'fetchTeachMyAPIUserById.fail': 'fail',
+      'putTeachMyAPIUserById.fail': 'fail',
       'click .back_to_start': 'renderStartPage',
       'click .update': 'getUserInfo',
       'click .modal_close': 'closeModal',
@@ -86,16 +89,9 @@
     },
 
     init: function() {
-      /*
-      this.username = this.setting('username');
-      this.password = this.setting('password');
-      this.endPoint = this.setting('apiEndPoint');
-      */
-
-      this.username = this.resources.USERNAME;
-      this.password = this.resources.PASSWORD;
-      this.endPoint = this.resources.END_POINT;
-
+      this.username = this.setting('username') || this.resources.USERNAME;
+      this.password = this.setting('password') || this.resources.PASSWORD;
+      this.api_url = this.setting('api_url') || this.resources.API_URL;
     },
 
     /* UI interaction. */

@@ -8,6 +8,38 @@
     "name": {
       "value": "External REST API Sample App",
       "title": "app name"
+    },
+    "parameters": {
+      "username": {
+        "label": {
+          "value": "TeachMyAPI Username",
+          "title": "Label for the teachmyapi.com username field when the user is installing the App."
+        },
+        "helpText": {
+          "value": "The username is used to make external ajax request to teachmyapi.com.",
+          "title": "Text field below username explaining to the user where it will be used."
+        }
+      },
+      "api_url": {
+        "label": {
+          "value": "TeachMyAPI URL",
+          "title": "Label for the teachmyapi.com url field when the user is installing the App."
+        },
+        "helpText": {
+          "value": "The API URL is used to make external ajax request to teachmyapi.com",
+          "title": "Text field below API URL explaining to the user where it will be used."
+        }
+      },
+      "password": {
+        "label": {
+          "value": "TeachMyAPI Password",
+          "title": "Label for the teachmyapi.com password field when the user is installing the App."
+        },
+        "helpText": {
+          "value": "The password is used to make external ajax request to teachmyapi.com",
+          "title": "Text field below password explaining to the user where it will be used."
+        }
+      }
     }
   },
 
