@@ -160,6 +160,7 @@
       } else {
         this.ajax('postTeachMyAPIUsers', this.dataObjectArray);
         this.closeModal();
+        this.switchTo('loading_screen');
       }
     },
 
@@ -204,6 +205,7 @@
       } else {
         this.ajax('putTeachMyAPIUserById', this.dataObjectArray, this.updateUserId);
         this.closeModal();
+        this.switchTo('loading_screen');
       }
     },
 
@@ -229,7 +231,7 @@
     },
 
     renderUserList: function(data) {
-      var users = _.map(data, function(user){ user.friends = user.friends.join(', '); return { user: user };});
+      var users = _.map(data, function(user){ user.friends = user.friends.join('; '); return { user: user };});
       var userPageObj = { users: users };
       this.switchTo('user_list', userPageObj);
       if (this.canUpdateUser) {
