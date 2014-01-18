@@ -67,7 +67,7 @@
   },
 
   "label_btn_put": {
-    "value": "",
+    "value": "A REST PUT call to teachmyapi:",
     "title": "Label for the put button"
   },
 

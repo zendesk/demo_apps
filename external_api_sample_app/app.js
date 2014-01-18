@@ -22,50 +22,51 @@
       // This is a function style. It is necessary to use this style when you have to access this.resources or you want to pass parameters to this.ajax().
       fetchTeachMyAPIUsers: function() {
         return {
-          url: helpers.fmt('%@/users', this.resources.END_POINT),
+          url: helpers.fmt('%@/users', this.endPoint),
           type: 'GET',
           dataType: 'json',
-          username: this.resources.USERNAME,
-          password: this.resources.PASSWORD
+          username: this.username,
+          password: this.password
         };
       },
 
       fetchTeachMyAPIUserById: function(userId) {
         return {
-          url: helpers.fmt('%@/users/%@', this.resources.END_POINT, userId),
+          url: helpers.fmt('%@/users/%@', this.endPoint, userId),
           type: 'GET',
           dataType: 'json',
-          username: this.resources.USERNAME,
-          password: this.resources.PASSWORD
+          username: this.username,
+          password: this.password
         };
       },
 
       postTeachMyAPIUsers: function(data) {
         return {
-          url: helpers.fmt('%@/users', this.resources.END_POINT),
+          url: helpers.fmt('%@/users', this.endPoint),
           type: 'POST',
           dataType: 'json',
           contentType: 'application/json; charset=UTF-8',
           data: JSON.stringify(data),
-          username: this.resources.USERNAME,
-          password: this.resources.PASSWORD
+          username: this.username,
+          password: this.password
         };
       },
 
       putTeachMyAPIUserById: function(data, userId) {
         return {
-          url: helpers.fmt('%@/users/%@', this.resources.END_POINT, userId),
+          url: helpers.fmt('%@/users/%@', this.endPoint, userId),
           type: 'PUT',
           dataType: 'json',
           contentType: 'application/json; charset=UTF-8',
           data: JSON.stringify(data),
-          username: this.resources.USERNAME,
-          password: this.resources.PASSWORD
+          username: this.username,
+          password: this.password
         };
       }
     },
 
     events: {
+      'app.activated': 'init',
       'click .get_no_auth': 'getNoAuth',
       'click .get_with_auth': 'getWithAuth',
       'click .post_with_auth': 'openEditUserForm',
@@ -82,6 +83,19 @@
       'hidden .my_modal': 'renderStartPage',
       'click .btn_submit': 'createUser',
       'click .btn_update': 'updateUser'
+    },
+
+    init: function() {
+      /*
+      this.username = this.setting('username');
+      this.password = this.setting('password');
+      this.endPoint = this.setting('apiEndPoint');
+      */
+
+      this.username = this.resources.USERNAME;
+      this.password = this.resources.PASSWORD;
+      this.endPoint = this.resources.END_POINT;
+
     },
 
     /* UI interaction. */
