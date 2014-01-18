@@ -1,14 +1,25 @@
-# App name
+# External REST API Sample App
 
-[brief description of the app]
+This sample app shows to the developers how to make external API requests in App by taking iheartquotes.com/api and teachmyapi.com as examples.
+
+You will need to register an account on teachmyapi.com for your API URL, username and password that are needed when installing this App.
 
 ### The following information is displayed:
 
-* info1
-* info2
-* info3
+* Make external API request to iheartquotes (GET only; no Auth).
+* Make external API request to teachmyapi.com (GET, POST, PUT; Simple HTTP authentication).
+* Demonstrate how to use settings.
+* Demonstrate how to use bootstrap modal.
+* Demonstrate how to use services.notify() App API
+* Zendesk translation format.
 
-Please submit bug reports to [Insert Link](). Pull requests are welcome.
+Please submit bug reports to [Zendesk Support](support@zendesk.com). Pull requests are welcome.
 
 ### Screenshot(s):
-[put your screenshots down here.]
+[GET call to iheartquotes](http://cl.ly/image/113V3V0D0A40)
+
+[GET call to teachmyapi](http://cl.ly/image/183z3h3K3840)
+
+[POST call to create a user on teachmyapi.com](http://cl.ly/image/3Z0B3r2I0A30)
+
+[PUT call to update a user on teachmyapi.com](http://cl.ly/image/2O0q1f3l0N0d)
