@@ -1,18 +1,18 @@
 <div class="start">
   <div>
-    <span>A simple REST GET call to iheartquotes API:</span>
+    <label>A simple REST GET call to iheartquotes API:</label>
     <button class="btn get_no_auth">GET (No Auth)</button>
   </div>
   <div>
-    <span>A REST GET call to teachmyapi:</span>
+    <label>A REST GET call to teachmyapi:</label>
     <button class="btn get_with_auth">GET (Auth)</button>
   </div>
   <div>
-    <span>A REST POST call to teachmyapi:</span>
+    <label>A REST POST call to teachmyapi:</label>
     <button class="btn post_with_auth">POST (Auth)</button>
   </div>
   <div>
-    <span>A REST PUT call to teachmyapi:</span>
+    <label>A REST PUT call to teachmyapi:</label>
     <button class="btn put_with_auth">PUT (Auth)</button>
   </div>
 </div>
