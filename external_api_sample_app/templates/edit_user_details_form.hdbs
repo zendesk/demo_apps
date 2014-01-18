@@ -1,37 +1,36 @@
 <div class="modal hide fade my_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close modal_close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Modal header</h3>
+    <h3 id="myModalLabel">{{t "edit_form"}}</h3>
   </div>
   <div class="modal-body">
     <form class="form-horizontal">
-      <legend>{{form_name}}</legend>
       <div class="control-group">
-        <label class="control-label" for="inputName">*Name:</label>
+        <label class="control-label" for="inputName">*{{label_name}}:</label>
         <div class="controls">
           <input type="text" id="inputName" name="name" placeholder="Enter your name here.">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="inputAge">*Age:</label>
+        <label class="control-label" for="inputAge">*{{t "label_age"}}:</label>
         <div class="controls">
           <input type="number" id="inputAge" name="age">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="inputBirthday">*Birthday:</label>
+        <label class="control-label" for="inputBirthday">*{{t "label_birthday"}}:</label>
         <div class="controls">
           <input type="date" id="inputBirthday" name="birthday">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="inputFriends">*Friends:</label>
+        <label class="control-label" for="inputFriends">*{{t "label_friends"}}:</label>
         <div class="controls">
           <input type="text" id="inputFriends" name="friends" placeholder="Separate friends' names using ';'">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="inputMarried">Married?</label>
+        <label class="control-label" for="inputMarried">{{t "label_married"}}?</label>
         <div class="controls">
           <input type="checkbox" id="inputMarried" name="married" value="1">
         </div>
@@ -39,7 +38,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button class="btn modal_close" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary btn_submit">Save changes</button>
+    <button class="btn modal_close" data-dismiss="modal" aria-hidden="true">{{t "btn_close"}}</button>
+    <button class="btn btn-primary btn_submit">{{t "btn_save"}}</button>
   </div>
 </div>

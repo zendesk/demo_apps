@@ -4,30 +4,30 @@
       {{#users}}
         <li class="user">
           {{#if user.name}}
-            <label>Name:</label><span class="name">{{user.name}}</span>
+            <label>{{t "label_name"}}:</label><span class="name">{{user.name}}</span>
           {{/if}}
           {{#if user.age}}
-            <label>Age:</label><span class="age">{{user.age}}</span>
+            <label>{{t "label_age"}}:</label><span class="age">{{user.age}}</span>
           {{/if}}
           {{#if user.birthday}}
-            <label>Birthday:</label><span class="birthday">{{user.birthday}}</span>
+            <label>{{t "label_birthday"}}:</label><span class="birthday">{{user.birthday}}</span>
           {{/if}}
           {{#if user.married}}
-            <span class="married">married</span>
+            <span class="married">{{t "display_married"}}</span>
           {{/if}}
           {{#if user.friends}}
-            <label>Friends:</label><span class="friends">{{user.friends}}</span>
+            <label>{{t "label_friends"}}:</label><span class="friends">{{user.friends}}</span>
           {{/if}}
           {{#if user.id}}
-            <label>id:</label><span class="id">{{user.id}}</span>
+            <label>{{t "label_id"}}:</label><span class="id">{{user.id}}</span>
           {{else}}
-          <label>id:</label><span class="id">0</span>
+          <label>{{t "label_id"}}:</label><span class="id">0</span>
           {{/if}}
         </li>
       {{/users}}
     </ul>
   </div>
   <div class="user_page_control">
-    <button class="btn back_to_start">Go Back!</button>
+    <button class="btn back_to_start">{{t "btn_go_back"}}!</button>
   </div>
 </div>

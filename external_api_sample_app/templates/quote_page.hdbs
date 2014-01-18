@@ -10,6 +10,6 @@
     <div class="quote">{{quote}}</div>
   </div>
   <div>
-    <button class="btn back_to_start">Go Back!</button>
+    <button class="btn back_to_start">{{t "btn_go_back"}}!</button>
   </div>
 </div>
