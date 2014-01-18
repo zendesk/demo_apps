@@ -115,6 +115,7 @@
 
     getUserInfo: function(event) {
       event.preventDefault();
+      this.switchTo('loading_screen');
       this.updateUserId = this.$(event.currentTarget).children('.id').eq(0).text();
       this.ajax('fetchTeachMyAPIUserById', this.updateUserId);
     },
