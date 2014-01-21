@@ -1,18 +1,18 @@
 <div class="start">
   <div>
-    <label>{{t "label_btn_get_no_auth"}}</label>
+    <h5>{{t "label_btn_get_no_auth"}}</h5>
     <button class="btn get_no_auth">{{t "btn_get_no_auth"}}</button>
   </div>
   <div>
-    <label>{{t "label_btn_get_auth"}}</label>
+    <h5>{{t "label_btn_get_auth"}}</h5>
     <button class="btn get_with_auth">{{t "btn_get_auth"}}</button>
   </div>
   <div>
-    <label>{{t "label_btn_post"}}</label>
+    <h5>{{t "label_btn_post"}}</h5>
     <button class="btn post_with_auth">{{t "btn_post"}}</button>
   </div>
   <div>
-    <label>{{t "label_btn_put"}}</label>
+    <h5>{{t "label_btn_put"}}</h5>
     <button class="btn put_with_auth">{{t "btn_put"}}</button>
   </div>
 </div>

@@ -4,24 +4,24 @@
       {{#users}}
         <li class="user">
           {{#if user.name}}
-            <label>{{t "label_name"}}:</label><span class="name">{{user.name}}</span>
+            <h5>{{t "label_name"}}:</h5><span class="name">{{user.name}}</span>
           {{/if}}
           {{#if user.age}}
-            <label>{{t "label_age"}}:</label><span class="age">{{user.age}}</span>
+            <h5>{{t "label_age"}}:</h5><span class="age">{{user.age}}</span>
           {{/if}}
           {{#if user.birthday}}
-            <label>{{t "label_birthday"}}:</label><span class="birthday">{{user.birthday}}</span>
+            <h5>{{t "label_birthday"}}:</h5><span class="birthday">{{user.birthday}}</span>
           {{/if}}
           {{#if user.married}}
             <span class="married">{{t "display_married"}}</span>
           {{/if}}
           {{#if user.friends}}
-            <label>{{t "label_friends"}}:</label><span class="friends">{{user.friends}}</span>
+            <h5>{{t "label_friends"}}:</h5><span class="friends">{{user.friends}}</span>
           {{/if}}
           {{#if user.id}}
-            <label>{{t "label_id"}}:</label><span class="id">{{user.id}}</span>
+            <h5>{{t "label_id"}}:</h5><span class="id">{{user.id}}</span>
           {{else}}
-          <label>{{t "label_id"}}:</label><span class="id">0</span>
+          <h5>{{t "label_id"}}:</h5><span class="id">0</span>
           {{/if}}
         </li>
       {{/users}}
