@@ -16,6 +16,8 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Do not define any object outside the main returned object, ever.
 
+* Never try to access the `window` object.
+
 
 ## Zendesk Apps: Best Practices
 
