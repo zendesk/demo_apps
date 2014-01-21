@@ -1,10 +1,25 @@
-## Zendesk Apps: Best Practices
+## Introduction
 
-#### [Read introduction before getting started](http://developer.zendesk.com/documentation/apps/introduction.html)
+All public Apps have to go through an approval process. This document is aimed at helping you pass the approval process with flying colors from the first submission.
+
+If you aren't sure about any of the points below, if you have questions about the approval process or if you would like to receive guidance or help building your first Zendesk App, please feel free to get in touch at support@zendesk.com
+
+## Zendesk Apps: Must avoid
+
+:no_entry: In this section you'll find practices you absolutely need to avoid if you want your App to pass the approval process :no_entry:
+
+* Do not try to create your own Handlebarsjs helper, it is not possible at this stage.
+
+* Make sure your framework version is up to date
+
+* Make sure you define an App version
+
+
+## Zendesk Apps: Best Practices
 
 * Define CSS in `app.css`, instead of leaving them in the templates
 
-* Put constants in an object (e.g. resource) like the following. 
+* Put constants in an object (e.g. resource) like the following.
 
 ```js
 resources: {
@@ -15,9 +30,9 @@ request: {
   // this will not work
   get: {
     url: 'http://example.com',
-    data: this.resources.FOO 
+    data: this.resources.FOO
   },
-  
+
   // do this
   get: function() {
     return {
@@ -31,7 +46,7 @@ request: {
 > You can then refer to it by calling `this.resources.FOO`.
 
 **Note that this will fail if you try to get the content of `FOO` in a JSON object style request. Hence it is best to use function style request that will be covered later in this list.**
-  
+
 
 * Wrap a function around ajax request especially when you are going to be passing in some options with your AJAX call.
 
@@ -41,7 +56,7 @@ request: {
 
 * Use JSON.stringify() to dump your json data object into a string when only json format is accepted at the API end point.
 
-> Instead of 
+> Instead of
 
 ```js
 this.ajax('sampleRequest', requestData)
@@ -74,8 +89,6 @@ renderJSONData: function(data) {
 }
 ```
 
-* Translate your settings parameters and add hint text.
-
 * Use handlebars helpers, instead of a foreach loop in `app.js`: `{{#items}}<span>{{item}}</span>{{/items}}`
 
 * However, you cannot use something like `{{#if 1 < 2}}` in your handlebars template, do pre-process the conditions in `app.js` `{ condition: 1 < 2 }` and do `{{#if condition}}` in the template
@@ -83,8 +96,6 @@ renderJSONData: function(data) {
 * Use bootstrap elements instead of defining your own styles in `app.css`.
 
 * Make sure the helpers you are calling is properly supported. At the time this document is created, Zendesk Apps Framework supports `jQuery 1.7`, `Underscore 1.3.3` and `Handlebars 1.0.0 beta 5`.
-
-* Do not try to create your own Handlebarsjs helper, it is not possible at this stage.
 
 * Use jQuery style selector for DOM Traversal and Manipulation.
 
