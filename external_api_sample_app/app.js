@@ -5,6 +5,8 @@
     defaultState: 'start_page',
 
     resources: {
+      USERNAME     : 'myuser@example.com',
+      PASSWORD     : 'notasecret',
       DATE_PATTERN : /^\d{4}-\d{2}-\d{2}$/
     },
 
@@ -86,8 +88,8 @@
     },
 
     init: function() {
-      this.username = this.setting('username');
-      this.password = this.setting('password');
+      this.username = this.setting('username') || this.resources.USERNAME;
+      this.password = this.setting('password') || this.resources.PASSWORD;
       this.api_url = this.setting('api_url');
     },
 
