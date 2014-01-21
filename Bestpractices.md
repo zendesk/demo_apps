@@ -54,7 +54,7 @@ request: {
 
 * Wrap a function around AJAX request especially when you are going to be passing in some options with your AJAX call.
 
-* Use services.notify() instead of console.log() if you are going to print some messages in string format.
+* Use `services.notify()` instead of `console.log()` if you are going to print some messages in string format.
 
 * Use Underscore helpers to process arrays, and objects.
 
@@ -93,11 +93,11 @@ renderJSONData: function(data) {
 }
 ```
 
-* Use handlebars helpers, instead of a foreach loop in `app.js`: `{{#items}}<span>{{item}}</span>{{/items}}`.
+* Use handlebars helpers, instead of a `foreach` loop in `app.js`: `{{#items}}<span>{{item}}</span>{{/items}}`.
 
-* However, you cannot use something like `{{#if 1 < 2}}` in your handlebars template, do pre-process the conditions in `app.js` `{ condition: 1 < 2 }` and do `{{#if condition}}` in the template.
+* However, you cannot use something like `{{#if 1 < 2}}` in your Handlebars template, do pre-process the conditions in `app.js` `{ condition: 1 < 2 }` and do `{{#if condition}}` in the template.
 
-* Use bootstrap elements instead of defining your own styles in `app.css`.
+* Use Bootstrap elements instead of defining your own styles in `app.css`.
 
 * Make sure the helpers you are calling is properly supported. At the time this document is created, Zendesk Apps Framework supports `jQuery 1.7`, `Underscore 1.3.3` and `Handlebars 1.0.0 beta 5`.
 
