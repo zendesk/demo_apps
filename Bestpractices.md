@@ -30,7 +30,7 @@ request: {
 
 > You can then refer to it by calling `this.resources.FOO`.
 
-** Note that this will fail if you try to get the content of `FOO` in a JSON object style request. Hence it is best to use function style request that will be covered later in this list.**
+**Note that this will fail if you try to get the content of `FOO` in a JSON object style request. Hence it is best to use function style request that will be covered later in this list.**
   
 
 * Wrap a function around ajax request especially when you are going to be passing in some options with your AJAX call.
