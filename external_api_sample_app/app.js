@@ -74,7 +74,7 @@
       'fetchHeartyQuotes.done'       : 'renderHeartyQuote',
       'fetchTeachMyAPIUsers.done'    : 'renderUserList',
       'postTeachMyAPIUsers.done'     : 'postCleanup',
-      "fetchTeachMyAPIUserById.done" : 'openUpdateUserForm',
+      'fetchTeachMyAPIUserById.done' : 'openUpdateUserForm',
       'putTeachMyAPIUserById.done'   : 'putCleanup',
       'postTeachMyAPIUsers.fail'     : 'fail',
       'fetchTeachMyAPIUsers.fail'    : 'fail',
@@ -152,7 +152,7 @@
     },
 
     closeModal: function(event) {
-      if (typeof(event)!== 'undefined')
+      if (typeof(event) !== 'undefined')
         event.preventDefault();
       this.$('.my_modal').modal('hide');
     },
@@ -181,7 +181,7 @@
 
     openUpdateUserForm: function(data) {
       console.log(data);
-      this.switchTo('update_user_details_form', {user: data});
+      this.switchTo('update_user_details_form', { user: data });
       this.$('.my_modal').modal({
         backdrop: true,
         keyboard: false
@@ -211,13 +211,13 @@
       this.$userForm = this.$('.form-horizontal').eq(0);
       this.userFormData = this.$userForm.serializeArray();
       _.each(this.userFormData, function(data) {
-        if (data.name === "friends") {
+        if (data.name === 'friends') {
           data.value = _.map(data.value.split(';'), function(name) { return name.trim(); });
-          data.value = _.filter(data.value, function(name) { return name !== ""; });
+          data.value = _.filter(data.value, function(name) { return name !== ''; });
           if(data.value.length === 0) { data.value = undefined; }
         }
-        if (data.name === "married") { data.value = !!data.value; }
-        if (data.value === "") { data.value = undefined; }
+        if (data.name === 'married') { data.value = !!data.value; }
+        if (data.value === '') { data.value = undefined; }
         this.dataObjectArray[data.name] = data.value;
       }.bind(this));
     },
@@ -227,7 +227,7 @@
         services.notify('You cannot have no friends!');
       } else if (typeof(this.dataObjectArray.age) === 'undefined' || typeof(parseInt(this.dataObjectArray.age, 10)) !== 'number') {
         services.notify('Your age has to be a valid number!');
-      } else if (typeof(this.dataObjectArray.name) === 'undefined' || this.dataObjectArray.name === "") {
+      } else if (typeof(this.dataObjectArray.name) === 'undefined' || this.dataObjectArray.name === '') {
         services.notify('Invalid name!');
       } else if (typeof(this.dataObjectArray.birthday) === 'undefined' || !this.resources.DATE_PATTERN.test(this.dataObjectArray.birthday)){
         services.notify('Invalid birthday!');
