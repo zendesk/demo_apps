@@ -5,9 +5,6 @@
     defaultState: 'start_page',
 
     resources: {
-      USERNAME     : 'myuser@example.com',
-      PASSWORD     : 'notasecret',
-      API_URL      : 'https://www.teachmyapi.com/api/d8ed54064bd8c00918d62316c3ede108',
       DATE_PATTERN : /^\d{4}-\d{2}-\d{2}$/
     },
 
@@ -89,9 +86,9 @@
     },
 
     init: function() {
-      this.username = this.setting('username') || this.resources.USERNAME;
-      this.password = this.setting('password') || this.resources.PASSWORD;
-      this.api_url = this.setting('api_url') || this.resources.API_URL;
+      this.username = this.setting('username');
+      this.password = this.setting('password');
+      this.api_url = this.setting('api_url');
     },
 
     /* UI interaction. */
