@@ -1,0 +1,145 @@
+{
+  "app": {
+    "package": "external_rest_api_sample_app",
+    "description": {
+      "value": "Shows how to make REST request to non-Zendesk endpoints in App.",
+      "title": "app description"
+    },
+    "name": {
+      "value": "External REST API Sample App",
+      "title": "app name"
+    },
+    "parameters": {
+      "username": {
+        "label": {
+          "value": "TeachMyAPI Username",
+          "title": "Label for the teachmyapi.com username field when the user is installing the App."
+        },
+        "helpText": {
+          "value": "The username is used to make external ajax request to teachmyapi.com.",
+          "title": "Text field below username explaining to the user where it will be used."
+        }
+      },
+      "api_url": {
+        "label": {
+          "value": "TeachMyAPI URL",
+          "title": "Label for the teachmyapi.com url field when the user is installing the App."
+        },
+        "helpText": {
+          "value": "The API URL is used to make external ajax request to teachmyapi.com",
+          "title": "Text field below API URL explaining to the user where it will be used."
+        }
+      },
+      "password": {
+        "label": {
+          "value": "TeachMyAPI Password",
+          "title": "Label for the teachmyapi.com password field when the user is installing the App."
+        },
+        "helpText": {
+          "value": "The password is used to make external ajax request to teachmyapi.com",
+          "title": "Text field below password explaining to the user where it will be used."
+        }
+      }
+    }
+  },
+
+  "edit_form": {
+    "value": "Enter User Details",
+    "title": "Form title for creating a user."
+  },
+
+  "update_form": {
+    "value": "Update User Details",
+    "title": "Form title for updating a user's details"
+  },
+
+  "label_name": {
+    "value": "Name",
+    "title": "Label for name input/info field"
+  },
+
+  "label_age": {
+    "value": "Age",
+    "title": "Label for age input/info field"
+  },
+
+  "label_birthday": {
+    "value": "Birthday",
+    "title": "Label for birthday input/info field"
+  },
+
+  "label_friends": {
+    "value": "Friends",
+    "title": "Label for friends input/info field"
+  },
+
+  "label_married": {
+    "value": "Married",
+    "title": "Label for married input/info field"
+  },
+
+  "label_id": {
+    "value": "ID",
+    "title": "Label for id info field"
+  },
+
+  "label_btn_get_no_auth": {
+    "value": "A simple REST GET call to iheartquotes API:",
+    "title": "Label for the Get (No Auth) button"
+  },
+
+  "label_btn_get_auth": {
+    "value": "A REST GET call to teachmyapi:",
+    "title": "Label for the Get (Auth) button"
+  },
+
+  "label_btn_post": {
+    "value": "A REST POST call to teachmyapi:",
+    "title": "Label for the post button"
+  },
+
+  "label_btn_put": {
+    "value": "A REST PUT call to teachmyapi:",
+    "title": "Label for the put button"
+  },
+
+  "btn_go_back": {
+    "value": "Go Back",
+    "title": "Message displayed on the button that navigates back to the start page."
+  },
+
+  "btn_close": {
+    "value": "Close",
+    "title": "Message displayed on the close button in modal"
+  },
+
+  "btn_save": {
+    "value": "Save changes",
+    "title": "Message displayed on the save button in modal"
+  },
+
+  "btn_put": {
+    "value": "PUT (Auth)",
+    "title": "Message displayed on the put button in start page"
+  },
+
+  "btn_post": {
+    "value": "POST (Auth)",
+    "title": "Message displayed on the post button in start page"
+  },
+
+  "btn_get_auth": {
+    "value": "GET (Auth)",
+    "title": "Message displayed on the get with auth button in start page"
+  },
+
+  "btn_get_no_auth": {
+    "value": "GET (No Auth)",
+    "title": "Message displayed on the get no auth button in start page"
+  },
+
+  "display_married": {
+    "value": "married",
+    "title": "Message displayed in the user info field if the user is married."
+  }
+}

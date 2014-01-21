@@ -1,0 +1,15 @@
+<div class="hearty_quote">
+  <div class="body_message">
+    <div class="tagss">
+      <ul class="token_list">
+        {{#tags}}
+          <list class="tags token">#{{tag}}</list>
+        {{/tags}}
+      </ul>
+    </div>
+    <div class="quote">{{quote}}</div>
+  </div>
+  <div>
+    <button class="btn back_to_start">{{t "btn_go_back"}}!</button>
+  </div>
+</div>

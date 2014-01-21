@@ -1,0 +1,31 @@
+{
+  "name": "External REST API Sample App",
+  "author": {
+    "name": "Zendesk",
+    "email": "support@zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": "ticket_sidebar",
+  "version": "1.0",
+  "frameworkVersion": "1.0",
+  "parameters": [
+    {
+      "name": "username",
+      "type": "text",
+      "required": true
+    },
+
+    {
+      "name": "api_url",
+      "type": "text",
+      "required": true
+    },
+
+    {
+      "name": "password",
+      "type": "password",
+      "required": true
+    }
+  ]
+}
