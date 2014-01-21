@@ -12,14 +12,14 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Make sure your framework version is up to date.
 
-* Make sure you define an App version.
-
 * Do not define any object outside the main returned object, ever.
 
 * Never try to access the `window` object.
 
 
 ## Zendesk Apps: Best Practices
+
+* Make sure you define an App version.
 
 * Define CSS in `app.css`, instead of leaving them in the templates.
 
