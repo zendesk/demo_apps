@@ -23,7 +23,7 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Define CSS in `app.css`, instead of leaving them in the templates.
 
-* Put constants in an object (e.g. resource) like the following.
+* Put constants in an object (e.g. resource) like the following:
 
 ```js
 resources: {
@@ -52,13 +52,13 @@ request: {
 **Note that this will fail if you try to get the content of `FOO` in a JSON object style request. Hence it is best to use function style request that will be covered later in this list.**
 
 
-* Wrap a function around ajax request especially when you are going to be passing in some options with your AJAX call.
+* Wrap a function around AJAX request especially when you are going to be passing in some options with your AJAX call.
 
 * Use services.notify() instead of console.log() if you are going to print some messages in string format.
 
-* Use underscore helpers to process arrays, and objects.
+* Use Underscore helpers to process arrays, and objects.
 
-* Use JSON.stringify() to dump your json data object into a string when only json format is accepted at the API end point.
+* Use `JSON.stringify()` to dump your json data object into a string when only json format is accepted at the API end point.
 
 > Instead of
 
