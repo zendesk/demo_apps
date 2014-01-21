@@ -10,16 +10,16 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Do not try to create your own Handlebarsjs helper, it is not possible at this stage.
 
-* Make sure your framework version is up to date
+* Make sure your framework version is up to date.
 
-* Make sure you define an App version
+* Make sure you define an App version.
 
-* Do not define any object outside the main returned object, ever
+* Do not define any object outside the main returned object, ever.
 
 
 ## Zendesk Apps: Best Practices
 
-* Define CSS in `app.css`, instead of leaving them in the templates
+* Define CSS in `app.css`, instead of leaving them in the templates.
 
 * Put constants in an object (e.g. resource) like the following.
 
@@ -91,9 +91,9 @@ renderJSONData: function(data) {
 }
 ```
 
-* Use handlebars helpers, instead of a foreach loop in `app.js`: `{{#items}}<span>{{item}}</span>{{/items}}`
+* Use handlebars helpers, instead of a foreach loop in `app.js`: `{{#items}}<span>{{item}}</span>{{/items}}`.
 
-* However, you cannot use something like `{{#if 1 < 2}}` in your handlebars template, do pre-process the conditions in `app.js` `{ condition: 1 < 2 }` and do `{{#if condition}}` in the template
+* However, you cannot use something like `{{#if 1 < 2}}` in your handlebars template, do pre-process the conditions in `app.js` `{ condition: 1 < 2 }` and do `{{#if condition}}` in the template.
 
 * Use bootstrap elements instead of defining your own styles in `app.css`.
 
