@@ -14,6 +14,8 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Make sure you define an App version
 
+* Do not define any object outside the main returned object, ever
+
 
 ## Zendesk Apps: Best Practices
 
