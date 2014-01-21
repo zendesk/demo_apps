@@ -27,6 +27,24 @@ Interesting features:
 * Use of the Zendesk API from an App
 * Zendesk REST API
 
+
+### [External REST API Sample App](./external_api_sample_app)
+
+This sample app shows to the developers how to make external API requests in App by taking iheartquotes.com/api and teachmyapi.com as examples.
+
+You will need to register an account on teachmyapi.com for your API URL, username and password that are needed when installing this App.
+
+You can also checkout our [Zendesk REST API Sample App](./zendesk_rest_api_sample).
+
+Interesting features:
+
+* Make external API request to iheartquotes (GET only; no Auth).
+* Make external API request to teachmyapi.com (GET, POST, PUT; Simple HTTP authentication).
+* Demonstrate how to use settings.
+* Demonstrate how to use bootstrap modal.
+* Demonstrate how to use services.notify() App API
+* Zendesk translation format.
+
 ### [Basic Ticket Sample App](./basic_ticket_sample)
 
 This app presents info about the current ticket, agent and account.
