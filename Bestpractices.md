@@ -23,35 +23,6 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Define CSS in `app.css`, instead of leaving them in the templates.
 
-* Put constants in an object (e.g. resource) like the following:
-
-```js
-resources: {
-  FOO: 123,
-},
-
-request: {
-  // this will not work
-  get: {
-    url: 'http://example.com',
-    data: this.resources.FOO
-  },
-
-  // do this
-  get: function() {
-    return {
-      url: 'http://example.com',
-      data: this.resources.FOO
-    };
-  }
-}
-```
-
-> You can then refer to it by calling `this.resources.FOO`.
-
-**Note that this will fail if you try to get the content of `FOO` in a JSON object style request. Hence it is best to use function style request that will be covered later in this list.**
-
-
 * Wrap a function around AJAX request especially when you are going to be passing in some options with your AJAX call.
 
 * Clean up console.log and debugger statements before submitting your App.
