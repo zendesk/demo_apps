@@ -83,12 +83,15 @@ var $div = this.$('div');
 
 * Be careful when defining an object in the main returned object: they are shared across instances of the app, so can lead to unexpected behavior when misused.
   e.g.
+
   ```js
   return {
     foo: {}, // This will be shared across all instances of this App.
 
-    appActivated: function() {
-      this.bar: {}; // This will not.
+    events: {
+      appActivated: function() {
+            this.bar: {}; // This will not.
+      }
     }
   }
   ```
