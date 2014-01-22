@@ -90,7 +90,7 @@ var $div = this.$('div');
 
     events: {
       appActivated: function() {
-            this.bar: {}; // This will not.
+        this.bar: {}; // This will not.
       }
     }
   }
