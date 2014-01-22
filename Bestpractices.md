@@ -88,7 +88,7 @@ var $div = this.$('div');
     foo: {}, // This will be shared across all instances of this App.
 
     appActivated: function() {
-      this.bar: {}; // This will not.
+      this.bar = {}; // This will not.
     }
   }
   ```
