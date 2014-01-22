@@ -54,11 +54,11 @@ request: {
 
 * Wrap a function around AJAX request especially when you are going to be passing in some options with your AJAX call.
 
-* Use `services.notify()` instead of `console.log()` if you are going to print some messages in string format.
+* Clean up console.log and debugger statements before submitting your App.
 
 * Use Underscore helpers to process arrays, and objects.
 
-* Use `JSON.stringify()` to dump your json data object into a string when only json format is accepted at the API end point.
+* When sending `POST` / `PUT` requests Use `JSON.stringify()` to dump your json data object into a string when only json format is accepted at the API end point.
 
 > Instead of
 
@@ -99,7 +99,7 @@ renderJSONData: function(data) {
 
 * Use Bootstrap elements instead of defining your own styles in `app.css`.
 
-* Make sure the helpers you are calling is properly supported. At the time this document is created, Zendesk Apps Framework supports `jQuery 1.7`, `Underscore 1.3.3` and `Handlebars 1.0.0 beta 5`.
+* Make sure the helpers you are calling are properly supported. At the time this document is created, Zendesk Apps Framework supports `jQuery 1.7`, `Underscore 1.3.3` and `Handlebars 1.0.0 beta 5`.
 
 * Use jQuery style selector for DOM Traversal and Manipulation.
 
@@ -111,3 +111,13 @@ var $div = this.$('div');
 * Use promises to handle asynchronous instructions.
 
 * Be careful when defining an object in the main returned object: they are shared across instances of the app, so can lead to unexpected behavior when misused.
+  e.g.
+  ```js
+  return {
+    foo: {}, // This will be shared across all instances of this App.
+
+    appActivated: function() {
+      this.bar: {}; // This will not.
+    }
+  }
+  ```
