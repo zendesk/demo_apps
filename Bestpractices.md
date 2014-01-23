@@ -79,7 +79,7 @@ renderJSONData: function(data) {
 
 * Use Bootstrap elements instead of defining your own styles in `app.css`.
 
-* Make sure the helpers you are calling are properly supported. At the time this document is created, Zendesk Apps Framework supports `jQuery 1.7`, `Underscore 1.3.3` and `Handlebars 1.0.0 beta 5`.
+* Make sure the helpers you are calling are properly supported. At the time this document is created, Zendesk Apps Framework supports `jQuery 1.10.2`, `Underscore 1.3.3` and `Handlebars 1.0.0 beta 5`.
 
 * Use jQuery style selector for DOM Traversal and Manipulation.
 
