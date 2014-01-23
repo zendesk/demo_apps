@@ -64,7 +64,7 @@ renderJSONData: function(data) {
 }
 ```
 
-* Use handlebars helpers, instead of a `foreach` loop in `app.js`: `{{#items}}<span>{{item}}</span>{{/items}}`.
+* Use handlebars helpers, instead of a `foreach` loop in `app.js`: `{{#each items}}<span>{{item}}</span>{{/items}}`.
 
 * However, you cannot use something like `{{#if 1 < 2}}` in your Handlebars template, do pre-process the conditions in `app.js` `{ condition: 1 < 2 }` and do `{{#if condition}}` in the template.
 
