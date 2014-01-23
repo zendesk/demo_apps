@@ -1,0 +1,8 @@
+{
+  "app": {
+    "parameters": {
+      "subdomain": { "label": "This account's Zendesk subdomain." }
+    },
+    "description":  "Adds a Wall sidebar app"
+  }
+}
