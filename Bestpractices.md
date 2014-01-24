@@ -87,7 +87,8 @@ renderJSONData: function(data) {
 
 * Use jQuery style selector for DOM Traversal and Manipulation.
 
-* Add `$` prefix to jQuery object variables, e.g.
+* Add `$` prefix to jQuery object variables, e.g:
+
 ```js
 var $div = this.$('div');
 ```
@@ -96,15 +97,16 @@ var $div = this.$('div');
 
 * Be careful when defining an object in the main returned object: they are shared across instances of the app, so can lead to unexpected behavior when misused. Below is an example:
 
-  ```js
+```js
   return {
     foo: {}, // This will be shared across all instances of this App.
 
     appActivated: function() {
       this.bar = {}; // This will not.
     }
-
   }
-  ```
+```
+
 * Cleanup. We have life-cycle events for App deactivation and removal, `app.deactivate` and `app.willDestroy` respectively.  The intent for these events, and a general best practice, is to cleanup anything that your App might have set up that is no longer needed and might impact on performance of Lotus/other Apps.  A prime candidate for cleanup would be intervals you've created via `setInterval` or `setTimeout` (worth noting that App Developers should always store a reference to an ID returned from either of the above methods so as to be able to call `clearInterval` or `clearTimeout`.
+
 * DRY. Be critical of your own App, if you see that you've repeatedly done the same thing in your code then look to simplify by making helper functions that can be used in more than one place.
