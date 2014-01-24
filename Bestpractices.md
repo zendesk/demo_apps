@@ -14,7 +14,7 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Do not try to create your own [Handlebars helper](http://handlebarsjs.com/), it is not possible at this stage.
 
-* Make sure your framework version is up to date.
+* Do not use out-dated framework version
 
 * Do not define any object outside the main returned object, ever.
 
