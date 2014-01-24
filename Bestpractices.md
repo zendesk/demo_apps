@@ -1,6 +1,10 @@
 ## Introduction
 
-All public Apps have to go through an approval process. This document is aimed at helping you pass the approval process with flying colors from the first submission.
+All Zendesk Apps should follow a set of best practices. These best practices can help on various level, and make it easier for you to ensure your App will not impact your Zendesk's performance or deteriorate the Agent's experience. Additionally following these best practices will help you transition and migrate from framework versions much faster and smoother, breaking changes can potentially be avoided by following some of these guidelines.
+
+All public Apps have to go through an approval process. This document is also aimed at helping you pass the approval process with flying colors from the first submission.
+
+In conclusion wether you are building an App for your own company or for all of Zendesk customers we are strongly encouraging you to follow these guidelines and best practices.
 
 If you aren't sure about any of the points below, if you have questions about the approval process or if you would like to receive guidance or help building your first Zendesk App, please feel free to get in touch at support@zendesk.com
 
