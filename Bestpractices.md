@@ -94,8 +94,7 @@ var $div = this.$('div');
 
 * Use promises to handle asynchronous instructions.
 
-* Be careful when defining an object in the main returned object: they are shared across instances of the app, so can lead to unexpected behavior when misused.
-  e.g.
+* Be careful when defining an object in the main returned object: they are shared across instances of the app, so can lead to unexpected behavior when misused. Below is an example:
 
   ```js
   return {
