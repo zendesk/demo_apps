@@ -1,6 +1,6 @@
 (function() {
 
-  var SIDE_BAR_HREF = "https://www.facebook.com",
+  var SIDE_BAR_HREF = "https://www.wikipedia.org",
       SIDE_BAR_REGEX = /_sidebar$/;
 
   return {
