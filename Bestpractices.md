@@ -1,12 +1,12 @@
 ## Introduction
 
-All Zendesk Apps should follow a set of best practices. These best practices can help on various level, and make it easier for you to ensure your App will not impact your Zendesk's performance or deteriorate the Agent's experience. Additionally following these best practices will help you transition and migrate from framework versions much faster and smoother, breaking changes can potentially be avoided by following some of these guidelines.
+All Zendesk Apps should follow a set of best practices. These best practices can help on various levels, and make it easier for you to ensure your App will not impact your Zendesk's performance or deteriorate the Agent's experience. Additionally, following these best practices will help you transition and migrate from framework versions much faster and smoother, breaking changes can potentially be avoided by following some of these guidelines.
 
 All public Apps have to go through an approval process. This document is also aimed at helping you pass the approval process with flying colors from the first submission.
 
-In conclusion wether you are building an App for your own company or for all of Zendesk customers we are strongly encouraging you to follow these guidelines and best practices.
+In conclusion, whether you are building an App for your own company or for all of Zendesk customers we strongly encourage you to follow these guidelines and best practices.
 
-If you aren't sure about any of the points below, if you have questions about the approval process or if you would like to receive guidance or help building your first Zendesk App, please feel free to get in touch at support@zendesk.com
+If you aren't sure about any of the points below, if you have questions about the approval process or if you would like to receive guidance or help building your first Zendesk App, please feel free to get in touch at support@zendesk.com.
 
 ## Zendesk Apps: Must avoid
 
@@ -32,7 +32,7 @@ If you aren't sure about any of the points below, if you have questions about th
 
 ## Zendesk Apps: Best Practices
 
-* Make sure you define an App version. An App version will help you, and anyone else using the App, to keep track of what is installed. This cna be particularly helpful if a bug is found and you need to provide a newer version of an App.
+* Make sure you define an App version. An App version will help you, and anyone else using the App keep track of what is installed. This can be particularly helpful if a bug is found and you need to provide a newer version of an App.
 
 * Define CSS in `app.css`, instead of leaving them in the templates.
 
