@@ -1,10 +1,10 @@
 ## Introduction
 
-All Zendesk Apps should follow a set of best practices. These best practices can help on various levels, and make it easier for you to ensure your App will not impact your Zendesk's performance or deteriorate the Agent's experience. Additionally, following these best practices will help you transition and migrate from framework versions much faster and smoother, breaking changes can potentially be avoided by following some of these guidelines.
+All Zendesk Apps should follow a set of best practices. These best practices can help on various levels, and make it easier for you to ensure your App will not impact your Zendesk's performance or deteriorate the Agent's experience. Additionally, following these best practices will help you migrate framework versions much faster and smoother, breaking changes can potentially be avoided by following some of these guidelines.
 
 All public Apps have to go through an approval process. This document is also aimed at helping you pass the approval process with flying colors from the first submission.
 
-In conclusion, whether you are building an App for your own company or for all of Zendesk customers we strongly encourage you to follow these guidelines and best practices.
+Whether you are building an App for your own company or for all of Zendesk customers we strongly encourage you to follow these guidelines and best practices.
 
 If you aren't sure about any of the points below, if you have questions about the approval process or if you would like to receive guidance or help building your first Zendesk App, please feel free to get in touch at support@zendesk.com.
 
@@ -14,7 +14,7 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Do not try to create your own [Handlebars helper](http://handlebarsjs.com/), it is not possible at this stage.
 
-* Do not use out-dated framework version
+* Do not use an out-dated framework version
 
 * Do not define any object outside the main returned object, ever.
 
@@ -35,6 +35,8 @@ If you aren't sure about any of the points below, if you have questions about th
 * Make sure you define an App version. An App version will help you, and anyone else using the App keep track of what is installed. This can be particularly helpful if a bug is found and you need to provide a newer version of an App.
 
 * Define CSS in `app.css`, instead of leaving them in the templates.
+
+* Identify your page elements by class rather than by ID. Zendesk will replace your IDs, so if they are referenced in `app.js` they won't work. Giving elements unique classes is a workaround.
 
 * Wrap a function around AJAX request especially when you are going to be passing in some options with your AJAX call.
 
@@ -77,13 +79,13 @@ renderJSONData: function(data) {
 }
 ```
 
-* Use handlebars helpers, instead of a `foreach` loop in `app.js`: `{{#each items}}<span>{{item}}</span>{{/items}}`.
+* Use handlebars helpers instead of a `forEach` loop in `app.js`: `{{#each items}}<span>{{item}}</span>{{/items}}`.
 
-* However, you cannot use something like `{{#if 1 < 2}}` in your Handlebars template, do pre-process the conditions in `app.js` `{ condition: 1 < 2 }` and do `{{#if condition}}` in the template.
+* However, you cannot use something like `{{#if 1 < 2}}` in your Handlebars template. Pre-process the conditions in `app.js`: `this.switchTo('myTemplate', { condition: 1 < 2 })` and put `{{#if condition}}` in the template.
 
 * Use Bootstrap elements instead of defining your own styles in `app.css`.
 
-* Make sure the helpers you are calling are properly supported. At the time this document is created, Zendesk Apps Framework supports `jQuery 1.10.2`, `Underscore 1.3.3` and `Handlebars 1.0.0 beta 5`.
+* Make sure the helpers you are calling are properly supported. At the time this document is created, Zendesk Apps Framework supports `jQuery 1.10.2`, `Underscore 1.3.3` and `Handlebars 1.0.0 beta 6`. Supported libraries are documented [here](http://developer.zendesk.com/documentation/apps/reference/supported_libraries.html).
 
 * Use jQuery style selector for DOM Traversal and Manipulation.
 
