@@ -1,0 +1,6 @@
+<div class="start">
+  <div>
+    <h5>{{t "api_call_button"}}</h5>
+    <button class="btn">{{t "btn_call_api"}}</button>
+  </div>
+ </div>

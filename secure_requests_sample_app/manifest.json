@@ -1,0 +1,21 @@
+{
+  "name": "Secure_Requests_Demo",
+  "author": {
+    "name": "Briana Coppard",
+    "email": "bcoppard@zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": "ticket_sidebar",
+  "domainWhiteList": ["www.teachmyapi.com"],
+  "version": "1.0",
+  "frameworkVersion": "1.0",
+  "parameters": [
+    {
+      "name": "key",
+      "type": "text",
+      "required": true,
+      "secure": true
+    }
+  ]
+}
