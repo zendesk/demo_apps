@@ -1,8 +1,8 @@
 {
   "name": "Secure_Requests_Demo",
   "author": {
-    "name": "Briana Coppard",
-    "email": "bcoppard@zendesk.com"
+    "name": "Zendesk",
+    "email": "support@zendesk.com"
   },
   "defaultLocale": "en",
   "private": true,

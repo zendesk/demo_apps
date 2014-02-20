@@ -51,7 +51,7 @@
     "title": "The button to call the teachmyapi API"
   },
 
-    "btn_go_back": {
+  "btn_go_back": {
     "value": "Go Back",
     "title": "Message displayed on the button that navigates back to the start page."
   }

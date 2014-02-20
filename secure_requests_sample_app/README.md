@@ -14,5 +14,4 @@ You're key will be after the /api/. https://www.teachmyapi.com/api/xxxxxxxxxxxxx
 Please submit bug reports to [Zendesk Support](support@zendesk.com). Pull requests are welcome.
 
 ### Screenshot(s):
-[put your screenshots down here.]
-
+[secure GET call to teachmyapi]()

@@ -5,21 +5,20 @@
     defaultState: 'loading',
 
     requests: {
-
       fetchInfo: {
-          url: 'https://www.teachmyapi.com/api/{{setting.key}}/users',
-          type: 'GET',
-          dataType: 'json',
-          secure: true
+        url: 'https://www.teachmyapi.com/api/{{setting.key}}/users',
+        type: 'GET',
+        dataType: 'json',
+        secure: true
       }
     },
 
     events: {
-      'app.activated'        :  'init',
-      'click .btn'           :  'getInfo',
-      'fetchInfo.done'       :  'renderInfo',
-      'fetchInfo.fail'       :  'fail',
-      'click .back_to_start' :  'renderStartPage'
+      'app.activated'        : 'init',
+      'click .btn'           : 'getInfo',
+      'fetchInfo.done'       : 'renderInfo',
+      'fetchInfo.fail'       : 'fail',
+      'click .back_to_start' : 'renderStartPage'
     },
 
     init: function() {
@@ -33,7 +32,10 @@
     },
 
     renderInfo: function(data) {
-      var users = _.map(data, function(user){ user.friends = user.friends.join('; '); return { user: user };});
+      var users = _.map(data, function(user){ 
+        user.friends = user.friends.join('; ');
+        return { user: user };
+      });
       var userPageObj = { users: users };
       this.switchTo('list', userPageObj);
     },

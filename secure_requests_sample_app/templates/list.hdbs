@@ -26,7 +26,6 @@
         </li>
       {{/users}}
     </ul>
-  </br>
   </div>
   <div class="user_page_control">
     <button class="btn back_to_start">{{t "btn_go_back"}}!</button>

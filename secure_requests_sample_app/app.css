@@ -28,7 +28,11 @@ label {
   font-weight: bold;
 }
 
-.body_message, .user_list .user{
+.btn {
+  margin: 5px;
+}
+
+.body_message, 
+.user_list .user {
   border-radius: 5px;
-  background-color: #e3f0d7;
 }
