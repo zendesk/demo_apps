@@ -2,8 +2,6 @@
 
   return {
 
-    defaultState: 'loading',
-
     requests: {
       fetchInfo: {
         url: 'https://www.teachmyapi.com/api/{{setting.key}}/users',
