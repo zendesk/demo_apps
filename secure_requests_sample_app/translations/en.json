@@ -12,22 +12,6 @@
   },
 
 
-  "parameters": {
-      "subdomain": {
-        "label": {
-          "value": "Subdomain for herokuapp",
-          "title": "Label for the subdomain field when the user is installing the application"
-        },
-        "key": {
-          "value": "Unique key for teachmyapi api.",
-          "title": "Label for the key field when the user is installing the application"
-        },
-        "new_data": {
-          "value": "New data to be sent through to the herokuapp api",
-          "title": "Label for the new data field when the user is installing the application"
-        }
-      },
-
   "label_name": {
     "value": "Name",
     "title": "Label for name input/info field"
