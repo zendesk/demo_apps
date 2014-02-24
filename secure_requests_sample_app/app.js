@@ -3,7 +3,7 @@
   return {
 
     requests: {
-      getFrom: {
+      getFromTeachmyapi: {
         url: 'https://www.teachmyapi.com/api/{{setting.key}}/users',
         type: 'GET',
         dataType: 'json',
@@ -13,7 +13,7 @@
         }
       },
 
-      postTo: {
+      postToHerokuapp: {
         url: 'http://{{setting.subdomain}}.herokuapp.com/200/OK/',
         type: 'POST',
         contentType: 'application/json',
@@ -25,12 +25,12 @@
     events: {
       'app.activated'        : 'init',
       'click .fetch'         : 'getInfo',
-      'getFrom.done'         : 'renderInfo',
-      'getFrom.fail'         : 'fail',
+      'getFromTeachmyapi.done'         : 'renderInfo',
+      'getFromTeachmyapi.fail'         : 'fail',
       'click .back_to_start' : 'renderStartPage',
       'click .post'          : 'postInfo',
-      'postTo.fail'          : 'fail',
-      'postTo.done'          : 'render'
+      'postToHerokuapp.fail'          : 'fail',
+      'postToHerokuapp.done'          : 'render'
     },
 
     init: function() {
@@ -39,7 +39,7 @@
 
     getInfo: function(event) {
       event.preventDefault();
-      this.ajax('getFrom');
+      this.ajax('getFromTeachmyapi');
       this.switchTo('loading');
     },
 
@@ -54,7 +54,7 @@
 
     postInfo: function(event) {
       event.preventDefault();
-      this.ajax('postTo');
+      this.ajax('postToHerokuapp');
       this.switchTo('loading');
     },
 
