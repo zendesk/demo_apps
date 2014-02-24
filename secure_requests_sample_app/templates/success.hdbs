@@ -1,0 +1,8 @@
+<div class="success_page">
+  {{#data}}
+  <h5> Success! </h5><span class="return">{{data.response_string}}</span>
+  {{/data}}
+  <div class="user_page_control">
+    <button class="btn back_to_start">{{t "btn_go_back"}}!</button>
+  </div>
+</div>

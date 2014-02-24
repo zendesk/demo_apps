@@ -41,14 +41,24 @@
     "title": "Label for id info field"
   },
 
-  "api_call_button": {
-    "value": "Calls the teachmyapi API",
+  "api_get_button": {
+    "value": "Gets from the teachmyapi API",
     "title": "Calls the API"
   },
 
-  "btn_call_api": {
-    "value": "Call API",
-    "title": "The button to call the teachmyapi API"
+  "btn_get_api": {
+    "value": "Get",
+    "title": "The button to get the teachmyapi API details"
+  },
+
+  "api_post_button": {
+    "value": "Posts to the teachmyapi API",
+    "title": "Calls the API"
+  },
+
+  "btn_post_api": {
+    "value": "Post",
+    "title": "The button to post to the teachmyapi API"
   },
 
   "btn_go_back": {
