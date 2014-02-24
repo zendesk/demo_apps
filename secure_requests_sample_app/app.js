@@ -23,14 +23,14 @@
     },
 
     events: {
-      'app.activated'        : 'init',
-      'click .fetch'         : 'getInfo',
-      'getFromTeachmyapi.done'         : 'renderInfo',
-      'getFromTeachmyapi.fail'         : 'fail',
-      'click .back_to_start' : 'renderStartPage',
-      'click .post'          : 'postInfo',
-      'postToHerokuapp.fail'          : 'fail',
-      'postToHerokuapp.done'          : 'render'
+      'app.activated'           : 'init',
+      'click .fetch'            : 'getInfo',
+      'getFromTeachmyapi.done'  : 'renderInfo',
+      'getFromTeachmyapi.fail'  : 'fail',
+      'click .back_to_start'    : 'renderStartPage',
+      'click .post'             : 'postInfo',
+      'postToHerokuapp.fail'    : 'fail',
+      'postToHerokuapp.done'    : 'render'
     },
 
     init: function() {
