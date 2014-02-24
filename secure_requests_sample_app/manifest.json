@@ -7,8 +7,7 @@
   "defaultLocale": "en",
   "private": true,
   "location": "ticket_sidebar",
-  "domainWhiteList": "www.teachmyapi.com",
-  "domainWhiteList": "www.{{setting.subdomain}}.herokuapp.com",
+  "domainWhitelist": ["www.teachmyapi.com", "{{setting.subdomain}}.herokuapp.com"],
   "version": "1.0",
   "frameworkVersion": "1.0",
   "parameters": [

@@ -52,13 +52,13 @@
   },
 
   "api_post_button": {
-    "value": "Posts to the teachmyapi API",
+    "value": "Posts to the herokuapp API",
     "title": "Calls the API"
   },
 
   "btn_post_api": {
     "value": "Post",
-    "title": "The button to post to the teachmyapi API"
+    "title": "The button to post to the herokuapp API"
   },
 
   "btn_go_back": {

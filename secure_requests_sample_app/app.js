@@ -59,8 +59,14 @@
     },
 
     render: function(data) {
-      this.switchTo('success', data);
-      console.log(data);
+      var responses = [];
+      for(var x in data){
+        var obj = {};
+        obj.key = x;
+        obj.val = data[x];
+        responses.push(obj);
+      }
+      this.switchTo('success', {responses: responses});
     },
 
     fail: function(data) {
