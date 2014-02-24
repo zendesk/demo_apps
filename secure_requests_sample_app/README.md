@@ -14,8 +14,8 @@ Your key will be after the /api/. https://www.teachmyapi.com/api/xxxxxxxxxxxxxxx
 Please submit bug reports to [Zendesk Support](support@zendesk.com). Pull requests are welcome.
 
 ### Screenshot(s):
-[Secure calls](http://cl.ly/image/1G0Z21361H1b)
+![Secure calls](http://f.cl.ly/items/2S4223223b2m0L0c0p1s/demo1.gif)
 
-[Secure hiding information](http://cl.ly/image/3M3b3N0s171F)
+![Secure hiding information](http://f.cl.ly/items/1U0G2f1T2Q372m3d3s3I/demo2.gif)
 
-[Whitelist in action](http://cl.ly/image/3e0L0I381O2V)
+![Whitelist in action](http://f.cl.ly/items/3q2Y033m0d0w1k3u1O1c/demo3.gif)
