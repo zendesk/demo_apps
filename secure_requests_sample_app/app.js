@@ -59,13 +59,12 @@
     },
 
     render: function(data) {
-      var responses = [];
-      for(var x in data) {
-        var obj = {};
-        obj.key = x;
-        obj.val = data[x];
-        responses.push(obj);
-      }
+      var responses = _.map(data, function(val, key) {
+        return {
+          key: key,
+          val: val
+        };
+      });
       this.switchTo('success', {responses: responses});
     },
 
