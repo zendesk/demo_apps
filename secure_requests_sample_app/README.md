@@ -4,8 +4,10 @@ Shows how secure requests works to mask infomation that you don't want anyone to
 
 You will need to create a free account on teachmyapi.com for your API key. This is required for this app to work.
 
-You will get a unique key with your teachmyapi.com account, this is the paramater needed for this app.
-Your key will be after the /api/. https://www.teachmyapi.com/api/xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+You will get a unique `key` with your teachmyapi.com account, this is the paramater needed for this app.
+Your `key` will be after the /api/. https://www.teachmyapi.com/api/xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+The default `subdomain` for heroku is `echoapi`.
 
 ### The following information is displayed:
 

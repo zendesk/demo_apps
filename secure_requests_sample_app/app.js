@@ -44,7 +44,7 @@
     },
 
     renderInfo: function(data) {
-      var users = _.map(data, function(user){
+      var users = _.map(data, function(user) {
         user.friends = user.friends.join('; ');
         return { user: user };
       });
@@ -60,7 +60,7 @@
 
     render: function(data) {
       var responses = [];
-      for(var x in data){
+      for(var x in data) {
         var obj = {};
         obj.key = x;
         obj.val = data[x];

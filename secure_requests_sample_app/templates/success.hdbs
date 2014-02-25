@@ -1,7 +1,10 @@
 <div class="success_page">
   {{#responses}}
-  <strong>{{key}}: </strong><span>{{val}}</span>
+    <strong>{{key}}: </strong><span>{{val}}</span>
   {{/responses}}
+  {{else}}
+    <strong>No responses</strong>
+  {{/else}}
   <div class="user_page_control">
     <button class="btn back_to_start">{{t "btn_go_back"}}!</button>
   </div>
