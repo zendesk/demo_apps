@@ -16,12 +16,14 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Do not use an out-dated framework version
 
-* Do not define any object outside the main returned object, ever.
+* Do not declare a function outside the main returned object, ever.
 
 ```js
 (function() {
-  var FooClass = function() {};
-  FooClass.bar = function() {};
+  var FooClass = function() {}; // Never do this 
+  FooClass.bar = function() {}; // Or this
+  
+  var foobar = "raboof";  // This is fine
 
   return {
   };
