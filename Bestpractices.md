@@ -42,6 +42,8 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Wrap a function around AJAX request especially when you are going to be passing in some options with your AJAX call.
 
+* Display a spinner while your app is waiting for something, e.g. an AJAX call
+
 * Clean up console.log and debugger statements before submitting your App.
 
 * Use Underscore helpers to process `Arrays`, and `Objects`. App developers deal with a huge amount of work involving `Array` and `Object` processing. Underscore is a utility library that simplifies common operations you might perform on either an `Array` or an `Object`. A good example might be `_.map`, `_.filter`, `_.each` or `_.find`.
