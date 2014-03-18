@@ -1,3 +1,0 @@
-<div class="hellotext">
-    <h2><strong>{{t "hello.title"}} {{sayUsername}}</strong></h2>
-</div>
