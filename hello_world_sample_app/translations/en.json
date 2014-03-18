@@ -1,7 +1,7 @@
 {
   "app": {
-    "description":  "This is the best App ever",
-    "name":         "Hello World App"
+    "name":         "Hello World App",
+    "description":  "This is the best App ever"
   },
   "hello": {
     "title": {
