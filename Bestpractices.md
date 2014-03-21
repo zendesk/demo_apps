@@ -30,7 +30,14 @@ If you aren't sure about any of the points below, if you have questions about th
 }());
 ```
 
-* Never try to access the `window` object that may interfere with the new Zendesk or other Apps.
+* Never try to access the `window` object that may interfere with the new Zendesk or other Apps (even via an external library)
+
+* Never load any external libraries using AJAX, for example:
+
+```
+  this.ajax('getScript', 'mylibrary.js'),
+```
+
 
 ## Zendesk Apps: Best Practices
 
