@@ -1,0 +1,3 @@
+<div class="hellotext">
+ <h2><strong>{{t "hello.main"}} {{username}}</strong></h2>
+</div>
