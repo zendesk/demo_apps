@@ -10,7 +10,7 @@
       this.switchTo('hello', {
         username: currentUser
       });
-    },
+    }
 
   };
 
