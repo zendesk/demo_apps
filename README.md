@@ -6,6 +6,13 @@ This repository provides you with sample Apps to help learn how to use the Zende
 
 We hope you'll find those sample Apps useful and encourage you to re-use some of this code in your own Apps. If you have any questions please email support@zendesk.com or find us on [Twitter](https://twitter.com/zendeskdevteam). Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
 
+### [Hello World Sample App](./hello_world_sample_app)
+
+The simplest App ever built! Aimed for demonstration or training purposes this very basic Hello World App will show you in a couple of minutes how is our framework built and works.
+
+Interesting features:
+
+* Prints the current logged in agent name on a template
 
 ### [Basic User Sample App](./basic_user_sample)
 
