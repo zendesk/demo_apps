@@ -4,7 +4,7 @@
     "description":  "This is the best App ever"
   },
   "hello": {
-    "title": {
+    "main": {
       "title": "Enter a brief description of your string here",
       "value": "Hello"
     }
