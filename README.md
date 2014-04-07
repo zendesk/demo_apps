@@ -14,7 +14,7 @@ Interesting features:
 
 * Prints the current logged in agent name on a template
 
-### [Basic User Sample App](./basic_user_sample)
+### [Basic User Sample App](./basic_user_sample_app)
 
 This app displays on the User Profile and pulls information from the currently opened user.
 
@@ -24,7 +24,7 @@ Interesting features:
 * Zendesk-style tags and colors
 * Zendesk user profile APIs
 
-### [Zendesk REST API Sample App](./zendesk_rest_api_sample)
+### [Zendesk REST API Sample App](./zendesk_rest_api_sample_app)
 
 This app shows you how to utilize the Zendesk API from a Zendesk App. It uses the Apps API as an example.
 
@@ -52,7 +52,7 @@ Interesting features:
 * Demonstrate how to use services.notify() App API
 * Zendesk translation format.
 
-### [Basic Ticket Sample App](./basic_ticket_sample)
+### [Basic Ticket Sample App](./basic_ticket_sample_app)
 
 This app presents info about the current ticket, agent and account.
 
@@ -83,7 +83,7 @@ Interesting features:
 * Toggle modal via data attribute (data-toggle)
 * Hide modal via data attribute (data-dismiss)
 
-### [Interface API Sample](./interface_api_sample)
+### [Interface API Sample](./interface_api_sample_app)
 
 This app reads information from and controls the display of ticket fields.
 
@@ -93,7 +93,7 @@ Interesting features:
 * Change which interface elements are visible
 * Manipulating ticket fields from within an app
 
-### [Save Hook Sample App](./save_hook_sample)
+### [Save Hook Sample App](./save_hook_sample_app)
 
 This app demonstrates how to use save hook.
 
