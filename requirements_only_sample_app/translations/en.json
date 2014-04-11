@@ -1,0 +1,9 @@
+{
+  "app": {
+    "package": "requirements_only",
+    "name": {
+      "value": "Requirements Only App",
+      "title": "app name"
+    }
+  }
+}
