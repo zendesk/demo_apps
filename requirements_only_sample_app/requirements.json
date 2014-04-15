@@ -16,5 +16,17 @@
       "email": "foo@bar.com",
       "subject": "Hello, from this target!"
     }
+  },
+
+  "ticket_fields": {
+    "support_description": {
+      "type": "text",
+      "title": "Support description"
+    },
+
+    "number_of_issues": {
+      "type": "integer",
+      "title": "Number of issues"
+    }
   }
 }
