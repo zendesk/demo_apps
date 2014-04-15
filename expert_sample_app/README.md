@@ -1,3 +1,5 @@
+:warning: *Use of this software is subject to important terms and conditions as set forth in the License file* :warning:
+
 # Expert Sample App
 
 This sample App implements promises, save hooks, bootstrap pagination and progress bar element, jQuery selectors, JavaScript asynchronous methods such as setInterval, simple use of the powerful Zendesk search API, as well as the Zendesk App Interface.

@@ -1,3 +1,5 @@
+:warning: *Use of this software is subject to important terms and conditions as set forth in the License file* :warning:
+
 # External REST API Sample App
 
 This sample app shows to the developers how to make external API requests in App by taking iheartquotes.com/api and teachmyapi.com as examples.
