@@ -2,12 +2,12 @@
 
   return {
     events: {
-      'app.activated': 'userID',
-      'getOrgs.done': 'displayOrgs'
+      'app.activated': 'sayHello',
+      'getOrganizations.done': 'displayOrganizations'
     },
 
     requests: {
-      getOrgs: function(id) {
+      getOrganizations: function(id) {
         return {
           url: '/api/v2/users/' + id + '/organizations.json',
           type: 'GET',
@@ -17,11 +17,15 @@
       }
     },
 
-    userID: function(){
-      this.ajax('getOrgs', this.currentUser().id());
+    sayHello: function(){
+      var currentUser = this.currentUser().name();
+      this.switchTo('hello', {
+        username: currentUser,
+      });
+      this.ajax('getOrganizations', this.currentUser().id());
     },
 
-    displayOrgs: function(data){
+    displayOrganizations: function(data){
       var currentUser = this.currentUser().name();
       this.switchTo('hello', {
         username: currentUser,
