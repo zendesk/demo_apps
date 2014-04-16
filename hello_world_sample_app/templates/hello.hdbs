@@ -1,3 +1,26 @@
 <div class="hellotext">
- <h2><strong>{{t "hello.main"}} {{username}}</strong></h2>
+ 	<h2>
+ 		{{!-- use translation(en.js) to say hello --}}
+ 		<strong>{{t "hello.main"}} {{username}}</strong>
+ 	</h2>
+
+	<div>
+		{{!-- display organizations if they exist --}}
+		{{#if organizations}}
+			<h3>
+				You belong to the following organizations:
+			</h3>
+			{{!-- iterate through all organizations and show the name --}}
+			{{#each organizations}}
+				<p class="my-orgs">
+					{{name}}
+				</p>
+			{{/each}}
+		{{!-- if organizations don't exist show this --}}
+		{{else}}
+  		<h3 class="empty">
+  			You do not belong to any organizations.
+  		</h3>
+		{{/if}}
+	</div>
 </div>

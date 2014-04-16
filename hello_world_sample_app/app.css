@@ -1,3 +1,22 @@
+h2 {
+	font-size: 16px;
+}
+
+h3 {
+	font-size: 14px;
+}
+
 .hellotext {
   text-align: center;
+}
+
+.my-orgs {
+	margin-top: 10px;
+	color: #78a300;
+	font-size: 18px;
+}
+
+.empty {
+	color: #d3d3d3;
+	font-size: 12px;
 }

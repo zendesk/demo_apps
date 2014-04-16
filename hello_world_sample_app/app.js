@@ -2,16 +2,32 @@
 
   return {
     events: {
-      'app.activated': 'sayHello'
+      'app.activated': 'userID',
+      'getOrgs.done': 'displayOrgs'
     },
 
-    sayHello: function() {
+    requests: {
+      getOrgs: function(id) {
+        return {
+          url: '/api/v2/users/' + id + '/organizations.json',
+          type: 'GET',
+          contentType: 'application/json',
+          dataType: 'json'
+        };
+      }
+    },
+
+    userID: function(){
+      this.ajax('getOrgs', this.currentUser().id());
+    },
+
+    displayOrgs: function(data){
       var currentUser = this.currentUser().name();
       this.switchTo('hello', {
-        username: currentUser
+        username: currentUser,
+        organizations: data.organizations
       });
     }
-
   };
 
 }());
