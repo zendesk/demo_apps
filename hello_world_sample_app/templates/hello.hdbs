@@ -8,7 +8,7 @@
 		{{!-- display organizations if they exist --}}
 		{{#if organizations}}
 			<h3>
-				You belong to the following organizations:
+				{{t "organizations.belong"}}:
 			</h3>
 			{{!-- iterate through all organizations and show the name --}}
 			{{#each organizations}}
@@ -19,7 +19,7 @@
 		{{!-- if organizations don't exist show this --}}
 		{{else}}
   		<h3 class="empty">
-  			You do not belong to any organizations.
+  			{{t "organizations.not-belong"}}.
   		</h3>
 		{{/if}}
 	</div>

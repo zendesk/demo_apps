@@ -8,5 +8,15 @@
       "title": "Enter a brief description of your string here",
       "value": "Hello"
     }
+  },
+  "organizations": {
+    "belong": {
+      "title": "User belongs to an organization",
+      "value": "You belong to the following organizations"
+    },
+    "not-belong": {
+      "title": "User does not belong to an organization",
+      "value": "You do not belong to any organizations"
+    }
   }
 }
