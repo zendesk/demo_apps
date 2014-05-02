@@ -54,7 +54,8 @@
       this.sendSearchRequest(this.makeSearchUrl(this.pageNumber)); // Get tickets info on the first page
     },
 
-    previousTicketsPage: function() {
+    previousTicketsPage: function(event) {
+      event.preventDefault();
       if (this.pageNumber > this.resources.FIRST_PAGE) {
         this.previousPageNumber = this.pageNumber;
         this.pageNumber--;
@@ -62,7 +63,8 @@
       }
     },
 
-    nextTicketsPage: function() {
+    nextTicketsPage: function(event) {
+      event.preventDefault();
       if (this.pageNumber !== this.totalPages) {
         this.previousPageNumber = this.pageNumber;
         this.pageNumber++;
@@ -71,6 +73,7 @@
     },
 
     searchTicketsByPageNumber: function(event) {
+      event.preventDefault();
       this.previousPageNumber = this.pageNumber;
       this.pageNumber = parseInt(event.currentTarget.text, 10);
       if (this.previousPageNumber !== this.pageNumber) {
