@@ -1,14 +1,7 @@
-# App name
+# CommonJS sample app
 
-[brief description of the app]
+The Zendesk App Framework now supports greater control of the structure
+of your app, by introducing CommonJS module support. You can now define
+as many modules as you like, placing them into the `./lib` directory. 
 
-### The following information is displayed:
-
-* info1
-* info2
-* info3
-
-Please submit bug reports to [Insert Link](). Pull requests are welcome.
-
-### Screenshot(s):
-[put your screenshots down here.]
+Please submit bug reports to the [issues page](https://github.com/zendesk/demo_apps/issues). Pull requests are welcome.
