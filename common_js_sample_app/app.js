@@ -1,11 +1,18 @@
 (function() {
 
   return {
-    events:   require('events.js'),  // Please note that paths are relative from the ./lib directory
+    // Please note that paths are relative from the ./lib directory
+    events:   require('events.js'),
     requests: require('requests.js'),
 
-    doSomething: function() {
-      console.log('I LOADED!!');
+    requestBookmarks: function() {
+      console.log('CommonJS Sample app loaded');
+      this.ajax('fetchBookmarks');
+    },
+
+    fetchBookmarksDone: function(data) {
+      console.log('Loaded bookmarks!');
+      console.log(data);
     }
   };
 

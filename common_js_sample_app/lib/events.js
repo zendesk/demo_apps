@@ -1,3 +1,4 @@
 module.exports = {
-  'app.activated': 'doSomething'
+  'app.activated': 'requestBookmarks',
+  'fetchBookmarks.done': 'fetchBookmarksDone'
 };
