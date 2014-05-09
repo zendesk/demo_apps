@@ -1,6 +1,6 @@
 (function() {
 
-  Util = require('utilities.js');
+  var Util = require('utilities.js');
 
   return {
     // Please note that paths are relative from the ./lib directory
