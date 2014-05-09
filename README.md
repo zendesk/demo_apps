@@ -151,3 +151,13 @@ Interesting features:
 * Use App Setting
 * Use App resources
 * Use scss style in app.css
+
+### [Common JS Sample App](./common_js_sample_app)
+
+The Zendesk App Framework now supports greater control of the structure of your app, by introducing CommonJS module support. You can now define as many modules as you like, placing them into the `./lib` directory. 
+
+Interesting features:
+
+* Use of multiple javascript files in the App
+* The number bookmarks loaded from the API
+* The data returned from the API
