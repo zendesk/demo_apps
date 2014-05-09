@@ -1,5 +1,7 @@
 (function() {
 
+  Util = require('utilities.js');
+
   return {
     // Please note that paths are relative from the ./lib directory
     events:   require('events.js'),
@@ -11,7 +13,8 @@
     },
 
     fetchBookmarksDone: function(data) {
-      console.log('Loaded bookmarks!');
+      var message = Util.string.interpolate('%@ bookmark(s) loaded', data.count);
+      console.log(message);
       console.log(data);
     }
   };
