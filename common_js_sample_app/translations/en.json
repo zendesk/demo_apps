@@ -1,0 +1,13 @@
+{
+  "app": {
+    "package": "common_js_sample_app",
+    "description": {
+      "value": "An app that shows how you can use CommonJS modules in your code",
+      "title": "app description"
+    },
+    "name": {
+      "value": "CommonJS sample app",
+      "title": "app name"
+    }
+  }
+}
