@@ -17,4 +17,5 @@ Please submit bug reports to the [issues page](https://github.com/zendesk/demo_a
 
 ### Screenshots
 
-[Console output](http://cl.ly/image/1E43213M3n0O)
+![Console
+output](http://cl.ly/image/1E43213M3n0O/Screen%20Shot%202014-05-09%20at%2012.36.20%20pm.png)
