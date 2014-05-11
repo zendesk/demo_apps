@@ -16,6 +16,6 @@ Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new)
 
 ### Screenshot(s):
 
-![App Screen Shot](http://raw.github.com/zendesk/demo_apps/master/basic_ticket_sample/preview.gif)
+![App Screen Shot](http://f.cl.ly/items/2c03021t1e1S2E320e35/preview.gif)
 
 
