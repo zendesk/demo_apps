@@ -1,6 +1,6 @@
 {
   "app": {
-    "package": "save_hook_sample",
+    "package": "hello_world_sample",
     "name": {
       "value": "Hello World App",
       "title": "app name"
