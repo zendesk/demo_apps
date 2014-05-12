@@ -1,7 +1,14 @@
 {
   "app": {
-    "name":         "Hello World App",
-    "description":  "This is the best App ever"
+    "package": "save_hook_sample",
+    "name": {
+      "value": "Hello World App",
+      "title": "app name"
+    },
+    "description": {
+      "value": "This is the best App ever",
+      "title": "app description"
+    }
   },
   "hello": {
     "main": {
