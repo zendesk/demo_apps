@@ -161,3 +161,11 @@ Interesting features:
 * Use of multiple javascript files in the App
 * The number bookmarks loaded from the API
 * The data returned from the API
+
+### [Conditional Locations Sample App](./conditional_locations_sample_app)
+
+Conditional Locations allow your app to dynamically hide and show itself on Zendesk.
+
+Interesting features:
+
+* Dynamically hiding and showing a view from different locations
