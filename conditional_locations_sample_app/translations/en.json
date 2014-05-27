@@ -1,0 +1,13 @@
+{
+  "app": {
+    "package": "conditonal_locations_sample_app",
+    "description": {
+      "value": "This app demonstrates how to use conditonal locations APIs",
+      "title": "app description"
+    },
+    "name": {
+      "value": "Conditonal Locations Sample App",
+      "title": "app name"
+    }
+  }
+}
