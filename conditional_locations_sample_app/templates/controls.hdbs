@@ -1,0 +1,17 @@
+<p class="current-location">{{{t "currentLocation" locationName=currentLocation.name}}}</p>
+
+<table class="table">
+<tbody>
+{{#each locations}}
+  <tr data-location="{{@key}}">
+    <th>{{name}}</th>
+    <td>
+      <div class="btn-group" data-toggle="buttons-radio">
+        <button class="btn show-btn {{#if visible}}active{{/if}}">Show</button>
+        <button class="btn hide-btn {{#unless visible}}active{{/unless}}">Hide</button>
+      </div>
+    </td>
+  </tr>
+{{/each}}
+</tbody>
+</table>

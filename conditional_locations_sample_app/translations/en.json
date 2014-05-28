@@ -1,0 +1,31 @@
+{
+  "app": {
+    "package": "conditonal_locations_sample_app",
+    "description": {
+      "value": "This app demonstrates how to use conditonal locations APIs",
+      "title": "app description"
+    },
+    "name": {
+      "value": "Conditonal Locations Sample App",
+      "title": "app name"
+    }
+  },
+  "currentLocation": {
+    "value": "This is the <strong>{{locationName}}</strong>.",
+    "title": "Current location header"
+  },
+  "locations": {
+    "top_bar": {
+      "value": "Top Bar",
+      "title": "Top Bar location name"
+    },
+    "nav_bar": {
+      "value": "Nav Bar",
+      "title": "Nav Bar location name"
+    },
+    "ticket_sidebar": {
+      "value": "Ticket Sidebar",
+      "title": "Ticket Sidebar location name"
+    }
+  }
+}
