@@ -9,24 +9,12 @@
       'message.show': 'onShowMessageRecieved'
     },
 
-    locations: {
-      top_bar: {
-        name: 'Top Bar',
-        visible: true
-      },
-      nav_bar: {
-        name: 'Nav Bar',
-        visible: true
-      },
-      ticket_sidebar: {
-        name: 'Ticket Sidebar',
-        visible: false // specified as noTemplate in the manfiest, therefore will be hidden by default
-      }
-    },
+    locations: {},
 
     // Event Handlers
 
     onAppCreated: function() {
+      this.initLocations();
       this.renderControls();
     },
 
@@ -59,6 +47,23 @@
     },
 
     // Actions
+
+    initLocations: function() {
+      this.locations = {
+        top_bar: {
+          name: this.I18n.t('locations.top_bar'),
+          visible: true
+        },
+        nav_bar: {
+          name: this.I18n.t('locations.nav_bar'),
+          visible: true
+        },
+        ticket_sidebar: {
+          name: this.I18n.t('locations.ticket_sidebar'),
+          visible: false // ticket_sidebar specified as noTemplate in the manfiest, therefore will be hidden by default
+        }
+      };
+    },
 
     renderControls: function() {
       this.switchTo('controls', {

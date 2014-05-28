@@ -1,4 +1,4 @@
-<p class="current-location">This is the <strong>{{currentLocation.name}}</strong>.</p>
+<p class="current-location">{{{t "currentLocation" locationName=currentLocation.name}}}</p>
 
 <table class="table">
 <tbody>
