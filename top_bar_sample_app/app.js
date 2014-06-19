@@ -3,7 +3,6 @@
   'use strict';
 
   var EVENT_NAME        = 'send_message',
-      SUBDOMAIN_PATTERN = /[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z0-9]+/,// Pattern for subdomain.zendesk.com extraction.
       SIZES             = {
         small: {
           width: 280,
@@ -33,21 +32,19 @@
       this.isNotified = false;
     },
 
-    startPage: function(e) {
-      // Run regular expression to extract subdomain
-      var regexResult = SUBDOMAIN_PATTERN.exec(e.currentTarget.baseURI);
+    startPage: function() {
       // These parameters are handlebars parameters in the instruction page that renders a cURL command
       this.switchTo('instruction', {
         app_id: this.id(),
         event: EVENT_NAME,
-        url: regexResult[0], // This gets the matched URL.
+        subdomain: this.currentAccount().subdomain(),
         email: this.currentUser().email()
       });
     },
 
-    paneOnActivated: function(e) {
+    paneOnActivated: function() {
       if (!this.isNotified) {
-        this.startPage(e);
+        this.startPage();
       }
 
       // Resize after pane is activated.
