@@ -80,13 +80,11 @@ renderJSONData: function(data) {
 
 > Now we can just simply call `this.ajax('sampleRequest', requestData);`
 
-* Use `firstLoad` property to check if the App is loaded first time. e.g.:
+* Use app.created to check if the App is loaded for the first time. e.g.:
 
 ```js
-'app.activated': function(data) {
-  if(data.firstLoad) {
-    // do something
-  }
+'app.created': function(data) {
+  // do something
 }
 ```
 
@@ -119,6 +117,8 @@ var $div = this.$('div');
     }
   }
 ```
+
+* When [creating a ticket in telephony apps](https://support.zendesk.com/entries/24539263#topic_o32_xv1_sk), be sure that you're setting the via_id to 44 (voicemail), 45 (inbound call), or 46 (outbound call) depending on the type of call. This ensures that Zendesk admins and agents are able to properly report on these tickets within Zendesk.
 
 * Cleanup. We have life-cycle events for App deactivation and removal, `app.deactivate` and `app.willDestroy` respectively.  The intent for these events, and a general best practice, is to cleanup anything that your App might have set up that is no longer needed and might impact on performance of Lotus/other Apps.  A prime candidate for cleanup would be intervals you've created via `setInterval` or `setTimeout` (worth noting that App Developers should always store a reference to an ID returned from either of the above methods so as to be able to call `clearInterval` or `clearTimeout`.
 
