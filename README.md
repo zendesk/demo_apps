@@ -62,7 +62,7 @@ Interesting features:
 * Zendesk-style menus
 * Zendesk APIs
 
-### [iFrame Sample App](./iframe_sample_app_zendesk_apps)
+### [iFrame Sample App](./iframe_sample_app)
 
 This app demonstrates how to iframe a webpage in an app.
 
@@ -154,7 +154,7 @@ Interesting features:
 
 ### [Common JS Sample App](./common_js_sample_app)
 
-The Zendesk App Framework now supports greater control of the structure of your app, by introducing CommonJS module support. You can now define as many modules as you like, placing them into the `./lib` directory. 
+The Zendesk App Framework now supports greater control of the structure of your app, by introducing CommonJS module support. You can now define as many modules as you like, placing them into the `./lib` directory.
 
 Interesting features:
 
