@@ -1,0 +1,2 @@
+<iframe id="iframe_content" width="{{dimension.width}}" height="{{dimension.height}}" src="{{href}}"/>
+
