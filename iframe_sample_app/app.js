@@ -11,13 +11,13 @@
 
     init: function(data){ //load content if app is at new_ticket_sidebar, ticket_sidebar and user_sidebar
       if (data.firstLoad && SIDE_BAR_REGEX.test(this.currentLocation())) {
-        this.showIframe({ width: '1024px', height: '500px' });
+        this.showIframe({ width: '400px', height: '500px' });
       }
     },
 
     paneActivated: function(data) { //load content if app is at top_bar and nav_bar
       if (data.firstLoad) {
-        this.showIframe({ width: '1024px', height: '500px' });
+        this.showIframe({ width: '100%', height: '800' });
       }
     },
 
