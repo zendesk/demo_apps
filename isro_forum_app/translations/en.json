@@ -1,0 +1,13 @@
+{
+    "app": {
+        "package": "eu_isro_forum",
+        "description": {
+            "value": "iSRO Forum",
+            "title": "iSRO Forum Frame"
+        },
+        "name": {
+            "value": "iSRO Forum Frame",
+            "title": "iSRO Forum"
+        }
+    }
+}

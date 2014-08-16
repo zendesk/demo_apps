@@ -1,10 +1,10 @@
 {
-  "name": "HipChat Zendesk Frame",
+  "name": "iSRO Backend Frame",
   "author": {
-    "name": "HipChat",
-    "email": "support@hipchat.com"
+    "name": "iSRO Backend",
+    "email": "support@isro.eu"
   },
-  "defaultLocale": "en",
+  "defaultLocale": "de",
   "private": true,
   "location": ["nav_bar", "top_bar", "user_sidebar", "ticket_sidebar", "new_ticket_sidebar"],
   "version": "1.0",

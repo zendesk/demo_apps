@@ -1,6 +1,6 @@
 (function() {
 
-  var SIDE_BAR_HREF = "https://incrediblegaming.hipchat.com/chat?focus_jid=155415_incrediblegaming@conf.hipchat.com",
+  var SIDE_BAR_HREF = "https://isro.eu/backend/",
       SIDE_BAR_REGEX = /_sidebar$/;
 
   return {
