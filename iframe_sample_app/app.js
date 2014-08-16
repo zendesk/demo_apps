@@ -1,6 +1,6 @@
 (function() {
 
-  var SIDE_BAR_HREF = "https://www.wikipedia.org",
+  var SIDE_BAR_HREF = "https://incrediblegaming.hipchat.com/chat?focus_jid=155415_incrediblegaming@conf.hipchat.com",
       SIDE_BAR_REGEX = /_sidebar$/;
 
   return {
@@ -11,7 +11,7 @@
 
     init: function(data){ //load content if app is at new_ticket_sidebar, ticket_sidebar and user_sidebar
       if (data.firstLoad && SIDE_BAR_REGEX.test(this.currentLocation())) {
-        this.showIframe({ width: '300px', height: '260px' });
+        this.showIframe({ width: '1024px', height: '500px' });
       }
     },
 

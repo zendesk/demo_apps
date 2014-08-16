@@ -1,13 +1,13 @@
 {
   "app": {
-    "package": "iframe_beispiel_app",
+    "package": "com_hipchat_incrediblegaming",
     "description": {
-      "value": "Zeigt Zendesk Apps in einem iframe",
-      "title": "iFrame beispiel App"
+      "value": "Zendesk Hipchat Frame",
+      "title": "HipChat Frame"
     },
     "name": {
-      "value": "iFrame beispiel app",
-      "title": "app name"
+      "value": "HipChat Frame",
+      "title": "HipChat"
     }
   }
 }
