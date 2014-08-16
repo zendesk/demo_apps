@@ -1,6 +1,6 @@
 {
   "app": {
-    "package": "iframe_sample_app",
+    "package": "iframe_beispiel_app",
     "description": {
       "value": "Zeigt Zendesk Apps in einem iframe",
       "title": "iFrame beispiel App"
