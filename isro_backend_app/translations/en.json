@@ -1,0 +1,13 @@
+{
+    "app": {
+        "package": "eu_isro_backend",
+        "description": {
+            "value": "iSRO Backend",
+            "title": "iSRO Backend Frame"
+        },
+        "name": {
+            "value": "iSRO Backend Frame",
+            "title": "iSRO Backend"
+        }
+    }
+}
