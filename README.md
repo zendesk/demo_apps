@@ -41,7 +41,7 @@ This sample app shows to the developers how to make external API requests in App
 
 You will need to register an account on teachmyapi.com for your API URL, username and password that are needed when installing this App.
 
-You can also checkout our [Zendesk REST API Sample App](./zendesk_rest_api_sample).
+You can also checkout our [Zendesk REST API Sample App](./zendesk_rest_api_sample_app).
 
 Interesting features:
 
