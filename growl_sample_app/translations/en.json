@@ -2,11 +2,11 @@
   "app": {
     "package": "app_name",
     "description": {
-      "value": "Play the famous zen tunes in your help desk.",
+      "value": "Show how growl notifications work",
       "title": "app description"
     },
     "name": {
-      "value": "Buddha Machine",
+      "value": "Growl Sample App",
       "title": "app name"
     }
   },
@@ -16,39 +16,14 @@
     "title": "loading placeholder"
   },
 
-  "fetch": {
-    "done": {
-      "value": "Good",
-      "title": "fetch success"
+  "input": {
+    "entermessage": {
+      "value": "Enter number of seconds to display message for:",
+      "title": "Message to enter the number of seconds"
     },
-    "fail": {
-      "value": "failed to fecth information from the server",
-      "title": "fetch failure"
+    "button": {
+      "value": "Growl it!",
+      "title": "button text"
     }
-  },
-
-  "id": {
-    "value": "ID",
-    "title": "user id"
-  },
-
-  "email": {
-    "value": "Email",
-    "title": "user email"
-  },
-
-  "name": {
-    "value": "Name",
-    "title": "user name"
-  },
-
-  "role": {
-    "value": "Role",
-    "title": "user role"
-  },
-
-  "groups": {
-    "value": "Groups",
-    "title": "user groups"
   }
 }
