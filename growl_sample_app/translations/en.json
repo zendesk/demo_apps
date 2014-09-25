@@ -2,11 +2,11 @@
   "app": {
     "package": "app_name",
     "description": {
-      "value": "Show how growl notifications work",
+      "value": "Show how notifications work in an app",
       "title": "app description"
     },
     "name": {
-      "value": "Growl Sample App",
+      "value": "Apps Notification Sample App",
       "title": "app name"
     }
   },
@@ -22,7 +22,7 @@
       "title": "Message to enter the number of seconds"
     },
     "button": {
-      "value": "Growl it!",
+      "value": "Build a notification!",
       "title": "button text"
     }
   }

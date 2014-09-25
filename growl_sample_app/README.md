@@ -1,12 +1,12 @@
 :warning: *Use of this software is subject to important terms and conditions as set forth in the License file* :warning:
 
-# Growl Sample App
+# Apps Notification Sample App
 
-This Sample App demonstrates how to use Growl notifications in Zendesk.
+This Sample App demonstrates how to use Apps notifications in Zendesk.
 
 ### The following information is displayed:
 
-* a Growl notification
+* an App growl like notification
 * a template letting you choose the time you want this notification to be on for
 
 Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new). Pull requests are welcome.
