@@ -1,0 +1,3 @@
+<p class="hint">{{t "input.entermessage"}}</p>
+<input type="text" id="life" name="life" placeholder="3">
+<button type="submit" class="btn btn-primary btn-growl-it">{{t "input.button"}}</button>

@@ -1,0 +1,29 @@
+{
+  "app": {
+    "package": "app_name",
+    "description": {
+      "value": "Show how notifications work in an app",
+      "title": "app description"
+    },
+    "name": {
+      "value": "Apps Notification Sample App",
+      "title": "app name"
+    }
+  },
+
+  "loading": {
+    "value": "Welcome to this Sample App",
+    "title": "loading placeholder"
+  },
+
+  "input": {
+    "entermessage": {
+      "value": "Enter number of seconds to display message for:",
+      "title": "Message to enter the number of seconds"
+    },
+    "button": {
+      "value": "Build a notification!",
+      "title": "button text"
+    }
+  }
+}
