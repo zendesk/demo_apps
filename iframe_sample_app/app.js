@@ -1,31 +1,43 @@
 (function() {
 
-  var SIDE_BAR_HREF = "https://www.wikipedia.org",
-      SIDE_BAR_REGEX = /_sidebar$/;
-
   return {
     events: {
-      'app.activated': 'init',
-      'pane.activated': 'paneActivated'
+      'app.created':  'init',
+      'iframe.hello': 'handleHello',
+      'iframe.messageReceived': 'handleMessageReceived',
+      'click .send_message .btn': 'sendChatMessage'
     },
 
-    init: function(data){ //load content if app is at new_ticket_sidebar, ticket_sidebar and user_sidebar
-      if (data.firstLoad && SIDE_BAR_REGEX.test(this.currentLocation())) {
-        this.showIframe({ width: '300px', height: '260px' });
+    init: function() {
+      this.switchTo('iframe');
+    },
+
+    handleHello: function(data) {
+      if (data.awesome) {
+        var name = this.currentUser().name();
+        this.$("#chat_content").append("Sending a message to app with name '" + name + "'");
+        this.postMessage('app.hello', { name: name });
       }
     },
 
-    paneActivated: function(data) { //load content if app is at top_bar and nav_bar
-      if (data.firstLoad) {
-        this.showIframe({ width: '1024px', height: '500px' });
+    handleMessageReceived: function(data) {
+      if (data.awesome) {
+        this.$('#chat_content').append('<br/>Received message from app: ' + data.message)
       }
     },
 
-    showIframe: function(dimensions) {
-      this.switchTo('iframePage', {
-        dimension: dimensions,
-        href: SIDE_BAR_HREF
-      });
+    sendChatMessage: function(event) {
+      event.preventDefault();
+
+      this.$form = this.$('form').eq(0);
+      this.formData = this.$form.serializeArray();
+      var message = this.formData[0].value;
+      
+      if (message) {
+        this.$("#chat_content").append("<br/><br/>Sending message '" + message + "' to app...");
+        this.postMessage('app.message', { message: message });        
+      }
     }
+
   };
 }());

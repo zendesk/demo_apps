@@ -1,8 +1,30 @@
-&.apps.popover {
-  width:1024px;
-  height:500px;
-}
-section[data-main] {
-  position:relative;
+#chat_content {
+  margin: 10px 0 0 43px;
+  overflow-y: scroll;
+  height: 400px;
+  width: 50%;
+  border: solid 1px #78a300;
+  margin-bottom: 25px;
+  padding: 10px 0 0 10px;
 }
 
+
+#chat_content::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+#chat_content::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.message_form {
+  width: 50%;
+}
+
+.message_form .control-group {
+  float: left;
+  margin-right: 35px;
+}
