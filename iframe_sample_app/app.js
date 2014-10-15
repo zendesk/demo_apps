@@ -3,7 +3,7 @@
   return {
     events: {
       'app.created':  'init',
-      'iframe.hello': 'handleHello',
+      'iframe.handshake': 'handleHandshake',
       'iframe.messageReceived': 'handleMessageReceived',
       'click .send_message .btn': 'sendChatMessage'
     },
@@ -12,17 +12,15 @@
       this.switchTo('iframe');
     },
 
-    handleHello: function(data) {
+    handleHandshake: function(data) {
       if (data.awesome) {
-        var name = this.currentUser().name();
-        this.$("#chat_content").append("Sending a message to app with name '" + name + "'");
-        this.postMessage('app.hello', { name: name });
+        this.$("#chat_content").append("IFrame communication is up and running!");
       }
     },
 
     handleMessageReceived: function(data) {
       if (data.awesome) {
-        this.$('#chat_content').append('<br/>Received message from app: ' + data.message)
+        this.$('#chat_content').append('<br/>Received message from the iFrame: ' + data.message)
       }
     },
 
@@ -34,10 +32,11 @@
       var message = this.formData[0].value;
       
       if (message) {
-        this.$("#chat_content").append("<br/><br/>Sending message '" + message + "' to app...");
+        this.$("#chat_content").append("<br/><br/>Sending message '" + message + "' to the iFrame...");
         this.postMessage('app.message', { message: message });        
       }
     }
 
   };
+
 }());
