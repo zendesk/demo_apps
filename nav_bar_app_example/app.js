@@ -6,7 +6,7 @@
 
     events: {
       // Lifecycle
-      'app.activated':           'appActivated',
+      'app.created':             'init',
       'pane.activated':          'paneActivated',
 
       // Requests
@@ -22,11 +22,9 @@
       }
     },
 
-    appActivated: function(data) {
-      if (data.firstLoad) {
-        this.setIconState('inactive', this.assetURL('spinner.gif'));
-        this.ajax('getUserRelatedInfo', this.currentUser().id());
-      }
+    init: function() {
+      this.setIconState('inactive', this.assetURL('spinner.gif'));
+      this.ajax('getUserRelatedInfo', this.currentUser().id());
     },
 
     paneActivated: function(data) {
