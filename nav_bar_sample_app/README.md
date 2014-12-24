@@ -1,6 +1,6 @@
 :warning: *Use of this software is subject to important terms and conditions as set forth in the License file* :warning:
 
-# Nav Bar App Example
+# Nav Bar Sample App
 
 This is an example of a Nav Bar app for Zendesk. It displays some stats about the current user on a dedicated pane within Zendesk.
 
