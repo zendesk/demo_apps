@@ -169,3 +169,13 @@ Conditional Locations allow your app to dynamically hide and show itself on Zend
 Interesting features:
 
 * Dynamically hiding and showing a view from different locations
+
+### [Nav Bar Sample App](./nav_bar_sample_app)
+
+This is an example of a Nav Bar app for Zendesk. It displays some stats about the current user on a dedicated pane within Zendesk.
+
+Interesting features:
+
+* Setting icon states
+* Handling the icon click event
+* Checking when the pane is in DOM
