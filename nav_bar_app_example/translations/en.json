@@ -8,7 +8,7 @@
     "loading": "Waiting for customer data..."
   },
   "user": {
-  	"hello": "Hello {{name}}",
-  	"information": "You have requested {{requested_tickets}} tickets. You were CC'd on {{ccd_tickets}}. You created {{topics}} topics, commented on {{topic_comments}} and voted on {{votes}}. You are subscribed to {{subscriptions}} topics."
+    "hello": "Hello {{name}}",
+    "information": "You have requested {{requested_tickets}} tickets. You were CC'd on {{ccd_tickets}}. You created {{topics}} topics, commented on {{topic_comments}} and voted on {{votes}}. You are subscribed to {{subscriptions}} topics."
   }
 }
