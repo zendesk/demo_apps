@@ -1,7 +1,7 @@
 {
   "app": {
-    "description":  "An example app for the Nav Bar location",
-    "name":         "Nav Bar app example"
+    "description": "An example app for the Nav Bar location",
+    "name": "Nav Bar app example"
   },
   "global": {
     "footer": "Love your Zendesk",
