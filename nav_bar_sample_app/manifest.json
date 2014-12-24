@@ -7,5 +7,5 @@
   "defaultLocale": "en",
   "private": true,
   "location": "nav_bar",
-  "frameworkVersion": "0.5"
+  "frameworkVersion": "1.0"
 }
