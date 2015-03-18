@@ -1,8 +1,8 @@
 {
-  "name": "localStorage Demo App",
+  "name": "Basic localStorage Sample App",
   "author": {
-    "name": "jeremiah",
-    "email": "jeremiah@zendesk.com",
+    "name": "Zendesk",
+    "email": "support@zendesk.com",
     "url": ""
   },
   "defaultLocale": "en",
