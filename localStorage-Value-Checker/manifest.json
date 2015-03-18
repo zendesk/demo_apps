@@ -1,8 +1,8 @@
 {
-  "name": "localStorage Demo App",
+  "name": "localStorage Value Checker Sample App",
   "author": {
-    "name": "@jeremiahcurrier",
-    "email": "hello@jeremiahcurrier.com",
+    "name": "Zendesk",
+    "email": "support@zendesk.com",
     "url": ""
   },
   "defaultLocale": "en",
