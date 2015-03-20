@@ -1,0 +1,5 @@
+<p class="found"><strong>Current 'localStorage' Value:</strong></p>
+<br>
+<p class="well">{{value}}</p>
+<br>
+<a class="btn reset">Reset localStorage value</a>

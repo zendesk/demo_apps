@@ -1,0 +1,48 @@
+.well {
+  word-wrap: break-word;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin: -6px 0 -6px 0;
+}
+
+.found {
+  text-align: center;
+  font-size: 16px;
+}
+
+.btn {
+  width: 300px;
+  font-size: 14px;
+  padding: 6px;
+  margin: 0 0 -6px 0;
+}
+
+.form-control {
+  border-radius: 4px;
+  width: 310px;
+  margin: 0 0 -6px 0;
+  font-size: 14px;
+  padding: 6px;
+  color: #3d464d;
+}
+
+/*http://stackoverflow.com/questions/7381446/center-html-input-text-field-placeholder*/
+
+/*::-webkit-input-placeholder {
+   text-align: center;
+}*/
+
+ /* Firefox 18- */
+/*:-moz-placeholder {
+   text-align: center;  
+}*/
+
+/* Firefox 19+ */
+/*::-moz-placeholder {
+   text-align: center;  
+}*/
+
+/*:-ms-input-placeholder {  
+   text-align: center; 
+}*/
