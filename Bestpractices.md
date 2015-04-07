@@ -10,7 +10,7 @@ If you aren't sure about any of the points below, if you have questions about th
 
 ## Zendesk Apps: Must avoid
 
-:no_entry: In this section you'll find practices you absolutely need to avoid if you want your App to pass the approval process :no_entry:
+:no_entry: In this section you'll find practices you must avoid if you want your App to pass the approval process :no_entry:
 
 * Do not try to create your own [Handlebars helper](http://handlebarsjs.com/), it is not possible at this stage.
 
