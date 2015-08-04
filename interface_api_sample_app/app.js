@@ -35,6 +35,7 @@
                         label:     field.label(),
                         visible:   field.isVisible() ? 'checked=checked' : '',
                         options:   options, // either null or the options we nested in here
+                        enableText:  field.isEnabled() ? this.I18n.t('showhide.disable') : this.I18n.t('showhide.enable'),
                         collapse:  options ? '<td><a class="collapse ' + field.name() + '">+</a></td>':'<td></td>' };
             }, this),
 
