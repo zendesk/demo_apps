@@ -19,7 +19,8 @@
       "title": "Test JSON to requestbin",
       "method": "post",
       "content_type": "application/json",
-      "target_url": "http://requestb.in/13ualp61"
+      "target_url": "http://requestb.in/13ualp61",
+      "attribute": "message_value"
     }
   },
 
