@@ -20,9 +20,9 @@ If you aren't sure about any of the points below, if you have questions about th
 
 ```js
 (function() {
-  var FooClass = function() {}; // Never do this 
+  var FooClass = function() {}; // Never do this
   FooClass.bar = function() {}; // Or this
-  
+
   var foobar = "raboof";  // This is fine
 
   return {
@@ -38,6 +38,7 @@ If you aren't sure about any of the points below, if you have questions about th
   this.ajax('getScript', 'mylibrary.js'),
 ```
 
+* Don't alter the behavior of Javascript classes that will be used outside of your app such as `String` and `Array`.
 
 ## Zendesk Apps: Best Practices
 
