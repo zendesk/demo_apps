@@ -16,28 +16,15 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Do not use an out-dated framework version
 
-* Do not declare a function outside the main returned object, ever.
+* Do not try to access the `window` object that may interfere with the new Zendesk or other Apps (even via an external library)
 
-```js
-(function() {
-  var FooClass = function() {}; // Never do this 
-  FooClass.bar = function() {}; // Or this
-  
-  var foobar = "raboof";  // This is fine
-
-  return {
-  };
-}());
-```
-
-* Never try to access the `window` object that may interfere with the new Zendesk or other Apps (even via an external library)
-
-* Never load any external libraries using AJAX, for example:
+* Do not load any external libraries using AJAX, for example:
 
 ```
   this.ajax('getScript', 'mylibrary.js'),
 ```
 
+* Do not alter the behavior of Javascript classes that will be used outside of your app such as `String` and `Array`.
 
 ## Zendesk Apps: Best Practices
 
