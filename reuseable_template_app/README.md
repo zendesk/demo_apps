@@ -8,7 +8,7 @@ This very simple sample app shows you how to reuse templates in Zendesk apps. It
 * The app.activated event.
 * Click events.
 
-Please submit bug reports to [Zendesk Support](mailto:support@zendesk.com). Pull requests are welcome.
+Please submit bug reports to [Zendesk Support](https://support.zendesk.com/hc). Pull requests are welcome.
 
 ### Screenshot(s):
 

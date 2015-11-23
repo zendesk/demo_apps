@@ -17,7 +17,7 @@ You should find in this App a few types of settings, which can be updated both v
 * Existing settings.
 * Update App settings via curl command.
 
-Please submit bug reports to [Zendesk Support](mailto:support@zendesk.com). Pull requests are welcome.
+Please submit bug reports to [Zendesk Support](https://support.zendesk.com/hc). Pull requests are welcome.
 
 ### Screenshot(s):
 
