@@ -12,7 +12,7 @@ For an App that contains both please see [Requirements Sample App](./../requirem
 
 * Create Apps requirements
 
-Please submit bug reports to [Zendesk Support](support@zendesk.com). Pull requests are welcome.
+Please submit bug reports to [Zendesk Support](mailto:support@zendesk.com). Pull requests are welcome.
 
 ### Screenshot(s):
 

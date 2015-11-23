@@ -12,7 +12,7 @@ For an App that only creates requirements and nothing else please see [Requireme
 
 * Create Apps requirements
 
-Please submit bug reports to [Zendesk Support](support@zendesk.com). Pull requests are welcome.
+Please submit bug reports to [Zendesk Support](mailto:support@zendesk.com). Pull requests are welcome.
 
 ### Screenshot(s):
 
