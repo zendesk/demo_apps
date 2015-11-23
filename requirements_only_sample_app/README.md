@@ -6,13 +6,13 @@ This sample app shows to the developers how to add Apps requirements to their Ap
 
 This App will only add requirements. It has no other logic or features.
 
-For an App that contains both please see [Requirements Sample App](./requirements_ample_app)
+For an App that contains both please see [Requirements Sample App](./../requirements_sample_app)
 
 ### The following information is displayed:
 
 * Create Apps requirements
 
-Please submit bug reports to [Zendesk Support](support@zendesk.com). Pull requests are welcome.
+Please submit bug reports to [Zendesk Support](https://support.zendesk.com/hc). Pull requests are welcome.
 
 ### Screenshot(s):
 

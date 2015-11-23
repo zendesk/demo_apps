@@ -15,7 +15,7 @@ You will need to register an account on teachmyapi.com for your API URL, usernam
 * Demonstrate how to use services.notify() App API
 * Zendesk translation format.
 
-Please submit bug reports to [Zendesk Support](support@zendesk.com). Pull requests are welcome.
+Please submit bug reports to [Zendesk Support](https://support.zendesk.com/hc). Pull requests are welcome.
 
 ### Screenshot(s):
 [GET call to iheartquotes](http://cl.ly/image/0f3M0I0w0I2v)

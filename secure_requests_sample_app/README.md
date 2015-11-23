@@ -13,7 +13,7 @@ The default `subdomain` for heroku is `echoapi`.
 
 * This app displays a button that will call the teachmyapi API using the unique key set by the user.
 
-Please submit bug reports to [Zendesk Support](support@zendesk.com). Pull requests are welcome.
+Please submit bug reports to [Zendesk Support](https://support.zendesk.com/hc). Pull requests are welcome.
 
 ### Screenshot(s):
 ![Secure calls](http://f.cl.ly/items/2S4223223b2m0L0c0p1s/demo1.gif)
