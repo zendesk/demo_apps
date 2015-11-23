@@ -7,7 +7,7 @@ This very simple sample app shows you the very basics of our Apps framework and 
 * 1 template with the name of the current logged in Agent.
 * The app.activated event.
 
-Please submit bug reports to [Zendesk Support](support@zendesk.com). Pull requests are welcome.
+Please submit bug reports to [Zendesk Support](mailto:support@zendesk.com). Pull requests are welcome.
 
 ### Screenshot(s):
 

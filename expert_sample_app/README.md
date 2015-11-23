@@ -18,7 +18,7 @@ A user can specify the number of tickets displayed per page in the App settings.
 * Use App resources
 * Use scss style in app.css
 
-Please submit bug reports to [Zendesk](support@zendesk.com). Pull requests are welcome.
+Please submit bug reports to [Zendesk](mailto:support@zendesk.com). Pull requests are welcome.
 
 ### Note:
 
