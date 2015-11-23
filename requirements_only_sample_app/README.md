@@ -6,7 +6,7 @@ This sample app shows to the developers how to add Apps requirements to their Ap
 
 This App will only add requirements. It has no other logic or features.
 
-For an App that contains both please see [Requirements Sample App](./requirements_ample_app)
+For an App that contains both please see [Requirements Sample App](./../requirements_sample_app)
 
 ### The following information is displayed:
 
