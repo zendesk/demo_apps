@@ -1,8 +1,8 @@
 {
   "app": {
-    "package": "basic_user_sample",
+    "package": "basic_organization_sample",
     "description": {
-      "value": "this app shows user info",
+      "value": "this app shows organization info",
       "title": "app description"
     }
   },
@@ -28,23 +28,29 @@
     "title": "user id"
   },
 
-  "email": {
-    "value": "Email",
-    "title": "user email"
+  "domains": {
+    "value": "Domains",
+    "title": "organization domains"
   },
 
   "name": {
     "value": "Name",
-    "title": "user name"
+    "title": "organization name"
   },
 
-  "role": {
-    "value": "Role",
-    "title": "user role"
+  "notes": {
+    "value": "Notes",
+    "title": "organization notes"
   },
 
-  "groups": {
-    "value": "Groups",
-    "title": "user groups"
+  "details": {
+    "value": "Details",
+    "title": "organization details"
+  },
+
+  "group": {
+    "value": "Group",
+    "title": "organization group"
   }
+
 }
