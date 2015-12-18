@@ -1,0 +1,31 @@
+tr {
+  height: 25px;
+}
+
+th {
+  width: 25%;
+  padding-right: 5%;
+  text-align: right;
+}
+
+.failure {
+  background-color: red;
+}
+
+.colored {
+  position: relative;
+  display: inline-block;
+  margin: 0 5px 5px 0;
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: #fff;
+  text-shadow: 1px 1px #777;
+}
+
+.colored:nth-child(2n) {
+  background-color: #999;
+}
+
+.colored:nth-child(2n+1) {
+  background-color: rgb(149, 190, 34);
+}
