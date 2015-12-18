@@ -17,4 +17,4 @@ Please submit bug reports to [Zendesk](https://support.zendesk.com/requests/new)
 
 ### Screenshot(s):
 
-![App Screen Shot](https://cloud.githubusercontent.com/assets/4024784/11886375/88aca048-a57d-11e5-8be2-689c4d38247a.png)
+![App Screen Shot](https://cloud.githubusercontent.com/assets/4024784/11886442/4b93256e-a57e-11e5-9662-4b11e1267a2b.png)
