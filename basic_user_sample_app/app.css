@@ -27,5 +27,5 @@ th {
 }
 
 .colored:nth-child(2n+1) {
-  background-color: rgb(149, 190, 34);
+  background-color: #956D22;
 }
