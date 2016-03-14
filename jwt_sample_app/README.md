@@ -6,7 +6,7 @@ Zendesk apps support encoding information into JSON web tokens (JWT) and sending
 
 ### The following information is displayed:
 
-The request response is logged to the developer console. The app is configured to use requestb.in to view the encoded message. This includes a setting for the requestb.in URI you will use for testing.
+The request response is logged to the developer console. The app is configured to use requestb.in to view the encoded message. This includes a setting for the requestb.in URI you will use for testing. Users may wish to use a service like http://jwt.io/ make debugging and testing easier. 
 
 Please submit bug reports to the [issues page](https://github.com/zendesk/demo_apps/issues). Pull requests are welcome.
 
