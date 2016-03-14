@@ -5,7 +5,7 @@
     requests: {
       sampleRequest: function() {
         return {
-          url: 'https://{{setting.url}}?token={{jwt.token}}',
+          url: 'https://requestb.in/{{setting.requestbin_uri}}?token={{jwt.token}}',
           type: "GET",
           "secure": true,
           "contentType": "application/json",
@@ -14,7 +14,7 @@
             secret_key: '{{setting.shared_secret}}',
             expiry: 3600, // one hour token expiry
             claims: {
-              iss: '{{setting.url}}'
+              iss: this.currentAccount().subdomain()
             }
           }
         };

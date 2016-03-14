@@ -9,9 +9,10 @@
   "location": "ticket_sidebar",
   "version": "1.0",
   "frameworkVersion": "1.0",
+  "whitelistedDomains": ["requestb.in"],
   "parameters": [
   {
-    "name": "url",
+    "name": "requestbin_uri",
     "type": "text",
     "required": true,
     "secure": true
