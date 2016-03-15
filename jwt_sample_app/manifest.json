@@ -1,0 +1,27 @@
+{
+  "name": "JWT Sample App",
+  "author": {
+    "name": "Zendesk",
+    "email": "support@zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": "ticket_sidebar",
+  "version": "1.0",
+  "frameworkVersion": "1.0",
+  "whitelistedDomains": ["requestb.in"],
+  "parameters": [
+  {
+    "name": "requestbin_uri",
+    "type": "text",
+    "required": true,
+    "secure": true
+  },
+  {
+    "name": "shared_secret",
+    "type": "text",
+    "required": true,
+    "secure": true
+  }
+]
+}
