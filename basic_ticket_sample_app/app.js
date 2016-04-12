@@ -118,7 +118,6 @@
     generateAccountView: function() {
       var theAccount = this.currentAccount();
       this.switchTo('account', {
-        id:         theAccount.id() || 'None',
         subdomain:  theAccount.subdomain()
       });
     }
