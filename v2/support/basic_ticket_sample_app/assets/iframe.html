@@ -11,9 +11,9 @@
     // https://developer.zendesk.com/apps/docs/apps-v2
     var client = ZAFClient.init();
 
-    function renderMain(html) {
+    function renderText(text) {
       var mainSectionEl = document.querySelector('section[data-main]');
-      mainSectionEl.innerHTML = html;
+      mainSectionEl.innerText = text;
     }
 
     function getCurrentUser() {
@@ -24,13 +24,13 @@
 
     function init() {
       getCurrentUser().then(function(currentUser) {
-        renderMain('<p>Hi <strong>' + currentUser.name + '</strong>, please make some changes to the ticket.');
+        renderText('Hi ' + currentUser.name + ', please make some changes to the ticket.');
 
         client.on('*.changed', function(evt) {
-          var html = '<p><strong>' + currentUser.name + '</strong> changed <em>' +
-            evt.propertyName + '</em> to <em>' + evt.newValue + '</em>.</p>';
+          var text = currentUser.name + ' changed ' +
+            evt.propertyName + ' to ' + evt.newValue + '.';
 
-          renderMain(html);
+          renderText(text);
         });
       });
     }
