@@ -1,0 +1,44 @@
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+  <section data-main>Loading...</section>
+  <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
+  <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+  <script>
+    // Initialise the Zendesk JavaScript API client
+    // https://developer.zendesk.com/apps/docs/apps-v2
+    var client = ZAFClient.init();
+
+    function renderText(text) {
+      var mainSectionEl = document.querySelector('section[data-main]');
+      mainSectionEl.innerText = text;
+    }
+
+    function getCurrentUser() {
+      return client.get('currentUser').then(function(data) {
+        return data['currentUser'];
+      });
+    }
+
+    function init() {
+      getCurrentUser().then(function(currentUser) {
+        renderText('Hi ' + currentUser.name + ', please make some changes to the ticket.');
+
+        client.on('*.changed', function(evt) {
+          var text = currentUser.name + ' changed ' +
+            evt.propertyName + ' to ' + evt.newValue + '.';
+
+          renderText(text);
+        });
+      });
+    }
+
+    client.on('app.registered', function() {
+      client.invoke('resize', { width: '100%', height: '80px' });
+      init();
+    });
+  </script>
+</body>
+</html>
