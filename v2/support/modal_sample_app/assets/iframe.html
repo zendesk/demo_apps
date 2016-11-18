@@ -58,7 +58,7 @@
           });
         });
       }
-    }
+    };
 
     var ModalApp = function() {
       this.render(localStorage.getItem('modalText') || '');
@@ -78,7 +78,7 @@
         client.trigger('modal.save', { text: textareaValue });
         client.invoke('destroy');
       }
-    }
+    };
 
     client.on('app.registered', function(data) {
       init(data.context.location);
