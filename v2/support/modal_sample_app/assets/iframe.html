@@ -1,0 +1,88 @@
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+  <section data-main>Loading...</section>
+  <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
+  <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+  <script>
+    // Initialise the Zendesk JavaScript API client
+    // https://developer.zendesk.com/apps/docs/apps-v2
+    var client = ZAFClient.init();
+
+    function init(location) {
+      location === 'modal' ? new ModalApp() : new TicketApp();
+    }
+
+    function mainEl() {
+      return document.querySelector('section[data-main]');
+    }
+
+    function replaceLineBreaks(str) {
+      return str.replace(/(?:\r\n|\r|\n)/g, '<br />');
+    }
+
+    var TicketApp = function() {
+      var text = localStorage.getItem('modalText') || '';
+      this.render(replaceLineBreaks(text));
+    };
+
+    TicketApp.prototype = {
+      render: function(text) {
+        if (!this.inDOM) {
+          mainEl().innerHTML = '<p id="text">' + text + '<p><button class="edit">Edit</button>';
+          document.querySelector('.edit').addEventListener('click', this.openModal.bind(this));
+          this.inDOM = true;
+        } else {
+          document.querySelector('#text').innerText = text;
+        }
+        this.resize();
+      },
+
+      resize: function() {
+        var sectionHeight = mainEl().getBoundingClientRect().height;
+        client.invoke('resize', { height: sectionHeight });
+      },
+
+      openModal: function() {
+        var self = this;
+        return client.invoke('instances.create', {
+          location: 'modal',
+          url: 'assets/iframe.html'
+        }).then(function(data) {
+          var instanceGuid = data['instances.create'][0].instanceGuid;
+          var modalClient = client.instance(instanceGuid);
+          modalClient.on('modal.save', function(data) {
+            self.render(data.text);
+          });
+        });
+      }
+    }
+
+    var ModalApp = function() {
+      this.render(localStorage.getItem('modalText') || '');
+    };
+
+    ModalApp.prototype = {
+      render: function(text) {
+        var text = localStorage.getItem('modalText') || '';
+        mainEl().innerHTML = '<form id="modal"><textarea>' + text + '</textarea><br><button type="submit">Save</button></form>';
+        document.querySelector('#modal').addEventListener('submit', this.onModalSubmit.bind(this));
+      },
+
+      onModalSubmit: function(evt) {
+        var textareaValue = evt.target.querySelector('textarea').value;
+        evt.preventDefault();
+        localStorage.setItem('modalText', textareaValue);
+        client.trigger('modal.save', { text: textareaValue });
+        client.invoke('destroy');
+      }
+    }
+
+    client.on('app.registered', function(data) {
+      init(data.context.location);
+    });
+  </script>
+</body>
+</html>
