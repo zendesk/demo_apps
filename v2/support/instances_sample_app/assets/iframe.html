@@ -1,0 +1,34 @@
+<html>
+<body>
+  <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+  <script>
+    // Initialise the Zendesk JavaScript API client
+    var client = ZAFClient.init();
+
+    function commentTemplate(currentUser, requester, lineBreak) {
+      return 'Hi ' + currentUser + ',' + lineBreak + lineBreak + 'Kind regards,' + lineBreak + requester;
+    }
+
+    client.on('instance.created', function(context) {
+      if (context.location === 'ticket_sidebar') {
+        var ticketInstance = client.instance(context.instanceGuid);
+
+        ticketInstance.get([
+          'currentUser.name',
+          'ticket.requester.name',
+          'comment'
+        ]).then(function(data) {
+          var currentUser = data['currentUser.name'],
+              requester = data['ticket.requester.name'],
+              comment = data['comment'],
+              lineBreak = comment.useRichText ? '<br />' : '\n';
+
+          if (comment.text === '' || comment.text === '<p></p>') {
+            ticketInstance.set('comment.text', commentTemplate(currentUser, requester, lineBreak));
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
