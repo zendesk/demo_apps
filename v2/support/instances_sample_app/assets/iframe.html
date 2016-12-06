@@ -9,8 +9,11 @@
       return 'Hi ' + currentUser + ',' + lineBreak + lineBreak + 'Kind regards,' + lineBreak + requester;
     }
 
+    // instance.created fires whenever an instance of your app is created
     client.on('instance.created', function(context) {
+      // handle all ticket_sidebar instances
       if (context.location === 'ticket_sidebar') {
+        // create a new ZAFClient for the ticket sidebar instance
         var ticketInstance = client.instance(context.instanceGuid);
 
         ticketInstance.get([
