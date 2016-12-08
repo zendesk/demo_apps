@@ -23,7 +23,7 @@
     },
 
     events: {
-      'app.activated'           : 'init',
+      'app.created'             : 'init',
       'click .fetch'            : 'getInfo',
       'getFromTeachmyapi.done'  : 'renderInfo',
       'getFromTeachmyapi.fail'  : 'fail',

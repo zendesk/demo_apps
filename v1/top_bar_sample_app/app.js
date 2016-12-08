@@ -20,7 +20,7 @@
   return {
 
     events: {
-      'app.activated': 'init', // This event fires when App is activated.
+      'app.created': 'init', // This event fires when App is created.
       'pane.activated': 'paneOnActivated', // This event fires when pane in topbar is activated.
       'pane.deactivated': 'paneOnDeactivated',
       'notification.send_message': 'showNoticeBoard', // Capture notification event 'send_message'

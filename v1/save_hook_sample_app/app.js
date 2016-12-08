@@ -17,8 +17,8 @@
 
     events: {
 
-      'app.activated': 'init',
-      'ticket.save':   'hookHandler',
+      'app.created': 'init',
+      'ticket.save': 'hookHandler',
 
       // Switch to different hook handlers
       'click .simple_pass':  'useSimplePass',  // pass

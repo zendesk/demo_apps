@@ -3,7 +3,7 @@
   return {
 
     events: {
-      'app.activated':'initialize', // this event is run once when the app loads and calls the 'initialize' function
+      'app.created': 'initialize', // this event is run once when the app loads and calls the 'initialize' function
       '*.changed': 'detectedChange', // this event runs when there is a change in the ticket fields
       'click .nav-pills .showhide': 'initialize',
       'click .nav-pills .rename': 'drawRename',

@@ -36,7 +36,7 @@
     },
 
     events: {
-      'app.activated'      : 'init',
+      'app.created'        : 'init',
       'ticket.save'        : 'saveHookHandler',
       'ticket.submit.done' : 'ticketSubmitDoneHandler',
       'hidden .my_modal'   : 'modalIsHiddenHandler',

@@ -5,7 +5,7 @@ This very simple sample app shows you the very basics of our Apps framework and 
 ### The following information is displayed:
 
 * 1 template with the name of the current logged in Agent.
-* The app.activated event.
+* The app.created event.
 
 Please submit bug reports to [Zendesk Support](https://support.zendesk.com/hc). Pull requests are welcome.
 

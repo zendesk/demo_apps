@@ -85,7 +85,7 @@
     },
 
     events: {
-      'app.activated': 'initialize',
+      'app.created': 'initialize',
       'app.willDestroy': 'cleanUp',
 
       // Installations

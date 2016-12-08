@@ -6,7 +6,7 @@
     requests: {},
 
     events: {
-      'app.activated': function(){
+      'app.created': function(){
         var organization = this.organization();
 
         this.switchTo('basic_organization_info', {

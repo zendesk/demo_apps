@@ -6,7 +6,7 @@
   return {
 
     events: {
-      'app.activated': 'init',
+      'app.created': 'init',
       'show .my_modal': 'onShow',
       'click .toggle_modal': 'displayModal',
       'click .save_button': 'showSavedMessage'
