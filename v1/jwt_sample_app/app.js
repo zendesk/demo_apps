@@ -22,7 +22,7 @@
     },
 
     events: {
-      'app.activated':'init'
+      'app.created': 'init'
     },
 
     init: function() {

@@ -3,7 +3,7 @@
   return {
 
     events: {
-      'app.activated': 'init',
+      'app.created': 'init',
       'hidden .my_modal': 'afterHidden' // The 'hidden' event is fired when the modal (.my_modal) has finished being hidden from the user (will wait for css transitions to complete).
     },
 

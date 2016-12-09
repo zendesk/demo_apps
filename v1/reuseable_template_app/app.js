@@ -2,7 +2,7 @@
 
   return {
     events: {
-      'app.activated': 'greet',
+      'app.created': 'greet',
       'click a': 'handleButton'
     },
 

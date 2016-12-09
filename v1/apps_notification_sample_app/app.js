@@ -2,7 +2,7 @@
 
   return {
     events: {
-      'app.activated':       'initApp',
+      'app.created':         'initApp',
       'click .btn-growl-it': 'growlIt'
     },
 

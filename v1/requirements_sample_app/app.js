@@ -2,7 +2,7 @@
 
   return {
     events: {
-      'app.activated': 'doSomething'
+      'app.created': 'doSomething'
     },
 
     doSomething: function() {

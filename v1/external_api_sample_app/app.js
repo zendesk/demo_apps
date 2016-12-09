@@ -65,7 +65,7 @@
     },
 
     events: {
-      'app.activated'                : 'init',
+      'app.created'                  : 'init',
       'click .get_no_auth'           : 'getNoAuth',
       'click .get_with_auth'         : 'getWithAuth',
       'click .post_with_auth'        : 'openEditUserForm',

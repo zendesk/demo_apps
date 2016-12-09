@@ -3,7 +3,7 @@
   return { // the entire app goes inside this return block!
     // listen for API events such as the start of our app, when bits of it get clicked on or when AJAX requests complete
     events: {
-      'app.activated':                'initialize', // this event runs when the app activates - for sidebar apps, whenever the user navigates to a location the app exists
+      'app.created':                  'initialize', // this event runs when the app is created
       'ticket.collaborators.changed': 'newCCs', // API event fired when the ticket type changes (eg a ticket is marked as an Incident or a Question is changed to a Problem)
       'click .nav-pills .account':    'tabClicked', // DOM event fired when the user clicks an option on the account tab
       'click .nav-pills .user':       'tabClicked',
@@ -16,10 +16,8 @@
     requests: {
     },
 
-    initialize: function(data) { // function called when we load
-      if (data.firstLoad) {
-        this.switchTo('main');
-      }
+    initialize: function() { // function called when we load
+      this.switchTo('main');
     },
 
     // UI Events

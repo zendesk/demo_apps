@@ -5,7 +5,7 @@ This very simple sample app shows you how to reuse templates in Zendesk apps. It
 ### The following information is displayed:
 
 * A template that says hello, and another template that says goodbye. Both templates include a common template.
-* The app.activated event.
+* The app.created event.
 * Click events.
 
 Please submit bug reports to [Zendesk Support](https://support.zendesk.com/hc). Pull requests are welcome.

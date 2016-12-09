@@ -6,7 +6,7 @@
     requests: {},
 
     events: {
-      'app.activated': function(){
+      'app.created': function(){
         var user = this.currentUser();
         var groups = user.groups();
 
