@@ -5,31 +5,45 @@
     // Initialise the Zendesk JavaScript API client
     var client = ZAFClient.init();
 
-    function commentTemplate(currentUser, requester, lineBreak) {
-      return 'Hi ' + currentUser + ',' + lineBreak + lineBreak + 'Kind regards,' + lineBreak + requester;
+    function commentTemplate(requester, currentUser, lineBreak) {
+      return 'Hi ' + requester + ',' + lineBreak + lineBreak + 'Kind regards,' + lineBreak + currentUser;
     }
 
-    // instance.created fires whenever an instance of your app is created
+    function setDefaultComment(ticketInstanceGuid) {
+      // create a new ZAFClient with the instanceGuid passed
+      var ticketInstance = client.instance(ticketInstanceGuid);
+
+      ticketInstance.get([
+        'currentUser.name',
+        'ticket.requester.name',
+        'comment'
+      ]).then(function(data) {
+        var currentUser = data['currentUser.name'],
+            requester = data['ticket.requester.name'],
+            comment = data['comment'],
+            lineBreak = comment.useRichText ? '<br />' : '\n';
+
+        if (comment.text === '' || comment.text === '<p></p>') {
+          ticketInstance.set('comment.text', commentTemplate(requester, currentUser, lineBreak));
+        }
+      });
+    }
+
+    // handle ticket_sidebar instances that may have been created before the background instance loaded
+    client.get('instances').then(function(data) {
+      var instanceGuids = Object.keys(data.instances);
+
+      Object.keys(data.instances).forEach(function(instanceGuid) {
+        if (data.instances[instanceGuid].location === 'ticket_sidebar') {
+          setDefaultComment(instanceGuid)
+        }
+      });
+    });
+
+    // handle ticket_sidebar instances created after the background instance loaded
     client.on('instance.created', function(context) {
-      // handle all ticket_sidebar instances
       if (context.location === 'ticket_sidebar') {
-        // create a new ZAFClient for the ticket sidebar instance
-        var ticketInstance = client.instance(context.instanceGuid);
-
-        ticketInstance.get([
-          'currentUser.name',
-          'ticket.requester.name',
-          'comment'
-        ]).then(function(data) {
-          var currentUser = data['currentUser.name'],
-              requester = data['ticket.requester.name'],
-              comment = data['comment'],
-              lineBreak = comment.useRichText ? '<br />' : '\n';
-
-          if (comment.text === '' || comment.text === '<p></p>') {
-            ticketInstance.set('comment.text', commentTemplate(currentUser, requester, lineBreak));
-          }
-        });
+        setDefaultComment(context.instanceGuid)
       }
     });
   </script>
