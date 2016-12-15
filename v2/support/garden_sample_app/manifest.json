@@ -1,0 +1,17 @@
+{
+  "name": "Garden Sample App",
+  "author": {
+    "name": "Zendesk",
+    "email": "support@zendesk.com",
+    "url": "https://help.zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "nav_bar": "assets/iframe.html"
+    }
+  },
+  "version": "1.0",
+  "frameworkVersion": "2.0"
+}
