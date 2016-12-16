@@ -32,7 +32,7 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Specify `autoLoad: false` for locations where you don't need to display a user interface and use the `background` location with the Instances API to interact with those locations. See [Instances API Sample App](https://github.com/zendesk/demo_apps/tree/master/v2/support/instances_sample_app) for an example of this technique.
 
-* Use the [App Scaffold](https://github.com/zendesk/app_scaffold/tree/from-scratch)'s from scratch branch when starting development of any non-trivial app. The App Scaffold includes many features to help you maintain and scale your app.
+* Use the [App Scaffold](https://github.com/zendesk/app_scaffold/tree/from-scratch)'s from-scratch branch when starting development of any non-trivial app. The App Scaffold includes many features to help you maintain and scale your app.
 
 * Use [signed urls](https://developer.zendesk.com/apps/docs/apps-v2/using_sdk#authenticating-requests-with-signed-urls) when developing server-side apps.
 
