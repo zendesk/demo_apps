@@ -10,9 +10,9 @@ If you aren't sure about any of the points below, if you have questions about th
 
 ## General Advice
 
-* DRY. Be critical of your own App, if you see that you've repeatedly done the same thing in your code then look to simplify by making helper functions that can be used in more than one place.
+* DRY. Be critical of your own app, if you see that you've repeatedly done the same thing in your code then look to simplify by making helper functions that can be used in more than one place.
 
-* Cleanup. We have life-cycle events for App deactivation and removal, `app.deactivate` and `app.willDestroy` respectively.  The intent for these events, and a general best practice, is to cleanup anything that your App might have set up that is no longer needed and might impact on performance of Lotus/other Apps.  A prime candidate for cleanup would be intervals you've created via `setInterval` or `setTimeout` (worth noting that App Developers should always store a reference to an ID returned from either of the above methods so as to be able to call `clearInterval` or `clearTimeout`.
+* Cleanup. Use life-cycle events `app.deactivated` and `app.willDestroy` to tidy up your app's state.  The intent for these events, and a general best practice, is to cleanup anything that your app might have set up that is no longer needed and might impact on performance of Lotus/other apps.  A prime candidate for cleanup would be intervals you've created via `setInterval` or `setTimeout` (worth noting that app Developers should always store a reference to an ID returned from either of the above methods so as to be able to call `clearInterval` or `clearTimeout`.
 
 * Use promises to handle asynchronous instructions. See [JavaScript Promises: an Introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises) on Google's developer portal for a great introduction to JavaScript promises.
 
@@ -40,13 +40,13 @@ If you aren't sure about any of the points below, if you have questions about th
 
 ### Must avoid
 
-:no_entry: In this section you'll find practices you must avoid if you want your App to pass the approval process :no_entry:
+:no_entry: In this section you'll find practices you must avoid if you want your app to pass the approval process :no_entry:
 
 * Do not try to create your own [Handlebars helper](http://handlebarsjs.com/), it is not possible at this stage.
 
 * Do not use an out-dated framework version
 
-* Do not try to access the `window` object that may interfere with the new Zendesk or other Apps (even via an external library)
+* Do not try to access the `window` object that may interfere with the Zendesk products or other apps (even via an external library).
 
 * Do not load any external libraries using AJAX, for example:
 
@@ -58,7 +58,7 @@ If you aren't sure about any of the points below, if you have questions about th
 
 ### Best Practices
 
-* Make sure you define an App version. An App version will help you, and anyone else using the App keep track of what is installed. This can be particularly helpful if a bug is found and you need to provide a newer version of an App.
+* Make sure you define an app version. An app version will help you, and anyone else using the app keep track of what is installed. This can be particularly helpful if a bug is found and you need to provide a newer version of an app.
 
 * Define CSS in `app.css`, instead of leaving them in the templates.
 
@@ -68,9 +68,9 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Display a spinner while your app is waiting for something, e.g. an AJAX call
 
-* Clean up console.log and debugger statements before submitting your App.
+* Clean up console.log and debugger statements before submitting your app.
 
-* Use Underscore helpers to process `Arrays`, and `Objects`. App developers deal with a huge amount of work involving `Array` and `Object` processing. Underscore is a utility library that simplifies common operations you might perform on either an `Array` or an `Object`. A good example might be `_.map`, `_.filter`, `_.each` or `_.find`.
+* Use Underscore helpers to process `Arrays`, and `Objects`. app developers deal with a huge amount of work involving `Array` and `Object` processing. Underscore is a utility library that simplifies common operations you might perform on either an `Array` or an `Object`. A good example might be `_.map`, `_.filter`, `_.each` or `_.find`.
 
 * When sending `POST` / `PUT` requests Use `JSON.stringify()` to dump your json data object into a string when only json format is accepted at the API end point.
 
@@ -97,7 +97,7 @@ renderJSONData: function(data) {
 
 > Now we can just simply call `this.ajax('sampleRequest', requestData);`
 
-* Use app.created to check if the App is loaded for the first time. e.g.:
+* Use app.created to check if the app is loaded for the first time. e.g.:
 
 ```js
 'app.created': function(data) {
