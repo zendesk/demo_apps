@@ -8,7 +8,37 @@ Whether you are building an App for your own company or for all of Zendesk custo
 
 If you aren't sure about any of the points below, if you have questions about the approval process or if you would like to receive guidance or help building your first Zendesk App, please feel free to get in touch at support@zendesk.com.
 
-## Zendesk Apps: Must avoid
+## General Advice
+
+* DRY. Be critical of your own App, if you see that you've repeatedly done the same thing in your code then look to simplify by making helper functions that can be used in more than one place.
+
+* Cleanup. We have life-cycle events for App deactivation and removal, `app.deactivate` and `app.willDestroy` respectively.  The intent for these events, and a general best practice, is to cleanup anything that your App might have set up that is no longer needed and might impact on performance of Lotus/other Apps.  A prime candidate for cleanup would be intervals you've created via `setInterval` or `setTimeout` (worth noting that App Developers should always store a reference to an ID returned from either of the above methods so as to be able to call `clearInterval` or `clearTimeout`.
+
+* Use promises to handle asynchronous instructions. See [JavaScript Promises: an Introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises) on Google's developer portal for a great introduction to JavaScript promises.
+
+* Cache the result of promises and API requests when the data doesn't change often.
+
+* Use [secure settings](https://developer.zendesk.com/apps/docs/apps-v2/using_sdk#using-secure-settings) for passwords and API tokens.
+
+* Check out our [changelog](https://developer.zendesk.com/apps/docs/apps-v2/changelog) frequently to keep up to date with the latest framework updates.
+
+* When [creating a ticket in telephony apps](https://support.zendesk.com/entries/24539263#topic_o32_xv1_sk), be sure that you're setting the via_id to 44 (voicemail), 45 (inbound call), or 46 (outbound call) depending on the type of call. This ensures that Zendesk admins and agents are able to properly report on these tickets within Zendesk.
+
+## v2 Guidelines
+
+### Best Practices
+
+* Prefer [bulk calls](https://developer.zendesk.com/apps/docs/apps-v2/using_sdk#bulk-calls) over single calls whenever possible.
+
+* Specify `autoLoad: false` for locations where you don't need to display a user interface and use the `background` location with the Instances API to interact with those locations. See [Instances API Sample App](https://github.com/zendesk/demo_apps/tree/master/v2/support/instances_sample_app) for an example of this technique.
+
+* Use the [App Scaffold](https://github.com/zendesk/app_scaffold/tree/from-scratch)'s from scratch branch when starting development of any non-trivial app. The App Scaffold includes many features to help you maintain and scale your app.
+
+* Use [signed urls](https://developer.zendesk.com/apps/docs/apps-v2/using_sdk#authenticating-requests-with-signed-urls) when developing server-side apps.
+
+## v1 Guidelines
+
+### Must avoid
 
 :no_entry: In this section you'll find practices you must avoid if you want your App to pass the approval process :no_entry:
 
@@ -26,7 +56,7 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Do not alter the behavior of Javascript classes that will be used outside of your app such as `String` and `Array`.
 
-## Zendesk Apps: Best Practices
+### Best Practices
 
 * Make sure you define an App version. An App version will help you, and anyone else using the App keep track of what is installed. This can be particularly helpful if a bug is found and you need to provide a newer version of an App.
 
@@ -91,7 +121,6 @@ renderJSONData: function(data) {
 var $div = this.$('div');
 ```
 
-* Use promises to handle asynchronous instructions.
 
 * Be careful when defining an object in the main returned object: they are shared across instances of the app, so can lead to unexpected behavior when misused. Below is an example:
 
@@ -104,9 +133,3 @@ var $div = this.$('div');
     }
   }
 ```
-
-* When [creating a ticket in telephony apps](https://support.zendesk.com/entries/24539263#topic_o32_xv1_sk), be sure that you're setting the via_id to 44 (voicemail), 45 (inbound call), or 46 (outbound call) depending on the type of call. This ensures that Zendesk admins and agents are able to properly report on these tickets within Zendesk.
-
-* Cleanup. We have life-cycle events for App deactivation and removal, `app.deactivate` and `app.willDestroy` respectively.  The intent for these events, and a general best practice, is to cleanup anything that your App might have set up that is no longer needed and might impact on performance of Lotus/other Apps.  A prime candidate for cleanup would be intervals you've created via `setInterval` or `setTimeout` (worth noting that App Developers should always store a reference to an ID returned from either of the above methods so as to be able to call `clearInterval` or `clearTimeout`.
-
-* DRY. Be critical of your own App, if you see that you've repeatedly done the same thing in your code then look to simplify by making helper functions that can be used in more than one place.
