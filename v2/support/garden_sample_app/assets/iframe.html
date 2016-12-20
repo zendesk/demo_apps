@@ -1,8 +1,12 @@
 <html>
 <head>
+  <!-- Zendesk Garden styles are provided for apps from this URL. We recommend hotlinking to this version
+       provided by our CDN to ensure the latest updates are refected in your app. -->
   <link rel="stylesheet" href="https://assets.zendesk.com/apps/sdk-assets/css/0/zendesk_garden.css" type="text/css">
 </head>
 <body>
+  <!-- Spacing utility classes are used throughout this file to provide margin and padding between elements.
+       See more examples at http://garden.zendesk.com/css-bedrock/utilities/spacing/ -->
   <div class="u-m u-fg-dark-gray">
     <div class="u-mb">
       <h1 class="u-beta u-mb u-fg-oil">Zendesk Garden Demo</h1>
@@ -53,26 +57,25 @@
       <h2 class="u-gamma u-mb">Buttons</h2>
       <button class="c-btn">.c-btn</button>
       <button class="c-btn c-btn--primary">.c-btn.c-btn--primary</button>
-      <div class="l-btn-group u-display-inline-block u-mb">
+      <button class="c-btn c-btn--pill">.c-btn.c-btn--pill</button>
+      <div class="l-btn-group u-display-inline-block">
         <button class="c-btn">One</button><button class="c-btn">Two</button><button class="c-btn">Three</button>
       </div>
     </div>
 
     <div class="u-mb">
-      <a href="http://garden.zendesk.com/css-forms/checkbox/" class="u-float-right c-btn c-btn--pill">More Checkboxes &gt;</a>
       <h2 class="u-gamma u-mb">Form Controls</h2>
       <div class="l-grid u-mb">
-        <div class="l-grid__item u-1/3">
-          <fieldset class="c-chk">
-            <input class="c-chk__input" id="chk-0" type="checkbox">
-            <label class="c-chk__label" dir="ltr" for="chk-0">.c-chk</label>
-          </fieldset>
-        </div><div class="l-grid__item u-1/3">
-          <fieldset class="c-chk c-chk--toggle">
+        <div class="l-grid__item u-1/2">
+          <a href="http://garden.zendesk.com/css-forms/checkbox/" class="u-float-right c-btn c-btn--pill">More Checkboxes &gt;</a>
+          <fieldset class="c-chk c-chk--toggle u-mb">
             <input class="c-chk__input" id="tgl-0" type="checkbox">
             <label class="c-chk__label" dir="ltr" for="tgl-0">.c-chk.c-chk--toggle</label>
           </fieldset>
-        </div><div class="l-grid__item u-1/3">
+          <fieldset class="c-chk u-mb">
+            <input class="c-chk__input" id="chk-0" type="checkbox">
+            <label class="c-chk__label" dir="ltr" for="chk-0">.c-chk</label>
+          </fieldset>
           <fieldset class="c-chk c-chk--radio">
             <input class="c-chk__input" id="rdo-01" name="rdo-0" type="radio">
             <label class="c-chk__label" dir="ltr" for="rdo-01">.c-chk.c-chk--radio</label>
@@ -85,35 +88,34 @@
             <input class="c-chk__input" id="rdo-03" name="rdo-0" type="radio">
             <label class="c-chk__label" dir="ltr" for="rdo-03">.c-chk.c-chk--radio</label>
           </fieldset>
-        </div>
-      </div>
-
-      <form class="l-grid u-mb">
-        <div class="l-grid__item u-1/2">
+        </div><div class="l-grid__item u-1/2">
           <fieldset class="c-txt u-mb-sm">
+            <a href="http://garden.zendesk.com/css-forms/text/" class="u-float-right c-btn c-btn--pill">More Textareas &gt;</a>
             <label class="c-txt__label" for="txt-2">Label One</label>
             <small class="c-txt__hint">Hint text for one...</small>
             <input class="c-txt__input" id="txt-2" placeholder="Email" type="email">
           </fieldset>
-        </div>
-        <div class="l-grid__item u-1/2">
           <fieldset class="c-txt u-mb-sm">
             <label class="c-txt__label" for="txt-3">Label Two</label>
             <small class="c-txt__hint">Hint text for two...</small>
             <input class="c-txt__input" id="txt-3" placeholder="Password" type="password">
           </fieldset>
+          <fieldset class="c-txt u-mb-sm">
+            <a href="http://garden.zendesk.com/css-forms/dropdown/" class="u-float-right c-btn c-btn--pill">More Dropdowns &gt;</a>
+            <label class="c-txt__label" for="select-2">A &lt;select&gt; Dropdown</label>
+            <small class="c-txt__hint">Styling on a &lt;select&gt; input element for lightweight, no-JS usage.</small>
+            <select class="c-txt__input c-txt__input--select" id="select-2">
+              <option>One</option>
+              <option>Two</option>
+              <option>Three</option>
+            </select>
+          </fieldset>
         </div>
-      </form>
+      </div>
     </div>
-
   </div>
-
-
-
-
 
   <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
   <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
-
 </body>
 </html>
