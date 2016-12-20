@@ -8,15 +8,47 @@ Whether you are building an App for your own company or for all of Zendesk custo
 
 If you aren't sure about any of the points below, if you have questions about the approval process or if you would like to receive guidance or help building your first Zendesk App, please feel free to get in touch at support@zendesk.com.
 
-## Zendesk Apps: Must avoid
+## General Advice
 
-:no_entry: In this section you'll find practices you must avoid if you want your App to pass the approval process :no_entry:
+* Use the latest framework version.
 
-* Do not try to create your own [Handlebars helper](http://handlebarsjs.com/), it is not possible at this stage.
+* [Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don't_repeat_yourself). Be critical of your own app, if you see that you've repeatedly done the same thing in your code then look to simplify by making helper functions that can be used in more than one place.
 
-* Do not use an out-dated framework version
+* Cleanup. Use life-cycle events `app.deactivated` and `app.willDestroy` to tidy up your app's state.  The intent for these events, and a general best practice, is to cleanup anything that your app might have set up that is no longer needed and might impact on performance of the product it is running in.  A prime candidate for cleanup would be intervals you've created via `setInterval` or `setTimeout`. App developers should always store a reference to an ID returned from either of the above methods so as to be able to call `clearInterval` or `clearTimeout`.
 
-* Do not try to access the `window` object that may interfere with the new Zendesk or other Apps (even via an external library)
+* Use promises to handle asynchronous instructions. See [JavaScript Promises: an Introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises) on Google's developer portal for a great introduction to JavaScript promises.
+
+* Cache the result of promises and API requests when the data doesn't change often.
+
+* Use [secure settings](https://developer.zendesk.com/apps/docs/apps-v2/using_sdk#using-secure-settings) for passwords and API tokens.
+
+* Check out our [changelog](https://developer.zendesk.com/apps/docs/apps-v2/changelog) frequently to keep up to date with the latest framework updates.
+
+* Make sure you define an app version. An app version will help you, and anyone else using the app keep track of what is installed. This can be particularly helpful if a bug is found and you need to provide a newer version of an app.
+
+* When [creating a ticket in telephony apps](https://support.zendesk.com/entries/24539263#topic_o32_xv1_sk), be sure that you're setting the via_id to 44 (voicemail), 45 (inbound call), or 46 (outbound call) depending on the type of call. This ensures that Zendesk admins and agents are able to properly report on these tickets within Zendesk.
+
+## v2 Guidelines
+
+### Best Practices
+
+* Prefer [bulk calls](https://developer.zendesk.com/apps/docs/apps-v2/using_sdk#bulk-calls) over single calls whenever possible.
+
+* Specify `autoLoad: false` for locations where you don't need to display a user interface and use the `background` location with the Instances API to interact with those locations. This reduces the number of iframes that need to be created for your app, thus saving Memory and CPU. See [Instances API Sample App](https://github.com/zendesk/demo_apps/tree/master/v2/support/instances_sample_app) for an example of this technique.
+
+* Use the [App Scaffold](https://github.com/zendesk/app_scaffold/tree/from-scratch)'s from-scratch branch when starting development of any non-trivial app. The App Scaffold includes many features to help you maintain and scale your app.
+
+* Use [signed urls](https://developer.zendesk.com/apps/docs/apps-v2/using_sdk#authenticating-requests-with-signed-urls) to verify the request is legitimate when developing server-side apps.
+
+## v1 Guidelines
+
+### Must avoid
+
+:no_entry: In this section you'll find practices you must avoid if you want your app to pass the approval process :no_entry:
+
+* Do not create your own [Handlebars helper](http://handlebarsjs.com/), as it could cause collisions with other apps and/or the product it is running in.
+
+* Do not try to access the `window` object that may interfere with the Zendesk products or other apps (even via an external library).
 
 * Do not load any external libraries using AJAX, for example:
 
@@ -24,11 +56,11 @@ If you aren't sure about any of the points below, if you have questions about th
   this.ajax('getScript', 'mylibrary.js'),
 ```
 
-* Do not alter the behavior of Javascript classes that will be used outside of your app such as `String` and `Array`.
+* Do not alter the behavior of Javascript built-in classes that will be used outside of your app such as `String` and `Array`.
 
-## Zendesk Apps: Best Practices
+* Do not use SASS @mixins, @imports or any other directives that cause unscoped styles to be included on your app, as it could cause collisions with other apps and/or the product it is running in.
 
-* Make sure you define an App version. An App version will help you, and anyone else using the App keep track of what is installed. This can be particularly helpful if a bug is found and you need to provide a newer version of an App.
+### Best Practices
 
 * Define CSS in `app.css`, instead of leaving them in the templates.
 
@@ -38,7 +70,7 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Display a spinner while your app is waiting for something, e.g. an AJAX call
 
-* Clean up console.log and debugger statements before submitting your App.
+* Clean up console.log and debugger statements before submitting your app.
 
 * Use Underscore helpers to process `Arrays`, and `Objects`. App developers deal with a huge amount of work involving `Array` and `Object` processing. Underscore is a utility library that simplifies common operations you might perform on either an `Array` or an `Object`. A good example might be `_.map`, `_.filter`, `_.each` or `_.find`.
 
@@ -67,7 +99,7 @@ renderJSONData: function(data) {
 
 > Now we can just simply call `this.ajax('sampleRequest', requestData);`
 
-* Use app.created to check if the App is loaded for the first time. e.g.:
+* Use app.created to check if the app is loaded for the first time. e.g.:
 
 ```js
 'app.created': function(data) {
@@ -91,7 +123,6 @@ renderJSONData: function(data) {
 var $div = this.$('div');
 ```
 
-* Use promises to handle asynchronous instructions.
 
 * Be careful when defining an object in the main returned object: they are shared across instances of the app, so can lead to unexpected behavior when misused. Below is an example:
 
@@ -104,9 +135,3 @@ var $div = this.$('div');
     }
   }
 ```
-
-* When [creating a ticket in telephony apps](https://support.zendesk.com/entries/24539263#topic_o32_xv1_sk), be sure that you're setting the via_id to 44 (voicemail), 45 (inbound call), or 46 (outbound call) depending on the type of call. This ensures that Zendesk admins and agents are able to properly report on these tickets within Zendesk.
-
-* Cleanup. We have life-cycle events for App deactivation and removal, `app.deactivate` and `app.willDestroy` respectively.  The intent for these events, and a general best practice, is to cleanup anything that your App might have set up that is no longer needed and might impact on performance of Lotus/other Apps.  A prime candidate for cleanup would be intervals you've created via `setInterval` or `setTimeout` (worth noting that App Developers should always store a reference to an ID returned from either of the above methods so as to be able to call `clearInterval` or `clearTimeout`.
-
-* DRY. Be critical of your own App, if you see that you've repeatedly done the same thing in your code then look to simplify by making helper functions that can be used in more than one place.
