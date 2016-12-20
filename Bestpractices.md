@@ -10,9 +10,11 @@ If you aren't sure about any of the points below, if you have questions about th
 
 ## General Advice
 
-* DRY. Be critical of your own app, if you see that you've repeatedly done the same thing in your code then look to simplify by making helper functions that can be used in more than one place.
+* Use the latest framework version.
 
-* Cleanup. Use life-cycle events `app.deactivated` and `app.willDestroy` to tidy up your app's state.  The intent for these events, and a general best practice, is to cleanup anything that your app might have set up that is no longer needed and might impact on performance of Lotus/other apps.  A prime candidate for cleanup would be intervals you've created via `setInterval` or `setTimeout` (worth noting that app Developers should always store a reference to an ID returned from either of the above methods so as to be able to call `clearInterval` or `clearTimeout`.
+* [Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don't_repeat_yourself). Be critical of your own app, if you see that you've repeatedly done the same thing in your code then look to simplify by making helper functions that can be used in more than one place.
+
+* Cleanup. Use life-cycle events `app.deactivated` and `app.willDestroy` to tidy up your app's state.  The intent for these events, and a general best practice, is to cleanup anything that your app might have set up that is no longer needed and might impact on performance of the product it is running in.  A prime candidate for cleanup would be intervals you've created via `setInterval` or `setTimeout`. App developers should always store a reference to an ID returned from either of the above methods so as to be able to call `clearInterval` or `clearTimeout`.
 
 * Use promises to handle asynchronous instructions. See [JavaScript Promises: an Introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises) on Google's developer portal for a great introduction to JavaScript promises.
 
@@ -22,6 +24,8 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Check out our [changelog](https://developer.zendesk.com/apps/docs/apps-v2/changelog) frequently to keep up to date with the latest framework updates.
 
+* Make sure you define an app version. An app version will help you, and anyone else using the app keep track of what is installed. This can be particularly helpful if a bug is found and you need to provide a newer version of an app.
+
 * When [creating a ticket in telephony apps](https://support.zendesk.com/entries/24539263#topic_o32_xv1_sk), be sure that you're setting the via_id to 44 (voicemail), 45 (inbound call), or 46 (outbound call) depending on the type of call. This ensures that Zendesk admins and agents are able to properly report on these tickets within Zendesk.
 
 ## v2 Guidelines
@@ -30,11 +34,11 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Prefer [bulk calls](https://developer.zendesk.com/apps/docs/apps-v2/using_sdk#bulk-calls) over single calls whenever possible.
 
-* Specify `autoLoad: false` for locations where you don't need to display a user interface and use the `background` location with the Instances API to interact with those locations. See [Instances API Sample App](https://github.com/zendesk/demo_apps/tree/master/v2/support/instances_sample_app) for an example of this technique.
+* Specify `autoLoad: false` for locations where you don't need to display a user interface and use the `background` location with the Instances API to interact with those locations. This reduces the number of iframes that need to be created for your app, thus saving Memory and CPU. See [Instances API Sample App](https://github.com/zendesk/demo_apps/tree/master/v2/support/instances_sample_app) for an example of this technique.
 
 * Use the [App Scaffold](https://github.com/zendesk/app_scaffold/tree/from-scratch)'s from-scratch branch when starting development of any non-trivial app. The App Scaffold includes many features to help you maintain and scale your app.
 
-* Use [signed urls](https://developer.zendesk.com/apps/docs/apps-v2/using_sdk#authenticating-requests-with-signed-urls) when developing server-side apps.
+* Use [signed urls](https://developer.zendesk.com/apps/docs/apps-v2/using_sdk#authenticating-requests-with-signed-urls) to verify the request is legitimate when developing server-side apps.
 
 ## v1 Guidelines
 
@@ -42,9 +46,7 @@ If you aren't sure about any of the points below, if you have questions about th
 
 :no_entry: In this section you'll find practices you must avoid if you want your app to pass the approval process :no_entry:
 
-* Do not try to create your own [Handlebars helper](http://handlebarsjs.com/), it is not possible at this stage.
-
-* Do not use an out-dated framework version
+* Do not create your own [Handlebars helper](http://handlebarsjs.com/), as it could cause collisions with other apps and/or the product it is running in.
 
 * Do not try to access the `window` object that may interfere with the Zendesk products or other apps (even via an external library).
 
@@ -54,11 +56,11 @@ If you aren't sure about any of the points below, if you have questions about th
   this.ajax('getScript', 'mylibrary.js'),
 ```
 
-* Do not alter the behavior of Javascript classes that will be used outside of your app such as `String` and `Array`.
+* Do not alter the behavior of Javascript built-in classes that will be used outside of your app such as `String` and `Array`.
+
+* Do not use SASS @mixins, @imports or any other directives that cause unscoped styles to be included on your app, as it could cause collisions with other apps and/or the product it is running in.
 
 ### Best Practices
-
-* Make sure you define an app version. An app version will help you, and anyone else using the app keep track of what is installed. This can be particularly helpful if a bug is found and you need to provide a newer version of an app.
 
 * Define CSS in `app.css`, instead of leaving them in the templates.
 
@@ -70,7 +72,7 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Clean up console.log and debugger statements before submitting your app.
 
-* Use Underscore helpers to process `Arrays`, and `Objects`. app developers deal with a huge amount of work involving `Array` and `Object` processing. Underscore is a utility library that simplifies common operations you might perform on either an `Array` or an `Object`. A good example might be `_.map`, `_.filter`, `_.each` or `_.find`.
+* Use Underscore helpers to process `Arrays`, and `Objects`. App developers deal with a huge amount of work involving `Array` and `Object` processing. Underscore is a utility library that simplifies common operations you might perform on either an `Array` or an `Object`. A good example might be `_.map`, `_.filter`, `_.each` or `_.find`.
 
 * When sending `POST` / `PUT` requests Use `JSON.stringify()` to dump your json data object into a string when only json format is accepted at the API end point.
 
