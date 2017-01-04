@@ -5,4 +5,4 @@
 This sample app demonstrates a selection of styles possible using Zendesk Garden bootstrap styles.
 
 ### Screenshot(s):
-![screen shot 2016-10-31 at 2 12 42 pm](https://cloud.githubusercontent.com/assets/2517811/19843218/3fa9689e-9f74-11e6-9ed2-2d0ffe408b46.png)
+![Garden Sample App screenshot](https://cloud.githubusercontent.com/assets/153219/21628408/6759a05c-d273-11e6-899c-df70548ce2a9.png)
