@@ -1,0 +1,121 @@
+<html>
+<head>
+  <!-- Zendesk Garden styles are provided for apps from this URL. We recommend hotlinking to this version
+       provided by our CDN to ensure the latest updates are refected in your app. -->
+  <link rel="stylesheet" href="https://assets.zendesk.com/apps/sdk-assets/css/0/zendesk_garden.css" type="text/css">
+</head>
+<body>
+  <!-- Spacing utility classes are used throughout this file to provide margin and padding between elements.
+       See more examples at http://garden.zendesk.com/css-bedrock/utilities/spacing/ -->
+  <div class="u-m u-fg-dark-gray">
+    <div class="u-mb">
+      <h1 class="u-beta u-mb u-fg-oil">Zendesk Garden Demo</h1>
+      <p>This page demonstrates a selection of styles and components available from Zendesk Garden to use within your app.</p>
+      <p>Full documentation on classes can be found at <a href="http://garden.zendesk.com/">garden.zendesk.com</a></p>
+    </div>
+
+    <div class="u-cf u-mb">
+      <a href="http://garden.zendesk.com/css-bedrock/layouts/grid/" class="u-float-right c-btn c-btn--pill">More Grids &gt;</a>
+      <h2 class="u-gamma u-mb">Grid</h2>
+
+      <!-- Bedrock grid assumes that column elements are side-by-side, eliminating whitespace.
+           Hence, tags are closed on the following line to ensure no whitespace between grid items.
+           See more examples at http://garden.zendesk.com/css-bedrock/layouts/grid/ -->
+      <div class="l-grid u-mb">
+        <span class="l-grid__item u-1/3"><code class="u-bg-platinum u-display-block u-p-xs">.u-1/3</code></span
+        ><span class="l-grid__item u-1/3"><code class="u-bg-platinum u-display-block u-p-xs">.u-1/3</code></span
+        ><span class="l-grid__item u-1/3"><code class="u-bg-platinum u-display-block u-p-xs">.u-1/3</code></span>
+      </div>
+      <div class="l-grid u-mb">
+        <span class="l-grid__item u-1/4"><code class="u-bg-platinum u-display-block u-p-xs">.u-1/4</code></span
+        ><span class="l-grid__item u-1/4"><code class="u-bg-platinum u-display-block u-p-xs">.u-1/4</code></span
+        ><span class="l-grid__item u-1/4"><code class="u-bg-platinum u-display-block u-p-xs">.u-1/4</code></span
+        ><span class="l-grid__item u-1/4"><code class="u-bg-platinum u-display-block u-p-xs">.u-1/4</code></span>
+      </div>
+      <div class="l-grid">
+        <span class="l-grid__item u-1/5"><code class="u-bg-platinum u-display-block u-p-xs">.u-1/5</code></span
+        ><span class="l-grid__item u-3/5"><code class="u-bg-platinum u-display-block u-p-xs">.u-3/5</code></span
+        ><span class="l-grid__item u-1/5"><code class="u-bg-platinum u-display-block u-p-xs">.u-1/5</code></span>
+      </div>
+    </div>
+
+    <div class="u-cf u-mb">
+      <a href="http://garden.zendesk.com/css-bedrock/utilities/color/" class="u-float-right c-btn c-btn--pill">More Colors &gt;</a>
+      <h2 class="u-gamma u-mb">Colors</h2>
+      <div class="l-grid l-grid--xs">
+        <span class="l-grid__item u-1/5"><code class="u-bg-algae u-br-l u-display-block u-fg-white u-p-xs">.u-bg-algae</code></span
+        ><span class="l-grid__item u-1/5"><code class="u-bg-apple-green u-display-block u-fg-white u-p-xs">.u-bg-apple-green</code></span
+        ><span class="l-grid__item u-1/5"><code class="u-bg-pelorous u-display-block u-fg-white u-p-xs">.u-bg-pelorous</code></span
+        ><span class="l-grid__item u-1/5"><code class="u-bg-orange-peel u-display-block u-fg-white u-p-xs">.u-bg-orange-peel</code></span
+        ><span class="l-grid__item u-1/5"><code class="u-bg-mandy u-br-r u-display-block u-fg-white u-p-xs">.u-bg-mandy</code></span>
+      </div>
+
+    </div>
+
+    <div class="u-cf u-mb">
+      <a href="http://garden.zendesk.com/css-bedrock/color.html" class="u-float-right c-btn c-btn--pill">More Buttons &gt;</a>
+      <h2 class="u-gamma u-mb">Buttons</h2>
+      <button class="c-btn">.c-btn</button>
+      <button class="c-btn c-btn--primary">.c-btn.c-btn--primary</button>
+      <button class="c-btn c-btn--pill">.c-btn.c-btn--pill</button>
+      <div class="l-btn-group u-display-inline-block">
+        <button class="c-btn">One</button><button class="c-btn">Two</button><button class="c-btn">Three</button>
+      </div>
+    </div>
+
+    <div class="u-mb">
+      <h2 class="u-gamma u-mb">Form Controls</h2>
+      <div class="l-grid u-mb">
+        <div class="l-grid__item u-1/2">
+          <a href="http://garden.zendesk.com/css-forms/checkbox/" class="u-float-right c-btn c-btn--pill">More Checkboxes &gt;</a>
+          <fieldset class="c-chk c-chk--toggle u-mb">
+            <input class="c-chk__input" id="tgl-0" type="checkbox">
+            <label class="c-chk__label" dir="ltr" for="tgl-0">.c-chk.c-chk--toggle</label>
+          </fieldset>
+          <fieldset class="c-chk u-mb">
+            <input class="c-chk__input" id="chk-0" type="checkbox">
+            <label class="c-chk__label" dir="ltr" for="chk-0">.c-chk</label>
+          </fieldset>
+          <fieldset class="c-chk c-chk--radio">
+            <input class="c-chk__input" id="rdo-01" name="rdo-0" type="radio">
+            <label class="c-chk__label" dir="ltr" for="rdo-01">.c-chk.c-chk--radio</label>
+          </fieldset>
+          <fieldset class="c-chk c-chk--radio">
+            <input class="c-chk__input" id="rdo-02" name="rdo-0" type="radio">
+            <label class="c-chk__label" dir="ltr" for="rdo-02">.c-chk.c-chk--radio</label>
+          </fieldset>
+          <fieldset class="c-chk c-chk--radio">
+            <input class="c-chk__input" id="rdo-03" name="rdo-0" type="radio">
+            <label class="c-chk__label" dir="ltr" for="rdo-03">.c-chk.c-chk--radio</label>
+          </fieldset>
+        </div><div class="l-grid__item u-1/2">
+          <fieldset class="c-txt u-mb-sm">
+            <a href="http://garden.zendesk.com/css-forms/text/" class="u-float-right c-btn c-btn--pill">More Textareas &gt;</a>
+            <label class="c-txt__label" for="txt-2">Label One</label>
+            <small class="c-txt__hint">Hint text for one...</small>
+            <input class="c-txt__input" id="txt-2" placeholder="Email" type="email">
+          </fieldset>
+          <fieldset class="c-txt u-mb-sm">
+            <label class="c-txt__label" for="txt-3">Label Two</label>
+            <small class="c-txt__hint">Hint text for two...</small>
+            <input class="c-txt__input" id="txt-3" placeholder="Password" type="password">
+          </fieldset>
+          <fieldset class="c-txt u-mb-sm">
+            <a href="http://garden.zendesk.com/css-forms/dropdown/" class="u-float-right c-btn c-btn--pill">More Dropdowns &gt;</a>
+            <label class="c-txt__label" for="select-2">A &lt;select&gt; Dropdown</label>
+            <small class="c-txt__hint">Styling on a &lt;select&gt; input element for lightweight, no-JS usage.</small>
+            <select class="c-txt__input c-txt__input--select" id="select-2">
+              <option>One</option>
+              <option>Two</option>
+              <option>Three</option>
+            </select>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
+  <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+</body>
+</html>
