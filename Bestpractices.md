@@ -20,7 +20,7 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Cache the result of promises and API requests when the data doesn't change often.
 
-* Use [secure settings](https://developer.zendesk.com/apps/docs/apps-v2/using_sdk#using-secure-settings) for passwords and API tokens.
+* Use [secure settings](https://developer.zendesk.com/apps/docs/apps-v2/using_sdk#using-secure-settings) for API tokens.
 
 * Check out our [changelog](https://developer.zendesk.com/apps/docs/apps-v2/changelog) frequently to keep up to date with the latest framework updates.
 
