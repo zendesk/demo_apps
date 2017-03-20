@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <style>
+    * { font-family: sans-serif; font-size: small; }
+  </style>
+  <body>
+    <p>The UI of your app with requirements can go in here.</p>
+    <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+    <script>
+      var client = ZAFClient.init();
+      client.on('app.registered', function(data) {
+        console.log('App registered');
+      });
+    </script>
+  </body>
+</html>

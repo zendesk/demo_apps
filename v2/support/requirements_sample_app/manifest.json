@@ -7,6 +7,11 @@
   "defaultLocale": "en",
   "private": true,
   "version": "1.0",
-  "location": ["ticket_sidebar", "new_ticket_sidebar"],
-  "frameworkVersion": "1.0"
+  "location": {
+    "support": {
+      "ticket_sidebar": "assets/iframe.html",
+      "new_ticket_sidebar": "assets/iframe.html"
+    }
+  },
+  "frameworkVersion": "2.0"
 }
