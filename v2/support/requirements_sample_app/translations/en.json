@@ -1,0 +1,9 @@
+{
+  "app": {
+    "package": "requirements_sample",
+    "name": {
+      "value": "Requirements Sample App",
+      "title": "app name"
+    }
+  }
+}
