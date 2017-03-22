@@ -1,19 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-  </head>
-  <style>
-    * { font-family: sans-serif; font-size: small; }
-  </style>
-  <body>
-    <p>The UI of your app with requirements can go in here.</p>
-    <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
-    <script>
-      var client = ZAFClient.init();
-      client.on('app.registered', function(data) {
-        console.log('App registered');
+<html>
+<head>
+  <link rel="stylesheet" href="https://assets.zendesk.com/apps/sdk-assets/css/1/zendesk_garden.css" type="text/css">
+</head>
+<body>
+  <section data-main>Loading...</section>
+  <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
+  <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+  <script>
+    // Initialise the Zendesk JavaScript API client
+    // https://developer.zendesk.com/apps/docs/apps-v2
+    var client = ZAFClient.init();
+
+    function renderText(text) {
+      var mainSectionEl = document.querySelector('section[data-main]');
+      mainSectionEl.innerText = text;
+    }
+
+    function init() {
+      client.get('requirement:ticket_custom_field').then(function(data) {
+        var requirement = data['requirement:ticket_custom_field'];
+
+        if (!requirement) {
+          renderText('Error: Could not find `requirement:ticket_custom_field`, have you added the field to your ticket form?');
+          return;
+        }
+
+        var customFieldPath = 'custom_field_' + requirement.requirement_id;
+        // set the text to the current value
+        client.get('ticket.customField:' + customFieldPath).then(function(data) {
+          var fieldValue = data['ticket.customField:' + customFieldPath];
+          renderText('Requirement field value: ' + fieldValue);
+        });
+
+        // update text whenever the value changes
+        client.on('ticket.' + customFieldPath + '.changed', function(fieldValue) {
+          renderText('Requirement field value: ' + fieldValue);
+        });
       });
-    </script>
-  </body>
+    }
+
+    client.on('app.registered', function() {
+      client.invoke('resize', { width: '100%', height: '80px' });
+      init();
+    });
+  </script>
+</body>
 </html>

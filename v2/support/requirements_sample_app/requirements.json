@@ -1,20 +1,8 @@
 {
-  "targets": {
-    "a_basecamp_target": {
-      "title": "A Basecamp Target",
-      "type": "basecamp_target",
-      "active": true,
-      "target_url": "http://myjira.com.au",
-      "token": "123456",
-      "project_id": "99999",
-      "resource": "todo"
-    },
-
-    "an_email_target": {
-      "title": "A Basecamp Target",
-      "type": "email_target",
-      "email": "hello@afakebasecampaddress.com",
-      "subject": "Hello, from this target!"
+  "ticket_fields": {
+    "ticket_custom_field": {
+      "type": "text",
+      "title": "Sample app ticket field"
     }
   }
 }

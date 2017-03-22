@@ -1,8 +1,8 @@
 {
   "app": {
-    "package": "requirements_only",
+    "package": "requirements_sample",
     "name": {
-      "value": "Requirements Only App",
+      "value": "Requirements Sample App",
       "title": "app name"
     }
   }
