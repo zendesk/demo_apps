@@ -60,6 +60,11 @@ If you aren't sure about any of the points below, if you have questions about th
 
 * Do not use SASS @mixins, @imports or any other directives that cause unscoped styles to be included on your app, as it could cause collisions with other apps and/or the product it is running in.
 
+* Do not bind to events dynamically (e.g. `this.$().on`). Always declare events in the `events` object.
+
+* Do not use ajax callbacks (e.g. `success`, `fail`, `always`). Either declare request events in the `events` object or use the promise returned by `this.ajax`.
+
+
 ### Best Practices
 
 * Define CSS in `app.css`, instead of leaving them in the templates.
