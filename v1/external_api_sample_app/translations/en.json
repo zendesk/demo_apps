@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "external_rest_api_sample_app",
     "description": {
       "value": "Shows how to make REST request to non-Zendesk endpoints in App.",
       "title": "app description"

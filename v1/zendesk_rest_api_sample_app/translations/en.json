@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "zendesk_rest_api_sample",
     "description": {
       "value": "Show off Zendesk REST API and this.currentLocation() API",
       "title": "app description"

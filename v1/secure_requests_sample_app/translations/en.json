@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "secure_demo_app",
     "description": {
       "value": "Show how secure works.",
       "title": "app description"

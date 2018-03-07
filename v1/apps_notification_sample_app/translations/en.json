@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "app_name",
     "description": {
       "value": "Show how notifications work in an app",
       "title": "app description"

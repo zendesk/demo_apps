@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "basic_ticket_sample",
     "description": {
       "value": "Demo of ticket, user and account APIs",
       "title": "app description"
