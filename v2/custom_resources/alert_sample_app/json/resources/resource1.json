@@ -1,0 +1,9 @@
+{
+  "data": {
+    "type": "alert",
+    "attributes": {
+      "contents": "Account is about to churn",
+      "level": "medium"
+    }
+  }
+}
