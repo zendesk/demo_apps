@@ -103,7 +103,7 @@ const App = class App {
   relationshipsHandler(response) {
     const relationships = response.data;
     if (relationships.length > 0) {
-      for (i = 0; i < relationships.length; i++) {
+      for (let i = 0; i < relationships.length; i++) {
         const alertId = relationships[i].target;
         const alertPromise = this.getResourcePromise(alertId);
 
