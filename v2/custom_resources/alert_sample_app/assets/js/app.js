@@ -4,22 +4,7 @@ const App = class App {
     this.customResources = new CustomResources(client);
     this.config = {
       height: '320px',
-      productResourceTypeKey: 'product',
-      relationshipTypeKey: 'user_pays_for_product',
-      userResourceTypeKey: 'zen:user'
-    };
-    this.elements = {
-      name: this.$('.current.product .name select'),
-      notification: this.$('.notification'),
-      price: {
-        annually: this.$('.current.product .price .annually'),
-        monthly: this.$('.current.product .price .monthly')
-      },
-      save: this.$('.current.product button'),
-      sla: {
-        during: this.$('.current.product .sla .during'),
-        minutes: this.$('.current.product .sla .minutes')
-      }
+      relationshipTypeKey: 'ticket_to_alert'
     };
   }
 
@@ -53,7 +38,7 @@ const App = class App {
     ticketIdPromise.then(response => {
       const ticketId = response;
 
-      const ticketRelationshipsPromise = this.customResources.getRelationships('zen:ticket:' + ticketId, 'tickets_to_alerts');
+      const ticketRelationshipsPromise = this.customResources.getRelationships('zen:ticket:' + ticketId, this.config.relationshipTypeKey);
 
       ticketRelationshipsPromise.then(relResponse => {
         const relationships = relResponse.data;
@@ -65,7 +50,7 @@ const App = class App {
             const alertPromise = this.customResources.getResource(alertId);
             alertPromise.then(alertResponse => {
               if (alertResponse.data) {
-                const alertMsg = alertResponse.data.attributes.message;
+                const alertMsg = alertResponse.data.attributes.contents;
                 this.displayAlert(alertMsg);
               }
             });
@@ -76,7 +61,9 @@ const App = class App {
   }
 
   displayAlert(message) {
-    return 'foo';
+    let p = document.createElement('p');
+    p.innerText = message;
+    this.$('body').appendChild(p);
   }
 
   notify(message, kind = 'notice') {
