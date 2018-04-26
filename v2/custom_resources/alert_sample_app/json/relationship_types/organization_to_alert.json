@@ -1,0 +1,7 @@
+{
+  "data": {
+    "key": "organization_to_alert",
+    "source": "zen:organization",
+    "target": "alert"
+  }
+}

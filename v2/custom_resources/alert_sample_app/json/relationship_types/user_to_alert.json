@@ -1,0 +1,7 @@
+{
+  "data": {
+    "key": "user_to_alert",
+    "source": "zen:user",
+    "target": "alert"
+  }
+}

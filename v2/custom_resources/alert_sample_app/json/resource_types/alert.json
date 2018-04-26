@@ -1,0 +1,18 @@
+{
+  "data": {
+    "key": "alert",
+    "schema": {
+      "properties": {
+        "contents": {
+          "type": "string",
+          "description": "The contents of the alert"
+        },
+        "level": {
+          "type": "string",
+          "description": "The alert level: 'low','medium' or 'high'"
+        }
+      },
+      "required": ["contents"]
+    }
+  }
+}

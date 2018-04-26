@@ -1,0 +1,9 @@
+{
+  "data": {
+    "type": "alert",
+    "attributes": {
+      "contents": "User is VIP",
+      "level": "high"
+    }
+  }
+}
