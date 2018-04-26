@@ -6,6 +6,11 @@ const App = class App {
       height: '320px',
       relationshipTypeKey: 'ticket_to_alert'
     };
+    this.location = {
+      organization: 'organization_sidebar',
+      ticket: 'ticket_sidebar',
+      user: 'user_sidebar'
+    };
   }
 
   // Helper to find HTML elements
@@ -18,15 +23,24 @@ const App = class App {
     return elements;
   }
 
+
+  getLocation() {
+    const queryString  = location.search;
+    const searchParams = new URLSearchParams(queryString);
+    const location     = searchParams.get('location');
+
+    return location;
+  }
+
   getTicketId() {
     const path = 'ticket.id';
     return this.client.get(path)
-                      .then((response) => {
-                        const id = response[path];
-                        return new Promise(resolve => {
-                          return resolve(id);
-                        });
-                      });
+      .then((response) => {
+        const id = response[path];
+        return new Promise(resolve => {
+          return resolve(id);
+        });
+      });
   }
 
   init() {
@@ -58,6 +72,18 @@ const App = class App {
         }
       });
     });
+  }
+
+  isOrganizationSidebar() {
+    return this.getLocation() === this.location.organization;
+  }
+
+  isTicketSidebar() {
+    return this.getLocation() === this.location.ticket;
+  }
+
+  isUserSidebar() {
+    return this.getLocation() === this.location.user;
   }
 
   displayAlert(message) {

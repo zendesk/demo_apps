@@ -9,7 +9,9 @@
   "private": true,
   "location": {
     "support": {
-      "ticket_sidebar": "assets/iframe.html"
+      "organization_sidebar": "assets/iframe.html?location=organization_sidebar",
+      "ticket_sidebar": "assets/iframe.html?location=ticket_sidebar",
+      "user_sidebar": "assets/iframe.html?location=user_sidebar"
     }
   },
   "version": "1.0",
