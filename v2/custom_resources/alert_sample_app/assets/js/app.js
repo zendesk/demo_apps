@@ -57,7 +57,7 @@ const App = class App {
       ticketRelationshipsPromise.then(relResponse => {
         const relationships = relResponse.data;
         if (relationships.length > 0) {
-          for (i = 0; i < relationships.length; i++) {
+          for (let i = 0; i < relationships.length; i++) {
             const alertId = relationships[i].target;
 
             // Fetching alert from Custom Resources
