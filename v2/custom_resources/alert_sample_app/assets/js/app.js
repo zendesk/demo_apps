@@ -23,54 +23,64 @@ const App = class App {
     return elements;
   }
 
+  displayAlert(message) {
+    let p = document.createElement('p');
+    p.innerText = message;
+    this.$('body').appendChild(p);
+  }
 
   getLocation() {
-    const queryString  = location.search;
+    const queryString  = window.location.search;
     const searchParams = new URLSearchParams(queryString);
     const location     = searchParams.get('location');
 
     return location;
   }
 
-  getTicketId() {
-    const path = 'ticket.id';
+  getResourcePromise(id) {
+    return this.customResources.getResource(id);
+  }
+
+  getRelationshipsPromise(id) {
+    return this.customResources.getRelationships(
+      `zen:${this.getZenType()}:${id}`,
+      this.config.relationshipTypeKey
+    );
+  }
+
+  getZenIdPromise() {
+    const path = `${this.getZenType()}.id`;
     return this.client.get(path)
-      .then((response) => {
-        const id = response[path];
-        return new Promise(resolve => {
-          return resolve(id);
-        });
-      });
+                      .then((response) => {
+                        const id = response[path];
+                        return new Promise(resolve => {
+                          return resolve(id);
+                        });
+                      });
+  }
+
+  getZenType() {
+    if (this.isOrganizationSidebar()) {
+      return 'organization';
+    } else if (this.isTicketSidebar()) {
+      return 'ticket';
+    } else if (this.isUserSidebar()) {
+      return 'user'
+    } else {
+      throw 'Invalid location';
+    }
   }
 
   init() {
     this.resize(this.config.height);
 
-    const ticketIdPromise = this.getTicketId();
+    const zenIdPromise = this.getZenIdPromise();
 
     // When the promises in the array have resolved, do something
-    ticketIdPromise.then(response => {
-      const ticketId = response;
+    zenIdPromise.then(id => {
+      const relationshipsPromise = this.getRelationshipsPromise(id);
 
-      const ticketRelationshipsPromise = this.customResources.getRelationships('zen:ticket:' + ticketId, this.config.relationshipTypeKey);
-
-      ticketRelationshipsPromise.then(relResponse => {
-        const relationships = relResponse.data;
-        if (relationships.length > 0) {
-          for (let i = 0; i < relationships.length; i++) {
-            const alertId = relationships[i].target;
-
-            // Fetching alert from Custom Resources
-            const alertPromise = this.customResources.getResource(alertId);
-            alertPromise.then(alertResponse => {
-              if (alertResponse.data) {
-                const alertMsg = alertResponse.data.attributes.contents;
-                this.displayAlert(alertMsg);
-              }
-            });
-          }
-        }
-      });
+      relationshipsPromise.then(this.relationshipsHandler);
     });
   }
 
@@ -86,19 +96,32 @@ const App = class App {
     return this.getLocation() === this.location.user;
   }
 
-  displayAlert(message) {
-    let p = document.createElement('p');
-    p.innerText = message;
-    this.$('body').appendChild(p);
-  }
-
   notify(message, kind = 'notice') {
     this.client.invoke('notify', message, kind);
+  }
+
+  relationshipsHandler(response) {
+    const relationships = response.data;
+    if (relationships.length > 0) {
+      for (i = 0; i < relationships.length; i++) {
+        const alertId = relationships[i].target;
+        const alertPromise = this.getResourcePromise(alertId);
+
+        alertPromise.then(this.resourceHandler);
+      }
+    }
   }
 
   resize(height) {
     this.client.invoke('resize', {
       height: height
     });
+  }
+
+  resourceHandler(response) {
+    if (response.data) {
+      const alertMsg = alertResponse.data.attributes.contents;
+      this.displayAlert(alertMsg);
+    }
   }
 };
