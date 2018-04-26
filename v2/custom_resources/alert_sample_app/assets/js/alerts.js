@@ -3,31 +3,6 @@ const CustomResources = class CustomResources {
     this.request = new Request(client, '/api/custom_resources');
   }
 
-  createProduct(attributes) {
-    const data = {
-      type: this.config.productResourceType,
-      attributes: attributes
-    };
-
-    this.request.post('/resources', data);
-  }
-
-  createRelationship(relationshipTypeKey, source, target) {
-    const data = {
-      data: {
-        relationship_type: relationshipTypeKey,
-        source: source,
-        target: target
-      }
-    };
-
-    return this.request.post('/relationships', data);
-  }
-
-  deleteRelationship(relationshipId) {
-    return this.request.delete(`/relationships/${relationshipId}`);
-  }
-
   getRelationships(resourceId, relationshipTypeKey) {
     return this.request.get(`/resources/${resourceId}/relationships/${relationshipTypeKey}`);
   }
