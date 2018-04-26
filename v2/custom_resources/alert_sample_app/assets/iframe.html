@@ -2,17 +2,48 @@
 <head>
   <meta charset="utf-8">
   <!-- http://garden.zendesk.com -->
-  <link rel="stylesheet" href="https://assets.zendesk.com/apps/sdk-assets/css/2/zendesk_garden.css" type="text/css">
+  <link rel="stylesheet" href="https://assets.zendesk.com/apps/sdk-assets/css/1/zendesk_garden.css" type="text/css">
+  <link rel="stylesheet" href="css/index.css" type="text/css">
 </head>
 <body>
-  <h2 class="u-gamma">Hello, World!</h2>
-  <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
+  <main>
+    <section class="product current">
+      <div class="c-txt name">
+        <label class="c-txt__label">Name</label>
+        <select class="c-txt__input c-txt__input--select">
+          <option value="">Please select</option>
+        </select>
+      </div>
+      <div class="c-txt price">
+        <label class="c-txt__label">Price</label>
+        <div class="l-grid u-ml-0">
+          <div class="c-txt__input l-grid__item u-1/2 u-mr-sm annually"></div>
+          <div class="c-txt__input l-grid__item u-1/2 monthly"></div>
+        </div>
+      </div>
+      <div class="c-txt u-mb sla">
+        <label class="c-txt__label">SLA</label>
+        <div class="l-grid u-ml-0">
+          <div class="c-txt__input l-grid__item u-1/2 u-mr-sm minutes"></div>
+          <div class="c-txt__input l-grid__item u-1/2 during"></div>
+        </div>
+      </div>
+      <div class="u-cf">
+        <button class="c-btn c-btn--medium c-btn--primary is-disabled u-float-right">Save</button>
+      </div>
+    </section>
+  </main>
+
   <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
-  <script>
-    // Initialise the Zendesk JavaScript API client
-    // https://developer.zendesk.com/apps/docs/apps-v2
-    var client = ZAFClient.init();
-    client.invoke('resize', { width: '100%', height: '200px' });
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/alerts.js"></script>
+  <script type="text/javascript" src="js/request.js"></script>
+  <script type="text/javascript">
+    const client = ZAFClient.init();
+    client.on('app.registered', () => {
+      const app = new App(client);
+      app.init();
+    });
   </script>
 </body>
 </html>
