@@ -7,7 +7,7 @@ const CustomResources = class CustomResources {
     return this.request.get(`/resources/${resourceId}/relationships/${relationshipTypeKey}`);
   }
 
-  getRelationshipTypes() {
+  getRelationshipTypes( ) {
     return this.request.get(`/relationship_types`);
   }
 

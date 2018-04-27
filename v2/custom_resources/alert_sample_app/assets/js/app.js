@@ -5,16 +5,7 @@ const App = class App {
     this.config = {
       height: '320px',
     };
-    this.location = {
-      organization: 'organization_sidebar',
-      ticket: 'ticket_sidebar',
-      user: 'user_sidebar'
-    };
-    this.relationshipTypeKey = {
-      organization: 'organization_to_alert',
-      ticket: 'ticket_to_alert',
-      user: 'user_to_alert'
-    };
+    this.zenType = new ZenType();
   }
 
   // Helper to find HTML elements
@@ -47,25 +38,13 @@ const App = class App {
 
   getRelationshipsPromise(id) {
     return this.customResources.getRelationships(
-      `zen:${this.getZenType()}:${id}`,
-      this.getRelationshipTypeKey()
+      `zen:${this.zenType.type}:${id}`,
+      this.zenType.relationshipTypeKey
     );
   }
 
-  getRelationshipTypeKey() {
-    if (this.isOrganizationSidebar()) {
-      return this.relationshipTypeKey.organization;
-    } else if (this.isTicketSidebar()) {
-      return this.relationshipTypeKey.ticket;
-    } else if (this.isUserSidebar()) {
-      return this.relationshipTypeKey.user;
-    } else {
-      throw 'Invalid location';
-    }
-  }
-
   getZenIdPromise() {
-    const path = `${this.getZenType()}.id`;
+    const path = `${this.zenType.type}.id`;
     return this.client.get(path)
                       .then((response) => {
                         const id = response[path];
@@ -73,18 +52,6 @@ const App = class App {
                           return resolve(id);
                         });
                       });
-  }
-
-  getZenType() {
-    if (this.isOrganizationSidebar()) {
-      return 'organization';
-    } else if (this.isTicketSidebar()) {
-      return 'ticket';
-    } else if (this.isUserSidebar()) {
-      return 'user'
-    } else {
-      throw 'Invalid location';
-    }
   }
 
   init() {
@@ -98,18 +65,6 @@ const App = class App {
 
       relationshipsPromise.then(this.relationshipsHandler.bind(this));
     });
-  }
-
-  isOrganizationSidebar() {
-    return this.getLocation() === this.location.organization;
-  }
-
-  isTicketSidebar() {
-    return this.getLocation() === this.location.ticket;
-  }
-
-  isUserSidebar() {
-    return this.getLocation() === this.location.user;
   }
 
   notify(message, kind = 'notice') {
