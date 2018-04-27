@@ -1,8 +1,0 @@
-<h4>{{t "rename.instructions"}}</h4>
-<select class="rename_box" data-zd-type="select_menu">
-{{#each fieldList}}
-  <option value="{{this.name}}">{{this.label}}</option>
-{{/each}}
-</select>
-<label>{{t "rename.inputlabel"}}<input id="new_field_name" class="new_field_name comment_input"  type="text"/></label>
-<span class="do_rename btn"><a>{{t "rename.do"}}</a></span>

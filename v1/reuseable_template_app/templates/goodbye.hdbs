@@ -1,4 +1,0 @@
-{{{heading}}}
-<h2>{{t "goodbye.main"}} </h2>
-<p>{{t "goodbye.info"}}</p>
-<a class="hello">{{t "hello.main"}}</a>

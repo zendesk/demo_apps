@@ -1,3 +1,0 @@
-<div class="input-group">    
-  <input type="text" class="form-control" id='input-value-id' placeholder="Enter value you want to store in localStorage"/>
-</div>
