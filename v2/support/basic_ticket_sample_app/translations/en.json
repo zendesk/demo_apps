@@ -1,6 +1,8 @@
 {
   "app": {
-    "description": "Demo Ticket Sidebar app.",
+    "short_description": "Demo Ticket Sidebar app.",
+    "long_description": "Demo Ticket Sidebar app.",
+    "installation_instructions": "Find the Demo Ticket Sidebar app in the Zendesk marketplace.",
     "name": "Basic Ticket Sample App"
   }
 }

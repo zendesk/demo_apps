@@ -1,6 +1,8 @@
 {
   "app": {
-    "description": "Demo Modal app.",
+    "installation_instructions": "Find the app in the Zendesk marketplace.",
+    "long_description": "Demo Modal app.",
+    "short_description": "Demo Modal app.",
     "name": "Basic Modal Sample App"
   }
 }

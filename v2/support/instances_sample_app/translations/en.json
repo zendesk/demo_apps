@@ -1,6 +1,8 @@
 {
   "app": {
-    "description": "Demo Instances API app.",
+    "long_description": "Demo Instances API app.",
+    "installation_instructions": "Find the app in the Zendesk marketplace.",
+    "short_description": "Demo Instances API app.",
     "name": "Instances API Sample App"
   }
 }
