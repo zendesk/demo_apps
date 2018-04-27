@@ -1,7 +1,7 @@
 {
   "data": {
-    "key": "ticket_to_alert",
+    "key": "ticket_to_alerts",
     "source": "zen:ticket",
-    "target": "alert"
+    "target": ["alert"]
   }
 }

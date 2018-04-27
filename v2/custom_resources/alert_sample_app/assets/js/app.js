@@ -6,6 +6,7 @@ const App = class App {
       height: '320px',
     };
     this.zenType = new ZenType();
+    this.alertResourceType = 'alert';
   }
 
   // Helper to find HTML elements
@@ -46,24 +47,62 @@ const App = class App {
   getZenIdPromise() {
     const path = `${this.zenType.type}.id`;
     return this.client.get(path)
-                      .then((response) => {
-                        const id = response[path];
-                        return new Promise(resolve => {
-                          return resolve(id);
-                        });
-                      });
+                      .then(response => response[path]);
   }
 
   init() {
+    const self = this
+    
     this.resize(this.config.height);
+
+    this.$('.new-alert').onsubmit = function(e) {
+      e.preventDefault();
+
+      self.alertsParent.innerHTML = '<p>Loading...<p>';
+
+      const contents = this.querySelector('textarea').value;
+      const level = this.querySelector('select').value;
+
+      if (contents === '') {
+        return;
+      }
+
+      const resourcesPath = `${self.customResources.request.basePath}/resources`;
+      const relationshipsPath = `${self.customResources.request.basePath}/relationships`;
+
+      self.customResources.request.post(resourcesPath, {
+        data: {
+          type: self.alertResourceType,
+          attributes: {
+            contents: contents,
+            level: level
+          }
+        }
+      }).then((newAlert) => {
+        self.customResources.request.post(relationshipsPath, {
+          data: {
+            relationship_type: self.zenType.relationshipTypeKey,
+            source: `zen:${self.zenType.type}:${self.zenId}`,
+            target: newAlert.data.id
+          }
+        }).then(() => {
+          self.populateAlerts()
+        });
+      })
+    };
 
     const zenIdPromise = this.getZenIdPromise();
 
     // When the promises in the array have resolved, do something
     zenIdPromise.then(id => {
-      const relationshipsPromise = this.getRelationshipsPromise(id);
+      this.zenId = id;
 
-      relationshipsPromise.then(this.relationshipsHandler.bind(this));
+      this.populateAlerts();
+
+      // Enable once we have `this.zenId`.
+      const button = this.$('.new-alert button')
+      button.disabled = false;
+      button.classList.remove('is-disabled')
     });
   }
 
@@ -71,28 +110,45 @@ const App = class App {
     this.client.invoke('notify', message, kind);
   }
 
-  relationshipsHandler(response) {
-    const relationships = response.data;
-    if (relationships.length > 0) {
-      for (let i = 0; i < relationships.length; i++) {
-        const alertId = relationships[i].target;
-        const alertPromise = this.getResourcePromise(alertId);
+  populateAlerts() {
+    const self = this;
 
-        alertPromise.then(this.resourceHandler.bind(this));
-      }
-    }
+    this.alertsParent = self.$('.existing-alerts');
+
+    this.getRelationshipsPromise(this.zenId)
+      .then(function(relationshipsResponse) {
+        const relationships = relationshipsResponse.data;
+
+        const getAlertsPromises = relationships.map(rela => {
+          return self.getResourcePromise(rela.target);
+        });
+
+        Promise.all(getAlertsPromises).then(alerts => {
+          if (alerts.length) {
+            const existingAlertsMarkup = alerts.map(alert => {
+              const contents = alert.data.attributes.contents
+              const level = alert.data.attributes.level
+
+              const cCalloutLevelClass = {
+                low: 'c-callout--success',
+                medium: 'c-callout--warning',
+                high: 'c-callout--error'
+              }[level] || ''
+
+              return `<div class="existing-alert c-callout ${cCalloutLevelClass}">${contents}</div>`
+            }).join('');
+
+            self.alertsParent.innerHTML = existingAlertsMarkup;
+          } else {
+            self.alertsParent.innerHTML = '<p>No alerts.</p>';
+          }
+        });
+      });
   }
 
   resize(height) {
     this.client.invoke('resize', {
       height: height
     });
-  }
-
-  resourceHandler(response) {
-    if (response.data) {
-      const alertMsg = response.data.attributes.contents;
-      this.displayAlert(alertMsg);
-    }
   }
 };

@@ -1,0 +1,14 @@
+.new-alert textarea {
+  display: block;
+  width: 100%;
+}
+
+.new-alert label {
+  display: block;
+}
+
+.existing-alert {
+  margin: 1em 0;
+  padding-left: 40px;
+  background-image: none;
+}

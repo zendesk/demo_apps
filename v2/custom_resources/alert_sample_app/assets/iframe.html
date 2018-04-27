@@ -2,10 +2,34 @@
 <head>
   <meta charset="utf-8">
   <!-- http://garden.zendesk.com -->
-  <link rel="stylesheet" href="https://assets.zendesk.com/apps/sdk-assets/css/1/zendesk_garden.css" type="text/css">
+  <link rel="stylesheet" href="https://assets.zendesk.com/apps/sdk-assets/css/latest/zendesk_garden.css" type="text/css">
   <link rel="stylesheet" href="css/index.css" type="text/css">
 </head>
 <body>
+  <main>
+    <section class="product current">
+      <form class="new-alert">
+        <textarea class="c-txt__input--area"></textarea>
+        <label class="c-txt u-mb">
+          <span class="c-txt__label">Level:</span>
+          <select class="c-txt__input c-txt__input--select">
+            <option value="">(Optional)</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+        <div class="u-cf">
+          <button class="c-btn c-btn--medium c-btn--primary is-disabled u-float-right" disabled>Save</button>
+        </div>
+      </form>
+
+      <div class="existing-alerts">
+        <!-- Existing alerts are dynamically populated here. -->
+        <p>Loading...<p>
+      </div>
+    </section>
+  </main>
 
   <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
