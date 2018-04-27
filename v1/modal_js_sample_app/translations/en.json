@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "modal_sample_app",
     "description":  {
       "value": "Discover all about modal specific events, and invoking a modal",
       "title": "app description"

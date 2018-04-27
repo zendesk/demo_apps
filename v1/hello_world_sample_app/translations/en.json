@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "hello_world_sample",
     "name": {
       "value": "Hello World App",
       "title": "app name"

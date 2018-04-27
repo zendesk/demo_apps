@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "basic_organization_sample",
     "description": {
       "value": "this app shows organization info",
       "title": "app description"

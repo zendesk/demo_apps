@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "expert_sample_app",
     "description": {
       "value": "This App shows the use of promises, save hook, handlebars helper, underscore, bootstrap 2.3 elements, App interface and settings, Zendesk RESTful API and etc.",
       "title": "app description"

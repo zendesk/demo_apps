@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "interface_api_sample",
     "description": {
       "value": "Demo interacting with the ticket fields and ticket interface",
       "title": "app description"

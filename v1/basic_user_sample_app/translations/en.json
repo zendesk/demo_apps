@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "basic_user_sample",
     "description": {
       "value": "this app shows user info",
       "title": "app description"

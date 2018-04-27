@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "settings_sample_app",
     "description": {
       "value": "This app demonstrates how to use and edit app settings in manifest.json",
       "title": "app description"

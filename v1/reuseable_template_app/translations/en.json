@@ -1,6 +1,5 @@
 {
   "app": {
-    "package": "reusable_template_sample",
     "name": {
       "value": "Reusable Template App",
       "title": "app name"
