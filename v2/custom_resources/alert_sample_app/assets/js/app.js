@@ -4,12 +4,16 @@ const App = class App {
     this.customResources = new CustomResources(client);
     this.config = {
       height: '320px',
-      relationshipTypeKey: 'ticket_to_alert'
     };
     this.location = {
       organization: 'organization_sidebar',
       ticket: 'ticket_sidebar',
       user: 'user_sidebar'
+    };
+    this.relationshipTypeKey = {
+      organization: 'organization_to_alert',
+      ticket: 'ticket_to_alert',
+      user: 'user_to_alert'
     };
   }
 
@@ -44,8 +48,20 @@ const App = class App {
   getRelationshipsPromise(id) {
     return this.customResources.getRelationships(
       `zen:${this.getZenType()}:${id}`,
-      this.config.relationshipTypeKey
+      this.getRelationshipTypeKey()
     );
+  }
+
+  getRelationshipTypeKey() {
+    if (this.isOrganizationSidebar()) {
+      return this.relationshipTypeKey.organization;
+    } else if (this.isTicketSidebar()) {
+      return this.relationshipTypeKey.ticket;
+    } else if (this.isUserSidebar()) {
+      return this.relationshipTypeKey.user;
+    } else {
+      throw 'Invalid location';
+    }
   }
 
   getZenIdPromise() {
@@ -80,7 +96,7 @@ const App = class App {
     zenIdPromise.then(id => {
       const relationshipsPromise = this.getRelationshipsPromise(id);
 
-      relationshipsPromise.then(this.relationshipsHandler);
+      relationshipsPromise.then(this.relationshipsHandler.bind(this));
     });
   }
 
@@ -107,7 +123,7 @@ const App = class App {
         const alertId = relationships[i].target;
         const alertPromise = this.getResourcePromise(alertId);
 
-        alertPromise.then(this.resourceHandler);
+        alertPromise.then(this.resourceHandler.bind(this));
       }
     }
   }
@@ -120,7 +136,7 @@ const App = class App {
 
   resourceHandler(response) {
     if (response.data) {
-      const alertMsg = alertResponse.data.attributes.contents;
+      const alertMsg = response.data.attributes.contents;
       this.displayAlert(alertMsg);
     }
   }
