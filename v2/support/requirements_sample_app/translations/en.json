@@ -3,10 +3,6 @@
     "installation_instructions": "Find the app in the Zendesk marketplace.",
     "long_description": "Requirements sample app.",
     "short_description": "Requirements sample app.",
-    "package": "requirements_sample",
-    "name": {
-      "value": "Requirements Sample App",
-      "title": "app name"
-    }
+    "name": "Requirements Sample App"
   }
 }
