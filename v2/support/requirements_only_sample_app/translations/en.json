@@ -3,9 +3,6 @@
     "installation_instructions": "Find the app in the Zendesk marketplace.",
     "long_description": "Requirements only app.",
     "short_description": "Requirements only app.",
-    "name": {
-      "value": "Requirements Only App",
-      "title": "app name"
-    }
+    "name": "Requirements Only App"
   }
 }
