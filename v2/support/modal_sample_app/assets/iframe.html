@@ -1,6 +1,6 @@
 <html>
 <head>
-  <link rel="stylesheet" href="https://assets.zendesk.com/apps/sdk-assets/css/2/zendesk_garden.css" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@zendeskgarden/css-bedrock@6.0,npm/@zendeskgarden/css-buttons@5.0,npm/@zendeskgarden/css-forms@5.0" type="text/css">
   <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
@@ -32,7 +32,7 @@
     TicketApp.prototype = {
       render: function(text) {
         if (!this.inDOM) {
-          mainEl().innerHTML = '<p id="text">' + text + '<p><button class="edit">Edit</button>';
+          mainEl().innerHTML = '<p id="text">' + text + '<p><button class="edit c-btn">Edit</button>';
           document.querySelector('.edit').addEventListener('click', this.openModal.bind(this));
           this.inDOM = true;
         } else {
@@ -68,7 +68,7 @@
     ModalApp.prototype = {
       render: function(text) {
         var text = localStorage.getItem('modalText') || '';
-        mainEl().innerHTML = '<form id="modal"><textarea>' + text + '</textarea><br><button type="submit">Save</button></form>';
+        mainEl().innerHTML = '<form id="modal"><textarea class="c-txt__input c-txt__input--area">' + text + '</textarea><br><button class="c-btn" type="submit">Save</button></form>';
         document.querySelector('#modal').addEventListener('submit', this.onModalSubmit.bind(this));
       },
 
