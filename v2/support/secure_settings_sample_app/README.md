@@ -1,14 +1,19 @@
 # App name
 
-[brief description of the app]
+Bag End Catering Helper
+
+For all your hobbit catering needs!
+
+Uses the cat api.  Because who wouldn't?
 
 ### The following information is displayed:
 
-* info1
-* info2
-* info3
-
-Please submit bug reports to [Insert Link](). Pull requests are welcome.
+* The cat in the hat
+* Threw the frisbee unfortunately flat
+* High
+* It did fly
+* So that is unfortunately that
 
 ### Screenshot(s):
-[put your screenshots down here.]
+
+None as yet!
