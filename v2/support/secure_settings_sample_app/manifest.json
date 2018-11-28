@@ -12,6 +12,7 @@
       "ticket_sidebar": "assets/iframe.html"
     }
   },
+  "domainWhitelist": ["thecatapi.com", "api.thecatapi.com"],
   "parameters": [
     {
       "name": "catering_token",
