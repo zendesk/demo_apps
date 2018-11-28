@@ -1,16 +1,8 @@
-# Bag End Catering Helper
+# Secure Settings Example App
 
-### Overview
+This sample app shows how to add Secure Settings to an app. "Secure Settings" are a neat feature that allows your App to pass a secure setting via the proxy that is invisible to normal agents.
 
-For all your hobbit catering needs!
-
-Uses the cat api.  Because who wouldn't?
-
-### Details
-
-This sample app shows to the developers how to add Secure Settings to their Apps. "Secure Settings" are a neat feature that allows your App to pass a secure setting via the proxy that is invisible to normal agents.
-
-This App uses a secure setting to store a token for https://thecatapi.com/ which is required for making api requests.  To get such a key, you will need to sign up for an account, and then grab your api key from the signup email.
+In particular, this App uses a secure setting to store a token for https://thecatapi.com/ which is required for making api requests.  To get such a key, you will need to sign up for an account, and then grab your api key from the signup email.
 
 On installation the account admin should paste this key into the "catering_token" field.
 
@@ -22,14 +14,6 @@ curl --request GET \
   --url 'https://api.thecatapi.com/v1/images/search?format=json' \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: {{catering_token}}'
-
-### The following information is displayed:
-
-* The cat in the hat
-* Threw the frisbee unfortunately flat
-* High
-* It did fly
-* So that is unfortunately that
 
 ### Screenshot(s):
 
