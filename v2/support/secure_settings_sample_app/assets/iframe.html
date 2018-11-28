@@ -16,7 +16,7 @@
     client.on('app.registered', function() {
       var settings = {
         url: 'https://api.thecatapi.com/v1/images/search?format=json',
-        headers: {"x-api-key": "{{setting.catering_token}}"},
+        headers: {"x-api-key": "{{setting.api_token}}"},
         secure: true,
         type: 'GET',
         contentType: 'application/json'

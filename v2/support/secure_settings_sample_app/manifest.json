@@ -15,7 +15,7 @@
   "domainWhitelist": ["thecatapi.com", "api.thecatapi.com"],
   "parameters": [
     {
-      "name": "catering_token",
+      "name": "api_token",
       "type": "text",
       "secure": true
     }
