@@ -17,11 +17,6 @@
       "name": "catering_token",
       "type": "text",
       "secure": true
-    },
-    {
-      "name": "the_one_broom_id",
-      "type": "text",
-      "secure": true
     }
   ],
   "version": "1.0",
