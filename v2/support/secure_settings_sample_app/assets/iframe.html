@@ -5,14 +5,19 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-bedrock@7.0" type="text/css">
 </head>
 <body>
-  <h2 class="u-gamma">Check your browser console for a handy-dandy message returned
-    from a (hopefully) successful API handshake with thecatapi.com!</h2>
+  <img class="cat-picture" height="200" width="250"></h2>
   <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
   <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
   <script>
     // Initialise the Zendesk JavaScript API client
     // https://developer.zendesk.com/apps/docs/apps-v2
     var client = ZAFClient.init();
+
+    function renderImage(catPictureLink) {
+      var catPictureElement = document.querySelector("img[class='cat-picture']");
+      catPictureElement.src = catPictureLink;
+    }
+
     client.on('app.registered', function() {
       var settings = {
         url: 'https://api.thecatapi.com/v1/images/search?format=json',
@@ -21,10 +26,11 @@
         type: 'GET',
         contentType: 'application/json'
       };
-      client.invoke('resize', { width: '100%', height: '200px' });
       client.request(settings).then(function(data) {
-        console.log(data);
+        var cat_image_link = data['0']['url'];
+        renderImage(cat_image_link);
       });
+      client.invoke('resize', { width: '100%', height: '200px' });
     });
   </script>
 </body>
