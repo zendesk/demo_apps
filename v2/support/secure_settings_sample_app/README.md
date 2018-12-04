@@ -1,6 +1,6 @@
 # Secure Settings Example App
 
-This sample app shows how to add Secure Settings to an app. "Secure Settings" are a neat feature that allows your App to pass a secure setting via the proxy that is invisible to normal agents.
+This sample app shows how to add Secure Settings to an app. "Secure Settings" is a neat feature that allows your App to pass a secure setting via the proxy that is invisible to normal agents.
 
 In particular, this App uses a secure setting to store a token for https://thecatapi.com/ which is required for making api requests.  To get such a key, you will need to sign up for an account, and then grab your api key from the signup email.
 
