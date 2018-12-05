@@ -1,4 +1,3 @@
 *.zip
 **/.zat
 **/tmp
-.DS_Store
