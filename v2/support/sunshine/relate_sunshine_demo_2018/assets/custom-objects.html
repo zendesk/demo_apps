@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-bedrock@7.0" type="text/css">
+</head>
+<body>
+  <div class="account"></div>
+  <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+  </script>
+  <script>
+    const $ = jQuery
+    const client = ZAFClient.init()
+    client.invoke('resize', { width: '100%', height: '200px' })
+
+    client.on('app.registered', (app) => {
+      client.get('ticket.requester.id').then(data => {
+        const userId = data['ticket.requester.id']
+        const apiRequest = {
+          url: `/api/custom_resources/resources/zen:user:${userId}/related/is_owner_of`
+        }
+
+        client.request(apiRequest).then(response => {
+          const accounts = response.data
+
+          accounts.map(account => {
+            const attributes = account.attributes
+
+            $('.account').append(`<div><strong>Plan:</strong> ${attributes.plan}</div>`)
+            $('.account').append(`<div><strong>Expiration Date:</strong> ${attributes.expiration_date}</div>`)
+            $('.account').append(`<div><strong>Suspended:</strong> ${attributes.suspended.toString()}</div>`)
+          })
+        })
+      })
+    })
+  </script>
+</body>
+</html>

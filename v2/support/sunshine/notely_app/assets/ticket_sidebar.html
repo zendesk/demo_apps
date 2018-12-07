@@ -1,0 +1,89 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- http://garden.zendesk.com -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-bedrock@7.0" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-buttons" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-forms" type="text/css">
+  <style>
+    body {
+      padding: 4px;
+    }
+    .c-txt__input {
+      margin-bottom: 12px;
+    }
+    textarea#note {
+      background: rgb(255, 248, 237);
+    }
+  </style>
+</head>
+<body>
+  <label class="c-txt__label">Type</label>
+  <select class="c-menu c-txt__input c-txt__input--select" id="type">
+    <option value="call">Call</option>
+    <option value="email">Email</option>
+    <option value="event">Event</option>
+    <option value="meeting">Meeting</option>
+    <option value="note" selected>Note</option>
+  </select>
+  <label class="c-txt__label">Note</label>
+  <textarea class="c-txt__input c-txt__input--area" id="note" placeholder="Record a private note about this user..." rows="4"></textarea>
+  <button class="c-btn c-btn--primary" id="submit">Record Activity</button>
+  <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
+  <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+  <script>
+    // Initialise the Zendesk JavaScript API client
+    // https://developer.zendesk.com/apps/docs/apps-v2
+    var client = ZAFClient.init();
+    client.invoke('resize', { width: '100%', height: '264px' });
+
+    client.on('app.registered', function(appData) {
+      client.get('currentUser.name').then(user => {
+        // if the location is ticket_sidebar
+        client.get('ticket.requester.id').then(ticket => {
+          var requesterId = String(ticket['ticket.requester.id']);
+          var author = String(user['currentUser.name']);
+
+          var button = document.getElementById('submit')
+
+          function recordActivity() {
+            var note = document.getElementById('note');
+            var type = document.getElementById('type');
+            var description = '[' + type.value + '] ' + note.value;
+
+            if (note.value === '') return;
+
+            var settings = {
+              url: '/api/cdp/track',
+              type: 'POST',
+              dataType: 'json',
+              contentType: 'application/json',
+              data: JSON.stringify({
+                "user_id": requesterId,
+                "type": type.value,
+                "source": "notely",
+                "description": description,
+                "properties": {
+                  "author": author,
+                  "note": note.value,
+                }
+              })
+            };
+
+            client.request(settings).then(
+              function(data) {
+                note.value = '';
+              },
+              function(response) {
+                console.error(response);
+              }
+            );
+          }
+
+          button.addEventListener('click', recordActivity, false);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

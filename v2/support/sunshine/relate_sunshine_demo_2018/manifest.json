@@ -1,0 +1,17 @@
+{
+  "name": "Account",
+  "author": {
+    "name": "Zendesk Relate",
+    "email": "octillery@zendesk.com",
+    "url": "https://relate.zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "ticket_sidebar": "assets/custom-objects.html"
+    }
+  },
+  "version": "1.0",
+  "frameworkVersion": "2.0"
+}
