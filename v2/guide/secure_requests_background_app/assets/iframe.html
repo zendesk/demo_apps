@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
+  <script type="text/javascript" src="https://static.zdassets.com/zendesk_app_framework_sdk/2.0/zaf_sdk.js"></script>
+  <script>
+    // Initialise the Zendesk JavaScript API client
+    // https://developer.zendesk.com/apps/docs/apps-v2
+    var client = ZAFClient.init();
+
+    client.on('app.registered', function() {
+      var settings = {
+        url: 'https://api.thecatapi.com/v1/images/search?format=json',
+        headers: {"x-api-key": "{{setting.api_token}}"},
+        secure: true,
+        type: 'GET',
+        contentType: 'application/json'
+      };
+
+      client.request(settings).then(function(data) {
+        var catPicLink = data['0']['url'];
+        client.trigger('host:catPic', catPicLink);
+      });
+    });
+  </script>
+</body>
+</html>

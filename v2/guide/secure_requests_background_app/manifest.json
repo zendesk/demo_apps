@@ -1,0 +1,26 @@
+{
+  "name": "Secure Requests Sample App",
+  "author": {
+    "name": "Zendesk",
+    "email": "support@zendesk.com",
+    "url": "http://help.zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "guide": {
+      "background": "assets/iframe.html"
+    }
+  },
+  "domainWhitelist": ["thecatapi.com", "api.thecatapi.com"],
+  "parameters": [
+     {
+      "name": "api_token",
+      "type": "text",
+      "secure": true,
+      "default": "4788f337-b672-40b3-bccc-7dd91cc51425"
+    }
+  ],
+  "version": "1.0",
+  "frameworkVersion": "2.0"
+}

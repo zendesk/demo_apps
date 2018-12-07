@@ -1,0 +1,8 @@
+{
+  "app": {
+    "name": "Guide Secure Requests Background App",
+    "short_description": "Sample app demonstrating the use of secure proxy requests in Guide.",
+    "long_description": "Sample app demonstrating the use of secure proxy requests in Guide.",
+    "installation_instructions": "Find the app in the Zendesk marketplace."
+  }
+}
