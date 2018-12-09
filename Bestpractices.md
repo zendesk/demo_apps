@@ -10,9 +10,9 @@ If you aren't sure about any of the points below, if you have questions about th
 
 ## Best Practices
 
-* Use the latest framework version.
+* Use the [CDN framework version](https://developer.zendesk.com/apps/docs/developer-guide/using_sdk#getting-the-sdk).
 
-* Use the latest [Zendesk Garden](https://developer.zendesk.com/apps/docs/developer-guide/setup#using-the-zendesk-garden-styles) version.
+* Use [Zendesk Garden](https://developer.zendesk.com/apps/docs/developer-guide/setup#using-zendesk-garden) from NPM.
 
 * [Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don't_repeat_yourself). Be critical of your own app, if you see that you've repeatedly done the same thing in your code then look to simplify by making helper functions that can be used in more than one place.
 
