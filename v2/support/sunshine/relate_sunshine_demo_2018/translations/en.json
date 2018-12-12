@@ -1,8 +1,8 @@
 {
   "app": {
-    "name": "Zen Tunes",
-    "short_description": "Play the famous zen tunes in your help desk.",
-    "long_description": "Play the famous zen tunes in your help desk and \n listen to the beats it has to offer.",
+    "name": "Sunshine Demo",
+    "short_description": "List related accounts to the current ticket requester.",
+    "long_description": "A sample Zendesk App that allows you to list related accounts \n to the current ticket requester when on a ticket.",
     "installation_instructions": "Simply click install."
   }
 }

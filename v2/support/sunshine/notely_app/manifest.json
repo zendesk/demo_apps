@@ -6,7 +6,7 @@
     "url": "https://www.zendesk.com"
   },
   "defaultLocale": "en",
-  "private": false,
+  "private": true,
   "location": {
     "support": {
       "ticket_sidebar": "assets/ticket_sidebar.html",
