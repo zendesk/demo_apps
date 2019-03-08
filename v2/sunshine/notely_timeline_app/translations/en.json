@@ -1,0 +1,8 @@
+{
+  "app": {
+    "name": "Notely Timeline",
+    "short_description": "App to view all recorded Notely notes about a user.",
+    "long_description": "App to view all recorded Notely notes \n about a user in a single location with \n the ability to sort by note type.",
+    "installation_instructions": "Simply click install."
+  }
+}

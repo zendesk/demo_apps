@@ -1,0 +1,131 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- http://garden.zendesk.com -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-bedrock@7.0" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-buttons" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-forms" type="text/css">
+  <style>
+    body {
+      padding: 4px;
+    }
+    .c-txt__input {
+      margin-bottom: 12px;
+    }
+    .container {
+      margin: 12px 8px 16px 0;
+    }
+    .header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #87929D;
+    }
+    .note {
+      color: #2F3941;
+    }
+  </style>
+</head>
+<body>
+  <label class="c-txt__label">Filter By</label>
+  <select class="c-menu c-txt__input c-txt__input--select" id="type">
+    <option value="all">All</option>
+    <option value="call">Call</option>
+    <option value="email">Email</option>
+    <option value="event">Event</option>
+    <option value="meeting">Meeting</option>
+    <option value="note">Note</option>
+  </select>
+  <label class="c-txt__label">Notes</label>
+  <div id="events">
+    <div></div>
+  </div>
+  <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+  <script>
+    // Initialise the Zendesk JavaScript API client
+    // https://developer.zendesk.com/apps/docs/apps-v2
+    var client = ZAFClient.init();
+    client.invoke('resize', { width: '100%', height: '600px' });
+
+    var state = {
+      data: [],
+      type: 'all'
+    };
+
+    client.on('app.registered', function(appData) {
+
+      // if the location is user profile
+      client.get('user.id').then(userProfile => {
+
+        function fetchNotes() {
+          var profileId = userProfile['user.id'];
+          var settings = {
+            url: '/api/cdp/events?user_id=' + profileId,
+            type: 'GET',
+            dataType: 'json',
+          };
+
+          client.request(settings).then(
+            function(response) {
+              state.data = response.data.filter(event => event.type === 'call' || event.type === 'email' || event.type === 'event' || event.type === 'meeting' || event.type === 'note');
+              renderNotes(filter(state.data));
+            },
+            function(response) {
+              console.error('error', response);
+            }
+          );
+        }
+
+        function renderNotes(eventList) {
+          var events = document.getElementById('events');
+
+          var fragment = document.createDocumentFragment();
+          var list = document.createElement('div');
+
+          eventList.forEach(event => {
+            var container = document.createElement('div');
+            var header = document.createElement('div');
+            var author = document.createElement('div');
+            var note = document.createElement('div');
+            var timestamp = document.createElement('div');
+
+            container.classList.add('container');
+            header.classList.add('header');
+            note.classList.add('note');
+
+            author.textContent = event.properties && event.properties.author || 'anonymous';
+            note.textContent = event.properties && event.properties.note || '';
+            timestamp.textContent = moment(event.created_at).fromNow() || 'n/a';
+
+            header.appendChild(author);
+            header.appendChild(timestamp);
+            container.appendChild(header);
+            container.appendChild(note);
+            list.appendChild(container);
+          });
+
+          fragment.appendChild(list);
+          events.replaceChild(fragment, events.firstChild);
+        }
+
+        function filter() {
+          if (state.type === 'all') return state.data;
+          return state.data.filter(note => note.type === state.type);
+        }
+
+        function handleChange(event) {
+          state.type = event.target.value;
+          renderNotes(filter(state.data));
+        }
+
+        document.getElementById('type').addEventListener('change', handleChange, false);
+
+        fetchNotes()
+      });
+    });
+  </script>
+</body>
+</html>
