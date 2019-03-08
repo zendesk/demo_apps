@@ -1,0 +1,8 @@
+{
+  "app": {
+    "name": "Notely",
+    "short_description": "App to record notes of various types against a user",
+    "long_description": "App to record notes of various types against a user \n as an event that shows up in the \n customer context interaction history.",
+    "installation_instructions": "Simply click install."
+  }
+}
