@@ -3,35 +3,47 @@
   <meta charset="utf-8">
   <!-- http://garden.zendesk.com -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-bedrock@7.0" type="text/css">
+  <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-  <img class="cat-picture" height="200" width="250"></h2>
+  <img class="cat-picture" height="200" width="250"></img>
+  <div class="button" id="new-cat-button" height="20" width="50">Adopt a new cat</div>
   <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
   <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
   <script>
     // Initialise the Zendesk JavaScript API client
-    // https://developer.zendesk.com/apps/docs/apps-v2
+    // https://developer.zendesk.com/apps/docs/developer-guide/getting_started
     var client = ZAFClient.init();
+
+    var settings = {
+      url: 'https://api.thecatapi.com/v1/images/search?format=json',
+      headers: {"x-api-key": "{{setting.api_token}}"},
+      secure: true,
+      type: 'GET',
+      contentType: 'application/json'
+    };
 
     function renderImage(catPictureLink) {
       var catPictureElement = document.querySelector("img[class='cat-picture']");
       catPictureElement.src = catPictureLink;
     }
 
-    client.on('app.registered', function() {
-      var settings = {
-        url: 'https://api.thecatapi.com/v1/images/search?format=json',
-        headers: {"x-api-key": "{{setting.api_token}}"},
-        secure: true,
-        type: 'GET',
-        contentType: 'application/json'
-      };
+    function fetchNewCat() {
       client.request(settings).then(function(data) {
         var cat_image_link = data['0']['url'];
         renderImage(cat_image_link);
       });
+    }
+
+    client.on('app.registered', function() {
+      fetchNewCat();
       client.invoke('resize', { width: '100%', height: '200px' });
     });
+
+    var button = document.getElementById('new-cat-button')
+
+    button.addEventListener('click', fetchNewCat, false);
+
   </script>
 </body>
 </html>
