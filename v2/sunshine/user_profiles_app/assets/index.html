@@ -1,0 +1,160 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- http://garden.zendesk.com -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-bedrock@7.0" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-utilities" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-tags" type="text/css">
+  <link rel="stylesheet" href="./styles.css" type="text/css">
+</head>
+<body>
+  <div class="user-profiles-container"></div>
+  <div class="bottom-blur" />
+  <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+  </script>
+  <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+  <script>
+
+    const INDENT_PX = 8
+    const USER_PROFILES_CONTAINER = 'user-profiles-container'
+
+    // Initialise the Zendesk JavaScript API client
+    // https://developer.zendesk.com/apps/docs/apps-v2
+    const client = ZAFClient.init();
+
+    const resize = (height = '500px') => client.invoke('resize', { width: '100%', height })
+
+    const getClientField = field => client.get(field).then(res => res[field])
+
+    const getAvatarUrl = () => getClientField('ticket.requester.avatarUrl')
+
+    const getRequesterName = () => getClientField('ticket.requester.name')
+
+    const getPersonId = () =>
+      getClientField('ticket.requester.id')
+        .then(requesterId =>
+          client.request({
+            url: `/api/cdp/v2/profile?source=support&identifier_type=user_id&identifier_value=${requesterId}`,
+            type: 'GET',
+            contentType: 'application/json',
+          })
+        )
+        .then(res => res.data.person_id)
+
+    const getPerson = personId =>
+      client.request({
+        url: `/api/cdp/v2/person/${personId}`,
+        type: 'GET',
+        contentType: 'application/json',
+      })
+
+    const getProfiles = () =>
+      getPersonId()
+        .then(getPerson)
+        .then(response => response.data.profiles)
+
+    const optionalAttr = (key, value) => value ? ` ${key}="${value}"` : ''
+
+    const appendElement = ({ selector, element = 'div', content = '', id = '', className = '', style = '' }) =>
+      $(selector).append(
+        `<${element}${optionalAttr('class', className)}${optionalAttr('style', style)}${optionalAttr('id', id)}>${content}</${element}>`
+      )
+
+    const appendElementById = ({ toId, ...args }) => appendElement({ ...args, selector: `#${toId}`})
+
+    const appendElementByClass = ({ toClass, ...args }) => appendElement({ ...args, selector: `.${toClass}`})
+
+    const sortProfiles = ({ source: a }, { source: b }) => a > b ? 1 : -1
+
+    const profileKeyElement = ({ key, indentationStyle }) => `<span class="profile-key" style="${indentationStyle}">${key}:</span>`
+
+    const profileValueElement = ({ value, indentationStyle }) => `<span class="profile-value" style="${indentationStyle}">${value}</span>`
+
+    const renderProfileAttribute = ({ toId, key, value, indentationStyle }) =>
+      appendElementById({
+        toId,
+        className: 'profile-attribute',
+        content: `${key ? profileKeyElement({ key, indentationStyle }) : ''}${value ? profileValueElement({ value, indentationStyle }): ''}`
+      })
+
+    const renderNestedObject = (object, toId, depth = 0) => {
+      const keys = Object.keys(object)
+      const indentationStyle = `margin-left:${depth * INDENT_PX}px`
+      if (keys.length < 1) {
+        appendElementById({
+          toId,
+          content: `No data for this ${depth === 0 ? 'profile' : 'attribute'}.`,
+          className: 'no-data',
+          style: indentationStyle,
+        })
+      }
+      keys.forEach(key => {
+        const value = object[key]
+        if (Array.isArray(value)) {
+          renderProfileAttribute({
+            toId,
+            key,
+            value: value.map(listItem => `<span class="list-item c-tag">${listItem}</span>`).join(''),
+            indentationStyle,
+          })
+        } else if (value instanceof Object) {
+          renderProfileAttribute({ toId, key, indentationStyle })
+          renderNestedObject(value, toId, depth + 1)
+        } else {
+          renderProfileAttribute({ toId, key, value, indentationStyle })
+        }
+      })
+    }
+
+    const renderAvatar = avatarUrl =>
+      appendElementByClass({ toClass: USER_PROFILES_CONTAINER, className: 'avatar-img', style: `background-image:url('${avatarUrl}');`});
+
+    const renderName = name =>
+      appendElementByClass({ toClass: USER_PROFILES_CONTAINER, content: name, className: 'requester-name u-semibold u-ta-center u-fs-lg' })
+
+    const appendVerticalLine = () => appendElementByClass({ toClass: USER_PROFILES_CONTAINER, className: 'vertical-line' })
+
+    const capitalize = str => str.slice(0, 1).toUpperCase() + str.slice(1)
+
+    const renderProfile = ({ source, type, attributes }, isLastProfile) =>
+      getAvatarUrl().then(avatarUrl => {
+        // create profile element
+        const toId = `${source}-${type}`
+        appendElementByClass({ toClass: USER_PROFILES_CONTAINER, id: toId, className: 'profile' })
+
+        // add profile header
+        const headerContent = [capitalize(source), type, 'profile'].join(' ')
+        appendElementById({ toId, content: headerContent, className: 'profile-header u-semibold' })
+
+        // add profile content
+        renderNestedObject(attributes, toId)
+
+        // optionally add vertical line
+        if (!isLastProfile) {
+          appendVerticalLine()
+        }
+      })
+
+    const displayProfiles = () =>
+      getAvatarUrl()
+        .then(renderAvatar)
+        .then(getRequesterName)
+        .then(renderName)
+        .then(appendVerticalLine)
+        .then(getProfiles)
+        .then(profiles =>
+          profiles
+            .sort(sortProfiles)
+            .forEach((profile, i) => renderProfile(profile, i === profiles.length - 1))
+        )
+
+    resize()
+    displayProfiles()
+
+  </script>
+</body>
+</html>
