@@ -93,6 +93,7 @@
         })
       }
       keys.forEach(key => {
+        if (key === 'current_location' || key === 'role_id') return;
         const value = object[key]
         if (Array.isArray(value)) {
           renderProfileAttribute({
