@@ -81,8 +81,21 @@
         content: `${key ? profileKeyElement({ key, indentationStyle }) : ''}${value ? profileValueElement({ value, indentationStyle }): ''}`
       })
 
+    const DEFAULT_ATTRIBUTES_TO_IGNORE = new Set([
+      'current_location',
+      'do_not_track_location',
+      'role_id',
+    ])
+
+    const filterRootKeys = depth => {
+      if (depth === 0) {
+        return key => !DEFAULT_ATTRIBUTES_TO_IGNORE.has(key)
+      }
+      return key => key
+    }
+
     const renderNestedObject = (object, toId, depth = 0) => {
-      const keys = Object.keys(object)
+      const keys = Object.keys(object).filter(filterRootKeys(depth))
       const indentationStyle = `margin-left:${depth * INDENT_PX}px`
       if (keys.length < 1) {
         appendElementById({
