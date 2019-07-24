@@ -1,0 +1,8 @@
+{
+  "app": {
+    "long_description": "Demo app showing Zendesk Garden styles",
+    "installation_instructions": "Find the app in the Zendesk marketplace.",
+    "short_description": "Demo app showing Zendesk Garden styles",
+    "name": "Garden Sample App"
+  }
+}
