@@ -1,0 +1,26 @@
+{
+  "name": "chat_settings",
+  "version": "1.0.0",
+  "description": ":warning: *Use of this software is subject to important terms and conditions as set forth in the License file* :warning:",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build app.js -o module/assets/app.js -d module/assets/dist",
+    "start": "npm run build; zat server -p module"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "@zendeskgarden/react-buttons": "^6.2.0",
+    "@zendeskgarden/react-theming": "^6.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.2"
+  }
+}
