@@ -1,0 +1,16 @@
+{
+  "app": {
+    "name": "Test ZAF Metadata",
+    "short_description": "Test ZAF Metadata",
+    "long_description": "Test ZAF Metadata",
+    "installation_instructions": "Click install.",
+    "parameters": {
+      "enable_role_restriction": {
+        "label": "Example: Enable Role Restrictions",
+        "helpText": "Check this to enable role restrictions."
+      },
+      "form_name" : {"label": "Example: Form Name"}
+    }
+  }
+
+}
