@@ -3,12 +3,12 @@
   <meta charset="utf-8">
 </head>
 <body>
-<h2>Click to call remote server</h2></br>
-<button onclick="callRemoteServer()">Call Remote Server GET</button></br>
-<button onclick="callRemoteServer2()">Call Remote Server POST</button></br>
-<div id="requestData"></div>
-<script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2/zaf_sdk.js"></script><br/>
-<script>
+  <h2>Click to call remote server</h2></br>
+  <button onclick="callRemoteServer()">Call Remote Server GET</button></br>
+  <button onclick="callRemoteServer2()">Call Remote Server POST</button></br>
+  <div id="requestData"></div>
+  <script src="https://static.zdassets.com/zendesk_app_framework_sdk/2.0/zaf_sdk.min.js"></script>
+  <script>
   var client = ZAFClient.init()
   client.invoke('resize', { width: '100%', height: '400px' })
 
@@ -19,7 +19,7 @@
       type: "GET"
     }
 
-    client.request(requestSetting).then( (data) => {
+    client.request(requestSetting).then((data) => {
       console.log("GET data:", data)
       window.document.querySelector('#requestData').innerHTML = "<br/>" + JSON.stringify(data['args'])
     })
@@ -32,15 +32,15 @@
       secure: true,
       dataType: 'json',
       type: "POST",
-      data: JSON.stringify({name : "{{setting.subdomain}}" })
+      data: JSON.stringify({ name: "{{setting.subdomain}}" })
     }
 
-    client.request(requestSetting).then( (data) => {
+    client.request(requestSetting).then((data) => {
       console.log("POST data:", data)
       window.document.querySelector('#requestData').innerHTML = "<br/>" + data["data"]
     })
   }
-
-</script>
+  </script>
 </body>
+
 </html>
