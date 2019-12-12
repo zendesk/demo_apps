@@ -1,0 +1,60 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- http://garden.zendesk.com -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-bedrock@7.0" type="text/css">
+  <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+  <p class="joke-text-box" height="200" width="250"></img>
+  <p class="punchline-text-box" height="200" width="250"></img>
+  <div class="button" id="show-punchline-button" height="20" width="50">Show me the punchline</div>
+  <div class="button" id="new-joke-button" height="20" width="50">Fetch a new joke</div>
+  <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
+  <script type="text/javascript" src="https://static.zdassets.com/zendesk_app_framework_sdk/2.0/zaf_sdk.min.js"></script>
+  <script>
+    // Initialise the Zendesk JavaScript API client
+    // https://developer.zendesk.com/apps/docs/developer-guide/getting_started
+    var client = ZAFClient.init();
+
+    var settings = {
+      url: 'https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes',
+      type: 'GET',
+      contentType: 'application/json'
+    };
+
+    function renderJoke(question, answer) {
+      var jokeTextBox = document.querySelector("p[class='joke-text-box']");
+      var punchLineTextBox = document.querySelector("p[class='punchline-text-box']");
+      jokeTextBox.innerHTML = question;
+      punchLineTextBox.style.visibility = "hidden";
+      punchLineTextBox.innerHTML = answer;
+    }
+
+    function fetchNewJoke() {
+      client.request(settings).then(function(data) {
+        var question = data['setup'];
+        var answer = data['punchline'];
+        renderJoke(question, answer);
+      });
+    }
+
+    function showPunchLine() {
+      var punchLineTextBox = document.querySelector("p[class='punchline-text-box']");
+      punchLineTextBox.style.visibility = "visible";
+    }
+
+    client.on('app.registered', function() {
+      fetchNewJoke();
+      client.invoke('resize', { width: '100%', height: '200px' });
+    });
+
+    var newJokeButton = document.getElementById('new-joke-button')
+    var punchLineButton = document.getElementById('show-punchline-button')
+
+
+    newJokeButton.addEventListener('click', fetchNewJoke, false);
+    punchLineButton.addEventListener('click', showPunchLine, false);
+  </script>
+</body>
+</html>
