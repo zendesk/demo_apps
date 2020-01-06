@@ -9,8 +9,9 @@
         "label": "Example: Enable Role Restrictions",
         "helpText": "Check this to enable role restrictions."
       },
-      "form_name" : {"label": "Example: Form Name"}
+      "form_name": {
+        "label": "Example: Form Name"
+      }
     }
   }
-
 }

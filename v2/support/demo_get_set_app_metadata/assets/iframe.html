@@ -9,7 +9,7 @@
   <label for="formName">Enter form name to save:</label>
   <input style="width:250px" name="formName" id="formName" value="">
   </br>
-  <input type="checkbox" id="myCheckbox">My checkbox</br>
+  <input type="checkbox" id="roleRestrictionCheckbox">Enable Role Restriction</br>
   <hr>
   <button id=getMetaData>Get metadata</button>
   </br>
@@ -31,6 +31,8 @@
       // Need Installation ID when saving later.
       console.log("installationId:", metadata["installationId"])
       installationId = metadata["installationId"]
+      // Allow user to set data once they have retreived it at least once.
+      $("#setMetaData").prop("disabled", false)
 
       // Get and display app setting called "form_name" of type "text"
       console.log("form_name:", metadata.settings["form_name"])
@@ -40,9 +42,9 @@
       let role_restriciton = metadata.settings["enable_role_restriction"]
       console.log("enable_role_restriction:", role_restriciton)
       if (role_restriciton == true) {
-        $('#myCheckbox').prop('checked', true)
+        $('#roleRestrictionCheckbox').prop('checked', true)
       } else {
-        $('#myCheckbox').prop('checked', false)
+        $('#roleRestrictionCheckbox').prop('checked', false)
       }
     })
   }
@@ -50,7 +52,7 @@
   function setMetaData() {
     // Get new values from user for form_name and enable_role_restriction app setting fields.
     let newFormName = $("#formName").val()
-    let newCheckboxValue = $('#myCheckbox').prop('checked')
+    let newCheckboxValue = $('#roleRestrictionCheckbox').prop('checked')
     let data = {
       settings: {
         form_name: newFormName,
@@ -76,6 +78,9 @@
   $(document).ready(function() {
     $("#getMetaData").click(getMetaData)
     $("#setMetaData").click(setMetaData)
+
+    // Wait until user gets meta data before allowing them to set it.
+    $("#setMetaData").prop("disabled", true)
   })
   </script>
 </body>
