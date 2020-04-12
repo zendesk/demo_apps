@@ -41,6 +41,8 @@
       client.get('currentUser.name').then(user => {
         // if the location is user_sidebar
         client.get('user.id').then(userProfile => {
+          
+
           var profileId = String(userProfile['user.id']);
           var author = String(user['currentUser.name']);
 
@@ -54,18 +56,29 @@
             if (note.value === '') return;
 
             var settings = {
-              url: '/api/cdp/track',
+              url: '/api/v2/users/'+profileId+'/events',
               type: 'POST',
               dataType: 'json',
               contentType: 'application/json',
               data: JSON.stringify({
-                "user_id": profileId,
-                "type": type.value,
-                "source": "notely",
-                "description": description,
-                "properties": {
-                  "author": author,
-                  "note": note.value,
+                "event": {
+                  "type": type.value,
+                  "source": "notely",
+                  "description": description,
+                  "properties": {
+                    "author": author,
+                    "note": note.value,
+                  }
+                },
+                "profile":{
+                  "identifiers":[
+                    {
+                      "type": "notelyid",
+                      "value": profileId,
+                    }
+                  ],
+                  "type": "user",
+                  "source": "notely",
                 }
               })
             };

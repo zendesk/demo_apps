@@ -41,6 +41,7 @@
       client.get('currentUser.name').then(user => {
         // if the location is ticket_sidebar
         client.get('ticket.requester.id').then(ticket => {
+
           var requesterId = String(ticket['ticket.requester.id']);
           var author = String(user['currentUser.name']);
 
@@ -54,18 +55,29 @@
             if (note.value === '') return;
 
             var settings = {
-              url: '/api/cdp/track',
+              url: '/api/v2/users/'+requesterId+'/events',
               type: 'POST',
               dataType: 'json',
               contentType: 'application/json',
               data: JSON.stringify({
-                "user_id": requesterId,
-                "type": type.value,
-                "source": "notely",
-                "description": description,
-                "properties": {
-                  "author": author,
-                  "note": note.value,
+                "event": {
+                  "type": type.value,
+                  "source": "notely",
+                  "description": description,
+                  "properties": {
+                    "author": author,
+                    "note": note.value,
+                  }
+                },
+                "profile":{
+                  "identifiers":[
+                    {
+                      "type": "notelyid",
+                      "value": requesterId,
+                    },
+                  ],
+                  "type": "user",
+                  "source": "notely",
                 }
               })
             };
