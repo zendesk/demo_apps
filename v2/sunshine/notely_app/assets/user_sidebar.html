@@ -41,8 +41,6 @@
       client.get('currentUser.name').then(user => {
         // if the location is user_sidebar
         client.get('user.id').then(userProfile => {
-          
-
           var profileId = String(userProfile['user.id']);
           var author = String(user['currentUser.name']);
 

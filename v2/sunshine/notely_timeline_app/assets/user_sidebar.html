@@ -70,7 +70,6 @@
 
           client.request(settings).then(
             function(response) {
-              
               state.data = response.events.filter(event => event.type === 'call' || event.type === 'email' || event.type === 'event' || event.type === 'meeting' || event.type === 'note');
               renderNotes(filter(state.data));
             },
