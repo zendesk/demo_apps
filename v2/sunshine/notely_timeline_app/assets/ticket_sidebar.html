@@ -59,7 +59,6 @@
 
       // if the location is ticket
       client.get('ticket.requester.id').then(ticket => {
-        
         function fetchNotes() {
           var requesterId = ticket['ticket.requester.id'];
           var settings = {
