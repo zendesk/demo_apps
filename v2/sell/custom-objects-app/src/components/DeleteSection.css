@@ -1,0 +1,13 @@
+@import '@zendeskgarden/css-variables';
+
+.DeleteSection {
+  padding-top: 15px;
+}
+
+.deleteHeader {
+  margin-bottom: var(--zd-spacing)
+}
+
+.cancelDeleteSpacing {
+  margin: var(--zd-spacing-sm)
+}

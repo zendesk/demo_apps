@@ -1,0 +1,78 @@
+<code_scheme name="Project" version="173">
+    <option name="RIGHT_MARGIN" value="100"/>
+    <option name="HTML_ATTRIBUTE_WRAP" value="4"/>
+    <option name="HTML_ALIGN_ATTRIBUTES" value="false"/>
+    <option name="HTML_NEWLINE_BEFORE_FIRST_ATTRIBUTE" value="When multiline"/>
+    <option name="HTML_NEWLINE_AFTER_LAST_ATTRIBUTE" value="When multiline"/>
+    <HTMLCodeStyleSettings>
+        <option name="HTML_ATTRIBUTE_WRAP" value="4"/>
+        <option name="HTML_ALIGN_ATTRIBUTES" value="false"/>
+        <option name="HTML_ENFORCE_QUOTES" value="true"/>
+        <option name="HTML_NEWLINE_BEFORE_FIRST_ATTRIBUTE" value="When multiline"/>
+        <option name="HTML_NEWLINE_AFTER_LAST_ATTRIBUTE" value="When multiline"/>
+    </HTMLCodeStyleSettings>
+    <JSCodeStyleSettings>
+        <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false"/>
+        <option name="FORCE_SEMICOLON_STYLE" value="true"/>
+        <option name="SPACE_BEFORE_TYPE_COLON" value="true"/>
+        <option name="REFORMAT_C_STYLE_COMMENTS" value="true"/>
+        <option name="USE_DOUBLE_QUOTES" value="false"/>
+        <option name="FORCE_QUOTE_STYlE" value="true"/>
+        <option name="ENFORCE_TRAILING_COMMA" value="WhenMultiline"/>
+        <option name="JSX_ATTRIBUTE_VALUE" value="Based on type"/>
+        <option name="VAR_DECLARATION_WRAP" value="5"/>
+        <option name="USE_CHAINED_CALLS_GROUP_INDENTS" value="true"/>
+        <option name="SPACES_WITHIN_OBJECT_TYPE_BRACES" value="false"/>
+        <option name="IMPORT_PREFER_ABSOLUTE_PATH" value="TRUE"/>
+    </JSCodeStyleSettings>
+    <TypeScriptCodeStyleSettings>
+        <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false"/>
+        <option name="FORCE_SEMICOLON_STYLE" value="true"/>
+        <option name="ENFORCE_TRAILING_COMMA" value="WhenMultiline"/>
+        <option name="BLACKLIST_IMPORTS" value=""/>
+    </TypeScriptCodeStyleSettings>
+    <codeStyleSettings language="CSS">
+        <indentOptions>
+            <option name="INDENT_SIZE" value="2"/>
+            <option name="CONTINUATION_INDENT_SIZE" value="2"/>
+            <option name="TAB_SIZE" value="2"/>
+        </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="HTML">
+        <indentOptions>
+            <option name="INDENT_SIZE" value="2"/>
+            <option name="CONTINUATION_INDENT_SIZE" value="2"/>
+            <option name="TAB_SIZE" value="2"/>
+        </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="JavaScript">
+        <option name="RIGHT_MARGIN" value="99"/>
+        <option name="KEEP_BLANK_LINES_IN_CODE" value="1"/>
+        <option name="ALIGN_MULTILINE_PARAMETERS" value="false"/>
+        <option name="ALIGN_MULTILINE_ARRAY_INITIALIZER_EXPRESSION" value="true"/>
+        <option name="EXTENDS_LIST_WRAP" value="1"/>
+        <option name="KEEP_SIMPLE_BLOCKS_IN_ONE_LINE" value="true"/>
+        <option name="KEEP_SIMPLE_METHODS_IN_ONE_LINE" value="true"/>
+        <option name="ARRAY_INITIALIZER_WRAP" value="1"/>
+        <option name="ARRAY_INITIALIZER_LBRACE_ON_NEXT_LINE" value="true"/>
+        <option name="ARRAY_INITIALIZER_RBRACE_ON_NEXT_LINE" value="true"/>
+        <option name="WRAP_COMMENTS" value="true"/>
+        <option name="IF_BRACE_FORCE" value="3"/>
+        <option name="DOWHILE_BRACE_FORCE" value="3"/>
+        <option name="WHILE_BRACE_FORCE" value="3"/>
+        <option name="WRAP_ON_TYPING" value="0"/>
+        <option name="SOFT_MARGINS" value="80,100"/>
+        <indentOptions>
+            <option name="INDENT_SIZE" value="2"/>
+            <option name="CONTINUATION_INDENT_SIZE" value="2"/>
+            <option name="TAB_SIZE" value="2"/>
+        </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="TypeScript">
+        <indentOptions>
+            <option name="INDENT_SIZE" value="2"/>
+            <option name="CONTINUATION_INDENT_SIZE" value="2"/>
+            <option name="TAB_SIZE" value="2"/>
+        </indentOptions>
+    </codeStyleSettings>
+</code_scheme>

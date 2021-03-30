@@ -1,0 +1,11 @@
+@import '@zendeskgarden/css-variables';
+
+.Form {
+  height: 100%;
+  padding-top: var(--zd-spacing-xs);
+  padding-bottom: var(--zd-spacing-xs);
+}
+
+.submitButtonsSpacing {
+  margin: var(--zd-spacing-sm)
+}

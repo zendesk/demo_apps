@@ -1,0 +1,9 @@
+{
+  "app": {
+    "name": "Invoice",
+    "short_description": "Short description of the app",
+    "long_description": "Long description of the app",
+    "installation_instructions": "Installation instructions",
+    "parameters": {}
+  }
+}

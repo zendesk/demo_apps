@@ -1,0 +1,109 @@
+{
+  "name": "@zendesk/sell-zaf-app-scaffold",
+  "version": "0.0.2",
+  "description": "A React scaffold for developers to build Zendesk App Framework (ZAF) apps for Sell",
+  "main": "./dist/main.js",
+  "scripts": {
+    "start": "webpack -w --env development",
+    "build": "NODE_ENV=production webpack --mode production && npm run validate && zcli apps:package ./dist && echo \"Package is ready to upload to Zendesk\"",
+    "test": "jest --env=jsdom",
+    "server": "zcli apps:server ./dist",
+    "validate": "zcli apps:package ./dist",
+    "lint": "tslint --project tsconfig.json --fix",
+    "prettier": "prettier --write \"src/**/*.{ts,tsx}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zendesk/sell-zaf-app-scaffold.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/zendesk/sell-zaf-app-scaffold/issues"
+  },
+  "homepage": "https://github.com/zendesk/sell-zaf-app-scaffold#readme",
+  "dependencies": {
+    "@zendesk/sell-zaf-app-toolbox": "github:zendesk/sell-zaf-app-toolbox#v1.0.8",
+    "@zendeskgarden/css-variables": "^6.4.5",
+    "@zendeskgarden/react-buttons": "^8.31.0",
+    "@zendeskgarden/react-datepickers": "^8.31.0",
+    "@zendeskgarden/react-dropdowns": "^8.28.2",
+    "@zendeskgarden/react-forms": "^8.31.0",
+    "@zendeskgarden/react-grid": "^8.28.2",
+    "@zendeskgarden/react-loaders": "^8.28.2",
+    "@zendeskgarden/react-tables": "^8.31.0",
+    "@zendeskgarden/react-theming": "^8.28.2",
+    "@zendeskgarden/react-typography": "^8.31.0",
+    "@zendeskgarden/svg-icons": "^6.27.0",
+    "moment": "^2.29.1",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^5.5.0",
+    "@types/enzyme": "^3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^26.0.19",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/styled-components": "^5.1.7",
+    "@zendesk/zcli": "^1.0.0-beta.4",
+    "autoprefixer": "^10.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "html-webpack-plugin": "^4.5.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^14.0.0",
+    "postcss-loader": "^4.1.0",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "source-map-loader": "^1.1.3",
+    "style-loader": "^2.0.0",
+    "ts-jest": "^26.4.4",
+    "ts-loader": "^8.0.12",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-origin-ordered-imports-rule": "^1.2.2",
+    "tslint-plugin-prettier": "^2.3.0",
+    "tslint-react": "^5.0.0",
+    "tslint-react-hooks": "^2.2.2",
+    "typescript": "^4.1.3",
+    "typescript-plugin-css-modules": "^3.0.1",
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.2.0"
+  },
+  "jest": {
+    "verbose": false,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "globals": {
+      "API_URL": "idealwith",
+      "DEVELOPMENT": false
+    },
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testMatch": [
+      "<rootDir>/**/?(*.)(spec|test).ts?(x)"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.ts"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@zendeskgarden)/)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  }
+}
