@@ -12,6 +12,7 @@ Included topics in this file:
 
 - [Using the Zendesk apps scaffold](#using-the-zendesk-apps-scaffold)
 - [What you'll need](#what-you'll-need)
+- [Getting started](#getting-started)
 - [Installing the app](#installing-the-app)
 - [Implementation details](#implementation-details)
 - [Developing the app](#developing-the-app)
@@ -39,12 +40,16 @@ To use the app, complete the tasks as described in the following sections.
 
 ### Enabling custom objects
 
-Custom objects must be enabled by an administrator in Zendesk Support. If you're not an admin, ask one to enable them for you. For more information, see [Enablng custom objects](https://support.zendesk.com/hc/en-us/articles/360037716253-Sunshine-custom-objects-guide-for-admins#topic_fk5_wyl_mjb).
+Custom objects must be enabled by an administrator in Zendesk Support. If you're not an admin, ask one to enable them for you. For more information, see [Enabling custom objects](https://support.zendesk.com/hc/en-us/articles/360037716253-Sunshine-custom-objects-guide-for-admins#topic_fk5_wyl_mjb).
 
 ### Installing dependencies
 
 Run the following commands to install the necessary packages:
-` $ npm install $ npm install node-fetch `
+
+```
+$ npm install 
+$ npm install node-fetch
+```
 
 ### Installing Zendesk CLI
 
@@ -52,7 +57,7 @@ Run the following commands to install the necessary packages:
 
 ### Creating the custom object schema
 
-To quickly get up and running, a script is provided to create the schema for the custom object. The custom object type is an invoice and there is a one-to-one relationship between the standard Sell Object (`zen:deal` ) and invoice.
+To quickly get up and running, a script is provided to create the schema for the custom object. The custom object type is an invoice and there is a one-to-one relationship between the standard Sell Object (`zen:deal`) and the invoice.
 
 **Create the schema**
 
@@ -198,7 +203,7 @@ const EmptyState = () => {
 }
 ```
 
-We use standard Zendesk Garden UI components such as [Button](https://garden.zendesk.com/components/button).
+The app uses standard Zendesk Garden UI components such as a [Button](https://garden.zendesk.com/components/button).
 
 As mentioned above, adding a new `Invoice` record is handled by **NewView.tsx**.
 
@@ -304,9 +309,7 @@ In the end, you navigate back to `EntryView` using `history.push('/')` available
 
 ### Editing objects
 
-In this section, you'll learn how to edit object records using Custom Objects API. It happens when you navigate to `/edit` from `<Details>`. This action is handled by `EditView` function in **EditView.tsx** file.
-
-<!--Not sure what the above paragraph means?-->
+In this section, you'll learn how to edit object records using Custom Objects API. It occurs when you navigate to `/edit` from `<Details>`. This action is handled by `EditView` function in **EditView.tsx** file.
 
 ```js
 const EditView = ({ dealId }: { dealId: string }) => {
@@ -356,7 +359,7 @@ const sunshineResponse = useClientRequest(
 
 The response is handled by `<ResponseHandler>` like before and passed to `<EditForm>` along with the `onSubmittedForm` prop.
 
-Similarly to the `Create` function `handleSubmittedForm`, invoice attributes are passed from the form and performs an action where the `updateInvoice` implemented within the **SunshineProvider.ts** file.
+Similarly, to the `Create` function `handleSubmittedForm`, invoice attributes are passed from the form and performs an action where the `updateInvoice` implemented within the **SunshineProvider.ts** file.
 
 **updateInvoice**
 
@@ -391,7 +394,7 @@ Based on `invoiceId` provided in parameters, this method makes a PATCH request t
 
 ### Deleting objects and relationships
 
-The last action available in the app is detaching the invoice record from a deal. It can be performed from `<Details>` view by clicking the button which navigates to the `/delete` path handled by `<DeleteView>` component.
+The last action available in the app is detaching the invoice record from a deal. It can be performed from the `<Details>` view by clicking the button which navigates to the `/delete` path handled by the `<DeleteView>` component.
 
 ```js
 const DeleteView = ({dealId}: {dealId: string}) => {
@@ -468,7 +471,7 @@ A `client` performing the request is an instance of [ZAF Client](https://develop
 
 ## Developing the app
 
-Go ahead and experiment with changes in the app. You can test the app locally and use Zendesk CLI to validate and package the app before uploading to Sell.
+Go ahead and experiment with changes in the app. You can test the app locally and use Zendesk CLI to validate and package the app before uploading it to Sell.
 
 ### Testing the app locally
 
@@ -493,7 +496,7 @@ The Zendesk CLI (ZCLI) includes a local web server so you can run and test your 
 
    `https://app.futuresimple.com/sales/deals/123?zcli_apps=true`
 
-7. If you're using the Chrome browser, the content of your app may be blocked. Click the lock icon on the left side of the address bar and select **Site settings**. On the Settings page, scroll to the **Insecure Content** section, and select **Allow**.
+7. If you're using the Google Chrome browser, the content of your app may be blocked. Click the lock icon on the left side of the address bar and select **Site settings**. On the Settings page, scroll to the **Insecure Content** section, and select **Allow**.
 
    **Note:** Firefox doesn't block app content but Safari does and has no option to disable blocking.
 
