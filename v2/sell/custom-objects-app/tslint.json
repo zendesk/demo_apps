@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-react-hooks",
+    "tslint-plugin-prettier",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts",
+      "coverage/lcov-report/*.js"
+    ]
+  },
+  "rulesDirectory": ["node_modules/tslint-origin-ordered-imports-rule/dist"],
+  "rules": {
+    "prettier": true,
+    "react-hooks-nesting": "error",
+    "eofline": true,
+    "interface-name": false,
+    "ordered-imports": false,
+    "jsx-boolean-value": false,
+    "curly": false,
+    "object-literal-sort-keys": false,
+    "member-access": false,
+    "origin-ordered-imports": [true, "one-blank-line"]
+  }
+}
