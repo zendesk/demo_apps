@@ -10,7 +10,7 @@ When a user opens a deal card in Sell, the app makes an HTTP GET request to the 
 
 Included topics in this file:
 
-- [Using the Zendesk apps scaffold](#using-the-zendesk-apps-scaffold)
+- [Using the Zendesk app scaffold](#using-the-zendesk-app-scaffold)
 - [What you'll need](#what-you'll-need)
 - [Getting started](#getting-started)
 - [Installing the app](#installing-the-app)
@@ -19,7 +19,7 @@ Included topics in this file:
 
 ## Using the Zendesk app scaffold
 
-This app is built on the Zendesk app scaffold. It allows you to bootstrap a React-based application which is integrated with Zendesk Apps framework (ZAF). It is intended for experienced web developers who are comfortable working with advanced web tooling such as Webpack, Node, and npm packages, among other technologies.
+This app is built on the Zendesk app scaffold. It allows you to bootstrap a React-based application which is integrated with the Zendesk Apps framework (ZAF). It is intended for experienced web developers who are comfortable working with advanced web tooling such as Webpack, Node, and npm packages, among other technologies.
 
 To further develop the app, it is recommended to use nodeJS v14.15.3 and npm v6.14.9.
 
