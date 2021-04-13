@@ -165,7 +165,7 @@ const DetailsView = ({ dealId }: { dealId: string }) => {
 
 This component is responsible for gathering data based on the provided `dealId` prop. It calls the Custom Objects API to find the related record of custom object type `invoice` for a given `dealId`.
 
-It uses the [useClientRequest](https://github.com/zendesk/sell-zaf-app-toolbox#useclientrequesturl-options-dependencies-cachekey) hook to perform a `GET` request on the [Related Object Records API](https://developer.zendesk.com/rest_api/docs/sunshine/resources#list-related-object-records). As previously mentioned, the one-to-one relationship type is:
+It uses the [useClientRequest](https://github.com/zendesk/sell-zaf-app-toolbox#useclientrequesturl-options-dependencies-cachekey) hook to perform a GET request on the [Related Object Records API](https://developer.zendesk.com/rest_api/docs/sunshine/resources#list-related-object-records). As previously mentioned, the one-to-one relationship type is:
 
 ```
 {
@@ -186,10 +186,11 @@ In this scenario, `<ResponseHandler/>` also covers asynchronous requests. It als
 
 When the response is not empty, an `invoice` record is passed to a **Details.js** component responsible for rendering its attributes.
 
-### Creating an custom object and relationship
+### Creating a custom object and relationship
 
-In this section we will talk about the situation when above's response is empty, so there is no `Invoice` yet and we would like to add new record.
-**EmptyState.tsx** component responsible for handling this scenario displays a button to add a new `Invoice` and navigates to **NewView.tsx** via `/new` path.
+This section describes a situation when the previous response is empty. So there is no `Invoice` yet and you would like to add new record.
+
+The **EmptyState.tsx** component responsible for handling this scenario displays a button to add a new `Invoice` and navigates to **NewView.tsx** in the `/new` path.
 
 ```js
 const EmptyState = () => {
@@ -241,7 +242,7 @@ const NewView = () => {
 }
 ```
 
-This component renders `<NewForm>` with a `dealId` and a `onSubmittedForm` prop that is invoked once form is submitted.
+This component renders `<NewForm>` with a `dealId` and a `onSubmittedForm` prop that is invoked when the form is submitted.
 
 The `handleSubmittedForm` function gets invoice attributes passed from the form and performs two actions - `createInvoice` and `createRelation` implemented in **src** > **providers** > **SunshineProvider.ts**.
 
@@ -274,9 +275,9 @@ export const createInvoice = (
 };
 ```
 
-A POST request is made to [Create Object Record API](/rest_api/docs/sunshine/resources#create-object-record) endpoint and creates a new record of `Invoice`. A client performing the request is an instance of [ZAF Client](/apps/docs/core-api/client_api#zaf-client-api) initialised in `<App>` component.
+A POST request is made to [Create Object Record API](/rest_api/docs/sunshine/resources#create-object-record) endpoint and creates a new record of `Invoice`. A client performing the request is an instance of [ZAF Client](/apps/docs/core-api/client_api#zaf-client-api) initialized in the `<App>` component.
 
-In the response, the `id` in the `Invoice` record is used to create a relationship between deal and invoice.
+In the response, the `id` in the `Invoice` record is used to create a relationship between the deal and invoice.
 
 **createRelation**
 
@@ -303,13 +304,13 @@ export const createRelation = (
 };
 ```
 
-This method runs after the `createInvoice` response and as a parameter requires the `dealId` and `invoiceId` parameters. It then makes a POST request to the [Create Relationship Record API](/rest_api/docs/sunshine/relationships#create-relationship-record) endpoint and creates a new record of linking `Invoice` and Deal. A client performing the request (passed as a parameter) is also an instance of [ZAF Client](/apps/docs/core-api/client_api#zaf-client-api) initialised in an `<App>` component.
+This method runs after the `createInvoice` response and as a parameter requires the `dealId` and `invoiceId` parameters. It then makes a POST request to the [Create Relationship Record API](/rest_api/docs/sunshine/relationships#create-relationship-record) endpoint and creates a new record of linking an invoice to a deal. A client performing the request (passed as a parameter) is also an instance of [ZAF Client](/apps/docs/core-api/client_api#zaf-client-api) initialized in an `<App>` component.
 
-In the end, you navigate back to `EntryView` using `history.push('/')` available by using [React Router](https://reactrouter.com/). At this point it will load the newly created `Invoice` as described in earlier in this section.
+In the end, you navigate back to `EntryView` using `history.push('/')` available by using [React Router](https://reactrouter.com/). At this point it loads the newly created `Invoice` as described in earlier in this section.
 
-### Editing objects
+### Editing an object
 
-In this section, you'll learn how to edit object records using Custom Objects API. It occurs when you navigate to `/edit` from `<Details>`. This action is handled by `EditView` function in **EditView.tsx** file.
+In this section, you'll learn how object records are edited using Custom Objects API. It occurs when you navigate to `/edit` from `<Details>`. This action is handled by `EditView` function in the **EditView.tsx** file.
 
 ```js
 const EditView = ({ dealId }: { dealId: string }) => {
@@ -357,7 +358,7 @@ const sunshineResponse = useClientRequest(
 );
 ```
 
-The response is handled by `<ResponseHandler>` like before and passed to `<EditForm>` along with the `onSubmittedForm` prop.
+The response is handled by `<ResponseHandler>` and passed to `<EditForm>` along with the `onSubmittedForm` prop.
 
 Similarly, to the `Create` function `handleSubmittedForm`, invoice attributes are passed from the form and performs an action where the `updateInvoice` implemented within the **SunshineProvider.ts** file.
 
@@ -390,9 +391,9 @@ export const updateInvoice = (
 };
 ```
 
-Based on `invoiceId` provided in parameters, this method makes a PATCH request to the [Update Object Record](/rest_api/docs/sunshine/resources#update-object-record) endpoint. Note, the Content-Type is specified as "application/merge-patch+json".
+Based on `invoiceId` provided in the parameters, this method makes a PATCH request to the [Update Object Record](/rest_api/docs/sunshine/resources#update-object-record) endpoint. Note, the Content-Type is specified as "application/merge-patch+json".
 
-### Deleting objects and relationships
+### Deleting an object and relationship
 
 The last action available in the app is detaching the invoice record from a deal. It can be performed from the `<Details>` view by clicking the button which navigates to the `/delete` path handled by the `<DeleteView>` component.
 
@@ -467,7 +468,7 @@ export const deleteObject = (client: Client | undefined, objectId: string) => {
 
 DELETE requests are made to the [Delete Object record](/rest_api/docs/sunshine/resources#delete-object-record) and [Delete Relation record](/rest_api/docs/sunshine/relationships#delete-relationship-record) endpoints, requiring the `id` of given object.
 
-A `client` performing the request is an instance of [ZAF Client](https://developer.zendesk.com/apps/docs/core-api/client_api#zaf-client-api) initialized in `<App>` component and passed as an argument.
+A client performing the request is an instance of [ZAF Client](https://developer.zendesk.com/apps/docs/core-api/client_api#zaf-client-api) initialized in `<App>` component and passed as an argument.
 
 ## Developing the app
 
@@ -508,4 +509,4 @@ To validate the app and package it for uploading in a zip file, in your command 
 $ npm run build
 ```
 
-The output will confirm that a new zip file has been generated. The file can be found in the **dist/tmp/** folder. See [Installing the app](#installing-the-app) to upload the app to Sell.
+The output confirms a new zip file has been generated. The file can be found in the **dist/tmp/** folder. See [Installing the app](#installing-the-app) to upload the app to Sell.
