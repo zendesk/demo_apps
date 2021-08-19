@@ -1,8 +1,8 @@
 {
   "name": "My Cat App",
   "author": {
-    "name": "Zach Anthony",
-    "email": "zach.anthony@zendesk.com",
+    "name": "Zendesk",
+    "email": "support@zendesk.com",
     "url": "https://support.zendesk.com"
   },
   "defaultLocale": "en",
