@@ -1,0 +1,30 @@
+{
+  "name": "My Cat App",
+  "author": {
+    "name": "Zach Anthony",
+    "email": "zach.anthony@zendesk.com",
+    "url": "https://support.zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "ticket_sidebar": {
+        "url": "assets/iframe.html",
+        "size": {
+          "height": "375px"
+        }
+      }
+    }
+  },
+  "domainWhitelist": ["thecatapi.com", "api.thecatapi.com"],
+  "parameters": [
+    {
+      "name": "api_token",
+      "type": "text",
+      "secure": true
+    }
+  ],
+  "version": "1.0",
+  "frameworkVersion": "2.0"
+}
