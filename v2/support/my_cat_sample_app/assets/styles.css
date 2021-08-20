@@ -1,0 +1,14 @@
+main {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#cat-picture {
+    margin: 2em 0em 2em 0em;
+}
+
+.c-btn {
+    margin: 0.5em;
+}

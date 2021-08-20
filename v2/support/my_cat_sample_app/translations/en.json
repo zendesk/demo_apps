@@ -1,0 +1,8 @@
+{
+  "app": {
+    "name": "My Cat App",
+    "short_description": "An app for cat lovers",
+    "long_description": "An app to share humorous pictures of cats with your favourite customers",
+    "installation_instructions": "You'll just need to add an API token for The Cat API which you can get for free from [here](https://thecatapi.com/signup)"
+  }
+}
