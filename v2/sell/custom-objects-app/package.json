@@ -30,7 +30,7 @@
     "@zendeskgarden/react-dropdowns": "^8.28.2",
     "@zendeskgarden/react-forms": "^8.31.0",
     "@zendeskgarden/react-grid": "^8.28.2",
-    "@zendeskgarden/react-loaders": "^8.28.2",
+    "@zendeskgarden/react-loaders": "^8.42.0",
     "@zendeskgarden/react-tables": "^8.31.0",
     "@zendeskgarden/react-theming": "^8.28.2",
     "@zendeskgarden/react-typography": "^8.31.0",
