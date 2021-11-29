@@ -1,0 +1,17 @@
+{
+  "name": "ZIS Tutorial - Slack Notifier",
+  "author": {
+    "name": "My name",
+    "email": "dev@example.com",
+    "url": "https://www.example.com"
+  },
+  "version": "1.0",
+  "frameworkVersion": "2.0",
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "nav_bar": "assets/index.html"
+    }
+  }
+}
