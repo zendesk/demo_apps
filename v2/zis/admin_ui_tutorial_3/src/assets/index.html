@@ -1,0 +1,71 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- jQuery is chosen for it's simplicity to setup and go -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+  <!-- The following jsDelivr combine endpoint is used to load all of the Garden npm package
+       CSS required by the demo. Additional components may be added by updating the link URL.
+       See https://www.jsdelivr.com/features#combine for details. -->
+  <link href="https://cdn.jsdelivr.net/combine/npm/@zendeskgarden/css-bedrock,npm/@zendeskgarden/css-grid,npm/@zendeskgarden/css-buttons,npm/@zendeskgarden/css-forms,npm/@zendeskgarden/css-utilities" rel="stylesheet">
+
+  <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
+  <script type="text/javascript" src="https://static.zdassets.com/zendesk_app_framework_sdk/2.0/zaf_sdk.min.js"></script>
+
+  <!-- bootstrap the app -->
+  <script type="text/javascript" src="bootstrap.js"></script>
+
+  <!-- establish connection -->
+  <script type="text/javascript" src="connect.js"></script>
+
+  <!-- configs management -->
+  <script type="text/javascript" src="config.js"></script>
+
+  <!-- enable workflow -->
+  <script type="text/javascript" src="registry.js"></script>
+</head>
+<body>
+  <div class="u-m u-fg-grey-800">
+    <div class="u-mb">
+      <div class="row">
+        <div class="col-6">
+          <div class="c-txt u-mb">
+            <button id="btnConnect" class="c-btn c-btn--primary">Zendesk Authorization</button>
+          </div>
+          <div class="c-txt u-mb">
+            <button id="btnConnectSlack" class="c-btn c-btn--primary">Slack Authorization</button>
+          </div>
+          <div class="c-txt u-mb">
+            <button id="btnInstallFlow" class="c-btn c-btn--primary">Install Flow</button>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="c-txt u-mb-small">
+                <label class="c-txt__label" for="txt-priority">Ticket priority</label>
+                <select class="c-txt__input c-txt__input--select" id="select-priority">
+                  <option value="low">Low</option>
+                  <option value="normal">Normal</option>
+                  <option value="high">High</option>
+                  <option value="urgent">Urgent</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="c-txt u-mb-small">
+                <label class="c-txt__label" for="txt-channel">Slack channel</label>
+                <input class="c-txt__input" id="txt-channel" placeholder="e.g. #general" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="row u-mt">
+            <div class="col-12">
+              <button id="submit" class="c-btn c-btn--primary" style="float: right">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
