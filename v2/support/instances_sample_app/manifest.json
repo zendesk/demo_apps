@@ -10,7 +10,10 @@
   "location": {
     "support": {
       "background": "assets/iframe.html",
-      "ticket_sidebar": { "autoLoad": false }
+      "ticket_sidebar": { 
+        "autoLoad": false,
+        "flexible": true 
+      }
     }
   },
   "version": "1.0",
