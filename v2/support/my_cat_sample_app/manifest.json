@@ -11,6 +11,7 @@
     "support": {
       "ticket_sidebar": {
         "url": "assets/iframe.html",
+        "flexible": true,
         "size": {
           "height": "375px"
         }

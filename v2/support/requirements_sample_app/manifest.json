@@ -9,8 +9,14 @@
   "version": "1.0",
   "location": {
     "support": {
-      "ticket_sidebar": "assets/iframe.html",
-      "new_ticket_sidebar": "assets/iframe.html"
+      "ticket_sidebar": {
+        "url": "assets/iframe.html",
+        "flexible": true
+      },
+      "new_ticket_sidebar": {
+        "url":"assets/iframe.html",
+        "flexible": true
+      }
     }
   },
   "frameworkVersion": "2.0"

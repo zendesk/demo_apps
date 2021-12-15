@@ -9,7 +9,10 @@
   "private": true,
   "location": {
     "support": {
-      "ticket_sidebar": "assets/iframe.html"
+      "ticket_sidebar": {
+        "url": "assets/iframe.html",
+        "flexible": true
+      }
     }
   },
   "domainWhitelist": ["thecatapi.com", "api.thecatapi.com"],
