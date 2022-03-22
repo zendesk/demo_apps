@@ -22,7 +22,7 @@ $(function() {
     // Bind button to start Slack OAuth flow
     $("#btnConnectSlack").click(function() { startSlackOAuth(integrationKey, subdomain) });
 
-    // Bind button to start Slack OAuth flow
+    // Bind button to install the Flow
     $("#btnInstallFlow").click(function() { installFlow(integrationKey) });
 
     // Bind button to submit config
