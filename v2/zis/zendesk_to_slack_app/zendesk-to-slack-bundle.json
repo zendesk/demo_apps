@@ -1,0 +1,143 @@
+{
+  "name": "Post Slack message on ticket creation",
+  "description": "Posts ticket data to Slack channel on ticket creation",
+  "zis_template_version": "2019-10-14",
+  "resources": {
+    "get_zendesk_ticket_http_action": {
+      "type": "ZIS::Action::Http",
+      "properties": {
+        "name": "get_zendesk_ticket_http_action",
+        "definition": {
+          "method": "GET",
+          "path": "/api/v2/tickets/{{$.ticketId}}.json",
+          "headers": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{$.token}}"
+            }
+          ]
+        }
+      }
+    },
+    "post_message_to_slack_http_action": {
+      "type": "ZIS::Action::Http",
+      "properties": {
+        "name": "post_message_to_slack_http_action",
+        "definition": {
+          "method": "POST",
+          "url": "https://slack.com/api/chat.postMessage",
+          "headers": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{$.token}}"
+            }
+          ],
+          "requestBody": {
+            "channel": "{{$.channelId}}",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "{{$.title}}"
+                },
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Subject*"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Description*"
+                  },
+                  {
+                    "type": "plain_text",
+                    "text": "{{$.ticketSubject}}"
+                  },
+                  {
+                    "type": "plain_text",
+                    "text": "{{$.ticketDescription}}"
+                  }
+                ]
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "{{$.link}}"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "post_ticket_update_flow": {
+      "type": "ZIS::Flow",
+      "properties": {
+        "name": "post_ticket_update_flow",
+        "definition": {
+          "StartAt": "LoadSettings",
+          "States": {
+            "LoadSettings": {
+              "Type": "Action",
+              "ActionName": "zis:common:action:LoadConfig",
+              "Parameters": {
+                "scope": "slackNotification"
+              },
+              "ResultPath": "$.settings",
+              "Next": "IsTicketPriorityMatch"
+            },
+            "IsTicketPriorityMatch": {
+              "Type": "Choice",
+              "Choices": [
+                {
+                  "Variable": "$.input.ticket_event.ticket.priority",
+                  "StringEqualsPath": "$.settings.priority",
+                  "Next": "GetZendeskTicket"
+                }
+              ],
+              "Default": "Done"
+            },
+            "GetZendeskTicket": {
+              "Type": "Action",
+              "ActionName": "zis:{subdomain}_zendesk_to_slack:action:get_zendesk_ticket_http_action",
+              "Parameters": {
+                "token.$": "$.connections.zendesk.access_token",
+                "ticketId.$": "$.input.ticket_event.ticket.id"
+              },
+              "ResultPath": "$.retrievedTicket",
+              "Next": "PostMessageToSlack"
+            },
+            "PostMessageToSlack": {
+              "Type": "Action",
+              "ActionName": "zis:{subdomain}_zendesk_to_slack:action:post_message_to_slack_http_action",
+              "Parameters": {
+                "token.$": "$.connections.slack.access_token",
+                "channelId.$": "$.settings.channel",
+                "ticketSubject.$": "$.retrievedTicket.ticket.subject",
+                "ticketDescription.$": "$.retrievedTicket.ticket.description",
+                "title.$": "*_New {{$.input.ticket_event.ticket.priority}} ticket #{{$.input.ticket_event.ticket.id}}_*",
+                "link.$": "<{{$.retrievedTicket.ticket.url}}|View in Zendesk>"
+              },
+              "ResultPath": "$.postMessageResponse",
+              "Next": "Done"
+            },
+            "Done": {
+              "Type": "Succeed"
+            }
+          }
+        }
+      }
+    },
+    "post_message_to_slack_on_ticket_creation_job_spec": {
+      "type": "ZIS::JobSpec",
+      "properties": {
+        "name": "post_message_to_slack_on_ticket_creation_job_spec",
+        "event_source": "support",
+        "event_type": "ticket.TicketCreated",
+        "flow_name": "zis:{subdomain}_zendesk_to_slack:flow:post_ticket_update_flow"
+      }
+    }
+  }
+}

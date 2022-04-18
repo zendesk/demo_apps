@@ -1,0 +1,17 @@
+{
+  "name": "Zendesk to Slack Notifier",
+  "author": {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "url": ""
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "nav_bar": "assets/iframe.html"
+    }
+  },
+  "version": "1.0.0",
+  "frameworkVersion": "2.0"
+}

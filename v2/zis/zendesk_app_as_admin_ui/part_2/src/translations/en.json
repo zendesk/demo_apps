@@ -1,8 +1,0 @@
-{
-  "app": {
-    "name": "ZIS Tutorial - Slack Notifier Part 2",
-    "short_description": "An example app to show case Zendesk apps being used as an admin UI for Zendesk Integration Services",
-    "long_description": "An example app to show case Zendesk apps being used as an admin UI for Zendesk Integration Services",
-    "installation_instructions": "Follow the instruction to install as a private app: https://developer.zendesk.com/documentation/apps/getting-started/uploading-and-installing-a-private-app/"
-  }
-}

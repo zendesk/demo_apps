@@ -1,27 +1,29 @@
 // configScope is a custom defined key for referencing the configuration data
 let configScope = "slackNotification";
 
-// scopeExists is a boolean flag to indicate if the config data exists
-// for a given scope
+// Indicates whether config data exists for slackNotification
 let scopeExists = false;
 
 // fetchConfig defines the function to fetch config data
-function fetchConfig(integrationKey) {
+function fetchConfig(integrationName) {
   // Fetch config request
   let request = {
     type: "GET",
-    url: "/api/services/zis/integrations/" + integrationKey +
-      "/configs?filter[scope]=" + configScope
+    url:
+      "/api/services/zis/integrations/" +
+      integrationName +
+      "/configs?filter[scope]=" +
+      configScope,
   };
 
   client.request(request).then(
-    function(response) {
-      console.log("Config fetched successfully: ", response.configs[0].config)
+    function (response) {
+      console.log("Config fetched: ", response.configs[0].config);
       scopeExists = true;
       updateComponents(response.configs[0].config);
     },
-    function(response) {
-      console.log("Config fetching failed: ", response)
+    function (response) {
+      console.log("Config fetching failed: ", response);
       if (response.status == 404) {
         scopeExists = false;
       }
@@ -30,14 +32,14 @@ function fetchConfig(integrationKey) {
 }
 
 // submitConfig maps the data from DOM and submit through ZIS Configs API
-function submitConfig(integrationKey) {
+function submitConfig(integrationName) {
   // Prepare the config payload
   let data = JSON.stringify({
     scope: configScope,
     config: {
-      priority: $("#select-priority").val(),
-      channel: $("#txt-channel").val()
-    }
+      priority: document.getElementById("select-priority").value,
+      channel: document.getElementById("txt-channel").value,
+    },
   });
 
   // The request is for create or update config data
@@ -47,27 +49,31 @@ function submitConfig(integrationKey) {
     // request for update config
     request = {
       type: "PUT",
-      url: "/api/services/zis/integrations/" + integrationKey + "/configs/" + configScope,
+      url:
+        "/api/services/zis/integrations/" +
+        integrationName +
+        "/configs/" +
+        configScope,
       contentType: "application/json",
-      data: data
+      data: data,
     };
   } else {
     // request for create config
     request = {
       type: "POST",
-      url: "/api/services/zis/integrations/" + integrationKey + "/configs",
+      url: "/api/services/zis/integrations/" + integrationName + "/configs",
       contentType: "application/json",
-      data: data
+      data: data,
     };
   }
 
   client.request(request).then(
-    function(response) {
-      console.log("Config submitted successfully: ", response);
-      client.invoke('notify', "Submitted successfully");
+    function (response) {
+      console.log("Config saved: ", response);
+      client.invoke("notify", "Config saved");
       scopeExists = true;
     },
-    function(response) {
+    function (response) {
       console.log("Config submission failed: ", response);
     }
   );
@@ -76,6 +82,6 @@ function submitConfig(integrationKey) {
 // updateComponents updates the UI components with the newly fetched config data
 function updateComponents(config) {
   console.log("Updating components with config: ", config);
-  $("#select-priority").val(config.priority);
-  $("#txt-channel").val(config.channel);
+  document.getElementById("select-priority").value = config.priority;
+  document.getElementById("txt-channel").value = config.channel;
 }
