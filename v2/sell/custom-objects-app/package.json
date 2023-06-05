@@ -32,7 +32,7 @@
     "@zendeskgarden/react-grid": "^8.28.2",
     "@zendeskgarden/react-loaders": "^8.28.2",
     "@zendeskgarden/react-tables": "^8.31.0",
-    "@zendeskgarden/react-theming": "^8.28.2",
+    "@zendeskgarden/react-theming": "^8.67.0",
     "@zendeskgarden/react-typography": "^8.31.0",
     "@zendeskgarden/svg-icons": "^6.27.0",
     "moment": "^2.29.1",
