@@ -3,6 +3,7 @@
 Notely is a sample Zendesk App that allows agents to record events using the [Custom Events API](https://developer.zendesk.com/documentation/custom-data/events/about-the-events-api/).
 
 Events can be viewed in Interaction History in Agent Workspace. To learn more, see [Adding Sunshine user profiles and events to customer context in a ticket](https://support.zendesk.com/hc/en-us/articles/4408828663322)
+
 <img src="./images/screenshot.png" width="400">
 
 ## Table of Contents
