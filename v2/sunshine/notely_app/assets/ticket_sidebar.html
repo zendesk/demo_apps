@@ -49,23 +49,37 @@
           function recordActivity() {
             var note = document.getElementById('note');
             var type = document.getElementById('type');
-            var description = '[' + type.value + '] ' + note.value;
+            var description = '[' + type.text + '] ' + note.value;
 
             if (note.value === '') return;
 
             var settings = {
-              url: '/api/cdp/track',
+              url: '/api/v2/users/'+ requesterId + '/events',
               type: 'POST',
               dataType: 'json',
               contentType: 'application/json',
               data: JSON.stringify({
-                "user_id": requesterId,
-                "type": type.value,
-                "source": "notely",
-                "description": description,
-                "properties": {
-                  "author": author,
-                  "note": note.value,
+                "event": {
+                  "type": type.value,
+                  "source": "notely",
+                  "description": description,
+                  "properties": {
+                    "author": author,
+                    "note": note.value,
+                  }
+                },
+                "profile": {
+                  "source": "notely",
+                  "type": "user",
+                  "identifiers": [
+                    {
+                      "type": "user_id",
+                      "value": requesterId
+                    }
+                  ],
+                  "attributes": {
+                    "last_modified_by": author
+                  }
                 }
               })
             };
