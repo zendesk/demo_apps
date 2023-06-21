@@ -27,7 +27,7 @@
     "@zendeskgarden/css-variables": "^6.4.5",
     "@zendeskgarden/react-buttons": "^8.31.0",
     "@zendeskgarden/react-datepickers": "^8.31.0",
-    "@zendeskgarden/react-dropdowns": "^8.28.2",
+    "@zendeskgarden/react-dropdowns": "^8.67.0",
     "@zendeskgarden/react-forms": "^8.31.0",
     "@zendeskgarden/react-grid": "^8.28.2",
     "@zendeskgarden/react-loaders": "^8.28.2",
