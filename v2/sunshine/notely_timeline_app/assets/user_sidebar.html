@@ -61,16 +61,16 @@
       client.get('user.id').then(userProfile => {
 
         function fetchNotes() {
-          var profileId = userProfile['user.id'];
+          var userId = userProfile['user.id'];
           var settings = {
-            url: '/api/v2/users/'+ profileId + '/events?filter[source]=notely',
+            url: '/api/v2/users/'+ userId + '/events?filter[source]=notely',
             type: 'GET',
             dataType: 'json',
           };
 
           client.request(settings).then(
             function(response) {
-              state.data = response.events.filter(event => event.type === 'call' || event.type === 'email' || event.type === 'event' || event.type === 'meeting' || event.type === 'note');
+              state.data = response.events;
               renderNotes(filter(state.data));
             },
             function(response) {

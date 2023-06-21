@@ -41,7 +41,7 @@
       client.get('currentUser.name').then(user => {
         // if the location is ticket_sidebar
         client.get('ticket.requester.id').then(ticket => {
-          var requesterId = String(ticket['ticket.requester.id']);
+          var userId = String(ticket['ticket.requester.id']);
           var author = String(user['currentUser.name']);
 
           var button = document.getElementById('submit')
@@ -49,12 +49,12 @@
           function recordActivity() {
             var note = document.getElementById('note');
             var type = document.getElementById('type');
-            var description = '[' + type.text + '] ' + note.value;
+            var description = '[' + type.value.charAt(0).toUpperCase() + type.value.slice(1) + '] ' + note.value;
 
             if (note.value === '') return;
 
             var settings = {
-              url: '/api/v2/users/'+ requesterId + '/events',
+              url: '/api/v2/users/'+ userId + '/events',
               type: 'POST',
               dataType: 'json',
               contentType: 'application/json',
@@ -74,7 +74,7 @@
                   "identifiers": [
                     {
                       "type": "user_id",
-                      "value": requesterId
+                      "value": userId
                     }
                   ],
                   "attributes": {
