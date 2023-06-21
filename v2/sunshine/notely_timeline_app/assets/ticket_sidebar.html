@@ -61,16 +61,16 @@
       client.get('ticket.requester.id').then(ticket => {
 
         function fetchNotes() {
-          var requesterId = ticket['ticket.requester.id'];
+          var userId = ticket['ticket.requester.id'];
           var settings = {
-            url: '/api/cdp/events?user_id=' + requesterId,
+            url: '/api/v2/users/'+ userId + '/events?filter[source]=notely',
             type: 'GET',
             dataType: 'json',
           };
 
           client.request(settings).then(
             function(response) {
-              state.data = response.data.filter(event => event.type === 'call' || event.type === 'email' || event.type === 'event' || event.type === 'meeting' || event.type === 'note');
+              state.data = response.events;
               renderNotes(filter(state.data));
             },
             function(response) {
@@ -96,7 +96,10 @@
             header.classList.add('header');
             note.classList.add('note');
 
-            author.textContent = event.properties && event.properties.author || 'anonymous';
+            authorValue = event.properties && event.properties.author || 'anonymous';
+            typeValue = event.properties && event.type.charAt(0).toUpperCase() + event.type.slice(1) || '';
+
+            author.textContent = typeValue + " by " + authorValue
             note.textContent = event.properties && event.properties.note || '';
             timestamp.textContent = moment(event.created_at).fromNow() || 'n/a';
 
