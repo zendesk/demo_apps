@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+</head>
+<body>
+  <h3>Apps framework metadata test:</h3>
+  <label for="formName">Enter form name to save:</label>
+  <input style="width:250px" name="formName" id="formName" value="">
+  </br>
+  <input type="checkbox" id="roleRestrictionCheckbox">Enable Role Restriction</br>
+  <hr>
+  <button id=getMetaData>Get metadata</button>
+  </br>
+  <button id="setMetaData">Set metadata</button>
+  <p>NOTE: Remember to select 'Reload all apps' to retrieve newly saved values.</p>
+  <script src="https://static.zdassets.com/zendesk_app_framework_sdk/2.0/zaf_sdk.min.js"></script>
+  <script>
+  let client = ZAFClient.init()
+  client.invoke('resize', { width: '100%', height: '300px' })
+
+  // Don't know app's Installation ID yet.
+  let installationId = 0
+
+  function getMetaData() {
+    client.metadata().then((metadata) => {
+
+      console.log("metadata:", metadata)
+
+      // Need Installation ID when saving later.
+      console.log("installationId:", metadata["installationId"])
+      installationId = metadata["installationId"]
+      // Allow user to set data once they have retreived it at least once.
+      $("#setMetaData").prop("disabled", false)
+
+      // Get and display app setting called "form_name" of type "text"
+      console.log("form_name:", metadata.settings["form_name"])
+      $("#formName").val(metadata.settings["form_name"])
+
+      // Get and display app setting called "enable_role_restriction" of type "checkbox"
+      let role_restriciton = metadata.settings["enable_role_restriction"]
+      console.log("enable_role_restriction:", role_restriciton)
+      if (role_restriciton == true) {
+        $('#roleRestrictionCheckbox').prop('checked', true)
+      } else {
+        $('#roleRestrictionCheckbox').prop('checked', false)
+      }
+    })
+  }
+
+  function setMetaData() {
+    // Get new values from user for form_name and enable_role_restriction app setting fields.
+    let newFormName = $("#formName").val()
+    let newCheckboxValue = $('#roleRestrictionCheckbox').prop('checked')
+    let data = {
+      settings: {
+        form_name: newFormName,
+        enable_role_restriction: newCheckboxValue
+      }
+    }
+    console.log("data:", data)
+
+    let updateSettings = {
+      url: `/api/v2/apps/installations/${installationId}.json`,
+      type: "PUT",
+      contentType: "application/json",
+      data: JSON.stringify(data),
+      dataType: "json"
+    }
+
+    // Update app settings.
+    client.request(updateSettings)
+      .then((success) => console.log("success:", success))
+      .catch((error) => console.error("error:", error))
+  }
+
+  $(document).ready(function() {
+    $("#getMetaData").click(getMetaData)
+    $("#setMetaData").click(setMetaData)
+
+    // Wait until user gets meta data before allowing them to set it.
+    $("#setMetaData").prop("disabled", true)
+  })
+  </script>
+</body>
+</html>
