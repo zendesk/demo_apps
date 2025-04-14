@@ -38,7 +38,7 @@
       getClientField('ticket.requester.id')
         .then(requesterId =>
           client.request({
-            url: `/api/cdp/v2/profile?source=support&identifier_type=user_id&identifier_value=${requesterId}`,
+            url: `/api/sunshine/profile?source=support&identifier_type=user_id&identifier_value=${requesterId}`,
             type: 'GET',
             contentType: 'application/json',
           })
@@ -47,7 +47,7 @@
 
     const getPerson = personId =>
       client.request({
-        url: `/api/cdp/v2/person/${personId}`,
+        url: `/api/sunshine/person/${personId}`,
         type: 'GET',
         contentType: 'application/json',
       })
