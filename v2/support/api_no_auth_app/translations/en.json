@@ -1,0 +1,8 @@
+{
+  "app": {
+    "name": "Dad jokes app",
+    "short_description": "Because there is a dad in all of us ... somewhere",
+    "long_description": "Bagginses and Boffins, Tooks and Brandybucks, Grubbs, Chubbs, Hornblowers, Bolgers, Bracegirdles and Proudfoots.",
+    "installation_instructions": "Install, install, that's all you have to do! Click the button, takes little to nothin' and let puns fly straight and true."
+  }
+}
