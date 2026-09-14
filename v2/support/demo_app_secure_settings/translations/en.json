@@ -1,0 +1,7 @@
+{
+  "app": {
+    "name": "Test Secure Settings",
+    "short_description": "Simple app that reflects secure setting values back to app.",
+    "long_description": "This app lets the user enter values in two secure setting fields, make a call to a remote server with those settings, then get those setting values reflected back."
+  }
+}
