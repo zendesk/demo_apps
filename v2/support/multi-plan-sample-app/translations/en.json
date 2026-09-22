@@ -1,0 +1,8 @@
+{
+  "app": {
+    "short_description": "Demo Multi-plan Sidebar app.",
+    "long_description": "Demo Multi-plan Sidebar app.",
+    "installation_instructions": "Find the Demo Multi-plan Sidebar app in the Zendesk marketplace.",
+    "name": "Basic Multi-plan Sample App"
+  }
+}
